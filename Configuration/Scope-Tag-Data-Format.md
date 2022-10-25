@@ -11,15 +11,19 @@ The maximum size of the description field is `1024` characters (including whites
 - [SiloRootGrp](#SiloRootGrp)
 - [BrkGls](#BrkGls)
 - [UsrTag](#UsrTag)
+- [AdmUnit](#AdmUnit)
+- [V](#V)
 
 ### Example Config:
 
 ```
-PAWSecGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e
-UsrSecGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e
-SiloRootGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e
-BrkGls=9ed1e179-e179-9ed1-79e1-d19e79e1d19e
-UsrTag=9ed1e179-e179-9ed1-79e1-d19e79e1d19e
+PAWSecGrp=0b7a6be8-deee-4f93-97bd-082926a7349c
+UsrSecGrp=d1c30a75-17c3-4d1e-aab8-8880a0e03f90
+SiloRootGrp=3b55565f-40c8-44bd-be5f-ba19f8f048e4
+BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef
+UsrTag=96735da7-260b-44aa-b7bd-f463bc5c9f4a
+AdmUnit=5767b44d-8e1c-4c1d-9770-675be4900e6d
+v=123
 ```
 
 ---
@@ -33,7 +37,7 @@ This is used as the root search point to identify all of the PAW devices.
 The application will treat all device identities and security groups under this SG to be PAW devices (where there is a 1:1 relationship for PAWs and SGs to target individual policies to individual PAWs.
 
 **Example:**   
-`PAWSecGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e`
+`PAWSecGrp=0b7a6be8-deee-4f93-97bd-082926a7349c`
 
 ---
 
@@ -47,7 +51,7 @@ This is essentially the global silo that all priv users are a part of. All of th
 The silos should not be children of this security group. They should have their own top level SG.
 
 **Example:**   
-`UsrSecGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e`
+`UsrSecGrp=d1c30a75-17c3-4d1e-aab8-8880a0e03f90`
 
 ---
 
@@ -61,7 +65,7 @@ All security groups that are a member of the root silo group are considered to b
 This security group should not be the same as the privileged users group that lists all of the privileged users.
 
 **Example:**   
-`SiloRootGrp=9ed1e179-e179-9ed1-79e1-d19e79e1d19e`
+`SiloRootGrp=3b55565f-40c8-44bd-be5f-ba19f8f048e4`
 
 ---
 
@@ -74,7 +78,7 @@ Emergency access accounts help restrict privileged access within an Azure AD org
 This configuration excludes the break glass accounts from the security that is applied by this app.
 
 **Example:**   
-`BrkGls=9ed1e179-e179-9ed1-79e1-d19e79e1d19e`
+`BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef`
 
 ---
 
@@ -87,6 +91,31 @@ This security group only contains users. Specifically all of the privileged (pri
 This group is assigned a permanent Azure AD role so that when the priv user logs into a Windows machine, the role's SID is exposed to the local machine. This can then be used to block authentication.
 
 **Example:**   
-`UsrTag=9ed1e179-e179-9ed1-79e1-d19e79e1d19e`
+`UsrTag=96735da7-260b-44aa-b7bd-f463bc5c9f4a`
+
+---
+
+### AdmUnit
+**Expected Data:**   
+The GUID of the Administrative Unit that contains all of the privileged objects.
+
+**Description:**   
+This is an AAD Restricted Admin Unit that contains a list of security groups, devices, apps and users.   
+The group is made in such a way that existing admins will have no access (except for Priv Role and Global Admin).   
+
+**Example:**   
+`AdmUnit=5767b44d-8e1c-4c1d-9770-675be4900e6d`
+
+---
+
+### V
+**Expected Data:**   
+A whole number representing the deployed architecture specification.
+
+**Description:**   
+The whole number is incremented by 1 every time there is a change in the architecture specification. This number may differ from the version that the server is running and can be used to identifiy if the currently deployed architecture spec needs updating (in the case that the number is lower than what the server has) or that the server needs updating (in the case that the server has a lower number than what the currently deployed architecture spec reports). 
+
+**Example:**   
+`V=123`
 
 ---
