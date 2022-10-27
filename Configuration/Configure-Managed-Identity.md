@@ -30,7 +30,7 @@ https://github.com/elliot-huffman/Powershell-Doodads/blob/main/Apps/Azure%20AD/G
 
 The PowerShell app will graphically list all the managed identities, let you select one, then graphically list all the Graph API permissions you can assign it.   
 Assign the permissions listed here:   
-[Required Graph API Permissions](../Deployment/Required-Graph-API-Permissions)
+[Required Graph API Permissions](../Deployment/Required-Graph-API-Permissions.md)
 
 For more information on how the PowerShell app works, check out this MS Docs article:   
 https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell
