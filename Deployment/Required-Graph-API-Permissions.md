@@ -9,6 +9,8 @@ To grant these permissions, you will need to have [Global Administrator](https:/
    Used to list all users so that they can be added to security groups and device configurations.
 - `Group.ReadWrite.All`   
    Used to Manage security group existence and their membership in Azure AD.
+-  `AdministrativeUnit.ReadWrite.All`
+   Used to manage the privileged restricted administrative unit automatically
 - `Device.ReadWrite.All`  
    Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID.   
    Also used for tagging the extension attribute of the PAW device so that CA can pick it up properly on the hardware enforcement side of things.
@@ -38,7 +40,7 @@ You will need global admin rights or a role/rights that include the following MS
 
 CLI usage for complete permissions assignment to a MI:
 ```PowerShell
-.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID "885c119e-caa1-4148-bc58-20e28ff4f3ce" -PermissionName "User.Read.All","Group.ReadWrite.All", "Device.ReadWrite.All", "DeviceManagementManagedDevices.Read.All","DeviceManagementConfiguration.ReadWrite.All","DeviceManagementServiceConfig.ReadWrite.All", "DeviceManagementManagedDevices.PrivilegedOperations.All", "DeviceManagementRBAC.ReadWrite.All", "RoleManagement.ReadWrite.Directory", "Policy.Read.All", "Policy.ReadWrite.ConditionalAccess"
+.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID "885c119e-caa1-4148-bc58-20e28ff4f3ce" -PermissionName "User.Read.All","Group.ReadWrite.All", "AdministrativeUnit.ReadWrite.All", "Device.ReadWrite.All", "DeviceManagementManagedDevices.Read.All","DeviceManagementConfiguration.ReadWrite.All","DeviceManagementServiceConfig.ReadWrite.All", "DeviceManagementManagedDevices.PrivilegedOperations.All", "DeviceManagementRBAC.ReadWrite.All", "RoleManagement.ReadWrite.Directory", "Policy.Read.All", "Policy.ReadWrite.ConditionalAccess"
 ```
 Where the parameter "ObjectID"'s value is your Managed Identities' Object ID GUID.   
 "885c119e-caa1-4148-bc58-20e28ff4f3ce" is not a real value, please replace it.
