@@ -9,7 +9,6 @@ The maximum size of the description field is `1024` characters (including whites
 - [PDSecGrp](#PDSecGrp)
 - [DDSecGrp](#DDSecGrp)
 - [SDSecGrp](#SDSecGrp)
-- [EDSecGrp](#EDSecGrp)
 - [UsrSecGrp](#UsrSecGrp)
 - [SiloRootGrp](#SiloRootGrp)
 - [BrkGls](#BrkGls)
@@ -23,7 +22,6 @@ The maximum size of the description field is `1024` characters (including whites
 PDSecGrp=0b7a6be8-deee-4f93-97bd-082926a7349c
 DDSecGrp=66eeb4f4-91f8-431f-a336-1adf7bcb276f
 SDSecGrp=473e19d7-9472-4575-9708-6c0ac3d92085
-EDSecGrp=fca3a261-60ee-4528-a0fb-a0cc5fc1c109
 UsrSecGrp=d1c30a75-17c3-4d1e-aab8-8880a0e03f90
 SiloRootGrp=3b55565f-40c8-44bd-be5f-ba19f8f048e4
 BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef
@@ -70,19 +68,6 @@ The application will treat all device identities and security groups under this 
 
 **Example:**   
 `SDSecGrp=473e19d7-9472-4575-9708-6c0ac3d92085`
-
----
-
-### EDSecGrp
-**Expected Data:**   
-The GUID of the Security Group that is the parent of all of the individual enterprise device security groups.
-
-**Description:**   
-This is used as the root search point to identify all of the enterprise devices.   
-The application will treat all device identities and security groups under this SG to be enterprise devices (where there is a 1:1 relationship for devices and SGs to target individual policies to individual devices.
-
-**Example:**   
-`EDSecGrp=fca3a261-60ee-4528-a0fb-a0cc5fc1c109`
 
 ---
 
