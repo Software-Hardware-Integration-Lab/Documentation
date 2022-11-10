@@ -1,15 +1,18 @@
 ### The environmental variables that are used to configure the web app are as follows:
 
-* [PSM_Headless](#PSM_Headless)
-* [PSM_Scope_Tag](#PSM_Scope_Tag)
-* [PSM_Client_GUID](#PSM_Client_GUID)
-* [PSM_Client_Secret](#PSM_Client_Secret)
-* [PSM_Tenant_ID](#PSM_Tenant_ID)
-* [PSM_Managed_ID_GUID](#PSM_Managed_ID_GUID)
-* [PSM_KeyVault_Name](#PSM_KeyVault_Name)
-* [PSM_KeyVault_Secret](#PSM_KeyVault_Secret)
-* [PSM_AuthorityHost](#PSM_AuthorityHost)
-* [PSM_Debug](#PSM_Debug)
+- [PSM_Headless](#PSM_Headless)
+- [PSM_Scope_Tag](#PSM_Scope_Tag)
+- [PSM_Client_GUID](#PSM_Client_GUID)
+- [PSM_Client_Secret](#PSM_Client_Secret)
+- [PSM_ClientAuth_ClientId](#PSM_ClientAuth_ClientId)
+- [PSM_ClientAuth_ClientSecret](#PSM_ClientAuth_ClientSecret)
+- [PSM_ClientAuth_TenantId](#PSM_ClientAuth_TenantId)
+- [PSM_Tenant_ID](#PSM_Tenant_ID)
+- [PSM_Managed_ID_GUID](#PSM_Managed_ID_GUID)
+- [PSM_KeyVault_Name](#PSM_KeyVault_Name)
+- [PSM_KeyVault_Secret](#PSM_KeyVault_Secret)
+- [PSM_AuthorityHost](#PSM_AuthorityHost)
+- [PSM_Debug](#PSM_Debug)
 
 ---
 
@@ -59,6 +62,42 @@ The Client Secret variable is the password that was generated in the application
 This value is not required when using the Key Vault name and Key Vault Secret configurations as the application will automatically pull the secret from key vault and use it.
 * Example:   
 `Lz5T42u0.PMMAZg2wn-yy.6I.5EV4n6KYc`
+
+---
+
+## PSM_ClientAuth_ClientId
+
+* Mandatory: `true`
+* Expected string format: `String`
+* Description:   
+The Client ID variable is the identifier that was generated in the Client Authentication application registration.   
+This specific client ID value is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
+* Example:   
+`cad571f8-b24b-4184-8197-a28e2d48e966`
+
+---
+
+## PSM_ClientAuth_ClientSecret
+
+* Mandatory: `true`
+* Expected string format: `String`
+* Description:   
+The Client Secret variable is the password that was generated in the Client Authentication application registration.   
+This specific client secret value is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
+* Example:   
+`Lz5T42u0.PMMAZg2wn-yy.6I.5EV4n6KYc`
+
+---
+
+## PSM_ClientAuth_TenantId
+
+* Mandatory: `true`
+* Expected string format: `String`
+* Description:   
+The Client Authentication Tenant Id is the ID used of the tenant that will be gate keeping the users to be allowed to log into the app.   
+This specific configuring is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
+* Example:   
+`a3f7304d-5cba-42cf-a3d9-e852e45c7e6a`
 
 ---
 
