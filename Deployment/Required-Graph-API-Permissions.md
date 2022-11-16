@@ -5,18 +5,18 @@ To grant these permissions, you will need to have [Global Administrator](https:/
 
 # Permission List
 
-- `Application.ReadWrite.All`
+- `Application.ReadWrite.All`   
    Used to create and maintain the app registration used to authenticate users to the API.
 - `User.Read.All`   
    Used to list all users so that they can be added to security groups and device configurations.
 - `Group.ReadWrite.All`   
    Used to Manage security group existence and their membership in Azure AD.
--  `AdministrativeUnit.ReadWrite.All`
+-  `AdministrativeUnit.ReadWrite.All`   
    Used to manage the privileged restricted administrative unit automatically
 - `Device.ReadWrite.All`  
    Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID.   
    Also used for tagging the extension attribute of the PAW device so that CA can pick it up properly on the hardware enforcement side of things.
-- `DeviceManagementManagedDevices.Read.All`
+- `DeviceManagementManagedDevices.Read.All`   
    Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID.
 - `DeviceManagementConfiguration.ReadWrite.All`   
    Used to manage configuration profiles and their assignments in MS Endpoint manager.   
