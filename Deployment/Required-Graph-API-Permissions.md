@@ -42,7 +42,7 @@ You will need global admin rights or a role/rights that include the following MS
 
 CLI usage for complete permissions assignment to a MI:
 ```PowerShell
-.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID "885c119e-caa1-4148-bc58-20e28ff4f3ce" -PermissionName "Application.ReadWrite.All", "User.Read.All","Group.ReadWrite.All", "AdministrativeUnit.ReadWrite.All", "Device.ReadWrite.All", "DeviceManagementManagedDevices.Read.All","DeviceManagementConfiguration.ReadWrite.All","DeviceManagementServiceConfig.ReadWrite.All", "DeviceManagementManagedDevices.PrivilegedOperations.All", "DeviceManagementRBAC.ReadWrite.All", "RoleManagement.ReadWrite.Directory", "Policy.Read.All", "Policy.ReadWrite.ConditionalAccess"
+.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'Application.ReadWrite.All', 'User.Read.All', 'Group.ReadWrite.All', 'AdministrativeUnit.ReadWrite.All', 'Device.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'RoleManagement.ReadWrite.Directory', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess'
 ```
 Where the parameter "ObjectID"'s value is your Managed Identities' Object ID GUID.   
 "885c119e-caa1-4148-bc58-20e28ff4f3ce" is not a real value, please replace it.
