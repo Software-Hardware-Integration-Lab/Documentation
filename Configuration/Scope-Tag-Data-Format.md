@@ -15,7 +15,9 @@ The maximum size of the description field is `1024` characters (including whites
 - [SiloRootGrp](#SiloRootGrp)
 - [BrkGls](#BrkGls)
 - [UsrTag](#UsrTag)
-- [AdmUnit](#AdmUnit)
+- [PAU](#PAU)
+- [SAU](#SAU)
+- [EAU](#EAU)
 - [V](#V)
 
 ### Example Config:
@@ -30,7 +32,9 @@ EuSg=3fd68a6f-0fd0-45b3-84ec-bfadccb10350
 SiloRootGrp=3b55565f-40c8-44bd-be5f-ba19f8f048e4
 BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef
 UsrTag=96735da7-260b-44aa-b7bd-f463bc5c9f4a
-AdmUnit=5767b44d-8e1c-4c1d-9770-675be4900e6d
+PAU=5767b44d-8e1c-4c1d-9770-675be4900e6d
+SAU=037b1de8-ed8e-4a6f-9647-80f24ec4c0e7
+EAU=5b7c868e-98bf-437e-acf6-32c433328198
 v=123
 ```
 
@@ -154,16 +158,43 @@ This group is assigned a permanent Azure AD role so that when the priv user logs
 
 ---
 
-### AdmUnit
+### PAU
 **Expected Data:**   
 The GUID of the Administrative Unit that contains all of the privileged objects.
 
 **Description:**   
 This is an AAD Restricted Admin Unit that contains a list of security groups, devices, apps and users.   
 The group is made in such a way that existing admins will have no access (except for Priv Role and Global Admin).   
+The membership of this AU is automatically maintained by MSM.
 
 **Example:**   
-`AdmUnit=5767b44d-8e1c-4c1d-9770-675be4900e6d`
+`PAU=5767b44d-8e1c-4c1d-9770-675be4900e6d`
+
+---
+
+### SAU
+**Expected Data:**   
+The GUID of the Administrative Unit that contains all of the specalized objects.
+
+**Description:**   
+This is a normal AAD Admin Unit that contains a list of specalized security groups, devices, apps and users.   
+The membership of this AU is automatically maintained by MSM.
+
+**Example:**   
+`SAU=037b1de8-ed8e-4a6f-9647-80f24ec4c0e7`
+
+---
+
+### EAU
+**Expected Data:**   
+The GUID of the Administrative Unit that contains all of the enterprise objects.
+
+**Description:**   
+This is a normal AAD Admin Unit that contains a list of enterprise security groups, devices, apps and users.   
+The membership of this AU is automatically maintained by MSM.   
+
+**Example:**   
+`EAU=5b7c868e-98bf-437e-acf6-32c433328198`
 
 ---
 
