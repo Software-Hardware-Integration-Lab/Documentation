@@ -1,22 +1,22 @@
 ### The environmental variables that are used to configure the web app are as follows:
 
-- [PSM_Headless](#PSM_Headless)
-- [PSM_Scope_Tag](#PSM_Scope_Tag)
-- [PSM_Client_GUID](#PSM_Client_GUID)
-- [PSM_Client_Secret](#PSM_Client_Secret)
-- [PSM_ClientAuth_ClientId](#PSM_ClientAuth_ClientId)
-- [PSM_ClientAuth_ClientSecret](#PSM_ClientAuth_ClientSecret)
-- [PSM_ClientAuth_TenantId](#PSM_ClientAuth_TenantId)
-- [PSM_Tenant_ID](#PSM_Tenant_ID)
-- [PSM_Managed_ID_GUID](#PSM_Managed_ID_GUID)
-- [PSM_KeyVault_Name](#PSM_KeyVault_Name)
-- [PSM_KeyVault_Secret](#PSM_KeyVault_Secret)
-- [PSM_AuthorityHost](#PSM_AuthorityHost)
-- [PSM_Debug](#PSM_Debug)
+- [MSM_Headless](#MSM_Headless)
+- [MSM_Scope_Tag](#MSM_Scope_Tag)
+- [MSM_Client_GUID](#MSM_Client_GUID)
+- [MSM_Client_Secret](#MSM_Client_Secret)
+- [MSM_ClientAuth_ClientId](#MSM_ClientAuth_ClientId)
+- [MSM_ClientAuth_ClientSecret](#MSM_ClientAuth_ClientSecret)
+- [MSM_ClientAuth_TenantId](#MSM_ClientAuth_TenantId)
+- [MSM_Tenant_ID](#MSM_Tenant_ID)
+- [MSM_Managed_ID_GUID](#MSM_Managed_ID_GUID)
+- [MSM_KeyVault_Name](#MSM_KeyVault_Name)
+- [MSM_KeyVault_Secret](#MSM_KeyVault_Secret)
+- [MSM_AuthorityHost](#MSM_AuthorityHost)
+- [MSM_Debug](#MSM_Debug)
 
 ---
 
-## PSM_Headless
+## MSM_Headless
 * Mandatory: `false`
 * Expected string format: `Boolean`
 * Description:   
@@ -29,20 +29,20 @@ It is generally more secure to run without a UI as it reduces surface area for a
 
 ---
 
-## PSM_Scope_Tag
+## MSM_Scope_Tag
 
 * Mandatory: `false`
 * Expected string format: `String`
 * Description:   
 This is the Endpoint Manager Scope tag that the app will be used to store the app's configurations (in the description) and to isolate its configurations from other scopes to enforce least privilege.   
 If the scope tag does not exist, it will be created automatically.   
-The default value if not specified is `Privileged-Security-Management`.
+The default value if not specified is `Moot-Security-Management`.
 * Example:   
-`PSM-App`
+`MSM-App`
 
 ---
 
-## PSM_Client_GUID
+## MSM_Client_GUID
 
 * Mandatory: `true`, unless using a `Managed Identity`
 * Expected string format: `GUID`, no braces
@@ -53,9 +53,9 @@ The Client GUID is the Application (client) ID of the application registration i
 
 ---
 
-## PSM_Client_Secret
+## MSM_Client_Secret
 
-* Mandatory: `true`, unless specifying the `PSM_KeyVault_Name` and `PSM_KeyVault_Secret` values or using a `Managed Identity`
+* Mandatory: `true`, unless specifying the `MSM_KeyVault_Name` and `MSM_KeyVault_Secret` values or using a `Managed Identity`
 * Expected string format: `String`
 * Description:   
 The Client Secret variable is the password that was generated in the application registration.   
@@ -65,7 +65,7 @@ This value is not required when using the Key Vault name and Key Vault Secret co
 
 ---
 
-## PSM_ClientAuth_ClientId
+## MSM_ClientAuth_ClientId
 
 * Mandatory: `true`
 * Expected string format: `String`
@@ -77,7 +77,7 @@ This specific client ID value is not for authenticating the server, but for auth
 
 ---
 
-## PSM_ClientAuth_ClientSecret
+## MSM_ClientAuth_ClientSecret
 
 * Mandatory: `true`
 * Expected string format: `String`
@@ -89,7 +89,7 @@ This specific client secret value is not for authenticating the server, but for 
 
 ---
 
-## PSM_ClientAuth_TenantId
+## MSM_ClientAuth_TenantId
 
 * Mandatory: `true`
 * Expected string format: `String`
@@ -101,7 +101,7 @@ This specific configuring is not for authenticating the server, but for authenti
 
 ---
 
-## PSM_Tenant_ID
+## MSM_Tenant_ID
 
 * Mandatory: `true`, unless using a `Managed Identity`
 * Expected string format: `GUID`, no braces
@@ -112,7 +112,7 @@ This is the ID of the tenant that the application registration is registered in.
 
 ---
 
-## PSM_Managed_ID_GUID
+## MSM_Managed_ID_GUID
 
 * Mandatory: `false`
 * Expected string format: `GUID`, no braces
@@ -126,28 +126,28 @@ If this variable is specified, the system will attempt to retrieve a access toke
 
 ---
 
-## PSM_KeyVault_Name
+## MSM_KeyVault_Name
 * Mandatory: `false`
 * Expected string format: `String`
 * Description:   
-The unique name of the Azure Key Vault that contains the app registration secret that you want the app to authenticate with. If you configure the `PSM_Client_Secret` and the `PSM_KeyVault_Name` at the same time, the application will throw an error as this it is a security risk to have a plain text secret stored in the app configs when a perfectly good Azure Key Vault is available. Environmental variables are not meant for storing secret materials, Key Vaults are meant for storing secret materials.   
+The unique name of the Azure Key Vault that contains the app registration secret that you want the app to authenticate with. If you configure the `MSM_Client_Secret` and the `MSM_KeyVault_Name` at the same time, the application will throw an error as this it is a security risk to have a plain text secret stored in the app configs when a perfectly good Azure Key Vault is available. Environmental variables are not meant for storing secret materials, Key Vaults are meant for storing secret materials.   
 This configuration is not necessary if using Managed Identity to authenticate. Managed Identity is the best way to authenticate as there is no secret material for a malicious entity to steal.
 * Example:   
 `org-key-vault-hsm`
 
 ---
 
-## PSM_KeyVault_Secret
+## MSM_KeyVault_Secret
 * Mandatory: `false`
 * Expected string format: `String`
 * Description:   
-The name of the secret in the Azure Key Vault that you specified in the `PSM_KeyVault_Name` option. This option is only evaluated if the `PSM_KeyVault_Name` is configured.
+The name of the secret in the Azure Key Vault that you specified in the `MSM_KeyVault_Name` option. This option is only evaluated if the `MSM_KeyVault_Name` is configured.
 * Example:   
 `app-reg-secret`
 
 ---
 
-## PSM_AuthorityHost
+## MSM_AuthorityHost
 **Coming soon!**
 * Mandatory: `false`
 * Expected string format: `String`
@@ -163,7 +163,7 @@ See this page for more details on what each option means: [https://docs.microsof
 
 ---
 
-## PSM_Debug
+## MSM_Debug
 
 * Mandatory: `false`
 * Expected string format: Boolean
