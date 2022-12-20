@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Roboto";
+    src: "assets/Fonts/Roboto/Roboto-Regular.ttf";
+}
+
+@font-face {
+    font-family: "Roboto-Mono";
+    src: "assets/Fonts/Roboto-Mono/RobotoMono-Regular.ttf";
+}
+
+:root {
+    --md-text-font: "Roboto";
+    --md-code-font: "Roboto-Mono";
+}
