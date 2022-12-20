@@ -2,6 +2,7 @@ strict: true
 site_name: Moot Security Management - Documentation
 site_url: https://docs.mootinc.com/
 repo_url: https://github.com/Moot-Inc/Documentation
+edit_uri: edit/main/docs/
 site_description: Documentation for Moot Security Management
 copyright: Copyright &copy; 2023 <a href="https://mootinc.com">Moot, Inc.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
 theme:
@@ -9,6 +10,8 @@ theme:
   logo: assets/Images/Moot Logo - Square White.svg
   favicon: assets/Images/Moot Logo - Square Blue.svg
   font: false
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
