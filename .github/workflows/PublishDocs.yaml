@@ -1,0 +1,56 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # Download the source code
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Configure the GH pages environment
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      # Upload a copy of the static pages
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      # Installs the python build dependencies for generating a static site
+      - name: Install Build Dependencies
+        run: pip install -r requirements.txt
+      - name: Build Static Content
+        run: mkdocs build
+      # Uploads the built artifact to github pages
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload static files
+          path: "site/"
+      # Deploy the compiled pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
