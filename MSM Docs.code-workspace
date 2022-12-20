@@ -8,8 +8,10 @@
 	"settings": {
 		"cSpell.words": [
 			"Mgmt",
+			"mkdocs",
 			"openapi",
-			"mkdocs"
+			"pymdownx",
+			"superfences"
 		],
 		"files.exclude": {
 			"site": true,
