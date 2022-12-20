@@ -29,6 +29,14 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - content.tabs.link
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
 extra_css:
   - assets/Styles/common.css
 extra:
