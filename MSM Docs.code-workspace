@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Documentation Root"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"Mgmt",
+			"openapi",
+			"mkdocs"
+		],
+		"files.exclude": {
+			"site": true,
+			".github": true,
+			".gitignore": true,
+			"MSM Docs.code-workspace": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"streetsidesoftware.code-spell-checker",
+			"eamodio.gitlens",
+			"gruntfuggly.todo-tree",
+			"DavidAnson.vscode-markdownlint"
+		]
+	}
+}

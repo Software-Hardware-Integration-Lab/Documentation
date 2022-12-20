@@ -1,0 +1,47 @@
+strict: true
+site_name: Moot Security Management - Documentation
+site_url: https://docs.mootinc.com/
+repo_url: https://github.com/Moot-Inc/Documentation
+site_description: Documentation for Moot Security Management
+copyright: Copyright &copy; 2023 <a href="https://mootinc.com">Moot, Inc.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
+theme:
+  name: material
+  logo: assets/Images/Moot Logo - Square White.svg
+  favicon: assets/Images/Moot Logo - Square Blue.svg
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: deep purple
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark theme
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: deep purple
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light theme
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+extra_css:
+  - assets/Styles/common.css
+extra:
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    actions: [accept, reject]
+  generator: false
+  extra:
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX

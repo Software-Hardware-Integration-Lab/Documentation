@@ -1,3 +1,0 @@
-- Debian based (e.g. Ubuntu)
-- RHEL
-- Snap package
