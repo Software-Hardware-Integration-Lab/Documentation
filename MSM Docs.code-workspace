@@ -11,7 +11,8 @@
 			"mkdocs",
 			"openapi",
 			"pymdownx",
-			"superfences"
+			"superfences",
+			"Regedit"
 		],
 		"files.exclude": {
 			"site": true,
