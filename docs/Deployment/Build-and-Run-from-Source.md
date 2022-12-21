@@ -1,13 +1,6 @@
 To build the project from source, all you need is Node.JS installed.   
 If you want to generate the EXE and Linux binaries too, then you will also need the PKG package installed globally.
 
-Quick Links:
-* [Prep the Files](#prep-the-files)
-* [Build the Server](#build-the-server)
-* [Build the UI](#build-the-ui)
-* [(Optional) Build the Windows Installers](#optional-build-the-windows-installers)
-* [Final Remarks](#final-remarks)
-
 ---
 
 ### Prep the Files
