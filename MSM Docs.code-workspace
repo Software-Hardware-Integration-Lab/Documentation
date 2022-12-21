@@ -24,7 +24,6 @@
 		"recommendations": [
 			"streetsidesoftware.code-spell-checker",
 			"eamodio.gitlens",
-			"gruntfuggly.todo-tree",
 			"DavidAnson.vscode-markdownlint"
 		]
 	}
