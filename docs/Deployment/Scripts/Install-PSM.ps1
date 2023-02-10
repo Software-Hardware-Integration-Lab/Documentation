@@ -44,7 +44,7 @@ param(
 
 begin {
     # Log into the MS Graph API
-    Connect-AzAccount
+    Connect-AzAccount | Out-Null
 
     # Set the current Azure Working Location to the specified subscription
     Set-AzContext -Subscription $SubscriptionId
