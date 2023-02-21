@@ -7,12 +7,14 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Intune",
 			"Mgmt",
 			"mkdocs",
 			"openapi",
 			"pymdownx",
+			"Regedit",
 			"superfences",
-			"Regedit"
+			"unattend"
 		],
 		"files.exclude": {
 			"site": true,
