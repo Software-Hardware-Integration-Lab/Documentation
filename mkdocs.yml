@@ -40,6 +40,10 @@ markdown_extensions:
   - toc:
       permalink: true
   - admonition
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.details
   - pymdownx.snippets
   - pymdownx.highlight:
