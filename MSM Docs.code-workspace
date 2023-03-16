@@ -13,6 +13,7 @@
 			"openapi",
 			"pymdownx",
 			"Regedit",
+			"Strikethrough",
 			"superfences",
 			"unattend"
 		],
