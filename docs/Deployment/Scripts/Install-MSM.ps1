@@ -19,9 +19,6 @@
         1 - The Managed identity was not found after hitting the retry time out
 #>
 
-# Define the powershell modules required for operation of this script
-#Requires -Modules Microsoft.Graph.Applications, Microsoft.Graph.Authentication, Az.Accounts, Az.Websites, Az.Resources
-
 # Enable cmdlet binding for advanced functionality
 [CmdletBinding(SupportsShouldProcess)]
 
@@ -43,6 +40,39 @@ param(
 )
 
 begin {
+    # List of modules required to run this script
+    [System.String[]]$RequiredModuleList = 'Microsoft.Graph.Authentication', 'Microsoft.Graph.Applications', 'Az.Accounts', 'Az.Resources', 'Az.Websites'
+
+    # Get the required script's install state
+    $InstalledScriptList = Get-InstalledScript -Name 'Grant-MIGraphPermission' -ErrorAction 'SilentlyContinue'
+    
+    # List of modules installed
+    [System.Management.Automation.PSModuleInfo[]]$InstalledModuleList = Get-Module -Name $RequiredModuleList -ListAvailable
+
+    # List of package providers installed
+    [Microsoft.PackageManagement.Implementation.PackageProvider[]]$PackageProviderList = Get-PackageProvider
+
+    # Check that the version of PS is below 6
+    if ($PackageProviderList.Name -NotContains 'NuGet') {
+        # Install package manager pre-req for legacy platform
+        Install-PackageProvider -Name 'NuGet' -Scope 'CurrentUser' -Force | Out-Null
+    }
+
+    # Loop through each required module
+    foreach ($ModuleName in $RequiredModuleList) {
+        # Check if the current requested module is not installed
+        if ($InstalledModuleList.Name -NotContains $ModuleName) {
+            # Install it silently
+            Install-Module -Name $ModuleName -Scope 'CurrentUser' -Force | Out-Null
+        }
+    }
+
+    # Check if the required script is installed
+    if ($InstalledScriptList.Name -ne 'Grant-MIGraphPermission') {
+        # Install the script used to permission up managed identities
+        Install-Script -Name 'Grant-MIGraphPermission' -Scope 'CurrentUser' -Force | Out-Null
+    }
+
     # Log into the MS Graph API
     Connect-AzAccount | Out-Null
 
@@ -54,21 +84,6 @@ begin {
 
     # Log into the Microsoft Graph API
     Connect-MgGraph -AccessToken $AccessToken.Token
-
-    # Get the required script's install state
-    $ScriptPresence = Get-InstalledScript -Name 'Grant-MIGraphPermission' -ErrorAction 'SilentlyContinue'
-
-    # Check if the required script is installed
-    if ($ScriptPresence.Name -ne 'Grant-MIGraphPermission') {
-        # Check that the version of PS is below 6
-        if ($Host.Version.Major -lt 6) {
-            # Install package manager pre-req for legacy platform
-            Install-PackageProvider -Name 'NuGet' -Scope 'CurrentUser' -Force
-        }
-        
-        # Install the script used to permission up managed identities
-        Install-Script -Name 'Grant-MIGraphPermission' -Scope 'CurrentUser' -Force
-    }
 }
 
 # Create an instance of the Moot Server Host setup
