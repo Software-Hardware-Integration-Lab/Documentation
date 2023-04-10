@@ -17,6 +17,7 @@
 .NOTES
     Exit Codes:
         1 - The Managed identity was not found after hitting the retry time out
+        2 - The requested location is not valid for this subscription.
 #>
 
 # Enable cmdlet binding for advanced functionality
@@ -26,17 +27,23 @@
 param(
     [Parameter(Mandatory)]
     [System.Guid]$SubscriptionId,
+    [ValidateScript({ $_ -match '^[-\w\._\(\)]+$' })]
     [System.String]$ResourceGroupName = 'Moot-Inc-Security',
     [System.String]$Location = 'East US 2',
     [System.String]$AppRegistrationName = 'Moot Security Management',
     [Parameter(Mandatory)]
+    [ValidateScript({ $_ -match '^[a-zA-Z]+[a-zA-Z-]*$' })]
     [System.String]$CompanyName,
+    [ValidateScript({ $_ -match '^[a-zA-Z-]*[a-zA-Z]+$' })]
     [System.String]$WebAppNameSuffix = '-MSM',
+    [ValidateScript({ $_ -match '^[a-zA-Z-]+$' })]
     [System.String]$ClusterName = 'Moot-Host',
     [ValidateSet('PremiumV3', 'Free', 'Basic')]
     [System.String]$AppServiceSku = 'PremiumV3',
     [Switch]$DebugMode,
-    [System.String]$Path = '.\Azure.App.Service.zip'
+    [ValidateScript({ Test-Path -Path $_ -PathType 'Leaf' -Include '*.zip' })]
+    [Parameter(Mandatory)]
+    [System.String]$Path
 )
 
 begin {
@@ -78,6 +85,18 @@ begin {
 
     # Set the current Azure Working Location to the specified subscription
     Set-AzContext -Subscription $SubscriptionId
+
+    # Get a list of locations (regions) that Azure supports based on the current auth session context
+    [Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResourceProviderLocation[]]$LocationList = Get-AzLocation
+
+    # Check if the request location is present in the supported location list
+    if ($LocationList.DisplayName -NotContains $Location) {
+        # Write an error message to the console
+        Write-Error -Message 'The location specified in the parameter is not available for the specified subscription.'
+
+        # Stop execution with error code 2, see notes for details
+        exit 2
+    }
 
     # Get an access token that is good for the MS Graph API
     [Microsoft.Azure.Commands.Profile.Models.PSAccessToken]$AccessToken = Get-AzAccessToken -ResourceUrl 'https://graph.microsoft.com'
