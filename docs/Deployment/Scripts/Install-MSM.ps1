@@ -1,17 +1,48 @@
 <#
 .SYNOPSIS
-    Deploys the Moot Security Management web app to Azure
+    Deploys the Moot Security Management web app to an Azure App Service.
 .DESCRIPTION
     Creates a resource group in the specified subscription and deploys a web app to it.
     In Azure AD, an app registration is created to facilitate user login.
+    Configures all the required permissions for operation.
 .PARAMETER SubscriptionId
-    The ID of the subscription to deploy the Azure Web App to.
+    The ID of the subscription to create an Az Web App for MSM to be hosted in.
 .PARAMETER ResourceGroupName
     Name of the resource group to create for the MSM app.
 .PARAMETER Location
     Azure Region to create all of the resources in.
 .PARAMETER AppRegistrationName
-    Name prefix of the app registration to create in Azure AD
+    Name prefix of the app registration to create in Azure AD.
+.PARAMETER CompanyName
+    Prefix of the Web App's unique name.
+    Can only contain letters and the hyphen character.
+    Must be globally unique.
+.PARAMETER WebAppNameSuffix
+    Text to append on the end of the web app that will be deployed.
+.PARAMETER ClusterName
+    Name of the Azure App Service Plan to create.
+    This app service plan will host the web app that hosts the MSM app.
+.PARAMETER AppServiceSku
+    SKU of the web server cluster.
+    The SKU can be changed after deployment if necessary.
+    This is not a hard requirement of the app.
+.PARAMETER DebugMode
+    Enables the debug mode on the azure app service.
+    THIS PARAMETER SHOULD NEVER BE USED UNLESS A MOOT EMPLOYEE REQUESTS YOU TO USE IT.
+    THIS PARAMETER WILL DISABLE ALL SECURITY SYSTEMS ON THE WEB APP AND ENABLE DEBUGGING APIs.
+.PARAMETER Path
+    Path to the Zip file to deploy to the azure app service.
+    Relative paths are supported.
+    Only Zip files are allowed.
+.ROLE
+    Security Architect
+    Identity Architect
+.INPUTS
+    System.Guid
+    System.String
+    Switch (Boolean)
+.OUTPUTS
+    Void
 .LINK
     https://docs.mootinc.com
 .NOTES
