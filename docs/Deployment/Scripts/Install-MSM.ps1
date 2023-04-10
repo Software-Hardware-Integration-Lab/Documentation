@@ -5,9 +5,9 @@
     Creates a resource group in the specified subscription and deploys a web app to it.
     In Azure AD, an app registration is created to facilitate user login.
 .PARAMETER SubscriptionId
-    The ID of the subscription to deploy the Azure Web to.
+    The ID of the subscription to deploy the Azure Web App to.
 .PARAMETER ResourceGroupName
-    Name of the resource group to create.
+    Name of the resource group to create for the MSM app.
 .PARAMETER Location
     Azure Region to create all of the resources in.
 .PARAMETER AppRegistrationName
@@ -204,7 +204,7 @@ process {
     # Check if the loop counter exited after timing out
     if ($LoopCycleCounter -gt 12) {
         # Write an error
-        Write-Error -Message "The Managed IDentity was not found after 60 seconds of waiting! Please check the MI exists or that there isn't a cloud outage"
+        Write-Error -Message "The Managed Identity was not found after 60 seconds of waiting! Please check the MI exists or that there isn't a cloud outage"
         
         # Exit script execution with an error code returned
         exit 1
