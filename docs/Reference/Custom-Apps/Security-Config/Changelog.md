@@ -2,6 +2,10 @@
 
 Changes to the security config configuration app.
 
+## 1.3.0 - Windows Feature Removal
+
+- Add Windows Feature Removal automation
+
 ## 1.2.1 - LSA PPL Bug Fix
 
 - Fix an issue where the LSA PPL was not enabled properly
