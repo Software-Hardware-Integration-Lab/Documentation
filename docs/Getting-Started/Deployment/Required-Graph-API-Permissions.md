@@ -38,7 +38,7 @@ You will need global admin rights or a role/rights that include the following MS
 
 CLI usage for complete permissions assignment to a MI:
 
-``` PowerShell linenums="1"
+``` PowerShell title="PowerShell"
 .\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'Application.ReadWrite.All', 'User.ReadWrite.All', 'Group.ReadWrite.All', 'AdministrativeUnit.ReadWrite.All', 'Device.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'RoleManagement.ReadWrite.Directory', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess'
 ```
 
@@ -47,6 +47,6 @@ Where the parameter `ObjectID`'s value is your Managed Identities' Object ID (GU
 
 For more information about script usage, please run:
 
-``` PowerShell linenums="1"
+``` PowerShell title="PowerShell"
 Get-Help .\Grant-MIGraphPermission.ps1
 ```
