@@ -3,7 +3,7 @@
 The below Microsoft Graph API permissions are necessary for the operation of this web app.  
 
 !!! note
-    To grant these permissions, you will need to have [Global Administrator](https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#groups-administrator) rights in Azure AD.  
+    To grant these permissions, you will need to have [Global Administrator](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#groups-administrator) rights in Azure AD.  
 
 ## Permission List
 
