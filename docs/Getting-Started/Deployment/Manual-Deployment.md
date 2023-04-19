@@ -1,6 +1,6 @@
 # Manual Deployment
 
-Deploy the MSM app into an Azure App service by using a local deployment script and the zip file.
+Deploy the MSM app into an Azure App service by using a local deployment script and the zip file containing the MSM Server software.
 
 !!! info "Access Requirements"
     This is currently a manual process and can only be performed if you have the zip file. Because of this, it can only be performed by Moot employees or partners.
@@ -29,7 +29,7 @@ Install-MSM.ps1 -SubscriptionId "{Your Azure App Service ZIP}" -Path ".\{MSM Zip
     Get-Help .\Install-MSM.ps1 -Full
     ```
 
-5\. After the MSM has been deployed, please clean up all of the filed used to deploy the app service. They are no longer needed.
+5\. After the MSM has been deployed, please clean up all of the files used to deploy the app service. They are no longer needed.
 
 !!! note "Errors During Deployment"
     The deployment is idempotent, if errors occur, just run the script a second time. It will correct any missing deployment items the second time around.
