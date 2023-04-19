@@ -2,6 +2,10 @@
 
 Changes to the security config configuration app.
 
+## 1.3.1 - Optimize Feature Removal
+
+- Optimize the time that it takes to remove windows features by skipping features that are not currently installed
+
 ## 1.3.0 - Windows Feature Removal
 
 - Add Windows Feature Removal automation
