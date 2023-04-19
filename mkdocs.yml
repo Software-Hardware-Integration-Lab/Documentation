@@ -36,6 +36,7 @@ theme:
     - content.tabs.link
     - content.code.annotate
     - content.action.edit
+    - content.code.copy
 markdown_extensions:
   - toc:
       permalink: true
