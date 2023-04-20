@@ -42,6 +42,7 @@ markdown_extensions:
       permalink: true
   - admonition
   - attr_list
+  - def_list
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.emoji:
@@ -56,12 +57,16 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
 extra_css:
   - assets/Styles/common.css
+plugins:
+  - glightbox
 extra:
   consent:
     title: Cookie consent
