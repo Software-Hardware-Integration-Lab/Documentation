@@ -37,6 +37,9 @@ theme:
     - content.code.annotate
     - content.action.edit
     - content.code.copy
+    - search.highlight
+    - search.suggest
+    - search.share
 markdown_extensions:
   - toc:
       permalink: true
