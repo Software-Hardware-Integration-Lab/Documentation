@@ -67,6 +67,7 @@ extra_css:
   - assets/Styles/common.css
 plugins:
   - glightbox
+  - search
 extra:
   consent:
     title: Cookie consent
