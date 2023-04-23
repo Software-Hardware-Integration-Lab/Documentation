@@ -1,3 +1,7 @@
+---
+hide:
+    - navigation
+---
 # Home
 
 ## Overview
