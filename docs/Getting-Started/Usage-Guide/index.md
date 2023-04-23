@@ -2,7 +2,7 @@
 
 ## First Run
 
-[Deploy Core Infrastructure :octicons-rocket-24:](Deploy-Core-Infrastructure/){ .md-button }
+[:octicons-rocket-24: Deploy Core Infrastructure](Deploy-Core-Infrastructure/){ .md-button }
 
 ## Lifecycle Management
 
