@@ -41,7 +41,7 @@ While not mandatory, it is highly recommended to use MSM in the following enviro
 
 By following these recommendations, you can speed up the adoption process for MSM.
 
-## Conclusion
+## Summary
 
 In the rest of the documentation, we will provide detailed instructions on how to install, configure, and use MSM to achieve these benefits.
 

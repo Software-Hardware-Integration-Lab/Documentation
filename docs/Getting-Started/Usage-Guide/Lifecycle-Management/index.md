@@ -22,7 +22,7 @@ The MSM app manages three types of users: privileged, specialized, and enterpris
 
 Lifecycle management operations for users include creating, and removing user accounts, depending on the user's security class.
 
-## Conclusion
+## Summary
 
 Lifecycle management is a critical feature in the MSM app that enables the management of various managed objects, such as users and devices. With this feature, you can easily manage the relationship between security levels and adopt managed security controls in a familiar environment. The lifecycle management engine is scalable and responsible for manipulating device identities properly, so the correct set of metadata, categorization, microsegmentation, and management are applied.
 
