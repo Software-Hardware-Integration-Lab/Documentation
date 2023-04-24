@@ -4,8 +4,8 @@ To use the app, two primary deployments must happen: the server and the architec
 The server is deployed first then the server deploys the core infrastructure.
 
 1\. To deploy the server, chose from one of the below deployment methods:<br>
-[:simple-microsoftazure: Deploy Using Azure Marketplace](Deployment/Azure-Marketplace/){ .md-button }
-[:fontawesome-solid-file-zipper: Deploy Using Manual Method](Deployment/Manual-Deployment/){ .md-button .md-button--primary }
+<!-- [:simple-microsoftazure: Deploy Using Azure Marketplace](Deployment/Azure-Marketplace/){ .md-button } -->
+[:fontawesome-solid-file-zipper: Deploy Using Manual Method](Deployment/Manual-Deployment/){ .md-button }
 
 2\. Deploy the core infrastructure using the Web UI:<br>
 [:octicons-rocket-24: Deploy Core Infrastructure](Usage-Guide/Deploy-Core-Infrastructure/){ .md-button }
