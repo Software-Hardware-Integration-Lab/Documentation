@@ -81,7 +81,6 @@ extra:
       make our documentation better.
     actions: [accept, reject]
   generator: false
-  extra:
-  # analytics:
-  #   provider: google
-  #   property: G-XXXXXXXXXX
+  analytics:
+    provider: google
+    property: G-8XGJ04G979
