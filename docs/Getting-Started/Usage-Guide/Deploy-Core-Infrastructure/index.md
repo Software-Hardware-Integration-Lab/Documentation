@@ -39,4 +39,5 @@ Deploying the core-infrastructure is pretty easy:
 
 4.\ Once the deployment has completed it will redirect you to the home screen as seen in the below screenshot.
 
-![Screenshot of the home page with the navigation cards visible.](/assets/Images/Screenshots/Home-Screen.png){ loading=lazy }
+![Screenshot of the home page with the navigation cards visible.](/assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy }
+![Screenshot of the home page with the navigation cards visible.](/assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy }
