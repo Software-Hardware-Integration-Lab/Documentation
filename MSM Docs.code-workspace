@@ -11,12 +11,14 @@
 			"Mgmt",
 			"microsegmentation",
 			"mkdocs",
+			"offboarding",
 			"openapi",
 			"pymdownx",
 			"Regedit",
 			"Strikethrough",
 			"superfences",
-			"unattend"
+			"unattend",
+			"unmanaged"
 		],
 		"files.exclude": {
 			"site": true,
