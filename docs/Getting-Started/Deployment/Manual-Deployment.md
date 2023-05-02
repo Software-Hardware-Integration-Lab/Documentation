@@ -18,7 +18,7 @@ Deploy the MSM app into an Azure App service by using a local deployment script 
 4\. Run the deployment script with the below minimal parameters:
 
 ``` PowerShell title="PowerShell"
-Install-MSM.ps1 -SubscriptionId "{Your Azure App Service ZIP}" -Path ".\{MSM Zip File Name.zip}" -CompanyName "{YourCompanyNameHere}"
+Install-MSM.ps1 -SubscriptionId "{Your Azure Subscription ID}" -Path ".\{MSM Zip File Name.zip}" -CompanyName "{YourCompanyNameHere}"
 ```
 
 !!! question "Script Help"
