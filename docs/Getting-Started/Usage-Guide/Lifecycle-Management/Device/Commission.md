@@ -7,6 +7,9 @@ The lifecycle management system can bring devices into and out of management fol
 
 This guide will walk the security admin through the process of commissioning new managed devices.
 
+!!! note "Privileged Hardware"
+    For requirements and best practices on privileged hardware, please see the [Hardware Selection](/Reference/Architecture/Hardware-Selection/) documentation.
+
 ## Commissioning
 
 1\. Select your security class from the top bar.
@@ -25,4 +28,5 @@ This guide will walk the security admin through the process of commissioning new
 
 ## See Also
 
+- [Hardware Selection](/Reference/Architecture/Hardware-Selection/)
 - Device Onboarding Workflow Reference - Coming Soon!
