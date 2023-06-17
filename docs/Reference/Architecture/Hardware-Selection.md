@@ -12,8 +12,12 @@ For ESM (Enterprise Security Class) and SSM (Specialized Security Class) modes, 
 
 We recommend using Microsoft Surface for Business devices or Lenovo devices for ESM and SSM modes. These devices offer reliable performance and align with the security principles of MSM. It is important to note that AMD graphics cards are not recommended due to poor driver quality. Ultimately the choice of OEM is flexible based on customer preference.
 
-!!! note
-    Regularly check for hardware updates and firmware patches from the device manufacturers to maintain the highest level of compatibility, performance, and security for your ESM and SSM deployments.
+!!! info "Device Security Considerations"
+    In ESM (Enterprise Security Class) and SSM (Specialized Security Class) modes, the risk posed by potential hardware backdoors, as mentioned in the PSM section's warning note, is relatively lower compared to PSM mode. This is because devices in these modes typically do not hold high-value data, and the user accounts associated with them do not have elevated privileges within the organization.
+
+    While it is still important to consider security risks, including potential firmware attacks, the impact on organizational security is relatively limited. However, it is always recommended to follow security best practices and choose hardware from reputable manufacturers to ensure a baseline level of security for your devices.
+
+    Keep in mind that selecting secure hardware becomes more critical when dealing with privileged access and higher-security environments, such as PSM mode.
 
 ## PSM Mode
 
@@ -25,6 +29,13 @@ PSM (Privileged Security Class) mode requires even more stringent hardware requi
 - **Storage**: At least 256GB NVMe drive
 
 PSM mode operates on devices with Microsoft Secure Core Certification, which provides enhanced hardware and firmware security features. These devices are designed with additional security measures, such as D-RTM (Dynamic Root of Trust Measurement) or S-RTM (Static Root of Trust Measurement), secure boot in Microsoft-only mode, and other firmware-level protections.
+
+!!! warning "Potential Hardware Backdoors"
+    It is important to be aware of potential hardware backdoors that may compromise the security of your system. Some common OEMs, such as Compaq, Dell, Fujitsu, Hewlett-Packard (HP), Insyde H20, Phoenix, Sony, and Samsung, utilize algorithms based on device serial numbers for password resets. These algorithms allow for master password removal from the firmware, potentially granting unauthorized access to the system.
+
+    Note that certain OEMs may not report that the master password has been removed, making it challenging to detect such backdoors. These concerns are not limited to end user computers but also apply to server systems.
+
+    We highly recommend conducting thorough research and considering the implications of hardware backdoors when selecting your hardware. It is essential to choose reputable manufacturers that prioritize security and follow best practices to minimize the risk of unauthorized access to your systems.
 
 For a broad overview on Microsoft Secure Core Certified PCs, including a list of compatible devices, please visit the [Microsoft Windows 11 Secured Core Computers](https://www.microsoft.com/en-us/windows/business/windows-11-secured-core-computers) page.
 
