@@ -15,8 +15,9 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 | `AdministrativeUnit.ReadWrite.All` | Used to manage the privileged restricted administrative unit automatically. |
 | `Device.ReadWrite.All` | Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID. Also used for tagging the extension attribute of the privileged device so that CA can pick it up properly on the hardware enforcement side of things.|
 | `DeviceManagementManagedDevices.Read.All` | Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID. |
-| `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in MS Endpoint manager. |
+| `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in Intune. |
 | `DeviceManagementServiceConfig.ReadWrite.All` | Used to manage Autopilot Profiles and read Autopilot device data |
+| `DeviceManagementApps.ReadWrite.All` | Used to set Intune as a Managed Installer for WDAC for all devices managed by Intune. |
 | `DeviceManagementManagedDevices.PrivilegedOperations.All` | Used to issue Wipe commands to devices |
 | `DeviceManagementRBAC.ReadWrite.All` | Used to manage the scope tag that the app uses as well as store the app's config in the specified scope tag to eliminate the need for a DB. |
 | `RoleManagement.ReadWrite.Directory` | Used to manage role assigned security groups (SGs that can have AAD Roles assigned to them). |
