@@ -72,6 +72,7 @@ plugins:
   - glightbox
   - search
 extra:
+  homepage: https://mootinc.com
   consent:
     title: Cookie consent
     description: >-
