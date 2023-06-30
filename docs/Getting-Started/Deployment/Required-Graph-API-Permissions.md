@@ -9,19 +9,20 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 
 | Permission Name | What it is used for |
 |-----------------|---------------------|
-| `Application.ReadWrite.All` | Used to create and maintain the app registration used to authenticate users to the API. |
-| `User.ReadWrite.All` | Used to create, list, manage, and remove privileged users and retrieve a list of all non-users (and their properties) so that they can be added to security groups and device configurations. |
-| `Group.ReadWrite.All` | Used to Manage security group existence and their membership in Azure AD. |
 | `AdministrativeUnit.ReadWrite.All` | Used to manage the privileged restricted administrative unit automatically. |
-| `Device.ReadWrite.All` | Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID. Also used for tagging the extension attribute of the privileged device so that CA can pick it up properly on the hardware enforcement side of things.|
+| `Application.ReadWrite.All` | Used to create and maintain the app registration used to authenticate users to the API. |
 | `DeviceManagementManagedDevices.Read.All` | Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID. |
 | `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in Intune. |
 | `DeviceManagementServiceConfig.ReadWrite.All` | Used to manage Autopilot Profiles and read Autopilot device data |
 | `DeviceManagementApps.ReadWrite.All` | Used to set Intune as a Managed Installer for WDAC for all devices managed by Intune. |
 | `DeviceManagementManagedDevices.PrivilegedOperations.All` | Used to issue Wipe commands to devices |
 | `DeviceManagementRBAC.ReadWrite.All` | Used to manage the scope tag that the app uses as well as store the app's config in the specified scope tag to eliminate the need for a DB. |
-| `RoleManagement.ReadWrite.Directory` | Used to manage role assigned security groups (SGs that can have AAD Roles assigned to them). |
+| `Device.ReadWrite.All` | Used to list all AAD devices so that end users can select from a list instead of having to manually put in a GUID. Also used for tagging the extension attribute of the privileged device so that CA can pick it up properly on the hardware enforcement side of things.|
+| `Directory.Write.Restricted` | Used to manage the membership and configuration of restricted Admin Units |
+| `Group.ReadWrite.All` | Used to Manage security group existence and their membership in Azure AD. |
 | `Policy.Read.All` and `Policy.ReadWrite.ConditionalAccess` | Used to manage the conditional access policies for individual users during the lifecycle management and for when the initial deployment occurs to implement health checks, and identity partitioning. |
+| `RoleManagement.ReadWrite.Directory` | Used to manage role assigned security groups (SGs that can have AAD Roles assigned to them). |
+| `User.ReadWrite.All` | Used to create, list, manage, and remove privileged users and retrieve a list of all non-users (and their properties) so that they can be added to security groups and device configurations. |
 
 !!! note
     `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess` is all that will be necessary.  
@@ -40,7 +41,7 @@ You will need global admin rights or a role/rights that include the following MS
 CLI usage for complete permissions assignment to a MI:
 
 ``` PowerShell title="PowerShell"
-.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'Application.ReadWrite.All', 'User.ReadWrite.All', 'Group.ReadWrite.All', 'AdministrativeUnit.ReadWrite.All', 'Device.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'RoleManagement.ReadWrite.Directory', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess'
+.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All`', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
 ```
 
 Where the parameter `ObjectID`'s value is your Managed Identities' Object ID (GUID).  
