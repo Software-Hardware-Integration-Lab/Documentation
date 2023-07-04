@@ -41,7 +41,7 @@ You will need global admin rights or a role/rights that include the following MS
 CLI usage for complete permissions assignment to a MI:
 
 ``` PowerShell title="PowerShell"
-.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All`', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
+.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
 ```
 
 Where the parameter `ObjectID`'s value is your Managed Identities' Object ID (GUID).  
