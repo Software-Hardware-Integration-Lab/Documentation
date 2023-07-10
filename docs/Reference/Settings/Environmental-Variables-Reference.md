@@ -50,6 +50,20 @@ This setting configures the domain name used for new users. If not specified, th
 
 ---
 
+## MSM_Username_Prefix
+
+- Mandatory: `false`
+- Expected string format: `String`
+- Description:
+This setting puts a set of text before the username of a newly created user. The default setting is `priv-` but this can be set to anything allowed by [Azure AD's user principal name property](<https://learn.microsoft.com/en-us/microsoft-365/enterprise/prepare-for-directory-synchronization?view=o365-worldwide#2-directory-object-and-attribute-preparation>).
+- Example: `red-`
+- Example: `msm_`
+
+!!! note
+    If you would like no prefix, set the environmental variable but leave it's value empty.
+
+---
+
 ## MSM_Headless
 
 - Mandatory: `false`
