@@ -99,3 +99,19 @@ extra:
           note: >-
             Thanks for your feedback! Help us improve this page by
             using our <a href="https://mootinc.com/contact" target="_blank" rel="noopener">feedback form</a>.
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/moot-inc
+      name: Moot's home on LinkedIn
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/mootinc
+      name: Moot's home on Telegram
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@mootinc
+      name: Moot's home on YouTube
+    - icon: fontawesome/brands/github
+      link: https://github.com/Moot-Inc/
+      name: Moot's home on GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/moot_inc
+      name: Moot's home on Twitter
