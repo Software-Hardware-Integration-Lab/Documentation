@@ -2,13 +2,33 @@
 
 The [prefix](/Reference/Settings/Environmental-Variables-Reference/#msm_name_prefix) and [suffix](/Reference/Settings/Environmental-Variables-Reference/#msm_name_suffix) can be changed in the MSM server settings. The default settings are being used for the tag name below.
 
-## Example Config
+## Example Configurations
+
+Example configurations of the enterprise security class Intune Scope Tag.
+
+---
+
+### Default Naming
 
 ``` INI title="MSM - ESM"
 AU=5b7c868e-98bf-437e-acf6-32c433328198
 DevSg=66eeb4f4-91f8-431f-a336-1adf7bcb276f
 UsrSg=3fd68a6f-0fd0-45b3-84ec-bfadccb10350
 ```
+
+### Custom Prefix and Suffix Naming
+
+``` INI title="eLabs - ESM - Cloud"
+AU=3e54c5c2-a2cf-4ca5-897e-97d706b5e31b
+DevSg=d014ae16-7748-4722-ba28-196a008bcb30
+UsrSg=08fd53d4-b002-40cf-bcfa-95a7fcda0bcd
+```
+
+---
+
+## Properties
+
+Technical details on the properties/values that can be set on the enterprise scope tag.
 
 ---
 
@@ -51,5 +71,3 @@ The application will treat all user identities and security groups under this SG
 
 **Example:**
 `UsrSg=3fd68a6f-0fd0-45b3-84ec-bfadccb10350`
-
----

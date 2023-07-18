@@ -1,4 +1,4 @@
-# Root Scope Tag Data Format
+# Common (Root) - Intune Scope Tag
 
 The application stores its core configuration in the Microsoft Intune scope tag description field rather than needing to store it in a database.
 Because of this, do not change the scope tag that was configured by the application, otherwise you could cause issues with the management of your PAWs.
@@ -7,19 +7,41 @@ The maximum size of the description field is `1024` characters (including whites
 
 The title of the (Role) Scope Tag in Intune may differ depending on the settings being used on the MSM server [(see the env vars docs for details)](/Reference/Settings/Environmental-Variables-Reference/#msm_scope_tag). The default value is `Moot-Security-Management`. For these docs, that is what the tag title is.
 
-## Example Config
+## Example Configurations
+
+Example configurations of the root Intune Scope Tag.
+
+---
+
+### Default Name
 
 ``` INI title="Moot-Security-Management"
 PsmId=21
 SsmId=20
 EsmId=19
 BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef
-V=123
+V=1
+```
+
+### Custom Name for Scope Tag
+
+``` INI title="eLabs-Security-Automation"
+PsmId=5
+SsmId=4
+EsmId=3
+BrkGls=c11055f2-0bae-4051-a94c-a03463786616
+V=3
 ```
 
 ---
 
-## PsmId
+## Properties
+
+Technical details on the properties/values that can be set on the root/common scope tag.
+
+---
+
+### PsmId
 
 **Expected Data:**
 This is a whole number that is the unique ID of the scope tag.
@@ -32,7 +54,7 @@ This is the ID of the Intune Role Scope Tag that separates privileged configurat
 
 ---
 
-## SsmId
+### SsmId
 
 **Expected Data:**
 This is a whole number that is the unique ID of the scope tag.
@@ -45,7 +67,7 @@ This is the ID of the Intune Role Scope Tag that separates specialized configura
 
 ---
 
-## EsmId
+### EsmId
 
 **Expected Data:**
 This is a whole number that is the unique ID of the scope tag.
@@ -58,7 +80,7 @@ This is the ID of the Intune Role Scope Tag that separates enterprise configurat
 
 ---
 
-## BrkGls
+### BrkGls
 
 **Expected Data:**
 This is the Object ID (GUID) of the "Break Glass" security group that contains all of the break glass accounts to be excluded.
@@ -72,7 +94,7 @@ This configuration excludes the break glass accounts from the security that is a
 
 ---
 
-## V
+### V
 
 **Expected Data:**
 A whole number representing the deployed architecture specification.
@@ -82,5 +104,3 @@ The whole number is incremented by 1 every time there is a change in the archite
 
 **Example:**
 `V=123`
-
----
