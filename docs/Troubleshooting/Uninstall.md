@@ -28,9 +28,9 @@ The core architecture is the set of settings across all of the managed systems (
 
 2\. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
 
-    ``` PowerShell title="Uninstall all Microsoft 365 Graph API PowerShell Modules"
+``` PowerShell title="Uninstall all Microsoft 365 Graph API PowerShell Modules"
 Get-Module -Name '*Microsoft.Graph*' -ListAvailable | Uninstall-Module
-    ```
+```
 
 !!! note
     You may have to run the above command twice because the order of operations tries to uninstall a dependency first rather than last. Running it the second time will remove the remaining dependency.
