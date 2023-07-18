@@ -24,6 +24,8 @@
     This script requires the same set of permissions as required by the Install-MSM.ps1 script used to deploy the Azure Web App.
     This script has only been tested with PowerShell 7.
     While theoretically compatible with PS 5, usage with PowerShell 5 has not been tested.
+
+    The Microsoft.Graph.Beta module is required for this script to operate.
 #>
 
 #Requires -PSEdition Core
@@ -47,56 +49,103 @@ param(
 begin {
     # Computed prefix for autopilot profiles
     [System.String]$AutopilotCompatiblePrefix = $Prefix -replace "[%!#)(^*+=';<>/-]", '_'
+
+    # Number of steps for the progress bars to render
+    [System.Int64]$GetStepCount = 48
+    [System.Int64]$RemoveStepCount = 14
+
+    # Current place in the child progress bar
+    [System.Int64]$CurrentStep = 0
     
     # Computed suffix for autopilot profiles
     # [System.String]$AutopilotCompatibleSuffix = $Suffix -replace "[%!#)(^*+=';<>/-]", '_'
     
+    # Render Main Progress Bar
+    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 1/3 - M365 Login' -PercentComplete 0
+    
+    # List of permissions to log in with
+    [System.String[]]$DelegatedPermissionList = @(
+        'AdministrativeUnit.ReadWrite.All',
+        'Application.ReadWrite.All',
+        'DeviceManagementManagedDevices.Read.All',
+        'DeviceManagementConfiguration.ReadWrite.All',
+        'DeviceManagementServiceConfig.ReadWrite.All',
+        'DeviceManagementApps.ReadWrite.All',
+        'DeviceManagementManagedDevices.PrivilegedOperations.All',
+        'DeviceManagementRBAC.ReadWrite.All',
+        'Device.ReadWrite.All',
+        'Directory.Write.Restricted',
+        'Group.ReadWrite.All',
+        'Policy.Read.All',
+        'Policy.ReadWrite.ConditionalAccess',
+        'RoleManagement.ReadWrite.Directory',
+        'User.ReadWrite.All'
+    )
+
     # Log into the Graph API
-    Connect-MgGraph -ContextScope 'Process' -Scopes 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
+    Connect-MgGraph -ContextScope 'Process' -Scopes $DelegatedPermissionList | Out-Null
 }
 
 process {
+    # Update Main Progress Bar
+    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 2/3 - Data Retrieval' -PercentComplete 30
+        
     # List of AAD CA Policies
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy[]]$CaPolicyList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy[]]$CaPolicyList = @()
 
     # Lit of AAD CA Policy Named Locations
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphNamedLocation[]]$CaNamedLocationList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphNamedLocation[]]$CaNamedLocationList = @()
 
     # List of AAD CA Authentication Strength Policies
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuthenticationStrengthPolicy[]]$CaAuthStrengthPolicyList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAuthenticationStrengthPolicy[]]$CaAuthStrengthPolicyList = @()
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 1 -ParentId 0 -Activity 'Getting Break Glass Group' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
     # List of AAD Groups
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphGroup[]]$GroupList = Get-MgBetaGroup -Filter "displayName eq '$($Prefix)Break Glass 🚨'" -All
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphGroup[]]$GroupList = Get-MgBetaGroup -Filter "displayName eq '$($Prefix)Break Glass 🚨'" -All
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 1 -ParentId 0 -Activity 'Getting Admin Units' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
     # List of AAD Admin Units
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphAdministrativeUnit1[]]$AdminUnitList = Get-MgBetaAdministrativeUnit -Filter "displayName in ('MSM - Privileged Objects', 'MSM - Specialized Objects', 'MSM - Enterprise Objects')" -All
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphAdministrativeUnit[]]$AdminUnitList = Get-MgBetaAdministrativeUnit -Filter "displayName in ('$($Prefix)Privileged Objects$Suffix', '$($Prefix)Specialized Objects$Suffix', '$($Prefix)Enterprise Objects$Suffix')" -All
 
     # List of Intune Settings Policy Templates
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceConfiguration1[]]$IntuneSettingTemplateList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceConfiguration[]]$IntuneSettingTemplateList = @()
 
     # List of Intune Settings Catalogs
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceManagementConfigurationPolicy[]]$IntuneSettingsCatalogList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceManagementConfigurationPolicy[]]$IntuneSettingsCatalogList = @()
 
     # List of Intune Windows Feature Update Policy
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphWindowsFeatureUpdateProfile[]]$IntuneWindowsFeatureUpdate = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphWindowsFeatureUpdateProfile[]]$IntuneWindowsFeatureUpdate = @()
 
     # List of Intune Device Configuration Intents (Settings Catalog Templates)
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceManagementIntent[]]$IntuneDeviceConfigIntent = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceManagementIntent[]]$IntuneDeviceConfigIntent = @()
 
     # List of Intune device compliance policy
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceCompliancePolicy1[]]$IntuneDeviceCompliancePolicy = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceCompliancePolicy[]]$IntuneDeviceCompliancePolicy = @()
 
     # List of Intune Enrollment configurations
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceEnrollmentConfiguration[]]$IntuneEnrollmentConfigList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceEnrollmentConfiguration[]]$IntuneEnrollmentConfigList = @()
 
     # List of Intune Windows Autopilot Profiles
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphWindowsAutopilotDeploymentProfile[]]$IntuneAutopilotProfileList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphWindowsAutopilotDeploymentProfile[]]$IntuneAutopilotProfileList = @()
 
     # List of Intune Assignment Filters
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphDeviceAndAppManagementAssignmentFilter[]]$IntuneAssignmentFilterList = @()
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceAndAppManagementAssignmentFilter[]]$IntuneAssignmentFilterList = @()
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 1 -ParentId 0 -Activity 'Getting Root Intune Scope Tag' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
     # List of Intune Role Scope tags plus the root scope tag as defined by the parameter
-    [Microsoft.Graph.PowerShell.Models.MicrosoftGraphRoleScopeTag[]]$IntuneRoleScopeTagList = Get-MgBetaDeviceManagementRoleScopeTag -Filter "displayName eq '$RootScopeTagName'"
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphRoleScopeTag[]]$IntuneRoleScopeTagList = Get-MgBetaDeviceManagementRoleScopeTag -Filter "displayName eq '$RootScopeTagName'"
 
     # List of Intune Quality Update configurations 
     [hashtable[]]$IntuneQualityUpdateConfigList = @()
@@ -104,69 +153,240 @@ process {
     # List of Intune Driver & Firmware update configurations 
     [hashtable[]]$IntuneDriverUpdateConfigList = @()
 
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 1 -ParentId 0 -Activity 'Removing Admin Units' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)    
+
     # Remove the admin units sooner rather than later to start unlocking the objects held in the AUs if the AUs are in restricted mode
     $AdminUnitList | ForEach-Object -Process { Remove-MgBetaAdministrativeUnit -AdministrativeUnitId $_.Id }
 
     # Loop through each security class 
     foreach ($SecurityClass in $SecurityClassList) {
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)    
+
         # Get a list of conditional access policies for the current security class
         $CaPolicyList += Get-MgBetaIdentityConditionalAccessPolicy -Filter "contains(displayName, '$Prefix$SecurityClass')" -All
 
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Named Locations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
+
         # Get a list of conditional access policy named locations
         $CaNamedLocationList += Get-MgBetaIdentityConditionalAccessNamedLocation -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
+                
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Auth Strength Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
         
         # Get a list of conditional access policy authentication strengths
         $CaAuthStrengthPolicyList += Get-MgBetaIdentityConditionalAccessAuthenticationStrengthPolicy -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
 
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Settings Templates" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
+        
         # Retrieve a list of Intune settings templates for the current security class
         $IntuneSettingTemplateList += Get-MgBetaDeviceManagementDeviceConfiguration -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Settings Catalogs" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
+
         # Retrieve a list of Intune settings catalogs for the current security class
         $IntuneSettingsCatalogList += Get-MgBetaDeviceManagementConfigurationPolicy -Filter "startsWith(Name, '$Prefix$SecurityClass')" -All
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Windows Feature Update Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)                            
+
         # Retrieve a list of Windows feature update configurations from Intune
         $IntuneWindowsFeatureUpdate += Get-MgBetaDeviceManagementWindowsFeatureUpdateProfile -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Settings Catalog Templates" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
+
         # Retrieve a list of settings catalog templates
         $IntuneDeviceConfigIntent += Get-MgBetaDeviceManagementIntent -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
+
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Compliance Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
 
         # Retrieve a list of all Intune device compliance policies
         $IntuneDeviceCompliancePolicy += Get-MgBetaDeviceManagementDeviceCompliancePolicy -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Enrollment Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)                
+
         # Retrieve a list of enrollment configurations from Intune
         $IntuneEnrollmentConfigList += Get-MgBetaDeviceManagementDeviceEnrollmentConfiguration -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
+
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Autopilot Profiles" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
 
         # Retrieves a list of autopilot profiles from Intune
         $IntuneAutopilotProfileList += Get-MgBetaDeviceManagementWindowsAutopilotDeploymentProfile -Filter "startsWith(displayName, '$AutopilotCompatiblePrefix$SecurityClass')" -ExpandProperty 'Assignments' -All
 
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Filters" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+
         # Retrieves a list of filters from Intune
         $IntuneAssignmentFilterList += Get-MgBetaDeviceManagementAssignmentFilter -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
+
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Scope Tags" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
 
         # Retrieves a list of role scope tags from Intune
         $IntuneRoleScopeTagList += Get-MgBetaDeviceManagementRoleScopeTag -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
 
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Quality Update Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+
         # Retrieves a list of Quality Update profiles
         $IntuneQualityUpdateConfigList += (Invoke-MgGraphRequest -Method 'Get' -Uri 'https://graph.microsoft.com/beta/deviceManagement/windowsQualityUpdateProfiles').Value | Where-Object -FilterScript { $_.displayName -like "$Prefix$SecurityClass*" }
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Driver & Firmware Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+
         # Retrieves a list of driver & firmware update profiles
         $IntuneDriverUpdateConfigList += (Invoke-MgGraphRequest -Method 'Get' -Uri 'https://graph.microsoft.com/beta/deviceManagement/windowsDriverUpdateProfiles').Value | Where-Object -FilterScript { $_.displayName -like "$Prefix$SecurityClass*" }
         
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Remaining Security Groups" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+
         # Get a list of security groups for the current security class
         $GroupList += Get-MgBetaGroup -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
     }
+
+    # Reset the current step of the child progress bar
+    $CurrentStep = 0
+
+    # Shut off retrieval progress bar
+    Write-Progress -Id 1 -Activity 'Done Retrieving Objects' -Completed
+
+    # Update Main Progress Bar
+    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 3/3 - Configuration Removal' -PercentComplete 60
+
+    # Enable and Render Secondary Progress Bar for removal
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
 
     # Remove MSM configurations where the lists are iterated over each on their own loop.
     if ($PSCmdlet.ShouldProcess('Conditional Access Policy List', 'Remove')) {
         $CaPolicyList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessPolicy -ConditionalAccessPolicyId $_.Id }
     }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Named Locations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
+
     $CaNamedLocationList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessNamedLocation -NamedLocationId $_.Id }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Auth Strength Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
+    
     $CaAuthStrengthPolicyList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessAuthenticationStrengthPolicy -AuthenticationStrengthPolicyId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)    
+
     $IntuneSettingTemplateList | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceConfiguration -DeviceConfigurationId $_.Id }
+   
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Catalogs' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)        
+
     $IntuneSettingsCatalogList | ForEach-Object -Process { Remove-MgBetaDeviceManagementConfigurationPolicy -DeviceManagementConfigurationPolicyId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Windows Feature Update Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)            
+
     $IntuneWindowsFeatureUpdate | ForEach-Object -Process { Remove-MgBetaDeviceManagementWindowsFeatureUpdateProfile -WindowsFeatureUpdateProfileId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)            
+
     $IntuneDeviceConfigIntent | ForEach-Object -Process { Remove-MgBetaDeviceManagementIntent -DeviceManagementIntentId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+
     $IntuneDeviceCompliancePolicy | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceCompliancePolicy -DeviceCompliancePolicyId $_.Id }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Enrollment Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    
     $IntuneEnrollmentConfigList | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceEnrollmentConfiguration -DeviceEnrollmentConfigurationId $_.Id }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Autopilot Profiles' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+
     foreach ($AutopilotProfile in $IntuneAutopilotProfileList) {
         # Remove the assignments before removing the autopilot profile
         $AutopilotProfile.Assignments.Id | ForEach-Object -Process { Remove-MgBetaDeviceManagementWindowsAutopilotDeploymentProfileAssignment -WindowsAutopilotDeploymentProfileId $AutopilotProfile.Id -WindowsAutopilotDeploymentProfileAssignmentId $_ }
@@ -174,24 +394,69 @@ process {
         # Remove the Autopilot profile since it has been un-assigned
         Remove-MgBetaDeviceManagementWindowsAutopilotDeploymentProfile -WindowsAutopilotDeploymentProfileId $AutopilotProfile.Id
     }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Filter' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    
     $IntuneAssignmentFilterList | ForEach-Object -Process { Remove-MgBetaDeviceManagementAssignmentFilter -DeviceAndAppManagementAssignmentFilterId $_.Id }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Scope Tag' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    
     $IntuneRoleScopeTagList | ForEach-Object -Process { Remove-MgBetaDeviceManagementRoleScopeTag -RoleScopeTagId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Quality Update Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    
     $IntuneQualityUpdateConfigList | ForEach-Object -Process { Invoke-MgGraphRequest -Method 'DELETE' -Uri "https://graph.microsoft.com/beta/deviceManagement/windowsQualityUpdateProfiles/$($_.Id)" }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Driver & Firmware Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                    
+
     $IntuneDriverUpdateConfigList | ForEach-Object -Process { Invoke-MgGraphRequest -Method 'DELETE' -Uri "https://graph.microsoft.com/beta/deviceManagement/windowsDriverUpdateProfiles/$($_.Id)" }
+    
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Remaining Security Groups' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    
     $GroupList | ForEach-Object -Process { Remove-MgBetaGroup -GroupId $_.Id }
+
+    # Disable progress bars
+    Write-Progress -Id 2 -Activity 'Done' -Completed
+    Write-Progress -Id 0 -Activity 'Done' -Completed
 }
 
 end {
     # Log out of the Graph API
-    Disconnect-MgGraph
+    Disconnect-MgGraph | Out-Null
+
+    # Clear the console before rendering the completion message.
+    Clear-Host
+
+    # Notify the end user that the process has completed.
+    Write-Host -Object 'Successfully uninstalled MSM architecture!'
 }
 
 # SIG # Begin signature block
-# MIIqUgYJKoZIhvcNAQcCoIIqQzCCKj8CAQExDzANBglghkgBZQMEAgMFADCBmwYK
+# MIIqUwYJKoZIhvcNAQcCoIIqRDCCKkACAQExDzANBglghkgBZQMEAgMFADCBmwYK
 # KwYBBAGCNwIBBKCBjDCBiTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63
-# JNLGKX7zUQIBAAIBAAIBAAIBAAIBADBRMA0GCWCGSAFlAwQCAwUABECF8h9UWwUF
-# Dp8Yn/mFXiAN5rP+mNYiwWMd6mpAMm/uHb2DgH4u+bi4MrYbFQEWpi3hON1pTY3Y
-# a30mXv5MPqJFoIIOczCCBrAwggSYoAMCAQICEAitQLJg0pxMn17Nqb2TrtkwDQYJ
+# JNLGKX7zUQIBAAIBAAIBAAIBAAIBADBRMA0GCWCGSAFlAwQCAwUABEBP5IX97fap
+# m1USSmdzY5dRggECEtoRm237rIW89HgI+ZCYciukNd5SEO3JjaLcS6kh1XR4aHaE
+# qkCP9ZD4l1N/oIIOczCCBrAwggSYoAMCAQICEAitQLJg0pxMn17Nqb2TrtkwDQYJ
 # KoZIhvcNAQEMBQAwYjELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IElu
 # YzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEhMB8GA1UEAxMYRGlnaUNlcnQg
 # VHJ1c3RlZCBSb290IEc0MB4XDTIxMDQyOTAwMDAwMFoXDTM2MDQyODIzNTk1OVow
@@ -268,149 +533,149 @@ end {
 # UZOHPMSgF6Qn0VnPkX/mnp+rqJgOYqFfWxywM3rqSEECL+Ik4Xyk264m8UU/4cyE
 # f0Gymsv96CjUAt15+waFCP2AnQvvPAyu1i73v6KQBNIFBgTtTpl529TRjV3YmM7c
 # jtEE0rl/95AUas+n5PE8MsJoKb8AlfKpXpT92BuNETtlCmsC4CRYqTzRm63xPTLK
-# Xja8ZynISJ/gTi3kZy32/jGCGxIwghsOAgEBMH0waTELMAkGA1UEBhMCVVMxFzAV
+# Xja8ZynISJ/gTi3kZy32/jGCGxMwghsPAgEBMH0waTELMAkGA1UEBhMCVVMxFzAV
 # BgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMUEwPwYDVQQDEzhEaWdpQ2VydCBUcnVzdGVk
 # IEc0IENvZGUgU2lnbmluZyBSU0E0MDk2IFNIQTM4NCAyMDIxIENBMQIQD2v9+quc
 # RSHWtMF88c65MTANBglghkgBZQMEAgMFAKCB4jAZBgkqhkiG9w0BCQMxDAYKKwYB
 # BAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTBPBgkqhkiG9w0B
-# CQQxQgRASOjrz1flDxB76+LPheT9/JMCgHKk65h0WPRmPFdIvvYYPlCxWfawgtjr
-# j27rtvecjKygnC9uEhbkm2/dl0oaTjBWBgorBgEEAYI3AgEMMUgwRqBEgEIATQBT
+# CQQxQgRASBSsyo64L6ZVeh0esYfcs9jIkR+6oslGWN+zeZotz0wrBjKoKTrlsaBx
+# Y73iOF+JrE2x6h2j8BhaWaKGGxc8fDBWBgorBgEEAYI3AgEMMUgwRqBEgEIATQBT
 # AE0AIAAtACAAQQByAGMAaABpAHQAZQBjAHQAdQByAGUAIABVAG4AaQBuAHMAdABh
-# AGwAbAAgAFQAbwBvAGwwDQYJKoZIhvcNAQEBBQAEggIAdFCSOvJ2TRJSOLERiHUT
-# /PckqJ09tW1xG7whyoyw8RLGNEzi77mL551a46NixmoAdml1llimpBK9hk6iy2Q/
-# OhE3EMoHJcKnbJkp+D6dCWYXjelyfazqDDMqIXDKPA5tOL0odaw/P9aGL/hRmHia
-# ZLIOlCObbJ5RVf13scFiDN5643MoGHPCqkJYfmWvEEonzyiWpyV7Y3oc8DF2kSpy
-# I58t9HilW9pr34is1lO7qkKvrdTP6TnpIziuPC/dg/4q+tiRytsGaGKgf5mH+kiy
-# 4RkytgXrk0F0yXcpKcCnYApeuh1oNMUQVDWMdma6NduaJRm+FrVaqEKX/iNQHM2N
-# e8bcgj3r3+btgWLcIT8xQOIpZFLU73rRZiTa7GZH2Wu4gAqXEpZyrIvP6R8Hjufr
-# ICJOpM8emE/IASq9G0/E/+WUUC5zrrHa5n3s2MWVKq9FY2Ad/k5B0uVDlhCBYR2V
-# KT5bVxX0oY3FREPAwew/3Val6SP7TK0Pzyl2wC+Wvo13fC4Skyps5uaX/KF1+Oss
-# /CXQUSvdn4eZJr+6G23qXm0Y5yRzi75Yh2vVCroYS0j/icAW93N8megIQxqjWH1S
-# eqfbf3Qerle3Vtm027HDA8TaByI6Yhsn66173+2AOkpHSXNznxgp8TY2zO9LtvA+
-# lu49omAQ/hj/61fmaSkzhE+hgheBMIIXfQYKKwYBBAGCNwMDATGCF20wghdpBgkq
-# hkiG9w0BBwKgghdaMIIXVgIBAzEPMA0GCWCGSAFlAwQCAwUAMIGaBgsqhkiG9w0B
-# CRABBKCBigSBhzCBhAIBAQYJYIZIAYb9bAcBMFEwDQYJYIZIAWUDBAIDBQAEQAQ0
-# Oq0NT+2ZVi+OmCfoZcdH6iWIc59voMVSYymikZO9/kJDolUoMV5wMFEjyRFWaG6K
-# UOTROPyONReXSqDNdAwCEDySLz1hJGDQFtgYy9SsdlwYDzIwMjMwNzE4MDAwMTU1
-# WqCCEwcwggbAMIIEqKADAgECAhAMTWlyS5T6PCpKPSkHgD1aMA0GCSqGSIb3DQEB
-# CwUAMGMxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE7MDkG
-# A1UEAxMyRGlnaUNlcnQgVHJ1c3RlZCBHNCBSU0E0MDk2IFNIQTI1NiBUaW1lU3Rh
-# bXBpbmcgQ0EwHhcNMjIwOTIxMDAwMDAwWhcNMzMxMTIxMjM1OTU5WjBGMQswCQYD
-# VQQGEwJVUzERMA8GA1UEChMIRGlnaUNlcnQxJDAiBgNVBAMTG0RpZ2lDZXJ0IFRp
-# bWVzdGFtcCAyMDIyIC0gMjCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIB
-# AM/spSY6xqnya7uNwQ2a26HoFIV0MxomrNAcVR4eNm28klUMYfSdCXc9FZYIL2tk
-# pP0GgxbXkZI4HDEClvtysZc6Va8z7GGK6aYo25BjXL2JU+A6LYyHQq4mpOS7eHi5
-# ehbhVsbAumRTuyoW51BIu4hpDIjG8b7gL307scpTjUCDHufLckkoHkyAHoVW54Xt
-# 8mG8qjoHffarbuVm3eJc9S/tjdRNlYRo44DLannR0hCRRinrPibytIzNTLlmyLuq
-# UDgN5YyUXRlav/V7QG5vFqianJVHhoV5PgxeZowaCiS+nKrSnLb3T254xCg/oxwP
-# UAY3ugjZNaa1Htp4WB056PhMkRCWfk3h3cKtpX74LRsf7CtGGKMZ9jn39cFPcS6J
-# AxGiS7uYv/pP5Hs27wZE5FX/NurlfDHn88JSxOYWe1p+pSVz28BqmSEtY+VZ9U0v
-# kB8nt9KrFOU4ZodRCGv7U0M50GT6Vs/g9ArmFG1keLuY/ZTDcyHzL8IuINeBrNPx
-# B9ThvdldS24xlCmL5kGkZZTAWOXlLimQprdhZPrZIGwYUWC6poEPCSVT8b876asH
-# DmoHOWIZydaFfxPZjXnPYsXs4Xu5zGcTB5rBeO3GiMiwbjJ5xwtZg43G7vUsfHuO
-# y2SJ8bHEuOdTXl9V0n0ZKVkDTvpd6kVzHIR+187i1Dp3AgMBAAGjggGLMIIBhzAO
-# BgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADAWBgNVHSUBAf8EDDAKBggrBgEF
-# BQcDCDAgBgNVHSAEGTAXMAgGBmeBDAEEAjALBglghkgBhv1sBwEwHwYDVR0jBBgw
-# FoAUuhbZbU2FL3MpdpovdYxqII+eyG8wHQYDVR0OBBYEFGKK3tBh/I8xFO2XC809
-# KpQU31KcMFoGA1UdHwRTMFEwT6BNoEuGSWh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNv
-# bS9EaWdpQ2VydFRydXN0ZWRHNFJTQTQwOTZTSEEyNTZUaW1lU3RhbXBpbmdDQS5j
-# cmwwgZAGCCsGAQUFBwEBBIGDMIGAMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5k
-# aWdpY2VydC5jb20wWAYIKwYBBQUHMAKGTGh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0
-# LmNvbS9EaWdpQ2VydFRydXN0ZWRHNFJTQTQwOTZTSEEyNTZUaW1lU3RhbXBpbmdD
-# QS5jcnQwDQYJKoZIhvcNAQELBQADggIBAFWqKhrzRvN4Vzcw/HXjT9aFI/H8+ZU5
-# myXm93KKmMN31GT8Ffs2wklRLHiIY1UJRjkA/GnUypsp+6M/wMkAmxMdsJiJ3Hjy
-# zXyFzVOdr2LiYWajFCpFh0qYQitQ/Bu1nggwCfrkLdcJiXn5CeaIzn0buGqim8FT
-# YAnoo7id160fHLjsmEHw9g6A++T/350Qp+sAul9Kjxo6UrTqvwlJFTU2WZoPVNKy
-# G39+XgmtdlSKdG3K0gVnK3br/5iyJpU4GYhEFOUKWaJr5yI+RCHSPxzAm+18SLLY
-# kgyRTzxmlK9dAlPrnuKe5NMfhgFknADC6Vp0dQ094XmIvxwBl8kZI4DXNlpflhax
-# YwzGRkA7zl011Fk+Q5oYrsPJy8P7mxNfarXH4PMFw1nfJ2Ir3kHJU7n/NBBn9iYy
-# mHv+XEKUgZSCnawKi8ZLFUrTmJBFYDOA4CPe+AOk9kVH5c64A0JH6EE2cXet/aLo
-# l3ROLtoeHYxayB6a1cLwxiKoT5u92ByaUcQvmvZfpyeXupYuhVfAYOd4Vn9q78KV
-# mksRAsiCnMkaBXy6cbVOepls9Oie1FqYyJ+/jbsYXEP10Cro4mLueATbvdH7Wwqo
-# cH7wl4R44wgDXUcsY6glOJcB0j862uXl9uab3H4szP8XTE0AotjWAQ64i+7m4HJV
-# iSwnGWH2dwGMMIIGrjCCBJagAwIBAgIQBzY3tyRUfNhHrP0oZipeWzANBgkqhkiG
-# 9w0BAQsFADBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkw
-# FwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBUcnVz
-# dGVkIFJvb3QgRzQwHhcNMjIwMzIzMDAwMDAwWhcNMzcwMzIyMjM1OTU5WjBjMQsw
-# CQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOzA5BgNVBAMTMkRp
-# Z2lDZXJ0IFRydXN0ZWQgRzQgUlNBNDA5NiBTSEEyNTYgVGltZVN0YW1waW5nIENB
-# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxoY1BkmzwT1ySVFVxyUD
-# xPKRN6mXUaHW0oPRnkyibaCwzIP5WvYRoUQVQl+kiPNo+n3znIkLf50fng8zH1AT
-# CyZzlm34V6gCff1DtITaEfFzsbPuK4CEiiIY3+vaPcQXf6sZKz5C3GeO6lE98NZW
-# 1OcoLevTsbV15x8GZY2UKdPZ7Gnf2ZCHRgB720RBidx8ald68Dd5n12sy+iEZLRS
-# 8nZH92GDGd1ftFQLIWhuNyG7QKxfst5Kfc71ORJn7w6lY2zkpsUdzTYNXNXmG6jB
-# ZHRAp8ByxbpOH7G1WE15/tePc5OsLDnipUjW8LAxE6lXKZYnLvWHpo9OdhVVJnCY
-# Jn+gGkcgQ+NDY4B7dW4nJZCYOjgRs/b2nuY7W+yB3iIU2YIqx5K/oN7jPqJz+ucf
-# WmyU8lKVEStYdEAoq3NDzt9KoRxrOMUp88qqlnNCaJ+2RrOdOqPVA+C/8KI8ykLc
-# GEh/FDTP0kyr75s9/g64ZCr6dSgkQe1CvwWcZklSUPRR8zZJTYsg0ixXNXkrqPNF
-# YLwjjVj33GHek/45wPmyMKVM1+mYSlg+0wOI/rOP015LdhJRk8mMDDtbiiKowSYI
-# +RQQEgN9XyO7ZONj4KbhPvbCdLI/Hgl27KtdRnXiYKNYCQEoAA6EVO7O6V3IXjAS
-# vUaetdN2udIOa5kM0jO0zbECAwEAAaOCAV0wggFZMBIGA1UdEwEB/wQIMAYBAf8C
-# AQAwHQYDVR0OBBYEFLoW2W1NhS9zKXaaL3WMaiCPnshvMB8GA1UdIwQYMBaAFOzX
-# 44LScV1kTN8uZz/nupiuHA9PMA4GA1UdDwEB/wQEAwIBhjATBgNVHSUEDDAKBggr
-# BgEFBQcDCDB3BggrBgEFBQcBAQRrMGkwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3Nw
-# LmRpZ2ljZXJ0LmNvbTBBBggrBgEFBQcwAoY1aHR0cDovL2NhY2VydHMuZGlnaWNl
-# cnQuY29tL0RpZ2lDZXJ0VHJ1c3RlZFJvb3RHNC5jcnQwQwYDVR0fBDwwOjA4oDag
-# NIYyaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0VHJ1c3RlZFJvb3RH
-# NC5jcmwwIAYDVR0gBBkwFzAIBgZngQwBBAIwCwYJYIZIAYb9bAcBMA0GCSqGSIb3
-# DQEBCwUAA4ICAQB9WY7Ak7ZvmKlEIgF+ZtbYIULhsBguEE0TzzBTzr8Y+8dQXeJL
-# Kftwig2qKWn8acHPHQfpPmDI2AvlXFvXbYf6hCAlNDFnzbYSlm/EUExiHQwIgqgW
-# valWzxVzjQEiJc6VaT9Hd/tydBTX/6tPiix6q4XNQ1/tYLaqT5Fmniye4Iqs5f2M
-# vGQmh2ySvZ180HAKfO+ovHVPulr3qRCyXen/KFSJ8NWKcXZl2szwcqMj+sAngkSu
-# mScbqyQeJsG33irr9p6xeZmBo1aGqwpFyd/EjaDnmPv7pp1yr8THwcFqcdnGE4AJ
-# xLafzYeHJLtPo0m5d2aR8XKc6UsCUqc3fpNTrDsdCEkPlM05et3/JWOZJyw9P2un
-# 8WbDQc1PtkCbISFA0LcTJM3cHXg65J6t5TRxktcma+Q4c6umAU+9Pzt4rUyt+8SV
-# e+0KXzM5h0F4ejjpnOHdI/0dKNPH+ejxmF/7K9h+8kaddSweJywm228Vex4Ziza4
-# k9Tm8heZWcpw8De/mADfIBZPJ/tgZxahZrrdVcA6KYawmKAr7ZVBtzrVFZgxtGIJ
-# Dwq9gdkT/r+k0fNX2bwE+oLeMt8EifAAzV3C+dAjfwAL5HYCJtnwZXZCpimHCUcr
-# 5n8apIUP/JiW9lVUKx+A+sDyDivl1vupL0QVSucTDh3bNzgaoSv27dZ8/DCCBY0w
-# ggR1oAMCAQICEA6bGI750C3n79tQ4ghAGFowDQYJKoZIhvcNAQEMBQAwZTELMAkG
-# A1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3LmRp
-# Z2ljZXJ0LmNvbTEkMCIGA1UEAxMbRGlnaUNlcnQgQXNzdXJlZCBJRCBSb290IENB
-# MB4XDTIyMDgwMTAwMDAwMFoXDTMxMTEwOTIzNTk1OVowYjELMAkGA1UEBhMCVVMx
-# FTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNv
-# bTEhMB8GA1UEAxMYRGlnaUNlcnQgVHJ1c3RlZCBSb290IEc0MIICIjANBgkqhkiG
-# 9w0BAQEFAAOCAg8AMIICCgKCAgEAv+aQc2jeu+RdSjwwIjBpM+zCpyUuySE98orY
-# WcLhKac9WKt2ms2uexuEDcQwH/MbpDgW61bGl20dq7J58soR0uRf1gU8Ug9SH8ae
-# FaV+vp+pVxZZVXKvaJNwwrK6dZlqczKU0RBEEC7fgvMHhOZ0O21x4i0MG+4g1ckg
-# HWMpLc7sXk7Ik/ghYZs06wXGXuxbGrzryc/NrDRAX7F6Zu53yEioZldXn1RYjgwr
-# t0+nMNlW7sp7XeOtyU9e5TXnMcvak17cjo+A2raRmECQecN4x7axxLVqGDgDEI3Y
-# 1DekLgV9iPWCPhCRcKtVgkEy19sEcypukQF8IUzUvK4bA3VdeGbZOjFEmjNAvwjX
-# WkmkwuapoGfdpCe8oU85tRFYF/ckXEaPZPfBaYh2mHY9WV1CdoeJl2l6SPDgohIb
-# Zpp0yt5LHucOY67m1O+SkjqePdwA5EUlibaaRBkrfsCUtNJhbesz2cXfSwQAzH0c
-# lcOP9yGyshG3u3/y1YxwLEFgqrFjGESVGnZifvaAsPvoZKYz0YkH4b235kOkGLim
-# dwHhD5QMIR2yVCkliWzlDlJRR3S+Jqy2QXXeeqxfjT/JvNNBERJb5RBQ6zHFynIW
-# IgnffEx1P2PsIV/EIFFrb7GrhotPwtZFX50g/KEexcCPorF+CiaZ9eRpL5gdLfXZ
-# qbId5RsCAwEAAaOCATowggE2MA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFOzX
-# 44LScV1kTN8uZz/nupiuHA9PMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6enIZ3z
-# bcgPMA4GA1UdDwEB/wQEAwIBhjB5BggrBgEFBQcBAQRtMGswJAYIKwYBBQUHMAGG
-# GGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBDBggrBgEFBQcwAoY3aHR0cDovL2Nh
-# Y2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0QXNzdXJlZElEUm9vdENBLmNydDBF
-# BgNVHR8EPjA8MDqgOKA2hjRodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNl
-# cnRBc3N1cmVkSURSb290Q0EuY3JsMBEGA1UdIAQKMAgwBgYEVR0gADANBgkqhkiG
-# 9w0BAQwFAAOCAQEAcKC/Q1xV5zhfoKN0Gz22Ftf3v1cHvZqsoYcs7IVeqRq7IviH
-# GmlUIu2kiHdtvRoU9BNKei8ttzjv9P+Aufih9/Jy3iS8UgPITtAq3votVs/59Pes
-# MHqai7Je1M/RQ0SbQyHrlnKhSLSZy51PpwYDE3cnRNTnf+hZqPC/Lwum6fI0POz3
-# A8eHqNJMQBk1RmppVLC4oVaO7KTVPeix3P0c2PR3WlxUjG/voVA9/HYJaISfb8rb
-# II01YBwCA8sgsKxYoA5AY8WYIsGyWfVVa88nq2x2zm8jLfR+cWojayL/ErhULSd+
-# 2DrZ8LaHlv1b0VysGMNNn3O3AamfV6peKOK5lDGCA5YwggOSAgEBMHcwYzELMAkG
-# A1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMTswOQYDVQQDEzJEaWdp
-# Q2VydCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hBMjU2IFRpbWVTdGFtcGluZyBDQQIQ
-# DE1pckuU+jwqSj0pB4A9WjANBglghkgBZQMEAgMFAKCB8TAaBgkqhkiG9w0BCQMx
-# DQYLKoZIhvcNAQkQAQQwHAYJKoZIhvcNAQkFMQ8XDTIzMDcxODAwMDE1NVowKwYL
-# KoZIhvcNAQkQAgwxHDAaMBgwFgQU84ciTYYzgpI1qZS8vY+W6f4cfHMwNwYLKoZI
-# hvcNAQkQAi8xKDAmMCQwIgQgx/ThvjIoiSCr4iY6vhrE/E/meBwtZNBMgHVXoCO1
-# tvowTwYJKoZIhvcNAQkEMUIEQCw2Z24Cy3jhk+5rDAd+G9LHaj8KsJ97CO9OpxfH
-# kz1e20xf9sD1tqTcZSxOsoNDTjL5r9B6AKJj/+owwAKRSVwwDQYJKoZIhvcNAQEB
-# BQAEggIAGvZgyQL2assmtqQaW9PWll26yAB7u5HV8k9TlupGx18Ra40GD5K/Tew0
-# Xy21XAkd/TxyIhDN0GphoXdxM9gkje9532nPI70gkZ7cSFo7vqtxzZWdfCQrIVdr
-# IYdpocKJpoS5v2Bk1mZ/2pSmiVeGEyEAB0U+A7192LnMgZn4Jbmvb40+YYNSGSNB
-# Kwa1ZlzUaTIQ7UA04ftuqOgZiWR9X54+x8WSw4xNnxcmYS/BQOXrXtsEUJyEyfrQ
-# rdPcGVktFIneOlYeSsMWaaV5IpMja+flt6kFiNDFURakx9lBfKO3oJcXAoAT7Nw+
-# JMvXlsF7PZm3iEgoQ3gc9V1MUKhc1Ed6Q7rAxUekTTcxGbmIcU4YibIMTLiZG42F
-# nH6+7MewL2RMfsVSsKVnyL74CL35OY8Mt0aCMc91H9FvwrT5jXYoNjR18p8daKo/
-# QmPt2hqC6l7eUiXHahuTWA4EYL8bwpO67PW3aka3ve62WPfYs1Up5b7be40B92c9
-# X6sbG3q9xVFLPndAw45BoOfEKktW8/rJqlDKqpAcFfLxYDH763s+yHvG4JrB6nWn
-# +qZkWbEx8YHn8DCGx/iC76JlF4w0hiiJbOGqZxuS4ArC3v7QRVJta7ijfP0rSfPF
-# L5UXI28028/uHAtl2aAtm5E81xUy00CYLa4TmelPSNRzN7XJZHo=
+# AGwAbAAgAFQAbwBvAGwwDQYJKoZIhvcNAQEBBQAEggIA0ZM+NNMRiKaUmB1p5LYy
+# 58bNx6GsYN2DBJe7jiYC1rhX9d9P2H3COzQPAtCQ3R1G02sqUrD9yj7cMZEfIx1A
+# r0bTK4KCZjII69AmJzR6PPCAMjQOeHsbsKLW7UD0IxKTe6wXDSzUaHnPc8vAW9qr
+# fMw9rylAAuI6faoqp7cufdsrN4F2UxMrz9A8DL7p5jST63WwEVYJ4F3EHV3CBVOb
+# 1CpqWoup2uNsDyzAH6jJQsAX1uU8TelMAE3bdr8tbc+0jU86hWmlh7SGVgCE6qPE
+# q4CEwY4UCcjYPaxlvPX1oi3+UYa/5D1/8vEWd60AwcT3g9A1Qzo0qmG1I0snxuzb
+# bmUulBcGsQl7lqSe7wmB/AZgnuM1ez/r0ME3R1wgNbmck7OHRKfAdGCjfRVfzgZ+
+# zoNUzmkNx9w0TvmCsTymzGO8c1WwciW2gXCUUQw7ZXDDdTi3h68t6Q7mkaUUQH1O
+# HrchPkpN/6j9Ae1PNc+9F28arDSlV1PLowAZfndEdlumoGit2P2tB2oN7D7EnHaA
+# yi6fb7Ln2y5feQ6mJ9kd4ilLZ4K48B584/VHXmAKyKlWh5zESbfLSeXmALfsTDEb
+# aesxOO3pp4hopPGAcfoebBEcpOcCvPoHiLX5UpO027uEwdkkeQ8MLZnY7VWRxFeI
+# sxacmdYeneZ6kD2qfxQLn2KhgheCMIIXfgYKKwYBBAGCNwMDATGCF24wghdqBgkq
+# hkiG9w0BBwKgghdbMIIXVwIBAzEPMA0GCWCGSAFlAwQCAwUAMIGbBgsqhkiG9w0B
+# CRABBKCBiwSBiDCBhQIBAQYJYIZIAYb9bAcBMFEwDQYJYIZIAWUDBAIDBQAEQOKr
+# eYHB0Vo2iYEZSNwHcWbXTNu4RAbQa9JNqvAPcAuW73+AO1Ijjlbp+FcV7MJwmbn2
+# qylDc6Hck1wJ5evACzwCEQCWlUUj5DpfXWOJR0tXg6e8GA8yMDIzMDcxODAzMzgz
+# OVqgghMHMIIGwDCCBKigAwIBAgIQDE1pckuU+jwqSj0pB4A9WjANBgkqhkiG9w0B
+# AQsFADBjMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOzA5
+# BgNVBAMTMkRpZ2lDZXJ0IFRydXN0ZWQgRzQgUlNBNDA5NiBTSEEyNTYgVGltZVN0
+# YW1waW5nIENBMB4XDTIyMDkyMTAwMDAwMFoXDTMzMTEyMTIzNTk1OVowRjELMAkG
+# A1UEBhMCVVMxETAPBgNVBAoTCERpZ2lDZXJ0MSQwIgYDVQQDExtEaWdpQ2VydCBU
+# aW1lc3RhbXAgMjAyMiAtIDIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoIC
+# AQDP7KUmOsap8mu7jcENmtuh6BSFdDMaJqzQHFUeHjZtvJJVDGH0nQl3PRWWCC9r
+# ZKT9BoMW15GSOBwxApb7crGXOlWvM+xhiummKNuQY1y9iVPgOi2Mh0KuJqTku3h4
+# uXoW4VbGwLpkU7sqFudQSLuIaQyIxvG+4C99O7HKU41Agx7ny3JJKB5MgB6FVueF
+# 7fJhvKo6B332q27lZt3iXPUv7Y3UTZWEaOOAy2p50dIQkUYp6z4m8rSMzUy5Zsi7
+# qlA4DeWMlF0ZWr/1e0BubxaompyVR4aFeT4MXmaMGgokvpyq0py2909ueMQoP6Mc
+# D1AGN7oI2TWmtR7aeFgdOej4TJEQln5N4d3CraV++C0bH+wrRhijGfY59/XBT3Eu
+# iQMRoku7mL/6T+R7Nu8GRORV/zbq5Xwx5/PCUsTmFntafqUlc9vAapkhLWPlWfVN
+# L5AfJ7fSqxTlOGaHUQhr+1NDOdBk+lbP4PQK5hRtZHi7mP2Uw3Mh8y/CLiDXgazT
+# 8QfU4b3ZXUtuMZQpi+ZBpGWUwFjl5S4pkKa3YWT62SBsGFFguqaBDwklU/G/O+mr
+# Bw5qBzliGcnWhX8T2Y15z2LF7OF7ucxnEweawXjtxojIsG4yeccLWYONxu71LHx7
+# jstkifGxxLjnU15fVdJ9GSlZA076XepFcxyEftfO4tQ6dwIDAQABo4IBizCCAYcw
+# DgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwFgYDVR0lAQH/BAwwCgYIKwYB
+# BQUHAwgwIAYDVR0gBBkwFzAIBgZngQwBBAIwCwYJYIZIAYb9bAcBMB8GA1UdIwQY
+# MBaAFLoW2W1NhS9zKXaaL3WMaiCPnshvMB0GA1UdDgQWBBRiit7QYfyPMRTtlwvN
+# PSqUFN9SnDBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsMy5kaWdpY2VydC5j
+# b20vRGlnaUNlcnRUcnVzdGVkRzRSU0E0MDk2U0hBMjU2VGltZVN0YW1waW5nQ0Eu
+# Y3JsMIGQBggrBgEFBQcBAQSBgzCBgDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3Au
+# ZGlnaWNlcnQuY29tMFgGCCsGAQUFBzAChkxodHRwOi8vY2FjZXJ0cy5kaWdpY2Vy
+# dC5jb20vRGlnaUNlcnRUcnVzdGVkRzRSU0E0MDk2U0hBMjU2VGltZVN0YW1waW5n
+# Q0EuY3J0MA0GCSqGSIb3DQEBCwUAA4ICAQBVqioa80bzeFc3MPx140/WhSPx/PmV
+# OZsl5vdyipjDd9Rk/BX7NsJJUSx4iGNVCUY5APxp1MqbKfujP8DJAJsTHbCYidx4
+# 8s18hc1Tna9i4mFmoxQqRYdKmEIrUPwbtZ4IMAn65C3XCYl5+QnmiM59G7hqopvB
+# U2AJ6KO4ndetHxy47JhB8PYOgPvk/9+dEKfrALpfSo8aOlK06r8JSRU1NlmaD1TS
+# sht/fl4JrXZUinRtytIFZyt26/+YsiaVOBmIRBTlClmia+ciPkQh0j8cwJvtfEiy
+# 2JIMkU88ZpSvXQJT657inuTTH4YBZJwAwuladHUNPeF5iL8cAZfJGSOA1zZaX5YW
+# sWMMxkZAO85dNdRZPkOaGK7DycvD+5sTX2q1x+DzBcNZ3ydiK95ByVO5/zQQZ/Ym
+# Mph7/lxClIGUgp2sCovGSxVK05iQRWAzgOAj3vgDpPZFR+XOuANCR+hBNnF3rf2i
+# 6Jd0Ti7aHh2MWsgemtXC8MYiqE+bvdgcmlHEL5r2X6cnl7qWLoVXwGDneFZ/au/C
+# lZpLEQLIgpzJGgV8unG1TnqZbPTontRamMifv427GFxD9dAq6OJi7ngE273R+1sK
+# qHB+8JeEeOMIA11HLGOoJTiXAdI/Otrl5fbmm9x+LMz/F0xNAKLY1gEOuIvu5uBy
+# VYksJxlh9ncBjDCCBq4wggSWoAMCAQICEAc2N7ckVHzYR6z9KGYqXlswDQYJKoZI
+# hvcNAQELBQAwYjELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZ
+# MBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEhMB8GA1UEAxMYRGlnaUNlcnQgVHJ1
+# c3RlZCBSb290IEc0MB4XDTIyMDMyMzAwMDAwMFoXDTM3MDMyMjIzNTk1OVowYzEL
+# MAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMTswOQYDVQQDEzJE
+# aWdpQ2VydCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hBMjU2IFRpbWVTdGFtcGluZyBD
+# QTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMaGNQZJs8E9cklRVccl
+# A8TykTepl1Gh1tKD0Z5Mom2gsMyD+Vr2EaFEFUJfpIjzaPp985yJC3+dH54PMx9Q
+# Ewsmc5Zt+FeoAn39Q7SE2hHxc7Gz7iuAhIoiGN/r2j3EF3+rGSs+QtxnjupRPfDW
+# VtTnKC3r07G1decfBmWNlCnT2exp39mQh0YAe9tEQYncfGpXevA3eZ9drMvohGS0
+# UvJ2R/dhgxndX7RUCyFobjchu0CsX7LeSn3O9TkSZ+8OpWNs5KbFHc02DVzV5huo
+# wWR0QKfAcsW6Th+xtVhNef7Xj3OTrCw54qVI1vCwMROpVymWJy71h6aPTnYVVSZw
+# mCZ/oBpHIEPjQ2OAe3VuJyWQmDo4EbP29p7mO1vsgd4iFNmCKseSv6De4z6ic/rn
+# H1pslPJSlRErWHRAKKtzQ87fSqEcazjFKfPKqpZzQmiftkaznTqj1QPgv/CiPMpC
+# 3BhIfxQ0z9JMq++bPf4OuGQq+nUoJEHtQr8FnGZJUlD0UfM2SU2LINIsVzV5K6jz
+# RWC8I41Y99xh3pP+OcD5sjClTNfpmEpYPtMDiP6zj9NeS3YSUZPJjAw7W4oiqMEm
+# CPkUEBIDfV8ju2TjY+Cm4T72wnSyPx4JduyrXUZ14mCjWAkBKAAOhFTuzuldyF4w
+# Er1GnrXTdrnSDmuZDNIztM2xAgMBAAGjggFdMIIBWTASBgNVHRMBAf8ECDAGAQH/
+# AgEAMB0GA1UdDgQWBBS6FtltTYUvcyl2mi91jGogj57IbzAfBgNVHSMEGDAWgBTs
+# 1+OC0nFdZEzfLmc/57qYrhwPTzAOBgNVHQ8BAf8EBAMCAYYwEwYDVR0lBAwwCgYI
+# KwYBBQUHAwgwdwYIKwYBBQUHAQEEazBpMCQGCCsGAQUFBzABhhhodHRwOi8vb2Nz
+# cC5kaWdpY2VydC5jb20wQQYIKwYBBQUHMAKGNWh0dHA6Ly9jYWNlcnRzLmRpZ2lj
+# ZXJ0LmNvbS9EaWdpQ2VydFRydXN0ZWRSb290RzQuY3J0MEMGA1UdHwQ8MDowOKA2
+# oDSGMmh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFRydXN0ZWRSb290
+# RzQuY3JsMCAGA1UdIAQZMBcwCAYGZ4EMAQQCMAsGCWCGSAGG/WwHATANBgkqhkiG
+# 9w0BAQsFAAOCAgEAfVmOwJO2b5ipRCIBfmbW2CFC4bAYLhBNE88wU86/GPvHUF3i
+# Syn7cIoNqilp/GnBzx0H6T5gyNgL5Vxb122H+oQgJTQxZ822EpZvxFBMYh0MCIKo
+# Fr2pVs8Vc40BIiXOlWk/R3f7cnQU1/+rT4osequFzUNf7WC2qk+RZp4snuCKrOX9
+# jLxkJodskr2dfNBwCnzvqLx1T7pa96kQsl3p/yhUifDVinF2ZdrM8HKjI/rAJ4JE
+# rpknG6skHibBt94q6/aesXmZgaNWhqsKRcnfxI2g55j7+6adcq/Ex8HBanHZxhOA
+# CcS2n82HhyS7T6NJuXdmkfFynOlLAlKnN36TU6w7HQhJD5TNOXrd/yVjmScsPT9r
+# p/Fmw0HNT7ZAmyEhQNC3EyTN3B14OuSereU0cZLXJmvkOHOrpgFPvT87eK1MrfvE
+# lXvtCl8zOYdBeHo46Zzh3SP9HSjTx/no8Zhf+yvYfvJGnXUsHicsJttvFXseGYs2
+# uJPU5vIXmVnKcPA3v5gA3yAWTyf7YGcWoWa63VXAOimGsJigK+2VQbc61RWYMbRi
+# CQ8KvYHZE/6/pNHzV9m8BPqC3jLfBInwAM1dwvnQI38AC+R2AibZ8GV2QqYphwlH
+# K+Z/GqSFD/yYlvZVVCsfgPrA8g4r5db7qS9EFUrnEw4d2zc4GqEr9u3WfPwwggWN
+# MIIEdaADAgECAhAOmxiO+dAt5+/bUOIIQBhaMA0GCSqGSIb3DQEBDAUAMGUxCzAJ
+# BgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5k
+# aWdpY2VydC5jb20xJDAiBgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBD
+# QTAeFw0yMjA4MDEwMDAwMDBaFw0zMTExMDkyMzU5NTlaMGIxCzAJBgNVBAYTAlVT
+# MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j
+# b20xITAfBgNVBAMTGERpZ2lDZXJ0IFRydXN0ZWQgUm9vdCBHNDCCAiIwDQYJKoZI
+# hvcNAQEBBQADggIPADCCAgoCggIBAL/mkHNo3rvkXUo8MCIwaTPswqclLskhPfKK
+# 2FnC4SmnPVirdprNrnsbhA3EMB/zG6Q4FutWxpdtHauyefLKEdLkX9YFPFIPUh/G
+# nhWlfr6fqVcWWVVyr2iTcMKyunWZanMylNEQRBAu34LzB4TmdDttceItDBvuINXJ
+# IB1jKS3O7F5OyJP4IWGbNOsFxl7sWxq868nPzaw0QF+xembud8hIqGZXV59UWI4M
+# K7dPpzDZVu7Ke13jrclPXuU15zHL2pNe3I6PgNq2kZhAkHnDeMe2scS1ahg4AxCN
+# 2NQ3pC4FfYj1gj4QkXCrVYJBMtfbBHMqbpEBfCFM1LyuGwN1XXhm2ToxRJozQL8I
+# 11pJpMLmqaBn3aQnvKFPObURWBf3JFxGj2T3wWmIdph2PVldQnaHiZdpekjw4KIS
+# G2aadMreSx7nDmOu5tTvkpI6nj3cAORFJYm2mkQZK37AlLTSYW3rM9nF30sEAMx9
+# HJXDj/chsrIRt7t/8tWMcCxBYKqxYxhElRp2Yn72gLD76GSmM9GJB+G9t+ZDpBi4
+# pncB4Q+UDCEdslQpJYls5Q5SUUd0viastkF13nqsX40/ybzTQRESW+UQUOsxxcpy
+# FiIJ33xMdT9j7CFfxCBRa2+xq4aLT8LWRV+dIPyhHsXAj6KxfgommfXkaS+YHS31
+# 2amyHeUbAgMBAAGjggE6MIIBNjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTs
+# 1+OC0nFdZEzfLmc/57qYrhwPTzAfBgNVHSMEGDAWgBRF66Kv9JLLgjEtUYunpyGd
+# 823IDzAOBgNVHQ8BAf8EBAMCAYYweQYIKwYBBQUHAQEEbTBrMCQGCCsGAQUFBzAB
+# hhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYBBQUHMAKGN2h0dHA6Ly9j
+# YWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RDQS5jcnQw
+# RQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lD
+# ZXJ0QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZI
+# hvcNAQEMBQADggEBAHCgv0NcVec4X6CjdBs9thbX979XB72arKGHLOyFXqkauyL4
+# hxppVCLtpIh3bb0aFPQTSnovLbc47/T/gLn4offyct4kvFIDyE7QKt76LVbP+fT3
+# rDB6mouyXtTP0UNEm0Mh65ZyoUi0mcudT6cGAxN3J0TU53/oWajwvy8LpunyNDzs
+# 9wPHh6jSTEAZNUZqaVSwuKFWjuyk1T3osdz9HNj0d1pcVIxv76FQPfx2CWiEn2/K
+# 2yCNNWAcAgPLILCsWKAOQGPFmCLBsln1VWvPJ6tsds5vIy30fnFqI2si/xK4VC0n
+# ftg62fC2h5b9W9FcrBjDTZ9ztwGpn1eqXijiuZQxggOWMIIDkgIBATB3MGMxCzAJ
+# BgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE7MDkGA1UEAxMyRGln
+# aUNlcnQgVHJ1c3RlZCBHNCBSU0E0MDk2IFNIQTI1NiBUaW1lU3RhbXBpbmcgQ0EC
+# EAxNaXJLlPo8Kko9KQeAPVowDQYJYIZIAWUDBAIDBQCggfEwGgYJKoZIhvcNAQkD
+# MQ0GCyqGSIb3DQEJEAEEMBwGCSqGSIb3DQEJBTEPFw0yMzA3MTgwMzM4MzlaMCsG
+# CyqGSIb3DQEJEAIMMRwwGjAYMBYEFPOHIk2GM4KSNamUvL2Plun+HHxzMDcGCyqG
+# SIb3DQEJEAIvMSgwJjAkMCIEIMf04b4yKIkgq+ImOr4axPxP5ngcLWTQTIB1V6Aj
+# tbb6ME8GCSqGSIb3DQEJBDFCBEBvshFrY5erbl/PmLPbfOfYHuEyzc92X8Fbbw+g
+# rKW1dH2ozROZh0madMDzq3X8R0MpsLjuUfoSp8uipGZtpXLOMA0GCSqGSIb3DQEB
+# AQUABIICAKo3GMT5rLLGFx+dO6qP4RloO2WYLNoneXJJt5bnOLXtOxfsH/Tm+q/R
+# F8cs2ix0UgwvUoCXVsfcz+8AdjZIFykq4SbbL9nkpDEH13lylH0J5pGcfPFFa0Kf
+# 4NOe46/DIFzU5GR0IAyDKy8pvvmaPi3hRMaj9LEvwvRDQ2kMSolTSqXws4iva3A5
+# D+XPoYT9gPlucF99g33dskCZMjxdUUzgmElRVhSY5vnVqIsah5RN/p8SVUCdzXDH
+# PC97xA3SVu4BsNpPwJZ2Y1aCM1NOMIXlLDM/bif/hvmhIgVHxTdNUUDyZIZq9d3Q
+# 3qesvg6nrzaI70YaO+OsZf3eEslrccAVvT90XebWt79nVg3yXc2nDgNJa6lZUCMe
+# UswB+efsZLzcYKZtk+4oEFtCkH3pYZowhsMrK3TRFli0df++B3ZT99FmcOoPKPqb
+# S5E2D0O3sbscrrmFeSa/ZtEab5NUIZl3rKgBRCAsKJRk1pnc2C1OuYu/LuZkrblB
+# 4KzC/cZBm59nuXc10ec7PHIo2l8v0XV1ohBgs+rV2rBpBZEbYIf23frGpkHAQm/t
+# xGX1eitROVO3eGc+3vIAuPXbjVnnImfH6KH2Zn9RpdDFaSKsvaPgcwo+7/NVV+wv
+# Zm0pztcouOU3aKOvDcvDGq18BvCHUVwniaypMtBH5BGmKIPq9nHq
 # SIG # End signature block
