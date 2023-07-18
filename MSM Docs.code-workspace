@@ -27,7 +27,14 @@
 			".github": true,
 			".gitignore": true,
 			"MSM Docs.code-workspace": true
-		}
+		},
+		"powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+		"powershell.codeFormatting.autoCorrectAliases": true,
+		"powershell.codeFormatting.preset": "OTBS",
+		"powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+		"powershell.codeFormatting.useConstantStrings": true,
+		"powershell.codeFormatting.useCorrectCasing": true,
+		"powershell.codeFormatting.whitespaceBetweenParameters": true
 	},
 	"extensions": {
 		"recommendations": [
