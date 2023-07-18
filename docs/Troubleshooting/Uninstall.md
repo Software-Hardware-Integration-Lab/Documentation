@@ -4,13 +4,11 @@ Removing MSM from an Azure tenant is a two step process:
 Removing the hosting environment and removing the configurations put in place by the orchestration software.
 
 !!! Danger "Data Loss Warning!!!"
-    If you uninstall the architecture, you will clear out any managed objects and those configurations, this procedure should only be followed if a Moot employee tells you to do so.
-
+    If you uninstall the architecture, **you will clear out any managed objects and those configurations**, this procedure should only be followed if a Moot employee tells you to do so.  
     All data is stored in the architecture itself in the form of Intune Scope Tag, or Entra ID Security Group descriptions.
 
 !!! note
-    The Server software doesn't store any data and should be safe to reinstall at the same or a newer version.
-
+    The Server software doesn't store any data (stateless) and should be safe to reinstall at the same or a newer version.  
     Frequently, all that is needed to be done if troubleshooting an existing fresh installation is to uninstall the architecture and run the infrastructure deployment process again.
 
 ## Process
