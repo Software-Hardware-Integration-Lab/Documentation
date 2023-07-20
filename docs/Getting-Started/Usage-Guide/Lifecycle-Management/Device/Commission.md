@@ -29,4 +29,4 @@ This guide will walk the security admin through the process of commissioning new
 ## See Also
 
 - [Hardware Selection](/Reference/Architecture/Hardware-Selection/)
-- Device Onboarding Workflow Reference - Coming Soon!
+- [Device Onboarding Workflow Reference](/Reference/Architecture/Diagrams/Device-Commission/)
