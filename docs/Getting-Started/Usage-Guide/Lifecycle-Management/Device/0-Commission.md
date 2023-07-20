@@ -1,7 +1,4 @@
----
-title: Commission
----
-# Overview
+# Commission
 
 The lifecycle management system can bring devices into and out of management following a security best practices onboarding and offboarding depending on the security class selected.
 
