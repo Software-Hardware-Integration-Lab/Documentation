@@ -6,8 +6,8 @@
 
 ## Lifecycle Management
 
-- Commission a Device
-- Decommission a Device
+- [Commission a Device](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/Commission/)
+- [Decommission a Device](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/Decommission/)
 - Assign a Privileged Device
 - Unassign a Privileged Device
 
