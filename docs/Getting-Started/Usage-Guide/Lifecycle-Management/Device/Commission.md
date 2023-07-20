@@ -24,7 +24,12 @@ This guide will walk the security admin through the process of commissioning new
 ![Screenshot of the unmanaged devices picker with a single device selected.](/assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
 ![Screenshot of the unmanaged devices picker with a single device selected.](/assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
 
-4\. Press the `Select` button at the bottom of the selection drawer.
+!!! warning "Privileged Device Commissioning"
+    When a `privileged` device is commissioned, a wipe/reset command is issued to the selected device set if they are present in Intune.  
+    This is to preserve clean source as much as possible on potentially unclean hardware.  
+    Other security classes are unaffected.
+
+4\. Press the `Select` button at the bottom of the selection drawer to start the commissioning process.
 
 ## See Also
 
