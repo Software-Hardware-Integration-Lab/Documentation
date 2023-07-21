@@ -7,7 +7,7 @@ This guide will walk the security admin through the process of commissioning new
 !!! note "Privileged Hardware"
     For requirements and best practices on privileged hardware, please see the [Hardware Selection](/Reference/Architecture/Hardware-Selection/) documentation.
 
-## Commissioning
+## Process
 
 1\. Select your security class from the top bar.
 

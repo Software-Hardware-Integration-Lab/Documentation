@@ -1,13 +1,10 @@
----
-title: Decommission
----
-# Overview
+# Decommission
 
 The lifecycle management system can bring devices into and out of management following a security best practices onboarding and offboarding depending on the security class selected.
 
 This guide will walk the security admin through the process of commissioning new managed devices.
 
-## Decommissioning
+## Process
 
 1\. Select your security class from the top bar.
 
