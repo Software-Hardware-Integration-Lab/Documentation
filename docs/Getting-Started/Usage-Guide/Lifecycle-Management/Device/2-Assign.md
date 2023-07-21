@@ -19,7 +19,7 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 ![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](/assets/Images/Screenshots/Select-User-to-Assign-Light.png#only-light){ loading=lazy width="300" }
 ![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](/assets/Images/Screenshots/Select-User-to-Assign-Dark.png#only-dark){ loading=lazy width="300" }
 
-5\. Press the Select button at the bottom of the selection drawer to start the assignment process.
+5\. Press the Select button at the bottom of the selection panel to start the assignment process.
 
 !!! note
     Currently when assigning, the process replaces any existing assignment(s).

@@ -26,7 +26,7 @@ This guide will walk the security admin through the process of commissioning new
     This is to preserve clean source as much as possible on potentially unclean hardware.  
     Other security classes are unaffected.
 
-4\. Press the `Select` button at the bottom of the selection drawer to start the commissioning process.
+4\. Press the `Select` button at the bottom of the selection panel to start the commissioning process.
 
 ## See Also
 
