@@ -21,8 +21,8 @@ Lifecycle management is where you will spend most of your time. Performing actio
 
 ### User
 
-- Commission a user
-- Decommission a user
+- [Commission a user](/Getting-Started/Usage-Guide/Lifecycle-Management/User/Commission/)
+- [Decommission a user](/Getting-Started/Usage-Guide/Lifecycle-Management/User/Decommission/)
 
 ---
 
