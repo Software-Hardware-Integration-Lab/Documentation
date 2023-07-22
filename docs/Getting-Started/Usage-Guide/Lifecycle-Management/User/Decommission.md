@@ -25,3 +25,6 @@ When removing privileged user(s) from management, the privileged account is dele
 
 5\. Press the `Delete` button to start the automated management removal process.
 
+## See Also
+
+- User Offboarding Workflow Reference - Coming Soon!

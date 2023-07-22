@@ -24,3 +24,7 @@ For privileged users, it creates a new cloud only user account that is correlate
 
 ![Screenshot of the temporary credential dialog for the new privileged user "Michal.Schmidt@example.com", showing the new user's new User Principal Name and temporary (expired) password.](/assets/Images/Screenshots/Temporary-Credential-Dialog-Light.png#only-light){ loading=lazy }
 ![Screenshot of the temporary credential dialog for the new privileged user "Michal.Schmidt@example.com", showing the new user's new User Principal Name and temporary (expired) password.](/assets/Images/Screenshots/Temporary-Credential-Dialog-Dark.png#only-dark){ loading=lazy }
+
+## See Also
+
+- User Onboarding Workflow Reference - Coming Soon!
