@@ -95,6 +95,16 @@ If the scope tag does not exist, it will be created automatically.
 
 ---
 
+## MSM_Subscription_ID
+
+- Mandatory: `false`
+- Expected string format: `String`
+- Description:
+This value needs to be provided if MSM is not hosted on an Azure Web App (App Service). This value is used to tell the Core Infrastructure, Lifecycle Management, and Marketplace engines where to operate from.  
+This is the base subscription of the MSM orchestration platform and will be used to deploy and manage solutions like Sentinel and Marketplace offerings that are hosted in azure such as Azure Virtual Desktop.
+
+---
+
 ## MSM_Client_GUID
 
 - Mandatory: `true`, unless using a `Managed Identity`
