@@ -1,6 +1,28 @@
+---
+hide:
+    - toc
+---
 # Device - Commission
 
 The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [commissioned](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/0-Commission/).
+
+---
+
+``` mermaid
+flowchart TD
+
+Start[/"Start"\]
+Process["Process"]
+Conditional(["Conditional Check"])
+Stop{{"Stop Execution"}}
+
+start1[ ] --> | Execution Flow, Carries Data | end1[ ]
+style start1 height:0px;
+style end1 height:0px;
+start2[ ] -.-> | Decision, Caries data | end2[ ]
+style start2 height:0px;
+style end2 height:0px;
+```
 
 ---
 
@@ -28,31 +50,31 @@ PrivCaModelCheck(["Check if the Requested Device Model is in the Conditional Acc
 PrivHwOemEnforcement["Add Device OEM to Entra ID - CA Hardware Enforcement Policy"]
 PrivHwModelEnforcement["Add Device Model to Entra ID - CA Hardware Enforcement Policy"]
 ExistingEnd{{"End\n(Device already managed)"}}
-SuccessfulEnd{{"End\n(Successful Execution)"}}
+SuccessEnd{{"End\n(Successful Execution)"}}
 
 Start --> | Device ID, Type | InputValidation
-InputValidation --> | Valid | UnmanagedDeviceRequest
-InputValidation --> | Invalid | FailValidation
+InputValidation -.-> | Valid | UnmanagedDeviceRequest
+InputValidation -.-> | Invalid | FailValidation
 UnmanagedDeviceRequest --> | Unmanaged Device Status | UnmanagedCheck
-UnmanagedCheck --> | Yes | ExistingEnd
-UnmanagedCheck --> | No | InitialTypeCheck
-InitialTypeCheck --> | Privileged | PrivWipe
-InitialTypeCheck --> | Other | DeviceUniqueGroup
+UnmanagedCheck -.-> | Yes | ExistingEnd
+UnmanagedCheck -.-> | No | InitialTypeCheck
+InitialTypeCheck -.-> | Privileged | PrivWipe
+InitialTypeCheck -.-> | Other | DeviceUniqueGroup
 PrivWipe --> PrivLogin
 PrivLogin --> | New Settings Catalog Policy Object | PrivGroup
 PrivGroup --> | New Policy Template Object | PrivCaOemCheck
-PrivCaOemCheck --> | No | PrivHwOemEnforcement
+PrivCaOemCheck -.-> | No | PrivHwOemEnforcement
 PrivHwOemEnforcement --> PrivCaModelCheck
-PrivCaOemCheck --> | Yes | PrivCaModelCheck
-PrivCaModelCheck --> | No | PrivHwModelEnforcement
-PrivCaModelCheck --> | Yes | DeviceUniqueGroup
+PrivCaOemCheck -.-> | Yes | PrivCaModelCheck
+PrivCaModelCheck -.-> | No | PrivHwModelEnforcement
+PrivCaModelCheck -.-> | Yes | DeviceUniqueGroup
 PrivHwModelEnforcement --> DeviceUniqueGroup
 DeviceUniqueGroup --> | New Group Object | PrivTypeCheck
-PrivTypeCheck --> | Yes | PrivConfigAssign
-PrivTypeCheck --> | No | AddDevToDevGrp
+PrivTypeCheck -.-> | Yes | PrivConfigAssign
+PrivTypeCheck -.-> | No | AddDevToDevGrp
 PrivConfigAssign --> AddDevToDevGrp
 AddDevToDevGrp --> DevToRootGrp
 DevToRootGrp --> AutopilotSyncCmd
 AutopilotSyncCmd --> AddToAdminUnit
-AddToAdminUnit --> SuccessfulEnd
+AddToAdminUnit --> SuccessEnd
 ```
