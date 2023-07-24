@@ -3,10 +3,10 @@
 Environmental variables are used to configure core behaviors/configurations of the server software.
 
 The configurations are exposed as environmental variables rather than config files or registry keys to provide maximum support for wherever the server is hosted.
-Config files don't work well in serverless environments where state should not change, and the registry is only available on Windows.
+Config files don't work well in serverless environments where the state should not change, and the registry is only available on Windows.
 Serverless, Windows, and Linux all share a common option: Environmental Variables. This works equally well across all of them.
 
-Below is a list of all environmental variable configurations that the server is able to use. There are data format examples and descriptions so that you are not going in blind to what a config can look like and does.
+Below is a list of all environmental variable configurations that the server can use. There are data format examples and descriptions so that you are not going blind to what a config can look like and does.
 
 The title of the section is the name of the environmental variable.
 
@@ -22,7 +22,7 @@ This will set a prefix to appear before all the names of objects created.
 - Example: <code>eLabs - </code>, results in an example conditional access policy name of `eLabs - PSM - Authentication Methods`.
 
 !!! warning "Max Length"
-    The name prefix and suffix both cumulatively can't be more than 13 characters, including whitespace.
+    The name prefix and suffix both cumulatively can't be more than thirteen characters, including whitespace.
 
 ---
 
@@ -35,7 +35,7 @@ This will set a suffix to appear after all the names of objects created.
 - Example: `- eLabs`, results in an example conditional access policy name of `PSM - Authentication Methods - eLabs`.
 
 !!! warning "Max Length"
-    The name prefix and suffix both cumulatively can't be more than 13 characters, including whitespace.
+    The name prefix and suffix both cumulatively can't be more than thirteen characters, including whitespace.
 
 ---
 
@@ -44,7 +44,7 @@ This will set a suffix to appear after all the names of objects created.
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
-This setting configures the domain name used for new users. If not specified, the newly created user will share the same domain as the user it is based off of. You do not need to include the `@` symbol. Only the domain name is necessary.
+This setting configures the domain name used for newly created users. If not specified, the newly created user will share the same domain as the user it is based off. You do not need to include the `@` symbol. Only the domain name is necessary.
 - Example: `example.com`
 - Example: `lab.mootinc.com`
 
@@ -60,7 +60,7 @@ This setting puts a set of text before the username of a newly created user. The
 - Example: `msm_`
 
 !!! note
-    If you would like no prefix, set the environmental variable but leave it's value empty.
+    If you would like no prefix, set the environmental variable but leave its value empty.
 
 ---
 
@@ -72,7 +72,7 @@ This setting puts a set of text before the username of a newly created user. The
 - Description:
 This setting allows the host to specify if the server will operate in headless mode (API only).
 Technically, this setting toggles the server to host up the static UI folder or not. If the toggle is set to `true` the server will ignore the UI folder. If the value is anything but `true` the UI folder will be served as normal. The default behavior is to serve the UI folder.
-It is generally more secure to run without a UI as it reduces surface area for attack, but this will dramatically reduce the user experience and this project's mission is to improve user experience.
+It is more secure to run without a UI as it reduces surface area for attack, but this will dramatically reduce the user experience and this project's mission is to improve user experience.
 - Example:
 `true`
 
