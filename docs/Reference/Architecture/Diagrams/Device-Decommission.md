@@ -5,7 +5,7 @@ The lifecycle management engine is responsible for a variety of tasks. Below is 
 ---
 
 ``` mermaid
-graph TD
+flowchart TD
 
 Start[/"Start"\]
 InputValidation(["Validate Input and State"])
