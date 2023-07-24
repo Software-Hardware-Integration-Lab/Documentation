@@ -1,6 +1,6 @@
-# Device Decommission
+# Device - Decommission
 
-Below is the flowchart of the logical process that is completed when a device is decommissioned.
+The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [decommissioned](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/1-Decommission/).
 
 ---
 
