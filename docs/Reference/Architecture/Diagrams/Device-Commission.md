@@ -5,30 +5,32 @@ Below is the flowchart of the logical process that is completed when a device is
 ---
 
 ``` mermaid
-graph TD
+flowchart TD
 
-InputValidation[Validate Input and State]
-FailValidation["End\n(Stopped for security)"]
-UnmanagedDeviceRequest[Request Unmanaged Device State]
-UnmanagedCheck[Check if requested device is already an existing managed device]
-InitialTypeCheck[Check Requested Device Type]
-DeviceUniqueGroup[Create Device Unique Group]
-PrivTypeCheck[Check if Requested Device is Privileged]
-PrivConfigAssign[Assign Configurations]
-AddDevToDevGrp[Add Device to Unique Device Group]
-DevToRootGrp[Add Unique Device Group to Root Group]
+Start[/"Start"\]
+InputValidation(["Validate Input and State"])
+FailValidation{{"End\n(Stopped for security)"}}
+UnmanagedDeviceRequest["Request Unmanaged Device State"]
+UnmanagedCheck(["Check if requested device is already an existing managed device"])
+InitialTypeCheck(["Device Type Check"])
+DeviceUniqueGroup["Create Device Unique Group"]
+PrivTypeCheck(["Check if Requested Device is Privileged"])
+PrivConfigAssign["Assign Configurations"]
+AddDevToDevGrp["Add Device to Unique Device Group"]
+DevToRootGrp["Add Unique Device Group to Root Group"]
 AutopilotSyncCmd["Run Autopilot Sync (if possible)"]
-AddToAdminUnit[Add Device to Admin Unit]
-PrivWipe[Wipe Device]
-PrivLogin[Create Login Enforcement Policy]
-PrivGroup[Create Local Group Membership Enforcement Policy]
-PrivCaOemCheck[Check if the requested OEM is in the Conditional Access Hardware Allowed List]
-PrivCaModelCheck[Check if the Requested Device Model is in the Conditional Access Hardware Allowed List]
-PrivHwOemEnforcement[Add Device OEM to Entra ID - CA Hardware Enforcement Policy]
-PrivHwModelEnforcement[Add Device Model to Entra ID - CA Hardware Enforcement Policy]
-ExistingEnd["End\n(Device already managed)"]
-SuccessfulEnd["End\n(Successful Execution)"]
+AddToAdminUnit["Add Device to Admin Unit"]
+PrivWipe["Wipe Device"]
+PrivLogin["Create Login Enforcement Policy"]
+PrivGroup["Create Local Group Membership Enforcement Policy"]
+PrivCaOemCheck(["Check if the requested OEM is in the Conditional Access Hardware Allowed List"])
+PrivCaModelCheck(["Check if the Requested Device Model is in the Conditional Access Hardware Allowed List"])
+PrivHwOemEnforcement["Add Device OEM to Entra ID - CA Hardware Enforcement Policy"]
+PrivHwModelEnforcement["Add Device Model to Entra ID - CA Hardware Enforcement Policy"]
+ExistingEnd{{"End\n(Device already managed)"}}
+SuccessfulEnd{{"End\n(Successful Execution)"}}
 
+Start --> | Device ID, Type | InputValidation
 InputValidation --> | Valid | UnmanagedDeviceRequest
 InputValidation --> | Invalid | FailValidation
 UnmanagedDeviceRequest --> | Unmanaged Device Status | UnmanagedCheck
