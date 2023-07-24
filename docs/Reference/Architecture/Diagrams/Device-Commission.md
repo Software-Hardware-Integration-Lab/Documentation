@@ -8,6 +8,8 @@ The lifecycle management engine is responsible for a variety of tasks. Below is 
 
 ---
 
+## Legend
+
 ``` mermaid
 flowchart TD
 
@@ -25,6 +27,8 @@ style end2 height:0px;
 ```
 
 ---
+
+## Process
 
 ``` mermaid
 flowchart TD
