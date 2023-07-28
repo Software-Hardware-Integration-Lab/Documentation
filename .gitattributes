@@ -1,0 +1,2 @@
+# Preserve the end of line sequence on the powershell files so that the code sign stays intact.
+*.ps1 eol=crlf
