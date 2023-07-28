@@ -27,17 +27,14 @@ MSM is an orchestration tool in the larger security landscape. It does not bring
 
 ## Prerequisites
 
-To use MSM, you must have the following:
-
-- Microsoft `E5`, `A5`, `G5`, `F3` + `F5 Security & Compliance` or equivalent (known collectively as `M5` for ease of writing/communication) licensing for privileged and specialized security levels
-- Microsoft `M3` licensing level as a minimum for enterprise security class
+Check out this page for more details: [Getting Started - Prerequisites](/Getting-Started/Prerequisites)
 
 ## Recommended Environment
 
 While not mandatory, it is highly recommended to use MSM in the following environment:
 
 - An `Azure Subscription` for hosting the application, as it is a security best practice to run the app in Azure
-- All objects to be managed by MSM (devices, users, apps, etc.) synced/connected to Azure AD, the primary identity provider used by MSM
+- All objects to be managed by MSM (devices, users, apps, etc.) synced/connected to Entra ID, the primary identity provider used by MSM
 
 By following these recommendations, you can speed up the adoption process for MSM.
 

@@ -6,16 +6,9 @@ Once this is deployed, the configurations can be customized and the lifecycle ma
 
 After deployment, the only parts of the core infrastructure that can't be touched are the `security groups`, `Intune scope tags` and `Entra ID Administrative Units`. All other items can be modified, including the device configurations, autopilot profiles and conditional access.
 
----
-
-## Prerequisites
-
-To deploy the core infrastructure, you have to make sure that the pre-requisites are met:
-
-- [X] E5/A5/G5/F3 + F5 Security & Compliance [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant.
-- [X] Defender for Endpoint has had its [workspace created](../MDE-Enable).
-- [X] Security Defaults [are shut off](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) in AAD.
-- [X] Certificate Authentication is [disabled in the AAD authentication methods](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant).
+!!! note "Prerequisites Check"
+    Don't forget to make sure you meet the prerequisites as listed here:
+    [Getting Started - Prerequisites](/Getting-Started/Prerequisites)
 
 ---
 
