@@ -71,7 +71,7 @@ This specific configuring is not for authenticating the server, but for authenti
 - Mandatory: `true`, unless using a `Managed Identity`
 - Expected string format: `GUID`, no braces
 - Description:
-The Client GUID is the Application (client) ID of the application registration in Azure AD.
+The Client GUID is the Application (client) ID of the application registration in Entra ID.
 - Example:
 `123e4567-e89b-12d3-a456-426614174000`
 
@@ -235,7 +235,7 @@ This setting configures the domain name used for newly created users. If not spe
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
-This setting puts a set of text before the username of a newly created user. The default setting is `priv-` but this can be set to anything allowed by [Azure AD's user principal name property](<https://learn.microsoft.com/en-us/microsoft-365/enterprise/prepare-for-directory-synchronization?view=o365-worldwide#2-directory-object-and-attribute-preparation>).
+This setting puts a set of text before the username of a newly created user. The default setting is `priv-` but this can be set to anything allowed by [Entra ID's user principal name property](<https://learn.microsoft.com/en-us/microsoft-365/enterprise/prepare-for-directory-synchronization?view=o365-worldwide#2-directory-object-and-attribute-preparation>).
 - Example: `red-`
 - Example: `msm_`
 

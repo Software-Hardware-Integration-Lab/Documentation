@@ -12,7 +12,7 @@ The lifecycle management system gets triggered when a command is executed from t
 
 ### Devices
 
-The MSM app manages two types of devices: privileged and enterprise. Privileged class managed devices can only be selected from a list of autopilot-enabled devices. Enterprise devices can be any device in Azure AD. For privileged devices, we recommend using devices that have never been turned on before and are ideally still in their packages. Also, for privileged devices, we only recommend Microsoft Surface or Lenovo devices. It is possible to use other devices, but we have not tested them and do not plan on supporting others. For privileged devices, we only recommend the laptop or slate form factor for security reasons.
+The MSM app manages two types of devices: privileged and enterprise. Privileged class managed devices can only be selected from a list of autopilot-enabled devices. Enterprise devices can be any device in Entra ID. For privileged devices, we recommend using devices that have never been turned on before and are ideally still in their packages. Also, for privileged devices, we only recommend Microsoft Surface or Lenovo devices. It is possible to use other devices, but we have not tested them and do not plan on supporting others. For privileged devices, we only recommend the laptop or slate form factor for security reasons.
 
 Lifecycle management operations for devices include commission and decommission for all devices, assign user for privileged devices, and other specific operations depending on the device's security class.
 

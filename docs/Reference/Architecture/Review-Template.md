@@ -148,7 +148,7 @@ Identity providers are critical for centralizing and managing user access for en
 
 - Are any systems integrated not integrated with a central IdP ({--Yes--}, {++No++}):
     - What is not integrated (DB User, local user account on computer):
-- What IdP is used ({++Azure AD++}, {++Google Workspace++}, Okta, LastPass, CyberArk, etc.):
+- What IdP is used ({++Entra ID++}, {++Google Workspace++}, Okta, LastPass, CyberArk, etc.):
 - Is credential partitioning implemented ({++Yes++}, {--No--}):
 - Is zero persistent admin, also known as JIT implemented ({++Yes++}, {--No--}):
 - Is least privilege followed for **ALL** permissions assignments ({++Yes++}, {--No--}):

@@ -4,7 +4,7 @@ You have to meet the prerequisites before being able to deploy the core infrastr
 The core infrastructure is where the main configurations reside for the MSM product.
 Once this is deployed, the configurations can be customized and the lifecycle management system can be used.
 
-After deployment, the only parts of the core infrastructure that can't be touched are the `security groups`, `Intune scope tags` and `AAD Administrative Units`. All other items can be modified, including the device configurations, autopilot profiles and conditional access.
+After deployment, the only parts of the core infrastructure that can't be touched are the `security groups`, `Intune scope tags` and `Entra ID Administrative Units`. All other items can be modified, including the device configurations, autopilot profiles and conditional access.
 
 ---
 

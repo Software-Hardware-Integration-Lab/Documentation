@@ -40,7 +40,7 @@ Technical details on the properties/values that can be set on the privileged sco
 The Object ID (GUID) of the Administrative Unit that contains all of the privileged objects.
 
 **Description:**
-This is an AAD Restricted Admin Unit that contains a list of security groups, devices, apps and users.
+This is an Entra ID Restricted Admin Unit that contains a list of security groups, devices, apps and users.
 The group is made in such a way (restricted AU) that existing admins will have no access. To manage objects in the AU, you need to have an AU scoped role assignment for this AU.
 The membership of this AU is automatically maintained by MSM.
 
@@ -84,7 +84,7 @@ The Object ID (GUID) of the Security Group that contains all of the privileged u
 
 **Description:**
 This security group only contains users. Specifically all of the privileged (priv) users.
-This group is assigned a permanent Azure AD role so that when the priv user logs into a Windows machine, the role's SID is exposed to the local machine. This can then be used to block authentication.
+This group is assigned a permanent Entra ID role so that when the priv user logs into a Windows machine, the role's SID is exposed to the local machine. This can then be used to block authentication.
 
 **Example:**
 `UsrTag=96735da7-260b-44aa-b7bd-f463bc5c9f4a`

@@ -86,7 +86,7 @@ This is the ID of the Intune Role Scope Tag that separates enterprise configurat
 This is the Object ID (GUID) of the "Break Glass" security group that contains all of the break glass accounts to be excluded.
 
 **Description:**
-Emergency access accounts help restrict privileged access within an Azure AD organization. These accounts are highly privileged and aren't assigned to specific individuals. Emergency access accounts are limited to emergency for "break glass" scenarios where normal administrative accounts can't be used. Ensure that you control and reduce the emergency account's usage to only that time for which it's necessary.
+Emergency access accounts help restrict privileged access within an Entra ID organization. These accounts are highly privileged and aren't assigned to specific individuals. Emergency access accounts are limited to emergency for "break glass" scenarios where normal administrative accounts can't be used. Ensure that you control and reduce the emergency account's usage to only that time for which it's necessary.
 This configuration excludes the break glass accounts from the security that is applied by this app.
 
 **Example:**

@@ -38,7 +38,7 @@ Technical details on the properties/values that can be set on the specialized sc
 The Object ID (GUID) of the Administrative Unit that contains all of the specialized objects.
 
 **Description:**
-This is a normal AAD Admin Unit that contains a list of specialized security groups, devices, apps and users.
+This is a normal Entra ID Admin Unit that contains a list of specialized security groups, devices, apps and users.
 The membership of this AU is automatically maintained by MSM.
 
 **Example:**
