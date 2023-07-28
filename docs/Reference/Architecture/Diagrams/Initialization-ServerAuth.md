@@ -23,7 +23,7 @@ Stop{{"Stop Execution"}}
 start1[ ] --> | Execution Flow, Carries Data | end1[ ]
 style start1 height:0px;
 style end1 height:0px;
-start2[ ] -.-> | Decision, Caries data | end2[ ]
+start2[ ] -.-> | Decision, Carries data | end2[ ]
 style start2 height:0px;
 style end2 height:0px;
 ```
