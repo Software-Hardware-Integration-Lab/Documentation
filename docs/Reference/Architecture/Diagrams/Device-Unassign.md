@@ -38,7 +38,7 @@ InputValidation(["Validate Input and State"])
 failValidation{{"End\n(Stopped for security)"}}
 readAssignedUsers["Get The List of Assigned Users"]
 filterUserList["Filter the list of users to remove\nthe requested set of users"]
-extractUserIdList["Extract the IDs from the\nlist filtered users"]
+extractUserIdList["Extract the IDs from the\nfiltered list of users"]
 convertToSid["Convert the Object ID List to a list of SIDs"]
 checkAssignmentChange(["Check if the assignment has changed\nafter filtering has completed"])
 failNoChange{{"End\n(No change in assignment)"}}
