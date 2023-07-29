@@ -30,3 +30,7 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 
 !!! warning
     When assigning multiple users and there is already a set of users, if none of the users exist on both the set of new and old users, a device wipe command will be issued.
+
+## See Also
+
+- [Device Assignment Workflow Reference](/Reference/Architecture/Diagrams/Device-Assign/)
