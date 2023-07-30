@@ -27,4 +27,4 @@ When removing privileged user(s) from management, the privileged account is dele
 
 ## See Also
 
-- User Offboarding Workflow Reference - Coming Soon!
+- [User Decommission Workflow Reference](/Reference/Architecture/Diagrams/User-Decommission/)

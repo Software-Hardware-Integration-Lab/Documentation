@@ -27,4 +27,4 @@ For privileged users, it creates a new cloud only user account that is correlate
 
 ## See Also
 
-- User Onboarding Workflow Reference - Coming Soon!
+- [User Commission Workflow Reference](/Reference/Architecture/Diagrams/User-Commission/)
