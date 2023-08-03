@@ -75,6 +75,10 @@ plugins:
 extra:
   homepage: https://mootinc.com
   consent:
+    cookies:
+      analytics: Google Analytics
+      github: GitHub
+      clarity: Microsoft Clarity
     title: Cookie consent
     description: >-
       We use cookies to recognize your repeated visits and preferences, as well
