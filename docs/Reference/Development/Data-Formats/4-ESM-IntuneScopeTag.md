@@ -15,6 +15,7 @@ AU=5b7c868e-98bf-437e-acf6-32c433328198
 DevSg=66eeb4f4-91f8-431f-a336-1adf7bcb276f
 UsrSg=3fd68a6f-0fd0-45b3-84ec-bfadccb10350
 SiloSg=628fceed-4c6c-42b6-ab15-8513a265b1b1
+InterSg=814fb4a4-c484-4e41-80ff-089b61031221
 ```
 
 ### Custom Prefix and Suffix Naming
@@ -24,6 +25,7 @@ AU=3e54c5c2-a2cf-4ca5-897e-97d706b5e31b
 DevSg=d014ae16-7748-4722-ba28-196a008bcb30
 UsrSg=08fd53d4-b002-40cf-bcfa-95a7fcda0bcd
 SiloSg=3c80e644-e631-41f1-b426-0183482ef716
+InterSg=8af317ee-7ce4-40c8-bd2a-b5fba7afe39e
 ```
 
 ---
@@ -88,3 +90,18 @@ This SG contains only enterprise silos.
 
 **Example:**
 `SiloSg=28cb89fe-8226-4fec-bd23-48481a264117`
+
+---
+
+### InterSg
+
+**Expected Data:**
+The Object ID (GUID) of the Security Group that contains all of the enterprise intermediaries.
+
+**Description:**
+This security group only contains only security groups. The security groups that are members of this SG contain the configuration of their respective intermediary. Each security group that is a member of this SG represents a single intermediary.
+
+This SG contains only enterprise intermediaries.
+
+**Example:**
+`InterSg=f3637d69-364b-48a3-8067-cb2305e332ef`
