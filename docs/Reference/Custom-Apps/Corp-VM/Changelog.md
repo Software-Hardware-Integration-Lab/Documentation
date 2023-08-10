@@ -4,6 +4,11 @@ Changes over time to the Corp VM deployment system.
 
 ---
 
+## 1.1.1
+
+- Bug Fix: an issue where is HGS was already set up, a new VM would not be deployed.
+- Enhancement: Standardize the enable VM TPM command to be best practices.
+
 ## 1.1.0
 
 - Feature: Enable code signing on all scripts and output MSI.
