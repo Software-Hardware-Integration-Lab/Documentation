@@ -26,7 +26,7 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 
 !!! note
     `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess` is all that will be necessary.  
-    See this link for Microsoft's official statement: [Microsoft Learn](https://learn.microsoft.com/en-us/graph/known-issues#conditional-access-policy-requires-consent-to-permission)
+    See this link for Microsoft's official statement: [Graph API Known Issues Portal](https://developer.microsoft.com/en-us/graph/known-issues/?search=13671)
 
 ## `Grant-MIGraphPermission` Usage
 
