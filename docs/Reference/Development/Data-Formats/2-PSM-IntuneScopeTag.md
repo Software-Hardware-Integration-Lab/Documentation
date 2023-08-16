@@ -16,6 +16,7 @@ DevSg=0b7a6be8-deee-4f93-97bd-082926a7349c
 UsrSg=e7f4c4f4-c457-45ae-883b-820b368f8310
 SiloSg=973e7bb7-1e7b-4269-98f4-0e169aa4ce57
 InterSg=8ee5bcdd-8406-4ad6-9845-6a36fb895438
+Config=44c05cd0-8a3c-43fe-b47f-3ac329381d1b
 UsrTag=96735da7-260b-44aa-b7bd-f463bc5c9f4a
 ```
 
@@ -27,6 +28,7 @@ DevSg=3267afa7-9bfb-40ff-ba6b-096ba66a7d60
 UsrSg=55435fae-7bc7-4bbd-a5fe-ecf896226324
 SiloSg=7af57f26-5a4b-4188-8e0c-dab0a70ac6a9
 InterSg=763b2330-6364-43b2-985f-e6d78a736b7d
+Config=179ca1b2-de83-48c2-ac26-8e1d1a3c0951
 UsrTag=cd0214b7-54b0-4211-bb5a-63798e197d20
 ```
 
@@ -108,6 +110,19 @@ This SG contains only privileged intermediaries.
 
 **Example:**
 `InterSg=b53d5d7d-d5c2-4d28-bf1f-7c3925cfc60e`
+
+---
+
+### Config
+
+**Expected Data:**
+The Object ID (GUID) of the Security Group that contains all of the privileged configurations.
+
+**Description:**
+This security group is used for non-user/device configuration management, mostly for the marketplace and various intermediaries. This could also be used for by the end user to add config support to their custom stuff outside of MSM's lifecycle management and marketplace engines. This Security Group will be scanned for transitive membership count during license usage evaluation.
+
+**Example:**
+`Config=b0be63f9-d6ff-422b-b026-6e5e9ba8e15a`
 
 ---
 
