@@ -11,7 +11,7 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 |-----------------|---------------------|
 | `AdministrativeUnit.ReadWrite.All` | Used to manage the privileged restricted administrative unit automatically. |
 | `Application.ReadWrite.All` | Used to create and maintain the app registration used to authenticate users to the API. |
-| `DeviceManagementManagedDevices.Read.All` | Used to list all Entra ID devices so that end users can select from a list instead of having to manually put in a GUID. |
+| `DeviceManagementManagedDevices.ReadWrite.All` | Used to list all Entra ID devices so that end users can select from a list instead of having to manually put in a GUID. Also used in Intermediary management to remove old session hosts for AVD. |
 | `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in Intune. |
 | `DeviceManagementServiceConfig.ReadWrite.All` | Used to manage Autopilot Profiles and read Autopilot device data |
 | `DeviceManagementApps.ReadWrite.All` | Used to set Intune as a Managed Installer for WDAC for all devices managed by Intune. |
@@ -41,7 +41,7 @@ You will need global admin rights or a role/rights that include the following MS
 CLI usage for complete permissions assignment to a MI:
 
 ``` PowerShell title="PowerShell"
-.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.Read.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
+.\Grant-MIGraphPermission.ps1 -CLIMode -ObjectID '885c119e-caa1-4148-bc58-20e28ff4f3ce' -PermissionName 'AdministrativeUnit.ReadWrite.All', 'Application.ReadWrite.All', 'DeviceManagementManagedDevices.ReadWrite.All', 'DeviceManagementConfiguration.ReadWrite.All', 'DeviceManagementServiceConfig.ReadWrite.All', 'DeviceManagementApps.ReadWrite.All', 'DeviceManagementManagedDevices.PrivilegedOperations.All', 'DeviceManagementRBAC.ReadWrite.All', 'Device.ReadWrite.All', 'Directory.Write.Restricted', 'Group.ReadWrite.All', 'Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'RoleManagement.ReadWrite.Directory', 'User.ReadWrite.All'
 ```
 
 Where the parameter `ObjectID`'s value is your Managed Identities' Object ID (GUID).  
