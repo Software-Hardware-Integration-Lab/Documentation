@@ -2,6 +2,13 @@
 
 List of changes to the Managed Installer configuration app.
 
+## 1.3.0 - Merge Policy
+
+- Configuring App Locker, merge the policy instead of replacing the policy.
+    - This allows for 3rd party configuration without conflict.
+- Cycle the IDs of the configured policies so that they are guaranteed unique.
+- Update Version numbers for managed installer tracked binaries.
+
 ## 1.2.0 - Migrate to Intune API Based Managed Installer
 
 - Remove Intune from the list of managed installers since intune handles itself now
