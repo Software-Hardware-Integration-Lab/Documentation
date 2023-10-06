@@ -63,6 +63,8 @@
 param(
     [Parameter(Mandatory)]
     [System.Guid]$SubscriptionId,
+    [ValidateNotNullOrEmpty()]
+    [System.Guid]$ResourceSubscriptionId,
     [ValidateScript({ $_ -match '^[-\w\._\(\)]+$' })]
     [System.String]$ResourceGroupName = 'Moot-Inc-Security',
     [System.String]$Location = 'East US 2',
@@ -268,9 +270,18 @@ process {
     # Display progress bar
     Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Granting Web App Azure RBAC self configuring permissions' -PercentComplete 80
 
-    # Grant the managed identity the ability to self manage the MSM subscription.
-    # This is useful for config drift identification and auto secret update for user auth and is also used for intermediaries.
-    New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope "/subscriptions/$SubscriptionId" -RoleDefinitionName 'Owner' | Out-Null
+    # Permission assignment on another subscription if another is requested
+    if ($ResourceSubscriptionId -ne $null) {
+        # Grant the managed identity the ability to manage the a resource subscription for various resource needs.
+        New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope "/Subscriptions/$ResourceSubscriptionId" -RoleDefinitionName 'Owner' | Out-Null
+        
+        # Grant the ability to the web app to manage itself, useful for key management and the update engine.
+        New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope $WebApp.id -RoleDefinitionName 'Website Contributor' | Out-Null
+    } else {
+        # Grant the managed identity the ability to self manage the MSM subscription.
+        # This is useful for config drift identification and auto secret update for user auth and is also used for intermediaries.
+        New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope "/Subscriptions/$SubscriptionId" -RoleDefinitionName 'Owner' | Out-Null
+    }
 
     # Display progress bar
     Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Uploading MSM Zip file' -PercentComplete 90
@@ -293,9 +304,9 @@ end {
 # SIG # Begin signature block
 # MIIqTgYJKoZIhvcNAQcCoIIqPzCCKjsCAQExDzANBglghkgBZQMEAgMFADCBmwYK
 # KwYBBAGCNwIBBKCBjDCBiTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63
-# JNLGKX7zUQIBAAIBAAIBAAIBAAIBADBRMA0GCWCGSAFlAwQCAwUABEAh4v8z2yDn
-# r9l1FSI7882e9NQwfgndL7QbhwsZfPg9pL+JNrtreSOvsH8J+DVy5tM3BWYQ1vt3
-# IiOF9gLMRfLxoIIOczCCBrAwggSYoAMCAQICEAitQLJg0pxMn17Nqb2TrtkwDQYJ
+# JNLGKX7zUQIBAAIBAAIBAAIBAAIBADBRMA0GCWCGSAFlAwQCAwUABECyfWHMr84r
+# kWbRukYtferIizb3N//SUE1ccYkupUS+xDO4FSa7vvlYqJySCBbZyvS2WtVlPlrP
+# gRL+yYRgDcrtoIIOczCCBrAwggSYoAMCAQICEAitQLJg0pxMn17Nqb2TrtkwDQYJ
 # KoZIhvcNAQEMBQAwYjELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IElu
 # YzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEhMB8GA1UEAxMYRGlnaUNlcnQg
 # VHJ1c3RlZCBSb290IEc0MB4XDTIxMDQyOTAwMDAwMFoXDTM2MDQyODIzNTk1OVow
@@ -377,25 +388,25 @@ end {
 # IEc0IENvZGUgU2lnbmluZyBSU0E0MDk2IFNIQTM4NCAyMDIxIENBMQIQD2v9+quc
 # RSHWtMF88c65MTANBglghkgBZQMEAgMFAKCB3DAZBgkqhkiG9w0BCQMxDAYKKwYB
 # BAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTBPBgkqhkiG9w0B
-# CQQxQgRAJLGj2qJp3cdIu4E37i1iBWsiOr2o3auB1r69YjTOZ+nlVHB06G0vjXAt
-# p4V/LQURRFJaKw0AMwZZ+dF8/V76gDBQBgorBgEEAYI3AgEMMUIwQKA+gDwATQBT
+# CQQxQgRAz4+6bZMn3xTKXWdbaTD607sbBb/P0GYaGzc6t0baFzBhuYmtGfNIvEZL
+# xymg+Jll6a3G+VXzLJof5Fkprw4r3zBQBgorBgEEAYI3AgEMMUIwQKA+gDwATQBT
 # AE0AIAAtACAASQBuAGYAcgBhAHMAdAByAHUAYwB0AHUAcgBlACAASQBuAHMAdABh
-# AGwAbABlAHIwDQYJKoZIhvcNAQEBBQAEggIAgpEsEoFoDLp9vl1dsYNLjM/aEOJY
-# Oz7FewdEC0Q8yAIygqP0TySna7c2y4ogB3f0Kv1y/5eQtpwfvTdw6bXQw8v47ANV
-# LC9lfyFlW5bKAXrRmkVd5wMghq2vZEbhwOjuqnIeFbR0QQ3bbfE0H72ajsBds9ld
-# hsagDnuNf1WDtQDrCV484+UIn92T7Tz+ht/KJc4z+AL2vG1as5Mg73ad/RorHPVK
-# LZ8FUanzVLhIwKxe8z4ILu1KO/MQ8Dl+rVLtgHY2e1Ll2jH+NguDT7DSNCqBA0Yt
-# CJq2dmR/fb5GVwDaH33aDbJovS9g2RSGzX7anx2NNM3nNIHvLocKEQ1UnysCC4Dl
-# LibNtFytr57DHG6yVjdq9ZR3mKgOzVLa4FjvNoMi2YuPCvJvEOnJ6KGoyUfUpPGx
-# iWsf3YKoQTBV6jq6lYaWxczDYF5gyDT3S83pFZa60vLDxHh4UrUv9ovmovtlYp1i
-# 9/KYvpZ6AQW+flVyR7KvEemfj6NNGaR1oTDj7xkKE28Tvqu5lA+yM0OVPz2a7lo/
-# gJutn213m0P76g1xFNZ5nr3b5x99k/y8Db9brBMRNOKOl7iqViSstuIxjN4ktrqw
-# e42kCYDa3pmkYlOvzVE8HJfEhXB0WmwYj7+sSy+ceYXbOKV8/UVg2zPYIuwOQXLu
-# 1tjDSYh8uLZs+jKhgheDMIIXfwYKKwYBBAGCNwMDATGCF28wghdrBgkqhkiG9w0B
+# AGwAbABlAHIwDQYJKoZIhvcNAQEBBQAEggIAnCl0WsE6ClSg50hIdw94ofgpsUJl
+# 3Rq1ncmT5cCIRBoid/duKmrcM5xSkQFAQKjNKp9L/2lOMLzLduOkT91EoidOkCxP
+# VnmorZTT53Tgu2U8sB5NY8bJCru6aMKKnL102qomXOCREbrZWPjJUlqNqgpwBozx
+# eBOhLV6+i496W3pZVTDU8fJWJTvqNMeF3lAn5Onj1KtwpqdEUsqd7d41MngamBCb
+# 6twDfWEZiXtkThxQol6CyrkSgqmMxV27s+1rGr3Yf/Whe9I1zxhrtUe0NjO+v0dB
+# t+D4zCPt7vazSlePWqjcrFCWhw38vvYPTKi1StqE6oDRkpOTszOxxslmvJjESZHy
+# re0MV7CESY+6F7lABNWvzToVvlOugN7td7J8GGVHFFydDOzekDrEm5lwhG1gv8go
+# WrrSOi/2VuxSFZBrlucg6KXy20d7TN6ktl1YUr9o8xWsmYuO7XADDPglh0oqFBmu
+# QwfAgK1LCDeD01yJqVN3gKDFZfuW9fvjAeu8T9F/flGR7Gso8yRdxuo30S3IrSKU
+# hRT8Nv+Z0xpYx0vt0s/HZnrknLYi7kAsDrcQGBrWgld9+sQtuRLJlSPTzmQxqoC4
+# 4UDHQBKDurzzsn3ljB97eN/uqyh/QhBfkZ3s6LF9VgDV+nCPVZ4TdVzWx75fYQzt
+# guQ85sshaxYB3KuhgheDMIIXfwYKKwYBBAGCNwMDATGCF28wghdrBgkqhkiG9w0B
 # BwKgghdcMIIXWAIBAzEPMA0GCWCGSAFlAwQCAwUAMIGaBgsqhkiG9w0BCRABBKCB
-# igSBhzCBhAIBAQYJYIZIAYb9bAcBMFEwDQYJYIZIAWUDBAIDBQAEQHQpUUw0YzNg
-# QZQ38514URv5qZG5Fn0MR+POefd46KfJDDrmKJcRT/P8SXfFEPQKq97EZf06AWS2
-# 9Jtr9Ztq05sCEGiBF9d9D4or+aDwftcF30cYDzIwMjMxMDA2MTY0MTA0WqCCEwkw
+# igSBhzCBhAIBAQYJYIZIAYb9bAcBMFEwDQYJYIZIAWUDBAIDBQAEQBFFAbG9SNTg
+# Nb50dsQKX01XJlVk2gMEbWVJumGpJ+MtS7VZHd/DPcYLrK7BURKe+h73aiJmTKKb
+# 6NtiVk87PD4CEDYWkVoe0y2+H8edxNO2BQ0YDzIwMjMxMDA2MTY1MDMyWqCCEwkw
 # ggbCMIIEqqADAgECAhAFRK/zlJ0IOaa/2z9f5WEWMA0GCSqGSIb3DQEBCwUAMGMx
 # CzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE7MDkGA1UEAxMy
 # RGlnaUNlcnQgVHJ1c3RlZCBHNCBSU0E0MDk2IFNIQTI1NiBUaW1lU3RhbXBpbmcg
@@ -501,20 +512,20 @@ end {
 # EwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOzA5BgNVBAMTMkRpZ2lDZXJ0
 # IFRydXN0ZWQgRzQgUlNBNDA5NiBTSEEyNTYgVGltZVN0YW1waW5nIENBAhAFRK/z
 # lJ0IOaa/2z9f5WEWMA0GCWCGSAFlAwQCAwUAoIHxMBoGCSqGSIb3DQEJAzENBgsq
-# hkiG9w0BCRABBDAcBgkqhkiG9w0BCQUxDxcNMjMxMDA2MTY0MTA0WjArBgsqhkiG
+# hkiG9w0BCRABBDAcBgkqhkiG9w0BCQUxDxcNMjMxMDA2MTY1MDMyWjArBgsqhkiG
 # 9w0BCRACDDEcMBowGDAWBBRm8CsywsLJD4JdzqqKycZPGZzPQDA3BgsqhkiG9w0B
 # CRACLzEoMCYwJDAiBCDS9uRt7XQizNHUQFdoQTZvgoraVZquMxavTRqa1Ax4KDBP
-# BgkqhkiG9w0BCQQxQgRAjdnVOSzREDAQVRh5+AkWPjsdcQaQ5j3e+UXn5jPuJYlp
-# Agbv2ktbwHULfmLgYWF2yisAYOkiGbalkQpIQGBwhjANBgkqhkiG9w0BAQEFAASC
-# AgAacKoxYqIe4fjflFlcj7nRWJ4sFVmmAs93HT2wYG6aRnUhHGzYpmISplO/KspD
-# O/Tq0kw8SHsvJxj/LotLshf7Bz/u10ioutnzX9bdYPt+WRw5Bu/eKbXS9Sb9q0JA
-# n1Op48o9fpAz4FEGhv8TtLgfNWtfGgz4g7VRyDIHBvut2jdGLNvu349tQTQXtyca
-# +G4y/mB1WDeLqnF8jBVP84YVUWS324k28o1uIOc5TYI/j4UBDE/5RuH1aHHvpWUa
-# w2r5E28XdgUWMw95YngxTgZwjdlpBNGoHVJaVHAidtWPQVroWJvZvZ10MB8OqYbW
-# 7wAfjL7SCGAuV8dM7t0PCUi0Ax13gnc85BAHVfpd34pIrsWVQn9aIdM9kY2AeZc3
-# 4lYlsFEhx5zcoDITr1r0Paeaz08ReNKzaxO08BqhniblreYq6woj1Rg2Z/xTDQvH
-# qhnmfMw70v8PaJb0ExRt6BYkW/tkJs9eKGMVotdNr0wes1QMVdiq/X2lQRVkZkRc
-# Wb3Ak0+81jdmdTmfT9D+y8Ji9CWx7mJ7gmOr7hzIGJU8BoD3ijTib+yjabs4vjWn
-# C4FqWDsAYHp3xAZZt//3Qe3T78ZL82CLMAAvILhtRjVhBoqs7aUorbvbGYG64GxQ
-# 206ioe3FdWTaa9OwIvtgfw2qmXSsSsrpQ8VFRyx9IZ1Ciw==
+# BgkqhkiG9w0BCQQxQgRAIL3rp89zoFzt4gTL9Qm5xQFFCIfEeHrnwGyCl6JNcEZ3
+# M9+7EfoqkbmMBs1S8/aWTIp1syZ+/YqQ5ifCeEqBUTANBgkqhkiG9w0BAQEFAASC
+# AgB+zp2W413w4sEZGlu6thVvIQQQ8B267HQbUUOfI19nra3X0+RSXJ8TYFqJkIdT
+# OWMS87iMY2MEiK7L2upahXV+0cThB9iFQ2ZtV2rMBq0UfY89sxsb7+0+sgwY96EU
+# 3t4IDTmOYPQjeq1kLqkzX9z+uV/iyp6BAUodvRwg2pOmW7+6yiXjQgLFDFYlESnG
+# H6VpyWSwm79lu7fnpFzcmJuJcG09v0LEXdK5gJyKMag3HpXZj3dwlx/ZY9CVB7y+
+# BYnZCX0vBPzf5P28eMxFHIeUTLrlj/Zktxnvf4BUURUpWF2qgXEmKZA3CzaCCdae
+# Ns6AQLOVgWww5b79rzIbXt2G6KtGBwNSOqMZTO6yrs8yE8RDkGDqqalsRPtnWtAV
+# vnEnJpdaa5JT9Dzv1/urFxj10nN4joO0RXzdQ1f8LyBU+7v3eRArYnD2+KihOrCe
+# 8H45oTKmPHmA0bfeeVHUgdt8oW0Y41LSPxIzbUC51HBcfbvBqc5vu+aH/55EgApV
+# eYZ41sq8aUEi/CLKZQ0CqCvUeIwJrro64hyATFIFuK6cfhUIfd4Ae5CrsAssA9E3
+# ay71xQVx1K7z2dTjbG9CWTam0wv/N4Ypw/IPrDjF1d7roIJsv2zzs9VqlzSxvd9b
+# nX8udunBEa6dur5BZvge9SNGw2RwwwUUhG0rd6mrp9jyhw==
 # SIG # End signature block
