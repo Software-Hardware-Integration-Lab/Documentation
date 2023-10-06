@@ -52,9 +52,9 @@
         2 - The requested location is not valid for this subscription.
 #>
 
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; RequiredVersion="2.2.0" }
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.Applications"; RequiredVersion="2.2.0" }
-#Requires -Modules @{ ModuleName="Az"; RequiredVersion="10.1.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; RequiredVersion="2.7.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.Applications"; RequiredVersion="2.7.0" }
+#Requires -Modules @{ ModuleName="Az"; RequiredVersion="10.4.1" }
 
 # Enable cmdlet binding for advanced functionality
 [CmdletBinding(SupportsShouldProcess)]
