@@ -12,7 +12,7 @@ The title of the section is the name of the environmental variable.
 
 ---
 
-## MSM_AuthorityHost
+## `MSM_AuthorityHost`
 
 **Coming soon!**
 
@@ -30,7 +30,7 @@ See this page for more details on what each option means: [https://docs.microsof
 
 ---
 
-## MSM_ClientAuth_ClientId
+## `MSM_ClientAuth_ClientId`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -42,7 +42,7 @@ This specific client ID value is not for authenticating the server, but for auth
 
 ---
 
-## MSM_ClientAuth_ClientSecret
+## `MSM_ClientAuth_ClientSecret`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -54,7 +54,7 @@ This specific client secret value is not for authenticating the server, but for 
 
 ---
 
-## MSM_ClientAuth_TenantId
+## `MSM_ClientAuth_TenantId`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -66,7 +66,7 @@ This specific configuring is not for authenticating the server, but for authenti
 
 ---
 
-## MSM_Client_GUID
+## `MSM_Client_GUID`
 
 - Mandatory: `true`, unless using a `Managed Identity`
 - Expected string format: `GUID`, no braces
@@ -77,7 +77,7 @@ The Client GUID is the Application (client) ID of the application registration i
 
 ---
 
-## MSM_Client_Secret
+## `MSM_Client_Secret`
 
 - Mandatory: `true`, unless specifying the `MSM_KeyVault_Name` and `MSM_KeyVault_Secret` values or using a `Managed Identity`
 - Expected string format: `String`
@@ -89,7 +89,7 @@ This value is not required when using the Key Vault name and Key Vault Secret co
 
 ---
 
-## MSM_Debug
+## `MSM_Debug`
 
 - Mandatory: `false`
 - Expected string format: Boolean
@@ -101,7 +101,7 @@ See [Debug Mode](./Debug-Mode) for more information on what is enabled when this
 
 ---
 
-## MSM_Headless
+## `MSM_Headless`
 
 - Mandatory: `false`
 
@@ -115,7 +115,7 @@ It is more secure to run without a UI as it reduces surface area for attack, but
 
 ---
 
-## MSM_KeyVault_Name
+## `MSM_KeyVault_Name`
 
 - Mandatory: `false`
 
@@ -128,7 +128,7 @@ This configuration is not necessary if using Managed Identity to authenticate. M
 
 ---
 
-## MSM_KeyVault_Secret
+## `MSM_KeyVault_Secret`
 
 - Mandatory: `false`
 
@@ -140,7 +140,7 @@ The name of the secret in the Azure Key Vault that you specified in the `MSM_Key
 
 ---
 
-## MSM_Managed_ID_GUID
+## `MSM_Managed_ID_GUID`
 
 - Mandatory: `false`
 - Expected string format: `GUID`, no braces
@@ -154,7 +154,7 @@ If this variable is specified, the system will attempt to retrieve a access toke
 
 ---
 
-## MSM_Name_Prefix
+## `MSM_Name_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -168,7 +168,7 @@ This will set a prefix to appear before all the names of objects created.
 
 ---
 
-## MSM_Name_Suffix
+## `MSM_Name_Suffix`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -181,7 +181,7 @@ This will set a suffix to appear after all the names of objects created.
 
 ---
 
-## MSM_Scope_Tag
+## `MSM_Scope_Tag`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -198,7 +198,7 @@ If the scope tag does not exist, it will be created automatically.
 
 ---
 
-## MSM_Subscription_ID
+## `MSM_Subscription_ID`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -208,7 +208,7 @@ This is the base subscription of the MSM orchestration platform and will be used
 
 ---
 
-## MSM_Tenant_ID
+## `MSM_Tenant_ID`
 
 - Mandatory: `true`, unless using a `Managed Identity`
 - Expected string format: `GUID`, no braces
@@ -219,7 +219,7 @@ This is the ID of the tenant that the application registration is registered in.
 
 ---
 
-## MSM_User_Domain
+## `MSM_User_Domain`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -230,7 +230,7 @@ This setting configures the domain name used for newly created users. If not spe
 
 ---
 
-## MSM_Username_Prefix
+## `MSM_Username_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
