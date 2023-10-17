@@ -154,6 +154,21 @@ If this variable is specified, the system will attempt to retrieve a access toke
 
 ---
 
+## `MSM_MS_Cloud_Type`
+
+- Mandatory: `false`
+- Expected string format: `String`
+- Description:
+This is a configuration flag that enables or disables certain features that are available on certain Microsoft sovereign clouds.
+The default value is `Public`, which means if you need to set this value, don't it is already set internally as the default.
+Allowed values are: `Public`, `GCC`, `GCCH`, and `China`
+- Examples:
+    - `GCC`
+    - `GCCH`
+    - `China`
+
+---
+
 ## `MSM_Name_Prefix`
 
 - Mandatory: `false`
