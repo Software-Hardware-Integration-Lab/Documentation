@@ -23,7 +23,7 @@ To create any type of Managed Identity, follow this guide:
 <https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity>
 
 If you decide to use a `User Assigned Managed Identity`, you will need to tell the app that you are using one as the Azure fabric exposes it differently to the resource compared to a `System Assigned Managed Identity`.
-Configure the [Environmental Variable: Managed Identity GUID](./Environmental-Variables-Reference#psm_managed_id_guid) on the App Service so that the web app can use the `User Assigned Managed Identity`.
+Configure the [Environmental Variable: Managed Identity GUID](Environmental-Variables-Reference.md#msm_managed_id_guid) on the App Service so that the web app can use the `User Assigned Managed Identity`.
 
 ## Assign Permissions to the Managed Identity
 
@@ -34,7 +34,7 @@ No fear, PowerShell is here! Check out this PowerShell app:
 
 The PowerShell app will graphically list all the managed identities, let you select one, then graphically list all the Graph API permissions you can assign it.
 Assign the permissions listed here:
-[Required Graph API Permissions](/Getting-Started/Deployment/Required-Graph-API-Permissions.md)
+[Required Graph API Permissions](../../Getting-Started/Deployment/Required-Graph-API-Permissions.md)
 
 For more information on how the PowerShell app works, check out this MS Docs article:
 <https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell>

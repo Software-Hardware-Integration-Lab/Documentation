@@ -6,7 +6,7 @@ hide:
 
 The authentication system is responsible for authenticating, and authorizing the MSM orchestration client to the various Microsoft APIs.
 
-The Authentication engine is configured via [environmental variables](/Reference/Settings/Environmental-Variables-Reference/) in combination with the use of managed identity.
+The Authentication engine is configured via [environmental variables](../../../Reference/Settings/Environmental-Variables-Reference.md) in combination with the use of managed identity.
 
 ---
 

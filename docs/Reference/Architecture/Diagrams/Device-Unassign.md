@@ -4,7 +4,7 @@ hide:
 ---
 # Device - Unassign
 
-The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [unassigned one or more users](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/3-Unassign/).
+The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [unassigned one or more users](../../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/3-Unassign.md).
 
 ---
 

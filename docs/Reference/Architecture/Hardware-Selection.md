@@ -54,6 +54,6 @@ For further guidance on hardware selection or compatibility, please refer to the
 
 ## See Also
 
-- [Lifecycle Management Overview](/Getting-Started/Usage-Guide/Lifecycle-Management/): Learn more about the lifecycle management features of MSM and how it simplifies the management of user and device objects.
-- [Commissioning a New Device](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/Commission/): Step-by-step guide on commissioning (adopting) a new device using MSM.
-- [Decommission a Managed Device](/Getting-Started/Usage-Guide/Lifecycle-Management/Device/Decommission/): Step-by-step guide on decommissioning (removing) a device that is currently being managed by MSM.
+- [Lifecycle Management Overview](../../Getting-Started/Usage-Guide/Lifecycle-Management/index.md): Learn more about the lifecycle management features of MSM and how it simplifies the management of user and device objects.
+- [Commissioning a New Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/0-Commission.md): Step-by-step guide on commissioning (adopting) a new device using MSM.
+- [Decommission a Managed Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/1-Decommission.md): Step-by-step guide on decommissioning (removing) a device that is currently being managed by MSM.

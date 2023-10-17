@@ -95,7 +95,7 @@ This value is not required when using the Key Vault name and Key Vault Secret co
 - Expected string format: Boolean
 - Description:
 Enables debugging features such as additional http routes.
-See [Debug Mode](./Debug-Mode) for more information on what is enabled when this is toggled to true.
+See [Debug Mode](./Debug-Mode.md) for more information on what is enabled when this is toggled to true.
 - Example:
 `true`
 

@@ -8,7 +8,7 @@ After deployment, the only parts of the core infrastructure that can't be touche
 
 !!! note "Prerequisites Check"
     Don't forget to make sure you meet the prerequisites as listed here:
-    [Getting Started - Prerequisites](/Getting-Started/Prerequisites)
+    [Getting Started - Prerequisites](../../Prerequisites.md)
 
 ---
 
@@ -24,13 +24,13 @@ Deploying the core-infrastructure is pretty easy:
 
 2\. Read the `Terms and Conditions` document and if you agree, select the `I agree to the terms and conditions` check box. This will enable and arm the `Deploy Infrastructure` button.
 
-![Screenshot of the Infrastructure Deployment page showing the "I agree" button as checked and the deploy button as enabled. The check box is highlighted by a red box indicating what should be selected.](/assets/Images/Screenshots/Core-Infrastructure-Deployment.png){ loading=lazy }
+![Screenshot of the Infrastructure Deployment page showing the "I agree" button as checked and the deploy button as enabled. The check box is highlighted by a red box indicating what should be selected.](../../../assets/Images/Screenshots/Core-Infrastructure-Deployment.png){ loading=lazy }
 
 3\. Push the `Deploy Infrastructure` button. This will deploy all the supporting components to the lifecycle management system.
 
-![Screenshot of the core infrastructure deployment spinner indicating a deployment is in progress. The spinner has been highlighted by a red box indicating where the deployment in progress spinner will appear.](/assets/Images/Screenshots/Spinner.png){ loading=lazy }
+![Screenshot of the core infrastructure deployment spinner indicating a deployment is in progress. The spinner has been highlighted by a red box indicating where the deployment in progress spinner will appear.](../../../assets/Images/Screenshots/Spinner.png){ loading=lazy }
 
 4.\ Once the deployment has completed it will redirect you to the home screen as seen in the below screenshot.
 
-![Screenshot of the home page with the navigation cards visible.](/assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy }
-![Screenshot of the home page with the navigation cards visible.](/assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy }
+![Screenshot of the home page with the navigation cards visible.](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy }
+![Screenshot of the home page with the navigation cards visible.](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy }

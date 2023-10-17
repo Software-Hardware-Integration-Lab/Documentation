@@ -22,7 +22,7 @@ It is recommended that the server software be stopped before completing any of t
 The core architecture is the set of settings across all of the managed systems (E.G. M365, Entra ID, Intune, etc.)
 
 1\. Download the MSM Architecture Uninstall script:  
-[Uninstall-MsmArchitecture.ps1](/Troubleshooting/Assets/Scripts/Uninstall-MsmArchitecture.ps1)
+[Uninstall-MsmArchitecture.ps1](Assets/Scripts/Uninstall-MsmArchitecture.ps1)
 
 2\. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
 

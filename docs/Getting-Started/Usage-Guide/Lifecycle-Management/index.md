@@ -28,7 +28,5 @@ Lifecycle management is a critical feature in the MSM app that enables the manag
 
 ## See Also
 
-- [Devices Lifecycle Management](./Device)
-- [Users Lifecycle Management](./User)
 - Intermediaries Lifecycle Management - Coming Soon
 - Interfaces/Servers Lifecycle Management - Coming Soon

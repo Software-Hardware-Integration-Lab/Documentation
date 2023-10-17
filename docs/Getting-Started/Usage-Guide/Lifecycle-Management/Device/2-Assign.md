@@ -16,8 +16,8 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 
 4\. Select the list of users that you would like to be able to log into the device.
 
-![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](/assets/Images/Screenshots/Select-User-to-Assign-Light.png#only-light){ loading=lazy width="300" }
-![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](/assets/Images/Screenshots/Select-User-to-Assign-Dark.png#only-dark){ loading=lazy width="300" }
+![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Light.png#only-light){ loading=lazy width="300" }
+![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Dark.png#only-dark){ loading=lazy width="300" }
 
 5\. Press the Select button at the bottom of the selection panel to start the assignment process.
 
@@ -33,4 +33,4 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 
 ## See Also
 
-- [Device Assignment Workflow Reference](/Reference/Architecture/Diagrams/Device-Assign/)
+- [Device Assignment Workflow Reference](../../../../Reference/Architecture/Diagrams/Device-Assign.md)

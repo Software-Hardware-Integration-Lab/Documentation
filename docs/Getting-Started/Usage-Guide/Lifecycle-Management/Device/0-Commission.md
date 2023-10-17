@@ -5,7 +5,7 @@ The lifecycle management system can bring devices into and out of management fol
 This guide will walk the security admin through the process of commissioning new managed devices.
 
 !!! note "Privileged Hardware"
-    For requirements and best practices on privileged hardware, please see the [Hardware Selection](/Reference/Architecture/Hardware-Selection/) documentation.
+    For requirements and best practices on privileged hardware, please see the [Hardware Selection](../../../../Reference/Architecture/Hardware-Selection.md) documentation.
 
 ## Process
 
@@ -18,8 +18,8 @@ This guide will walk the security admin through the process of commissioning new
 
 3\. Select the set of devices that you would like to add to management.
 
-![Screenshot of the unmanaged devices picker with a single device selected.](/assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
-![Screenshot of the unmanaged devices picker with a single device selected.](/assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
+![Screenshot of the unmanaged devices picker with a single device selected.](../../../../assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
+![Screenshot of the unmanaged devices picker with a single device selected.](../../../../assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
 
 !!! warning "Privileged Device Commissioning"
     When a `privileged` device is commissioned, a wipe/reset command is issued to the selected device set if they are present in Intune.  
@@ -30,5 +30,5 @@ This guide will walk the security admin through the process of commissioning new
 
 ## See Also
 
-- [Hardware Selection](/Reference/Architecture/Hardware-Selection/)
-- [Device Onboarding Workflow Reference](/Reference/Architecture/Diagrams/Device-Commission/)
+- [Hardware Selection](../../../../Reference/Architecture/Hardware-Selection.md)
+- [Device Onboarding Workflow Reference](../../../../Reference/Architecture/Diagrams/Device-Commission.md)

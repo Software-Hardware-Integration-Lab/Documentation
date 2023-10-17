@@ -1,6 +1,6 @@
 # PSM - Intune Scope Tag
 
-The [prefix](/Reference/Settings/Environmental-Variables-Reference/#msm_name_prefix) and [suffix](/Reference/Settings/Environmental-Variables-Reference/#msm_name_suffix) can be changed in the MSM server settings. The default settings are being used for the tag name below.
+The [prefix](../../Settings/Environmental-Variables-Reference.md#msm_name_prefix) and [suffix](../../Settings/Environmental-Variables-Reference.md#msm_name_suffix) can be changed in the MSM server settings. The default settings are being used for the tag name below.
 
 ## Example Configurations
 

@@ -5,7 +5,7 @@ Because of this, do not change the scope tag that was configured by the applicat
 Order of the description's items does not matter, the below config is displayed in a logical order, but the actual values may be in any order depending on the initialization of features and which order they were turned on.
 The maximum size of the description field is `1024` characters (including whitespace and newlines).
 
-The title of the (Role) Scope Tag in Intune may differ depending on the settings being used on the MSM server [(see the env vars docs for details)](/Reference/Settings/Environmental-Variables-Reference/#msm_scope_tag). The default value is `Moot-Security-Management`. For these docs, that is what the tag title is.
+The title of the (Role) Scope Tag in Intune may differ depending on the settings being used on the MSM server [(see the env vars docs for details)](../../Settings/Environmental-Variables-Reference.md#msm_scope_tag). The default value is `Moot-Security-Management`. For these docs, that is what the tag title is.
 
 ## Example Configurations
 
@@ -47,7 +47,7 @@ Technical details on the properties/values that can be set on the root/common sc
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates privileged configurations from other [security classes](/Reference/Architecture/Securing-Privileged-Access/). The description field also contains additional context and configurations as described [here](/Reference/Development/Data-Formats/PSM-IntuneScopeTag/).
+This is the ID of the Intune Role Scope Tag that separates privileged configurations from other [security classes](../../Architecture/Securing-Privileged-Access.md). The description field also contains additional context and configurations as described [here](2-PSM-IntuneScopeTag.md).
 
 **Example:**
 `PsmId=21`
@@ -60,7 +60,7 @@ This is the ID of the Intune Role Scope Tag that separates privileged configurat
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates specialized configurations from other [security classes](/Reference/Architecture/Securing-Privileged-Access/). The description field also contains additional context and configurations as described [here](/Reference/Development/Data-Formats/SSM-IntuneScopeTag/).
+This is the ID of the Intune Role Scope Tag that separates specialized configurations from other [security classes](../../Architecture/Securing-Privileged-Access.md). The description field also contains additional context and configurations as described [here](3-SSM-IntuneScopeTag.md).
 
 **Example:**
 `SsmId=21`
@@ -73,7 +73,7 @@ This is the ID of the Intune Role Scope Tag that separates specialized configura
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates enterprise configurations from other [security classes](/Reference/Architecture/Securing-Privileged-Access/). The description field also contains additional context and configurations as described [here](/Reference/Development/Data-Formats/ESM-IntuneScopeTag/).
+This is the ID of the Intune Role Scope Tag that separates enterprise configurations from other [security classes](../../Architecture/Securing-Privileged-Access.md). The description field also contains additional context and configurations as described [here](4-ESM-IntuneScopeTag.md).
 
 **Example:**
 `EsmId=21`

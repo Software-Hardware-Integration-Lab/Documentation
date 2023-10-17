@@ -27,7 +27,7 @@ MSM is an orchestration tool in the larger security landscape. It does not bring
 
 ## Prerequisites
 
-Check out this page for more details: [Getting Started - Prerequisites](/Getting-Started/Prerequisites)
+Check out this page for more details: [Getting Started - Prerequisites](Getting-Started/Prerequisites.md)
 
 ## Recommended Environment
 
@@ -44,9 +44,9 @@ In the rest of the documentation, we will provide detailed instructions on how t
 
 ## See Also
 
-- [Usage Guides](/Getting-Started/Usage-Guide)
+- [Usage Guides](Getting-Started/Usage-Guide/index.md)
 - Change Log - Coming Soon!
-- [MSM Architecture](/Reference/Architecture)
-- [API Documentation](/Reference/Development)
-- [Troubleshooting](Troubleshooting/)
+- [MSM Architecture](Reference/Architecture/index.md)
+- [API Documentation](Reference/Development/OpenAPI.md)
+- [Troubleshooting](Troubleshooting/Uninstall.md)
 - [Contact Us](https://mootinc.com/contact)
