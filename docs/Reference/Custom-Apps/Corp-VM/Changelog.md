@@ -4,6 +4,11 @@ Changes over time to the Corp VM deployment system.
 
 ---
 
+## 1.1.2
+
+- PowerShell commands are now executed using a Constrained Language mode friendly launch sequence
+- Update UI to use new App Installer (MSIX) style UI for system consistency
+
 ## 1.1.1
 
 - Bug Fix: an issue where is HGS was already set up, a new VM would not be deployed.

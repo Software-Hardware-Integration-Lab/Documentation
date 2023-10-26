@@ -2,6 +2,13 @@
 
 List of changes to the Managed Installer configuration app.
 
+## 1.3.1 - Internal Update
+
+- PowerShell commands are now executed using a Constrained Language mode friendly launch sequence
+- Update UI to use new App Installer (MSIX) style UI for system consistency
+- Prep work in code to support safe uninstalls
+    - Feature not yet available, uninstalls will remove all AppLocker configs
+
 ## 1.3.0 - Merge Policy
 
 - Configuring App Locker, merge the policy instead of replacing the policy.

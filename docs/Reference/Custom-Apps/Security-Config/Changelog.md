@@ -2,6 +2,17 @@
 
 Changes to the security config configuration app.
 
+## 1.4.1
+
+- PowerShell commands are now executed using a Constrained Language mode friendly launch sequence
+- Update UI to use new App Installer (MSIX) style UI for system consistency
+- Fix a bug where the Execute Disable enforcement was not being set in the boot loader configuration due to missing config binary path
+
+## 1.4.0
+
+- Add SecureBIO enablement for DeviceGuard/Windows Hello
+- Add Data Execution Prevention enforcement (execute disable) to boot loader config
+
 ## 1.3.1 - Optimize Feature Removal
 
 - Optimize the time that it takes to remove windows features by skipping features that are not currently installed
