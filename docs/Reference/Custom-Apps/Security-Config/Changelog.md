@@ -1,4 +1,4 @@
-# Security Config Changelog
+# Changelog
 
 Changes to the security config configuration app.
 

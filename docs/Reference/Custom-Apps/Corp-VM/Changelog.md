@@ -1,4 +1,4 @@
-# Corp VM Changelog
+# Changelog
 
 Changes over time to the Corp VM deployment system.
 
