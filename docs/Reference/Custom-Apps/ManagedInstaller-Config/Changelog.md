@@ -1,4 +1,4 @@
-# Managed Installer Config Changelog
+# Changelog
 
 List of changes to the Managed Installer configuration app.
 
