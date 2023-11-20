@@ -1,8 +1,4 @@
----
-hide:
-    - navigation
----
-# Home
+# Security Management
 
 ## Overview
 
