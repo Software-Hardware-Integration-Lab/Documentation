@@ -1,7 +1,7 @@
-# Execution Reference
+# Execution Flowchart
 
-``` mermaid
-flowchart TD;
+```mermaid
+flowchart TD
 
 AzSqlDb[("Report Storage")]
 
