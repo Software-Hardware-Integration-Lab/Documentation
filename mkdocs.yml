@@ -47,6 +47,7 @@ markdown_extensions:
   - admonition
   - attr_list
   - def_list
+  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.emoji:
