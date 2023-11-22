@@ -15,7 +15,7 @@ The Corp VM allows for the majority of productivity tasks on the PAW hardware. V
 
 ## Data Storage
 
-Data is stored persistently so that even across host restarts, the data is still present. This differs from Windows Sandbox where the data is wiped after teh sandbox is closed.
+Data is stored persistently so that even across host restarts, the data is still present. This differs from Windows Sandbox where the data is wiped after the sandbox is closed.
 
 The max size of the hard disk is defaulted to `1TB`.
 The default type of disk is `Dynamically Expanding` so that `1TB` of disk space is not required to operate the VM. As data is stored or programs are installed, the disk will automatically grow to store the required data.
