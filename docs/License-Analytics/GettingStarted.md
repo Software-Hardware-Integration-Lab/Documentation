@@ -1,6 +1,6 @@
 # Getting Started
 
-If you have not already installed the app, please follow the [installation guide](Deployment/StandardInstall.md).
+If you have not already installed the MLA app, please follow the [installation guide](Deployment/StandardInstall.md).
 
 ## Default Mode
 
@@ -20,3 +20,5 @@ If you have not already installed the app, please follow the [installation guide
 
 - [Installation Guide](Deployment/StandardInstall.md)
 - [Silent Installation](Deployment/SilentInstallation.md)
+
+- [Installing PowerShell on Windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)

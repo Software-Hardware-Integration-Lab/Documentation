@@ -23,7 +23,7 @@ Queries the Entra ID system and retrieves the configuration for each of its feat
 ## Footnotes
 
 [^1]:
-    This plugin only checks the P1 access review features.
-    Not the Entra ID Governance license advanced features.
+    This plugin only checks the P1 access review features. It does not check the advanced features of the Entra ID Governance license.
+    
 [^2]:
     Cloud only users are excluded as they get SSPR at no additional charge.

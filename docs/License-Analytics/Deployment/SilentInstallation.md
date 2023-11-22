@@ -2,8 +2,9 @@
 
 ## Overview
 
-The installer is an MSI file, and the standard `/qn` works as expected.
+The installer is an MSI file, and the standard `/qn` switch for quiet no GUI installation works as expected.
 In addition to the `/qn`, the SQL Server host name needs to be specified as a property at install time.
+
 This additional property is mandatory as the default operation of MLA doesn't prompt for this value.
 
 ## Configuration Reference
@@ -22,8 +23,7 @@ License-Analytics.msi /qn AZSQL_SERVER_FQDN=moot-example.database.windows.net
 ```
 
 !!! note "Naming Format"
-    Where `moot-example.database.windows.net` should be replaced with the Azure SQL Database Server hostname.
-    This should not include any protocol specifiers such as `sql://` or `https://` etc it should only be the name. No virtual directories either.
+    Replace `moot-example.database.windows.net` with the hostname of your Azure SQL Database Server. The hostname should be the name only, without any protocol specifiers (such as `sql://` or `https://`) or virtual directories.
 
 ```CMD title="Deploy with custom DB name"
 License-Analytics.msi /qn AZSQL_SERVER_FQDN=moot-example.database.windows.net DATABASE_NAME=CustomerTracker

@@ -1,9 +1,9 @@
 # Supported Licenses
 
 Moot License Management (MLA) has its license support implemented via plugins.
-Below are a list of individual licenses that are supported via tha various plugins.
+Below are a list of individual licenses that are supported via the various plugins.
 
-Fore more details on how the plugins are structured, please see the plugin section.
+For more details on how the plugins are structured, please see the plugin section.
 
 ## Currently Supported
 
