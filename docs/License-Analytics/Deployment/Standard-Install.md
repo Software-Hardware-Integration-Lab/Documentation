@@ -26,4 +26,4 @@ If you do not have an installer, please reach out to us [on our website](https:/
 
 ## See Also
 
-- [Getting Started](../GettingStarted.md)
+- [Getting Started](../Getting-Started.md)

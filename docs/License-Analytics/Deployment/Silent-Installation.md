@@ -39,4 +39,4 @@ License-Analytics.msi /qn AZSQL_SERVER_FQDN=moot-example.database.windows.net LI
 
 ## See Also
 
-- [Getting Started](../GettingStarted.md)
+- [Getting Started](../Getting-Started.md)
