@@ -1,4 +1,4 @@
-# Standard Install
+# Standard Installation
 
 To install MLA, you need to have a copy of the installer, which is distributed in MSI format.
 If you do not have an installer, please reach out to us [on our website](https://mootinc.com/contact/).
