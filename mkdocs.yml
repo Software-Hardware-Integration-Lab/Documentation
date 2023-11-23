@@ -7,8 +7,8 @@ copyright: Copyright &copy; 2023 <a href="https://mootinc.com">Moot, Inc.</a> &n
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/Images/Moot Logo - Square White.svg
-  favicon: assets/Images/Moot Logo - Square Blue.svg
+  logo: /assets/Images/Moot Logo - Square White.svg
+  favicon: /assets/Images/Moot Logo - Square Blue.svg
   font: false
   icon:
     repo: fontawesome/brands/github
