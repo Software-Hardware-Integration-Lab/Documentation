@@ -14,7 +14,7 @@ Queries the Entra ID system and retrieves the configuration for each of its feat
 - Privileged Identity Management
 - Applications - Group Assignment
 - Applications - Entra ID App Proxy
-- Self Service Password Reset - On-prem sync[^2]
+- Self Service Password Reset (SSPR) - On-prem sync[^2]
 - HR User Provisioning
 - Entra ID Connect - Health
 - Entra ID Connect - Group Writeback
@@ -24,6 +24,5 @@ Queries the Entra ID system and retrieves the configuration for each of its feat
 
 [^1]:
     This plugin only checks the P1 access review features. It does not check the advanced features of the Entra ID Governance license.
-    
 [^2]:
     Cloud only users are excluded as they get SSPR at no additional charge.
