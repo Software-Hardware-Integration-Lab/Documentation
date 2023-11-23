@@ -30,4 +30,4 @@ For more details on how the plugins are structured, please see the plugin sectio
 ## Footnotes
 
 [^1]:
-    Rough estimations only: Only able to detect/inventory Intune managed devices with against cloud subscription count.
+    Rough estimations: Only able to detect/inventory Intune managed devices against cloud subscription count.
