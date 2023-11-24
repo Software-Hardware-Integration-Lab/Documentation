@@ -3,9 +3,10 @@ hide:
   - navigation
   - toc
   - feedback
+  - footer
 ---
 
-# Home
+<h1 align="center">Moot's Product Documentation</h1>
 
 ## Security Management
 
