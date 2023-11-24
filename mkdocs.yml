@@ -1,4 +1,4 @@
-site_name: Moot Products Documentation
+site_name: Moot's Product Documentation
 site_url: https://docs.mootinc.com/
 site_description: Documentation for Moot's various products
 repo_url: https://github.com/Moot-Inc/Documentation
@@ -40,7 +40,6 @@ theme:
     - navigation.footer
     - content.tabs.link
     - content.code.annotate
-  #  - content.action.edit
     - content.code.copy
     - search.highlight
     - search.suggest
