@@ -8,28 +8,28 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 
 ## Process
 
-1\. Select the `Privileged` security class from the top bar.
+1. Select the `Privileged` security class from the top bar.
 
-2\. Press the `Manage` button in the `User Assignments` column.
+2. Press the `Manage` button in the `User Assignments` column.
 
-3\. Press the `➕ Assign User` button.
+3. Press the `➕ Assign User` button.
 
-4\. Select the list of users that you would like to be able to log into the device.
+4. Select the list of users that you would like to be able to log into the device.
 
-![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Light.png#only-light){ loading=lazy width="300" }
-![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Dark.png#only-dark){ loading=lazy width="300" }
+    ![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Light.png#only-light){ loading=lazy width="300" }
+    ![Screenshot of the privileged user picker with a single user "Fritz Collier" selected.](../../../../assets/Images/Screenshots/Select-User-to-Assign-Dark.png#only-dark){ loading=lazy width="300" }
 
-5\. Press the Select button at the bottom of the selection panel to start the assignment process.
+5. Press the Select button at the bottom of the selection panel to start the assignment process.
 
-!!! note
-    Currently when assigning, the process replaces any existing assignment(s).
+    !!! note
+        Currently when assigning, the process replaces any existing assignment(s).
 
-    If you would like to add to the current assignment list, you will have to select the already assigned user(s) and add the additional ones you want.
+        If you would like to add to the current assignment list, you will have to select the already assigned user(s) and add the additional ones you want.
 
-    We have the behavior slated to change in an upcoming release. The road-mapped behavior will not replace the assignment list, it will add the user to the existing list.
+        We have the behavior slated to change in an upcoming release. The road-mapped behavior will not replace the assignment list, it will add the user to the existing list.
 
-!!! warning
-    When assigning multiple users and there is already a set of users, if none of the users exist on both the set of new and old users, a device wipe command will be issued.
+    !!! warning
+        When assigning multiple users and there is already a set of users, if none of the users exist on both the set of new and old users, a device wipe command will be issued.
 
 ## See Also
 

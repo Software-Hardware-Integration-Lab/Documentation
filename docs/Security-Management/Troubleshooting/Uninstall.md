@@ -21,39 +21,39 @@ It is recommended that the server software be stopped before completing any of t
 
 The core architecture is the set of settings across all of the managed systems (E.G. M365, Entra ID, Intune, etc.)
 
-1\. Download the MSM Architecture Uninstall script:  
+1. Download the MSM Architecture Uninstall script:  
 [Uninstall-MsmArchitecture.ps1](Assets/Scripts/Uninstall-MsmArchitecture.ps1)
 
-2\. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
+2. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
 
-``` PowerShell title="Uninstall all Microsoft 365 Graph API PowerShell Modules"
-Get-Module -Name '*Microsoft.Graph*' -ListAvailable | Uninstall-Module
-```
+    ``` PowerShell title="Uninstall all Microsoft 365 Graph API PowerShell Modules"
+    Get-Module -Name '*Microsoft.Graph*' -ListAvailable | Uninstall-Module
+    ```
 
-!!! note
-    You may have to run the above command twice because the order of operations tries to uninstall a dependency first rather than last. Running it the second time will remove the remaining dependency.
+    !!! note
+        You may have to run the above command twice because the order of operations tries to uninstall a dependency first rather than last. Running it the second time will remove the remaining dependency.
 
-3\. Install the `Microsoft.Graph.Beta` PowerShell Module:
+3. Install the `Microsoft.Graph.Beta` PowerShell Module:
 
-``` PowerShell title="Install Microsoft 365 Graph API Beta Modules"
-Install-Module -Name 'Microsoft.Graph.Beta' -RequiredVersion '2.1.0' -Scope 'AllUsers'
-```
+    ``` PowerShell title="Install Microsoft 365 Graph API Beta Modules"
+    Install-Module -Name 'Microsoft.Graph.Beta' -RequiredVersion '2.1.0' -Scope 'AllUsers'
+    ```
 
 ---
 
 ### Server
 
-1\. Delete the `Moot-Host` resource group in Azure.
+1. Delete the `Moot-Host` resource group in Azure.
 
-!!! note
-    The resource group may have been renamed during deployment, the default name is `Moot-Host`.
+    !!! note
+        The resource group may have been renamed during deployment, the default name is `Moot-Host`.
 
-2\. Delete the Server's User Login App Registration from Entra ID:  
+2. Delete the Server's User Login App Registration from Entra ID:  
 `Moot Security Management - User Login`
 
-3\. (Optional) Delete the Server's Orchestration App Registration from Entra ID:  
+3. (Optional) Delete the Server's Orchestration App Registration from Entra ID:  
 `Moot Security Management - Server` or `Moot Security Management - Self Host`
 
-!!! note
-    The only time step three needs to be done is if you are cleaning up a dev copy or an on-prem hosted version of the app. This doesn't need to be done for an Azure hosted copy since a Managed Identity tied to the App Server is used.  
-    The Managed Identity would have been deleted along with the server host and software in step 1.
+    !!! note
+        The only time step three needs to be done is if you are cleaning up a dev copy or an on-prem hosted version of the app. This doesn't need to be done for an Azure hosted copy since a Managed Identity tied to the App Server is used.  
+        The Managed Identity would have been deleted along with the server host and software in step 1.
