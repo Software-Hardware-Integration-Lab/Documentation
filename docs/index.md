@@ -3,6 +3,7 @@ hide:
   - navigation
   - toc
   - feedback
+  - footer
 ---
 
 <h1 align="center">Moot's Product Documentation</h1>
