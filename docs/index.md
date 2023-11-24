@@ -7,7 +7,7 @@ hide:
 
 <h1 align="center">
 
-Moot Product Documentation
+Moot Products Documentation
 
 </h1>
 
