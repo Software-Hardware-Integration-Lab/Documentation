@@ -1,14 +1,15 @@
-site_name: Moot Security Management - Documentation
+site_name: Moot's Product Documentation
 site_url: https://docs.mootinc.com/
+site_description: Documentation for Moot's various products
 repo_url: https://github.com/Moot-Inc/Documentation
-edit_uri: edit/main/docs/
-site_description: Documentation for Moot Security Management
+repo_name: Moot-Inc/Documentation
+# edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2023 <a href="https://mootinc.com">Moot, Inc.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/Images/Moot Logo - Square White.svg
-  favicon: assets/Images/Moot Logo - Square Blue.svg
+  logo: /assets/Images/Moot Logo - Square White.svg
+  favicon: /assets/Images/Moot Logo - Square Blue.svg
   font: false
   icon:
     repo: fontawesome/brands/github
@@ -33,10 +34,12 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.sections
     - navigation.indexes
+    - navigation.expand
+    - navigation.footer
     - content.tabs.link
     - content.code.annotate
-    - content.action.edit
     - content.code.copy
     - search.highlight
     - search.suggest
@@ -47,6 +50,7 @@ markdown_extensions:
   - admonition
   - attr_list
   - def_list
+  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.emoji:
