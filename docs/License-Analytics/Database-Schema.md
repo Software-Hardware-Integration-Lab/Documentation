@@ -41,8 +41,8 @@ erDiagram
 
 | Column Name | Mandatory (Not Null) | Primary Key | Type | Description |
 | :---------: | :------------------: | :---------: | :--: | :---------: |
-| `CustomerTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to authenticate into the tenant being analyzed. |
-| `HomeTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to store the records in the Azure SQL Database. |
+| `AuditTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to authenticate into the tenant being audited. |
+| `ReportTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to authenticate with to store the records in the Azure SQL Database. |
 | `CorrelationId` | ✅ | ✅ | `uniqueidentifier` | Unique Identifier that represents a single run of the MLA tool. This Record is used to identify which license data records should be grouped together. |
 | `TenantId` | ✅ || `uniqueidentifier` | Tenant that the tool was run against. |
 | `TenantName` | ✅ || `nvarchar(MAX)` | Human friendly name of the tenant that the tool was run against. |
