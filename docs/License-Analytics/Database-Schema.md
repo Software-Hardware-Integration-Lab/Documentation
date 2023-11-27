@@ -9,7 +9,7 @@ One of these records will be generated per run and contains the login informatio
 
 The License Data table stores the specific metadata for a single license. This includes data such as the count of used and available licenses as well as display names for the license and a correlation ID to link it to a run of the MLA tool.
 
-When a value is defined as `not null`, it means that we will not place a `null` in the column. It does not mean that the schema will prevent a `null` value. Due to the way the schema is auto-generated, the schema in the DB will allow `null` where MLA will not place a `null` value.
+All values will not be `null` in the DB. If a value can't be retrieved it will be set as 0 or false or the equivalent `null` state for the type of the column, not the `null` value. Please see the documentation for each [plugin](Plugins/index.md) to see what values are expected.
 
 ## Diagram
 
@@ -39,14 +39,14 @@ erDiagram
 
 ## Correlation Table Details
 
-| Column Name | Mandatory (Not Null) | Primary Key | Type | Description |
-| :---------: | :------------------: | :---------: | :--: | :---------: |
-| `AuditTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to authenticate into the tenant being audited. |
-| `ReportTenantAccount` | ✅ || `nvarchar(MAX)` | The user principal name used to authenticate with to store the records in the Azure SQL Database. |
-| `CorrelationId` | ✅ | ✅ | `uniqueidentifier` | Unique Identifier that represents a single run of the MLA tool. This Record is used to identify which license data records should be grouped together. |
-| `TenantId` | ✅ || `uniqueidentifier` | Tenant that the tool was run against. |
-| `TenantName` | ✅ || `nvarchar(MAX)` | Human friendly name of the tenant that the tool was run against. |
-| `TimeStamp` | ✅ || `datetime2` | Time at which the tool started executing, not when the tool finished. This is UTC time. |
+| Column Name | Type | Description |
+| :---------: | :--: | :---------: |
+| `AuditTenantAccount` | `nvarchar(MAX)` | The user principal name used to authenticate into the tenant being audited. |
+| `ReportTenantAccount` | `nvarchar(MAX)` | The user principal name used to authenticate with to store the records in the Azure SQL Database. |
+| `CorrelationId` | `uniqueidentifier` | Unique Identifier that represents a single run of the MLA tool. This Record is used to identify which license data records should be grouped together. |
+| `TenantId` | `uniqueidentifier` | Tenant that the tool was run against. |
+| `TenantName` | `nvarchar(MAX)` | Human friendly name of the tenant that the tool was run against. |
+| `TimeStamp` | `datetime2` | Time at which the tool started executing, not when the tool finished. This is UTC time. |
 
 ## License Data Table Details
 
@@ -55,15 +55,15 @@ There can be any number of records that are correlated to the specific run (Corr
 
 These records are generally created by the plugin responsible for the specific license.
 
-| Column Name | Mandatory (Not Null) | Primary Key | Type | Description |
-| :---------: | :------------------: | :---------: | :--: | :---------: |
-| `CorrelationId` | ✅ || `uniqueidentifier` | Run ID of the specific record to correlate to a specific execution session. |
-| `Available` ||| `BIGINT` | Count of available licenses across all purchased license types. |
-| `Configured` | ✅ || `BIGINT` | Count of licenses required for the specific service configuration. |
-| `License` | ✅ || `nvarchar(MAX)` | Human friendly display name of the license, to identify which license is being reported on with this record. |
-| `Publisher` | ✅ || `nvarchar(MAX)` | Human friendly owning name of the company that issues the license.
-| `Violation` | ✅ || `BIT` | Flag that indicates that more licenses are configured for use compared to what has been purchased. |
-| `ConsumptionPercent` ||| `BIGINT` | Percentage that represents the total unique monthly active users for the specific license. This number is relative to the timestamp in the correlation record. |
+| Column Name | Type | Description |
+| :---------: | :--: | :---------: |
+| `CorrelationId` | `uniqueidentifier` | Run ID of the specific record to correlate to a specific execution session. |
+| `Available` | `BIGINT` | Count of available licenses across all purchased license types. |
+| `Configured` | `BIGINT` | Count of licenses required for the specific service configuration. |
+| `License` | `nvarchar(MAX)` | Human friendly display name of the license, to identify which license is being reported on with this record. |
+| `Publisher` | `nvarchar(MAX)` | Human friendly owning name of the company that issues the license.
+| `Violation` | `BIT` | Flag that indicates that more licenses are configured for use compared to what has been purchased. |
+| `ConsumptionPercent` | `BIGINT` | Percentage that represents the total unique monthly active users for the specific license. This number is relative to the timestamp in the correlation record. |
 
 ## Relationships
 
@@ -76,4 +76,5 @@ The code will enforce the relationships, the SQL server won't know they exist.
 
 ## See Also
 
+- [Plugins](Plugins/index.md)
 - [Standard Installation](Deployment/Standard-Install.md)
