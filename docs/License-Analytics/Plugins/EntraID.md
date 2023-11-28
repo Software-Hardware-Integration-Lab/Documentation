@@ -20,6 +20,13 @@ Queries the Entra ID system and retrieves the configuration for each of its feat
 - Entra ID Connect - Group Writeback
 - On-Prem/SCIM Provisioning
 
+## Licenses Checked
+
+- Entra ID P1
+- Entra ID P2
+- ~~Entra ID Governance~~ (Coming Soon)
+- ~~Entra ID Workload Identity~~ (Coming Soon)
+
 ## Footnotes
 
 [^1]:
