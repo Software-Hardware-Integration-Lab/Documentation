@@ -5,3 +5,8 @@ The MLA product uses plugins to retrieve data, normalize it and send it to the c
 Each plugin can represent one or more license levels. A license level is a set of features that a customer can access based on their subscription plan. For example, the P1 license level includes basic features such as access reviews and identity protection, while the P2 license level includes advanced features such as entitlement management and identity governance.
 
 Plugins are written in PowerShell and use the MLA PowerShell module to interact with the core engine. The MLA PowerShell module provides cmdlets for authentication, data validation, logging, error handling, and sending data to the core engine. Plugins can also use external APIs to retrieve data from different sources, such as Azure, Microsoft 365, or EntraID.
+
+When evaluating the available licenses, container licenses are taken into account.
+e.g. if you have E3 and E5 licenses and the Entra ID plugin is executed, the available P1 license count will be retrieved from both the E3 and E5 since both of those container licenses have P1 licenses.
+
+Some plugins may have different behavior, please read the plugin details page for more information on the specific plugin in question.
