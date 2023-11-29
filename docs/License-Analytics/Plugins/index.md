@@ -10,3 +10,5 @@ When evaluating the available licenses, container licenses are taken into accoun
 e.g. if you have E3 and E5 licenses and the Entra ID plugin is executed, the available P1 license count will be retrieved from both the E3 and E5 since both of those container licenses have P1 licenses.
 
 Some plugins may have different behavior, please read the plugin details page for more information on the specific plugin in question.
+
+Each plugin accesses a different set of service configurations and some plugins access configurations that are not available to global reader. Because of this, each plugin will have the necessary set of permissions documented on the plugin's page. Only the minimum set of permissions needed to operate are listed and the list doesn't inherit from other plugins.

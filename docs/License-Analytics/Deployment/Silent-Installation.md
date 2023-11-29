@@ -39,5 +39,6 @@ License-Analytics.msi /qn AZSQL_SERVER_FQDN=moot-example.database.windows.net LI
 
 ## See Also
 
+- [Prerequisites](Prerequisites.md)
 - [Getting Started](../Getting-Started.md)
 - [Standard Installation](Standard-Install.md)

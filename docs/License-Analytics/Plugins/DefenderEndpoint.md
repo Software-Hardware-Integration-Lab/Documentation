@@ -10,3 +10,10 @@ This is because the license data is coming from MDE and not the licensing system
 - Defender for Endpoint P2
 - Defender Vulnerability Management Standalone
 - Defender Vulnerability Management Addon
+
+## Permissions/Roles Required
+
+- [X] Global Reader
+    - Count of active users and devices
+- [X] Security Administrator
+    - Count of available licenses

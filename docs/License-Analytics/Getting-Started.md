@@ -1,5 +1,7 @@
 # Getting Started
 
+Please read through the [prerequisites](Deployment/Prerequisites.md) to make sure you have all you need before you begin.
+
 If you have not already installed the MLA app, please follow the [installation guide](Deployment/Standard-Install.md).
 
 ## Default Mode
@@ -43,6 +45,7 @@ The majority of the time, this is what should be run. Please reach out to Moot o
 
 ## See Also
 
+- [Prerequisites](Deployment/Prerequisites.md)
 - [Installation Guide](Deployment/Standard-Install.md)
 - [Silent Installation](Deployment/Silent-Installation.md)
 - [Installing PowerShell on Windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)

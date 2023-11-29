@@ -7,3 +7,10 @@ Other types of principals such as devices and groups are ignored.
 ## Licenses Checked
 
 - Defender for Identity
+
+## Permissions/Roles Required
+
+- [X] Global Reader
+    - Count of available licenses
+- [X] Security Administrator
+    - Count of users being protected
