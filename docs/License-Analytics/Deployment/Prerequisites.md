@@ -25,5 +25,9 @@ The sub-bullet points are the description of what configurations are read by the
 - [X] User Administrator
     - [Entra ID P1](../Plugins/EntraID.md)
 
+## See Also
+
+- [Getting Started](../Getting-Started.md)
+
 [^1]: 7.4.0 is the latest at the time of writing.
 [^2]: The software should work even if this is present, it just isn't guaranteed to work. You can read more about this requirement that Microsoft lays out on [this Microsoft Docs page](https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-network-connectivity-principles){:target="_blank"}.
