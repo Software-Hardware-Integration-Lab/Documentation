@@ -12,7 +12,9 @@ The majority of the time, this is what should be run. Please reach out to Moot o
 
 1. Double click the desktop icon titled `Run License Analytics`
 
-2. Log into the Az SQL and tenant to be analyzed.
+2. Log into the Az SQL Database (Only first log in screen)
+
+3. Log into the tenant to be analyzed (All subsequent login screens)
 
     !!! info "Authentication Info"
         The first authentication prompt is for the tenant that the reports will be saved in.
