@@ -23,7 +23,7 @@ The majority of the time, this is what should be run. Please reach out to Moot o
         The next set of login prompts are for the tenant that should be analyzed for license compliance.
         You will need to log into the account more than once due to the type of systems that will be analyzed.
 
-3. Sit back and relax while the engine retrieves and reports the compliance status of the target tenant.
+4. Sit back and relax while the engine retrieves and reports the compliance status of the target tenant.
 
 ## CLI Mode
 
