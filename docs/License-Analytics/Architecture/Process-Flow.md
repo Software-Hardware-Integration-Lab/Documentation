@@ -1,5 +1,10 @@
 # Execution Flowchart
 
+The below execution flowchart describes how the overall process is logically laid out.
+It describes how the application starts, processes plugins and stores data.
+
+## Diagram
+
 ```mermaid
 flowchart TD
 
