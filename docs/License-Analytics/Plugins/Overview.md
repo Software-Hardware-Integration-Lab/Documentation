@@ -1,4 +1,4 @@
-# Plugins
+# Overview
 
 The MLA product uses plugins to retrieve data, normalize it and send it to the core engine for processing.
 

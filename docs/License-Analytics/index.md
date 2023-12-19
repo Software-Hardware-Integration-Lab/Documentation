@@ -40,4 +40,4 @@ Plugins are responsible for retrieving and standardizing the service configurati
 ## See Also
 
 - [Supported Licenses](Supported-Licenses.md)
-- [Plugins](Plugins/index.md)
+- [Plugins](Plugins/Overview.md)

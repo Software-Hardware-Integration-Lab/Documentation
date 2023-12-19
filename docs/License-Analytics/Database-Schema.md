@@ -9,7 +9,7 @@ One of these records will be generated per run and contains the login informatio
 
 The License Data table stores the specific metadata for a single license. This includes data such as the count of used and available licenses as well as display names for the license and a correlation ID to link it to a run of the MLA tool.
 
-All values will not be `null` in the DB. If a value can't be retrieved it will be set as 0 or false or the equivalent `null` state for the type of the column, not the `null` value. Please see the documentation for each [plugin](Plugins/index.md) to see what values are expected.
+All values will not be `null` in the DB. If a value can't be retrieved it will be set as 0 or false or the equivalent `null` state for the type of the column, not the `null` value. Please see the documentation for each [plugin](Plugins/Overview.md) to see what values are expected.
 
 ## Diagram
 
@@ -76,5 +76,5 @@ The code will enforce the relationships, the SQL server won't know they exist.
 
 ## See Also
 
-- [Plugins](Plugins/index.md)
+- [Plugins](Plugins/Overview.md)
 - [Standard Installation](Deployment/Standard-Install.md)
