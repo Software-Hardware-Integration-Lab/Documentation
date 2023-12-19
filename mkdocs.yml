@@ -15,20 +15,24 @@ theme:
     repo: fontawesome/brands/github
     edit: material/pencil
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/theme-light-dark
+        name: Automatic Theme Mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: light blue
       accent: deep purple
       toggle:
-        icon: material/lightbulb-outline
-        name: Switch to dark theme
+        icon: material/lightbulb-night
+        name: Light Theme Mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: light blue
       accent: deep purple
       toggle:
-        icon: material/lightbulb
-        name: Switch to light theme
+        icon: material/lightbulb-on-outline
+        name: Dark Theme Mode
   features:
     - navigation.tabs
     - navigation.instant
