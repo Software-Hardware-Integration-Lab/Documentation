@@ -79,6 +79,7 @@ extra_css:
   - assets/Styles/common.css
 plugins:
   - glightbox
+  - privacy
   - search
 extra:
   homepage: https://mootinc.com
