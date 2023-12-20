@@ -40,6 +40,6 @@ If you do not have an installer, please reach out to us [on our website](https:/
 
 ## See Also
 
-- [Prerequisites](Prerequisites.md)
+- [Prerequisites](0-Prerequisites.md)
 - [Getting Started](../Getting-Started.md)
 - [Silent Installation](Silent-Installation.md)
