@@ -32,6 +32,31 @@ Each run of the MLA tool generates ~`1,676 bytes`, which results in a total usag
 - [ ] Do not enable BYOK/HYOK/CMK unless you are legally required to do so :material-information-outline:{ title="More info is available via call/meeting with us on this topic." }
 - [ ] [Set up Azure Monitor to alert on low storage space and compute](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-alerts){:target="_blank"}
 
+## Auto Permissions Assignment Tool
+
+MLA comes with a security group permissions management auto configuration tool to make it easier to permission an Azure SQL DB for Entra ID auth at scale.
+
+This tool will take the specified security groups (as identified by their object IDs) and grant them read and write permissions in the DB through Entra ID authentication.
+
+To use authorization auto config tool:
+
+1. Deploy the client software to the computer that you are going to run the commands from.
+2. Run the below command
+
+```PowerShell title="SQL Authorization Auto Configuration"
+Add-AzLicenseDb -SubscriptionId 'c82e42ee-4dea-450e-8f24-52ff699a8f99' -ReadGroupId '16ffec1f-4062-4dd2-8d73-b4882fcc9bb8' -WriteGroupId '3a48f409-5847-47bf-bad9-7235a7c38e3c'
+```
+
+!!! info "Note on IDs in Example Code"
+    Replace the IDs with your environment's specific IDs.
+
+!!! question "In-depth docs"
+    For more information about available options, please run the below for the complete set of information on the auto config tool
+
+    ```PowerShell title="Help Docs for Auto Config Tool"
+    Get-Help -Name 'Add-AzLicenseDb' -Full
+    ```
+
 ## See Also
 
 - [Standard Installation](../Deployment/Standard-Install.md)
