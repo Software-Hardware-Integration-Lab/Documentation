@@ -18,7 +18,7 @@ Regardless of if you create a new one or use an existing one, you need to have E
 
 The MLA engine is extremely efficient with its storage use, for most organizations, this should not exceed the 2GB minimum database size even with repeated use.
 
-Each run of the MLA tool generates `X bytes` (Coming soon), which results in a total usage of `X bytes` (Coming soon) per year if using the recommended, twice monthly run per tenant.
+Each run of the MLA tool generates ~`1,676 bytes`, which results in a total usage of ~`40 Kilobytes` per year if using the recommended run frequency (twice monthly) per tenant.
 
 ## Recommended DB Configurations
 
