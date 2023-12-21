@@ -1,12 +1,12 @@
 /* Light mode */
 [data-md-color-scheme="default"] {
-    --md-default-bg-color: #ffffff;
+    --md-default-bg-color: white;
 
 }
 
 /* Dark mode  */
 [data-md-color-scheme="slate"] {
-    --md-default-bg-color: #0d1117;
+    --md-default-bg-color: black;
 }
 
 /* Making the navigation titles bold  */
