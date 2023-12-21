@@ -13,3 +13,16 @@
 .md-tabs__link {
     font-weight: bold;
 }
+
+/* Style the tooltips so that they have sufficient contrast. */
+/* Light theme */
+[data-md-color-scheme="default"] .md-tooltip--active {
+    color: white;
+    background-color: black;
+}
+
+/* Dark theme */
+[data-md-color-scheme="slate"] .md-tooltip--active {
+    color: black;
+    background-color: white;
+}
