@@ -6,7 +6,7 @@ Moot License Analytics is an enterprise product from Moot, Inc. that requires pe
 
 - [X] The latest version of PowerShell 64Bit installed[^1]
 - [X] Internet access with no traffic inspection for the Microsoft owned domains[^2]
-- [X] 1GB of available RAM
+- [X] 2GB of available RAM
 - [X] [Azure SQL Database Configured](./Azure-SQL-Database.md)
 
 !!! info "Assumptions"
