@@ -30,15 +30,15 @@ jobs:
     steps:
       # Download the source code
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Configure the GH pages environment
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
 
       # Upload a copy of the static pages
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -52,7 +52,7 @@ jobs:
 
       # Uploads the built artifact to github pages
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload static files
           path: "site/"
@@ -60,4 +60,4 @@ jobs:
       # Deploy the compiled pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
