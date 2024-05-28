@@ -5,7 +5,7 @@
     "tasks": [
         {
             "label": "Build",
-            "command": "python3",
+            "command": "python3.12",
             "type": "process",
             "args": [
                 "-m",
@@ -19,7 +19,7 @@
         },
         {
             "label": "Serve",
-            "command": "python3",
+            "command": "python3.12",
             "type": "process",
             "args": [
                 "-m",
