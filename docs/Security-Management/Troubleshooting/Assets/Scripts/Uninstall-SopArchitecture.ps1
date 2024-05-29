@@ -1,12 +1,12 @@
 <#
 .SYNOPSIS
-    Uninstalls the Moot Security Management Architecture.
+    Uninstalls the SHI Security Management Architecture.
 .DESCRIPTION
-    Uses name based searches to find the configurations placed by the Moot Security Management system and them removes them.
+    Uses name based searches to find the configurations placed by the SHI Security Management system and them removes them.
     This operates by default on ESM, SSM and PSM but can be configured to work with only specific security classes or custom ones.
 .EXAMPLE
-    PS> Uninstall-MsmArchitecture.ps1
-    Uninstalls the deployed MSM architecture with the default settings for the parameters (no name customization).
+    PS> Uninstall-SopArchitecture.ps1
+    Uninstalls the deployed SOP architecture with the default settings for the parameters (no name customization).
 .INPUTS
     System.String
     System.string[]
@@ -19,9 +19,9 @@
 .PARAMETER RootScopeTagName
     Full name of the root scope tag as it will not follow the prefix, suffix or the security class list by default.
 .LINK
-    https://docs.mootinc.com
+    https://docs.shilab.com
 .NOTES
-    This script requires the same set of permissions as required by the Install-MSM.ps1 script used to deploy the Azure Web App.
+    This script requires the same set of permissions as required by the Install-SOP.ps1 script used to deploy the Azure Web App.
     This script has only been tested with PowerShell 7.
     While theoretically compatible with PS 5, usage with PowerShell 5 has not been tested.
 
@@ -40,10 +40,10 @@
 [CmdletBinding(SupportsShouldProcess)]
 
 param(
-    [System.String]$Prefix = 'MSM - ',
+    [System.String]$Prefix = 'SOP - ',
     [System.String]$Suffix = '',
     [System.String[]]$SecurityClassList = @('PSM', 'SSM', 'ESM'),
-    [System.String]$RootScopeTagName = 'Moot-Security-Management'
+    [System.String]$RootScopeTagName = 'SHI-Security-Management'
 )
 
 begin {
@@ -56,13 +56,13 @@ begin {
 
     # Current place in the child progress bar
     [System.Int64]$CurrentStep = 0
-    
+
     # Computed suffix for autopilot profiles
     # [System.String]$AutopilotCompatibleSuffix = $Suffix -replace "[%!#)(^*+=';<>/-]", '_'
-    
+
     # Render Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 1/3 - M365 Login' -PercentComplete 0
-    
+    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 1/3 - M365 Login' -PercentComplete 0
+
     # List of permissions to log in with
     [System.String[]]$DelegatedPermissionList = @(
         'AdministrativeUnit.ReadWrite.All',
@@ -88,8 +88,8 @@ begin {
 
 process {
     # Update Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 2/3 - Data Retrieval' -PercentComplete 30
-        
+    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 2/3 - Data Retrieval' -PercentComplete 30
+
     # List of Entra ID CA Policies
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy[]]$CaPolicyList = @()
 
@@ -147,28 +147,28 @@ process {
     # List of Intune Role Scope tags plus the root scope tag as defined by the parameter
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphRoleScopeTag[]]$IntuneRoleScopeTagList = Get-MgBetaDeviceManagementRoleScopeTag -Filter "displayName eq '$RootScopeTagName'"
 
-    # List of Intune Quality Update configurations 
+    # List of Intune Quality Update configurations
     [hashtable[]]$IntuneQualityUpdateConfigList = @()
-    
-    # List of Intune Driver & Firmware update configurations 
+
+    # List of Intune Driver & Firmware update configurations
     [hashtable[]]$IntuneDriverUpdateConfigList = @()
 
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 1 -ParentId 0 -Activity 'Removing Admin Units' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)    
+    Write-Progress -Id 1 -ParentId 0 -Activity 'Removing Admin Units' -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
     # Remove the admin units sooner rather than later to start unlocking the objects held in the AUs if the AUs are in restricted mode
     $AdminUnitList | ForEach-Object -Process { Remove-MgBetaAdministrativeUnit -AdministrativeUnitId $_.Id }
 
-    # Loop through each security class 
+    # Loop through each security class
     foreach ($SecurityClass in $SecurityClassList) {
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)    
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Get a list of conditional access policies for the current security class
         $CaPolicyList += Get-MgBetaIdentityConditionalAccessPolicy -Filter "contains(displayName, '$Prefix$SecurityClass')" -All
@@ -177,17 +177,17 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Named Locations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Named Locations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Get a list of conditional access policy named locations
         $CaNamedLocationList += Get-MgBetaIdentityConditionalAccessNamedLocation -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
-                
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Auth Strength Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
-        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Conditional Access Auth Strength Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
+
         # Get a list of conditional access policy authentication strengths
         $CaAuthStrengthPolicyList += Get-MgBetaIdentityConditionalAccessAuthenticationStrengthPolicy -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
 
@@ -195,11 +195,11 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Settings Templates" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)            
-        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Settings Templates" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
+
         # Retrieve a list of Intune settings templates for the current security class
         $IntuneSettingTemplateList += Get-MgBetaDeviceManagementDeviceConfiguration -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
@@ -208,16 +208,16 @@ process {
 
         # Retrieve a list of Intune settings catalogs for the current security class
         $IntuneSettingsCatalogList += Get-MgBetaDeviceManagementConfigurationPolicy -Filter "startsWith(Name, '$Prefix$SecurityClass')" -All
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Windows Feature Update Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)                            
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Windows Feature Update Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieve a list of Windows feature update configurations from Intune
         $IntuneWindowsFeatureUpdate += Get-MgBetaDeviceManagementWindowsFeatureUpdateProfile -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
@@ -231,16 +231,16 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Compliance Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Compliance Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieve a list of all Intune device compliance policies
         $IntuneDeviceCompliancePolicy += Get-MgBetaDeviceManagementDeviceCompliancePolicy -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Enrollment Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)                
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Device Enrollment Configurations" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieve a list of enrollment configurations from Intune
         $IntuneEnrollmentConfigList += Get-MgBetaDeviceManagementDeviceEnrollmentConfiguration -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
@@ -249,7 +249,7 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Autopilot Profiles" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Autopilot Profiles" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieves a list of autopilot profiles from Intune
         $IntuneAutopilotProfileList += Get-MgBetaDeviceManagementWindowsAutopilotDeploymentProfile -Filter "startsWith(displayName, '$AutopilotCompatiblePrefix$SecurityClass')" -ExpandProperty 'Assignments' -All
@@ -258,7 +258,7 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Filters" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Filters" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieves a list of filters from Intune
         $IntuneAssignmentFilterList += Get-MgBetaDeviceManagementAssignmentFilter -All | Where-Object -FilterScript { $_.DisplayName -like "$Prefix$SecurityClass*" }
@@ -267,7 +267,7 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Scope Tags" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Scope Tags" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieves a list of role scope tags from Intune
         $IntuneRoleScopeTagList += Get-MgBetaDeviceManagementRoleScopeTag -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
@@ -276,25 +276,25 @@ process {
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Quality Update Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Quality Update Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieves a list of Quality Update profiles
         $IntuneQualityUpdateConfigList += (Invoke-MgGraphRequest -Method 'Get' -Uri 'https://graph.microsoft.com/beta/deviceManagement/windowsQualityUpdateProfiles').Value | Where-Object -FilterScript { $_.displayName -like "$Prefix$SecurityClass*" }
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Driver & Firmware Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Intune Driver & Firmware Policies" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Retrieves a list of driver & firmware update profiles
         $IntuneDriverUpdateConfigList += (Invoke-MgGraphRequest -Method 'Get' -Uri 'https://graph.microsoft.com/beta/deviceManagement/windowsDriverUpdateProfiles').Value | Where-Object -FilterScript { $_.displayName -like "$Prefix$SecurityClass*" }
-        
+
         # Increment the current step to make the child progress bar move up
         $CurrentStep++
 
         # Render Secondary Progress Bar
-        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Remaining Security Groups" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)        
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting Remaining Security Groups" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
 
         # Get a list of security groups for the current security class
         $GroupList += Get-MgBetaGroup -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
@@ -307,12 +307,12 @@ process {
     Write-Progress -Id 1 -Activity 'Done Retrieving Objects' -Completed
 
     # Update Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling MSM's Architecture" -Status 'Step 3/3 - Configuration Removal' -PercentComplete 60
+    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 3/3 - Configuration Removal' -PercentComplete 60
 
     # Enable and Render Secondary Progress Bar for removal
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
-    # Remove MSM configurations where the lists are iterated over each on their own loop.
+    # Remove SOP configurations where the lists are iterated over each on their own loop.
     if ($PSCmdlet.ShouldProcess('Conditional Access Policy List', 'Remove')) {
         $CaPolicyList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessPolicy -ConditionalAccessPolicyId $_.Id }
     }
@@ -321,31 +321,31 @@ process {
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Named Locations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Named Locations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $CaNamedLocationList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessNamedLocation -NamedLocationId $_.Id }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Auth Strength Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100) 
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Auth Strength Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $CaAuthStrengthPolicyList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessAuthenticationStrengthPolicy -AuthenticationStrengthPolicyId $_.Id }
 
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneSettingTemplateList | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceConfiguration -DeviceConfigurationId $_.Id }
-   
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Catalogs' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)        
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Settings Catalogs' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneSettingsCatalogList | ForEach-Object -Process { Remove-MgBetaDeviceManagementConfigurationPolicy -DeviceManagementConfigurationPolicyId $_.Id }
 
@@ -353,7 +353,7 @@ process {
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Windows Feature Update Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)            
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Windows Feature Update Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneWindowsFeatureUpdate | ForEach-Object -Process { Remove-MgBetaDeviceManagementWindowsFeatureUpdateProfile -WindowsFeatureUpdateProfileId $_.Id }
 
@@ -361,7 +361,7 @@ process {
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)            
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneDeviceConfigIntent | ForEach-Object -Process { Remove-MgBetaDeviceManagementIntent -DeviceManagementIntentId $_.Id }
 
@@ -369,28 +369,28 @@ process {
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Settings Catalog Templates' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneDeviceCompliancePolicy | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceCompliancePolicy -DeviceCompliancePolicyId $_.Id }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Enrollment Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Device Enrollment Configurations' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $IntuneEnrollmentConfigList | ForEach-Object -Process { Remove-MgBetaDeviceManagementDeviceEnrollmentConfiguration -DeviceEnrollmentConfigurationId $_.Id }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Autopilot Profiles' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Autopilot Profiles' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     foreach ($AutopilotProfile in $IntuneAutopilotProfileList) {
         # Remove the assignments before removing the autopilot profile
         $AutopilotProfile.Assignments.Id | ForEach-Object -Process { Remove-MgBetaDeviceManagementWindowsAutopilotDeploymentProfileAssignment -WindowsAutopilotDeploymentProfileId $AutopilotProfile.Id -WindowsAutopilotDeploymentProfileAssignmentId $_ }
-        
+
         # Remove the Autopilot profile since it has been un-assigned
         Remove-MgBetaDeviceManagementWindowsAutopilotDeploymentProfile -WindowsAutopilotDeploymentProfileId $AutopilotProfile.Id
     }
@@ -399,40 +399,40 @@ process {
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Filter' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Filter' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $IntuneAssignmentFilterList | ForEach-Object -Process { Remove-MgBetaDeviceManagementAssignmentFilter -DeviceAndAppManagementAssignmentFilterId $_.Id }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Scope Tag' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Scope Tag' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $IntuneRoleScopeTagList | ForEach-Object -Process { Remove-MgBetaDeviceManagementRoleScopeTag -RoleScopeTagId $_.Id }
 
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Quality Update Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Quality Update Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $IntuneQualityUpdateConfigList | ForEach-Object -Process { Invoke-MgGraphRequest -Method 'DELETE' -Uri "https://graph.microsoft.com/beta/deviceManagement/windowsQualityUpdateProfiles/$($_.Id)" }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Driver & Firmware Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Intune Driver & Firmware Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $IntuneDriverUpdateConfigList | ForEach-Object -Process { Invoke-MgGraphRequest -Method 'DELETE' -Uri "https://graph.microsoft.com/beta/deviceManagement/windowsDriverUpdateProfiles/$($_.Id)" }
-    
+
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
 
     # Render Secondary Progress Bar
-    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Remaining Security Groups' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)                
-    
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Remaining Security Groups' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
+
     $GroupList | ForEach-Object -Process { Remove-MgBetaGroup -GroupId $_.Id }
 
     # Disable progress bars
@@ -448,5 +448,5 @@ end {
     Clear-Host
 
     # Notify the end user that the process has completed.
-    Write-Host -Object 'Successfully uninstalled MSM architecture!'
+    Write-Host -Object 'Successfully uninstalled SOP architecture!'
 }
