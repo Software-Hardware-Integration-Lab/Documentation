@@ -9,7 +9,7 @@ theme:
   name: material
   custom_dir: overrides
   logo: /assets/Images/SHI Logo - Color.svg
-  favicon: /assets/Images/SHI Logo - Square.svg
+  favicon: /assets/Images/Favicon.png
   font: false
   icon:
     repo: fontawesome/brands/github
