@@ -2,8 +2,8 @@
 
 ## Overview
 
-The Moot License Analytics (MLA) is a system that retrieves the Microsoft Service configurations and performs analysis against the data to evaluate the count of license records that are required to satisfy the service configuration.
-MLA also retrieves a count of purchased licenses so that it can make the determination if a license violation is in progress so that easy review of the overall compliance state of an organization can be saved into an Azure SQL Database of choice.
+The SHI License Analytics (SLA) is a system that retrieves the Microsoft Service configurations and performs analysis against the data to evaluate the count of license records that are required to satisfy the service configuration.
+SLA also retrieves a count of purchased licenses so that it can make the determination if a license violation is in progress so that easy review of the overall compliance state of an organization can be saved into an Azure SQL Database of choice.
 
 Once the data is in the Azure SQL Database, it is easy to integrate it into Business Intelligence software such as PowerBI to create reports.
 
@@ -13,7 +13,7 @@ Because the service configuration of each license is expressed differently, plug
 
 ## Technical Breakdown
 
-MLA is broken into three distinct parts:
+SLA is broken into three distinct parts:
 
 - Core Engine
 - Database Boilerplate

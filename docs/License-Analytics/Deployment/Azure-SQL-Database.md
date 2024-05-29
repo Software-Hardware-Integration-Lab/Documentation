@@ -1,12 +1,12 @@
 # Azure SQL Database Configuration
 
-MLA requires a database to be present in order to record its findings. This database is not hosted by or maintained in any way by Moot, and is the sole responsibility of your organization.
+SLA requires a database to be present in order to record its findings. This database is not hosted by or maintained in any way by SHI, and is the sole responsibility of your organization.
 
 The database requirements are light, which gives you the flexibility to host it however you want in Azure.
 
-You can use an existing database, or create a new one. We highly recommend to create a new one to reduce potential table name conflicts and improve segmentation. You can name your MLA tables whatever you want in the client configuration.
+You can use an existing database, or create a new one. We highly recommend to create a new one to reduce potential table name conflicts and improve segmentation. You can name your SLA tables whatever you want in the client configuration.
 
-Regardless of if you create a new one or use an existing one, you need to have Entra ID authentication enabled and configured for the users that run MLA.
+Regardless of if you create a new one or use an existing one, you need to have Entra ID authentication enabled and configured for the users that run SLA.
 
 ## Required DB Configurations
 
@@ -16,9 +16,9 @@ Regardless of if you create a new one or use an existing one, you need to have E
 
 ## Storage
 
-The MLA engine is extremely efficient with its storage use, for most organizations, this should not exceed the 2GB minimum database size even with repeated use.
+The SLA engine is extremely efficient with its storage use, for most organizations, this should not exceed the 2GB minimum database size even with repeated use.
 
-Each run of the MLA tool generates ~`1,676 bytes`, which results in a total usage of ~`40 Kilobytes` per year if using the recommended run frequency (twice monthly) per tenant.
+Each run of the SLA tool generates ~`1,676 bytes`, which results in a total usage of ~`40 Kilobytes` per year if using the recommended run frequency (twice monthly) per tenant.
 
 ## Recommended DB Configurations
 
@@ -34,7 +34,7 @@ Each run of the MLA tool generates ~`1,676 bytes`, which results in a total usag
 
 ## Auto Permissions Assignment Tool
 
-MLA comes with a security group permissions management auto configuration tool to make it easier to permission an Azure SQL DB for Entra ID auth at scale.
+SLA comes with a security group permissions management auto configuration tool to make it easier to permission an Azure SQL DB for Entra ID auth at scale.
 
 This tool will take the specified security groups (as identified by their object IDs) and grant them read and write permissions in the DB through Entra ID authentication.
 

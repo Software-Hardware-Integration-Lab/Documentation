@@ -10,6 +10,7 @@
 			"Backdoors",
 			"Entra",
 			"Intune",
+			"Lockdown",
 			"Mgmt",
 			"microsegmentation",
 			"mkdocs",
@@ -27,7 +28,7 @@
 			"site": true,
 			".github": true,
 			".gitignore": true,
-			"MSM Docs.code-workspace": true
+			"Documentation.code-workspace": true
 		},
 		"powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
 		"powershell.codeFormatting.autoCorrectAliases": true,

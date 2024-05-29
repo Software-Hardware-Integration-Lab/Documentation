@@ -2,13 +2,13 @@
 
 Please read through the [prerequisites](Deployment/0-Prerequisites.md) to make sure you have all you need before you begin.
 
-If you have not already installed the MLA app, please follow the [installation guide](Deployment/Standard-Install.md).
+If you have not already installed the SLA app, please follow the [installation guide](Deployment/Standard-Install.md).
 
 ## Default Mode
 
-Default mode runs MLA authentication in a InPrivate/Incognito window.
+Default mode runs SLA authentication in a InPrivate/Incognito window.
 It also uses all of the configured database settings and can't be overridden.
-The majority of the time, this is what should be run. Please reach out to Moot or your security department if other options are required.
+The majority of the time, this is what should be run. Please reach out to SHI or your security department if other options are required.
 
 1. Double click the desktop icon titled `Run License Analytics`
 

@@ -14,19 +14,19 @@ Examples of various managed device unique group descriptions.
 
 ### Privileged Device
 
-``` title="MSM - PSM - ce27fc58-0d74-4d72-bba2-105d8d90483f 💻"
+``` title="SOP - PSM - ce27fc58-0d74-4d72-bba2-105d8d90483f 💻"
 CommissionedDate=2023-07-18T01:35:34.760Z,UserAssignment=8fe82ce9-cd69-4f4d-a6d0-8508fa163381,GroupAssignment=8e544b86-39ae-44c1-9ba4-0faeb456f259
 ```
 
 ### Privileged Device Hosted in Another Device
 
-``` title="MSM - PSM - 029f899b-e08a-4434-8e47-355bea58680f 💻"
+``` title="SOP - PSM - 029f899b-e08a-4434-8e47-355bea58680f 💻"
 CommissionedDate=2023-07-18T01:35:34.760Z,UserAssignment=db9892d0-43f3-4688-b6c4-1a38267ca4cb,GroupAssignment=f6fbec86-904b-473f-be0d-3681df9022c8,ParentDevice=bf7b6877-5e7d-4945-a71f-b9b0f257e696
 ```
 
 ### Enterprise class device
 
-``` title="MSM - ESM - 2db6bcf4-8cb3-4284-8ef4-57a525128344 💻"
+``` title="SOP - ESM - 2db6bcf4-8cb3-4284-8ef4-57a525128344 💻"
 CommissionedDate=2023-07-18T01:35:34.760Z
 ```
 

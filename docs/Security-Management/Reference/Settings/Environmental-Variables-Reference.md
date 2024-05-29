@@ -12,7 +12,7 @@ The title of the section is the name of the environmental variable.
 
 ---
 
-## `MSM_AuthorityHost`
+## `SOP_AuthorityHost`
 
 **Coming soon!**
 
@@ -30,7 +30,7 @@ See this page for more details on what each option means: [https://docs.microsof
 
 ---
 
-## `MSM_ClientAuth_ClientId`
+## `SOP_ClientAuth_ClientId`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -42,7 +42,7 @@ This specific client ID value is not for authenticating the server, but for auth
 
 ---
 
-## `MSM_ClientAuth_ClientSecret`
+## `SOP_ClientAuth_ClientSecret`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -54,7 +54,7 @@ This specific client secret value is not for authenticating the server, but for 
 
 ---
 
-## `MSM_ClientAuth_TenantId`
+## `SOP_ClientAuth_TenantId`
 
 - Mandatory: `true`
 - Expected string format: `String`
@@ -66,7 +66,7 @@ This specific configuring is not for authenticating the server, but for authenti
 
 ---
 
-## `MSM_Client_GUID`
+## `SOP_Client_GUID`
 
 - Mandatory: `true`, unless using a `Managed Identity`
 - Expected string format: `GUID`, no braces
@@ -77,9 +77,9 @@ The Client GUID is the Application (client) ID of the application registration i
 
 ---
 
-## `MSM_Client_Secret`
+## `SOP_Client_Secret`
 
-- Mandatory: `true`, unless specifying the `MSM_KeyVault_Name` and `MSM_KeyVault_Secret` values or using a `Managed Identity`
+- Mandatory: `true`, unless specifying the `SOP_KeyVault_Name` and `SOP_KeyVault_Secret` values or using a `Managed Identity`
 - Expected string format: `String`
 - Description:
 The Client Secret variable is the password that was generated in the application registration.
@@ -89,7 +89,7 @@ This value is not required when using the Key Vault name and Key Vault Secret co
 
 ---
 
-## `MSM_Debug`
+## `SOP_Debug`
 
 - Mandatory: `false`
 - Expected string format: Boolean
@@ -101,7 +101,7 @@ See [Debug Mode](./Debug-Mode.md) for more information on what is enabled when t
 
 ---
 
-## `MSM_Headless`
+## `SOP_Headless`
 
 - Mandatory: `false`
 
@@ -115,32 +115,32 @@ It is more secure to run without a UI as it reduces surface area for attack, but
 
 ---
 
-## `MSM_KeyVault_Name`
+## `SOP_KeyVault_Name`
 
 - Mandatory: `false`
 
 - Expected string format: `String`
 - Description:
-The unique name of the Azure Key Vault that contains the app registration secret that you want the app to authenticate with. If you configure the `MSM_Client_Secret` and the `MSM_KeyVault_Name` at the same time, the application will throw an error as this it is a security risk to have a plain text secret stored in the app configs when a perfectly good Azure Key Vault is available. Environmental variables are not meant for storing secret materials, Key Vaults are meant for storing secret materials.
+The unique name of the Azure Key Vault that contains the app registration secret that you want the app to authenticate with. If you configure the `SOP_Client_Secret` and the `SOP_KeyVault_Name` at the same time, the application will throw an error as this it is a security risk to have a plain text secret stored in the app configs when a perfectly good Azure Key Vault is available. Environmental variables are not meant for storing secret materials, Key Vaults are meant for storing secret materials.
 This configuration is not necessary if using Managed Identity to authenticate. Managed Identity is the best way to authenticate as there is no secret material for a malicious entity to steal.
 - Example:
 `org-key-vault-hsm`
 
 ---
 
-## `MSM_KeyVault_Secret`
+## `SOP_KeyVault_Secret`
 
 - Mandatory: `false`
 
 - Expected string format: `String`
 - Description:
-The name of the secret in the Azure Key Vault that you specified in the `MSM_KeyVault_Name` option. This option is only evaluated if the `MSM_KeyVault_Name` is configured.
+The name of the secret in the Azure Key Vault that you specified in the `SOP_KeyVault_Name` option. This option is only evaluated if the `SOP_KeyVault_Name` is configured.
 - Example:
 `app-reg-secret`
 
 ---
 
-## `MSM_Managed_ID_GUID`
+## `SOP_Managed_ID_GUID`
 
 - Mandatory: `false`
 - Expected string format: `GUID`, no braces
@@ -154,7 +154,7 @@ If this variable is specified, the system will attempt to retrieve a access toke
 
 ---
 
-## `MSM_MS_Cloud_Type`
+## `SOP_MS_Cloud_Type`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -169,11 +169,11 @@ Allowed values are: `Public`, `GCC`, `GCCH`, and `China`
 
 ---
 
-## `MSM_Name_Prefix`
+## `SOP_Name_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
-- Default: `MSM -`
+- Default: `SOP -`
 - Description:
 This will set a prefix to appear before all the names of objects created.
 - Example: <code>eLabs - </code>, results in an example conditional access policy name of `eLabs - PSM - Authentication Methods`.
@@ -183,7 +183,7 @@ This will set a prefix to appear before all the names of objects created.
 
 ---
 
-## `MSM_Name_Suffix`
+## `SOP_Name_Suffix`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -196,16 +196,16 @@ This will set a suffix to appear after all the names of objects created.
 
 ---
 
-## `MSM_Scope_Tag`
+## `SOP_Scope_Tag`
 
 - Mandatory: `false`
 - Expected string format: `String`
-- Default: `Moot-Security-Management`
+- Default: `SHI-Security-Management`
 - Description:
 This is the Intune Scope tag that the app will be used to store the app's configurations (in the description) and to isolate its configurations from other scopes to enforce least privilege.
 If the scope tag does not exist, it will be created automatically.
 - Example:
-`MSM-App`
+`SOP-App`
 
 !!! note "Prefix and Suffix"
     The core scope tag will ignore the name prefix and suffix configuration. If you want a suffix or prefix for the core scope tag, please put them in here manually.
@@ -213,17 +213,17 @@ If the scope tag does not exist, it will be created automatically.
 
 ---
 
-## `MSM_Subscription_ID`
+## `SOP_Subscription_ID`
 
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
-This value needs to be provided if MSM is not hosted on an Azure Web App (App Service). This value is used to tell the Core Infrastructure, Lifecycle Management, and Marketplace engines where to operate from.  
-This is the base subscription of the MSM orchestration platform and will be used to deploy and manage solutions like Sentinel and Marketplace offerings that are hosted in azure such as Azure Virtual Desktop.
+This value needs to be provided if SOP is not hosted on an Azure Web App (App Service). This value is used to tell the Core Infrastructure, Lifecycle Management, and Marketplace engines where to operate from.
+This is the base subscription of the SOP orchestration platform and will be used to deploy and manage solutions like Sentinel and Marketplace offerings that are hosted in azure such as Azure Virtual Desktop.
 
 ---
 
-## `MSM_Tenant_ID`
+## `SOP_Tenant_ID`
 
 - Mandatory: `true`, unless using a `Managed Identity`
 - Expected string format: `GUID`, no braces
@@ -234,25 +234,25 @@ This is the ID of the tenant that the application registration is registered in.
 
 ---
 
-## `MSM_User_Domain`
+## `SOP_User_Domain`
 
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
 This setting configures the domain name used for newly created users. If not specified, the newly created user will share the same domain as the user it is based off. You do not need to include the `@` symbol. Only the domain name is necessary.
 - Example: `example.com`
-- Example: `lab.mootinc.com`
+- Example: `lab.shilab.com`
 
 ---
 
-## `MSM_Username_Prefix`
+## `SOP_Username_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
 This setting puts a set of text before the username of a newly created user. The default setting is `priv-` but this can be set to anything allowed by [Entra ID's user principal name property](<https://learn.microsoft.com/en-us/microsoft-365/enterprise/prepare-for-directory-synchronization?view=o365-worldwide#2-directory-object-and-attribute-preparation>).
 - Example: `red-`
-- Example: `msm_`
+- Example: `sop_`
 
 !!! note
     If you would like no prefix, set the environmental variable but leave its value empty.

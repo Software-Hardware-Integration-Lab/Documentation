@@ -1,7 +1,7 @@
 # Standard Installation
 
-To install MLA, you need to have a copy of the installer, which is distributed in MSI format.
-If you do not have an installer, please reach out to us [on our website](https://mootinc.com/contact/){:target="_blank"}.
+To install SLA, you need to have a copy of the installer, which is distributed in MSI format.
+If you do not have an installer, please reach out to us [on our website](https://shilab.com/contact/){:target="_blank"}.
 
 ## Installation Instructions
 
@@ -14,9 +14,9 @@ If you do not have an installer, please reach out to us [on our website](https:/
 
         The `pwsh.exe` binary must registered in the Application Registration system, as described in the [Microsoft Documentation](https://learn.microsoft.com/en-us/windows/win32/shell/app-registration#registering-applications){:target="_blank"}.
 
-        Currently only local user installs of PowerShell are supported for the desktop shortcut. For local machine installs of PowerShell, the CLI is required to run MLA.
+        Currently only local user installs of PowerShell are supported for the desktop shortcut. For local machine installs of PowerShell, the CLI is required to run SLA.
 
-2. Run the MLA installer.
+2. Run the SLA installer.
 
 3. On the main screen, enter the FQDN of the Azure SQL Server.
 

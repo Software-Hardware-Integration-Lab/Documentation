@@ -2,16 +2,16 @@
 
 {% block extrahead %}
 
-<meta name="keywords" content="Moot,Microsoft,M365,License,Document,Security,Intune,Defender,Entra,Automation">
+<meta name="keywords" content="SHI,Microsoft,M365,License,Document,Security,Intune,Defender,Entra,Automation,SHIELD">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
 <meta name="revisit-after" content="8 days">
-<meta name="author" content="Moot, Inc.">
-<meta property='og:title' content='Moot&lsquo;s Product Documentation' />
-<meta property='og:description' content='Documentation for Moot&lsquo;s product, including MSM and MLA' />
-<meta property='og:url' content='https://mootinc.com/' />
-<meta property='og:image' content='https://mootinc.com/wp-content/uploads/2023/06/Moot-Logo-Light-Mode-980x317.png' />
+<meta name="author" content="SHI International Corp.">
+<meta property='og:title' content='SHI Orchestration Platform - Documentation' />
+<meta property='og:description' content='Documentation for the SHI Orchestration Platform (SOP). Part of SHI Lab.' />
+<meta property='og:image' content='https://docs.shilab.com/assets/Images/Favicon.png' />
+<meta property='og:url' content='https://shi.com/' />
 <meta property='og:image:width' content='980' />
 <meta property='og:image:height' content='317' />
 <!--  https://ogp.me/#types -->
@@ -19,19 +19,19 @@
 
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
-  (function (c, l, a, r, i, t, y) {
-    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-  })(window, document, "clarity", "script", "i94g9d2nu9");
+  ( function ( c, l, a, r, i, t, y ) {
+    c[ a ] = c[ a ] || function () { ( c[ a ].q = c[ a ].q || [] ).push( arguments ); };
+    t = l.createElement( r ); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName( r )[ 0 ]; y.parentNode.insertBefore( t, y );
+  } )( window, document, "clarity", "script", "mjm7g9aobr" );
 
   /** Contains the state of all consent as defined by the Material Theme. Used to see if consent has been granted for cookies. */
-  var consent = __md_get("__consent");
+  var consent = __md_get( "__consent" );
 
   // Check if consent was granted for Microsoft Clarity
-  if (consent && consent.clarity) {
+  if ( consent && consent.clarity ) {
     /* The user accepted the cookie */
-    window.clarity('consent');
+    window.clarity( 'consent' );
   } else {
     /* The user rejected the cookie */
     // Do nothing
@@ -40,18 +40,4 @@
 
 
 {{ super() }}
-{% endblock %}
-
-<!-- Announcement bar -->
-{% block announce %}
-Refer to
-<a rel="me" href="https://mootinc.com/">
-  <img class="twemoji" alt="White Moot 'M' logo" src="/assets/Images/Moot Logo - Square White.svg">
-  <strong>our website</strong>
-</a>
-for more information or
-<a href="https://mootinc.com/book-demo/">
-  <img class="twemoji" alt="Blue gradient Moot 'M' logo" src="/assets/Images/Moot Logo - Square Blue.svg">
-  <strong>book a demo.</strong>
-</a>
 {% endblock %}

@@ -1,15 +1,15 @@
-site_name: Moot's Product Documentation
-site_url: https://docs.mootinc.com/
-site_description: Documentation for Moot's various products
-repo_url: https://github.com/Moot-Inc/Documentation
-repo_name: Moot-Inc/Documentation
+site_name: SHI Orchestration Platform - Documentation
+site_url: https://docs.shilab.com/
+site_description: Documentation for the SHI orchestration platform
+repo_url: https://github.com/Software-Hardware-Integration-Lab/Documentation
+repo_name: Software-Hardware-Integration-Lab/Documentation
 # edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2024 <a href="https://mootinc.com">Moot, Inc.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
+copyright: Copyright &copy; 2024 <a href="https://shi.com">SHI International Corp.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
 theme:
   name: material
   custom_dir: overrides
-  logo: /assets/Images/Moot Logo - Square White.svg
-  favicon: /assets/Images/Moot Logo - Square Blue.svg
+  logo: /assets/Images/SHI Logo - Color.svg
+  favicon: /assets/Images/SHI Logo - Square.svg
   font: false
   icon:
     repo: fontawesome/brands/github
@@ -21,17 +21,17 @@ theme:
         name: Automatic Theme Mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: light blue
-      accent: deep purple
+      primary: blue grey
+      accent: light green
       toggle:
-        icon: material/lightbulb-night
+        icon: material/lightbulb-on-outline
         name: Light Theme Mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: light blue
-      accent: deep purple
+      primary: blue grey
+      accent: light green
       toggle:
-        icon: material/lightbulb-on-outline
+        icon: material/lightbulb-night
         name: Dark Theme Mode
   features:
     - navigation.tabs
@@ -86,10 +86,10 @@ plugins:
   - privacy
   - search
 extra:
-  homepage: https://mootinc.com
+  homepage: https://shilab.com
   consent:
     cookies:
-      analytics: Google Analytics
+      # analytics: Google Analytics
       github: GitHub
       clarity: Microsoft Clarity
     title: Cookie consent
@@ -100,38 +100,41 @@ extra:
       make our documentation better.
     actions: [accept, reject]
   generator: false
-  analytics:
-    provider: google
-    property: G-8XGJ04G979
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="https://mootinc.com/contact" target="_blank" rel="noopener">feedback form</a>.
+  # analytics:
+  #   provider: google
+  #   property: G-8XGJ04G979
+  #   feedback:
+  #     title: Was this page helpful?
+  #     ratings:
+  #       - icon: material/emoticon-happy-outline
+  #         name: This page was helpful
+  #         data: 1
+  #         note: >-
+  #           Thanks for your feedback!
+  #       - icon: material/emoticon-sad-outline
+  #         name: This page could be improved
+  #         data: 0
+  #         note: >-
+  #           Thanks for your feedback! Help us improve this page by
+  #           using sending us a note <a href="mailto:alex_kessel@shi.com" target="_blank" rel="noopener">to our feature PM</a>.
   social:
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/moot-inc
-      name: Moot's home on LinkedIn
-    - icon: fontawesome/brands/telegram
-      link: https://t.me/mootinc
-      name: Moot's home on Telegram
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/@mootinc
-      name: Moot's home on YouTube
-    - icon: fontawesome/brands/github
-      link: https://github.com/Moot-Inc/
-      name: Moot's home on GitHub
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/pages/SHI-International-Corp/164409770296612
+      name: SHI's home on FaceBook
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/moot_inc
-      name: Moot's home on Twitter
+      link: https://twitter.com/SHI_Intl
+      name: SHI's home on X (Twitter)
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/shi-international-corp-
+      name: SHI's home on Telegram
+    - icon: fontawesome/solid/blog
+      link: https://blog.shi.com/
+      name: SHI's blog
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/shicorporation
+      name: SHI's home on YouTube
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/shi_intl/
+      name: SHI's home on Instagram
 watch:
   - includes

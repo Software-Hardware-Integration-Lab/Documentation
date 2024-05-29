@@ -1,6 +1,6 @@
 # PSM - Intune Scope Tag
 
-The [prefix](../../Settings/Environmental-Variables-Reference.md#msm_name_prefix) and [suffix](../../Settings/Environmental-Variables-Reference.md#msm_name_suffix) can be changed in the MSM server settings. The default settings are being used for the tag name below.
+The [prefix](../../Settings/Environmental-Variables-Reference.md#sop_name_prefix) and [suffix](../../Settings/Environmental-Variables-Reference.md#sop_name_suffix) can be changed in the SOP server settings. The default settings are being used for the tag name below.
 
 ## Example Configurations
 
@@ -10,7 +10,7 @@ Example configurations of the privileged security class Intune Scope Tag.
 
 ### Default Naming
 
-``` INI title="MSM - PSM"
+``` INI title="SOP - PSM"
 AU=5767b44d-8e1c-4c1d-9770-675be4900e6d
 DevSg=0b7a6be8-deee-4f93-97bd-082926a7349c
 UsrSg=e7f4c4f4-c457-45ae-883b-820b368f8310
@@ -48,7 +48,7 @@ The Object ID (GUID) of the Administrative Unit that contains all of the privile
 **Description:**
 This is an Entra ID Restricted Admin Unit that contains a list of security groups, devices, apps and users.
 The group is made in such a way (restricted AU) that existing admins will have no access. To manage objects in the AU, you need to have an AU scoped role assignment for this AU.
-The membership of this AU is automatically maintained by MSM.
+The membership of this AU is automatically maintained by SOP.
 
 **Example:**
 `AU=5767b44d-8e1c-4c1d-9770-675be4900e6d`
@@ -119,7 +119,7 @@ This SG contains only privileged intermediaries.
 The Object ID (GUID) of the Security Group that contains all of the privileged configurations.
 
 **Description:**
-This security group is used for non-user/device configuration management, mostly for the marketplace and various intermediaries. This could also be used for by the end user to add config support to their custom stuff outside of MSM's lifecycle management and marketplace engines. This Security Group will be scanned for transitive membership count during license usage evaluation.
+This security group is used for non-user/device configuration management, mostly for the marketplace and various intermediaries. This could also be used for by the end user to add config support to their custom stuff outside of SOP's lifecycle management and marketplace engines. This Security Group will be scanned for transitive membership count during license usage evaluation.
 
 **Example:**
 `Config=b0be63f9-d6ff-422b-b026-6e5e9ba8e15a`

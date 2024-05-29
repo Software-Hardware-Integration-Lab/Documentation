@@ -1,14 +1,14 @@
 # Uninstall Procedure
 
-Removing MSM from an Azure tenant is a two step process:  
+Removing SOP from an Azure tenant is a two step process:
 Removing the hosting environment and removing the configurations put in place by the orchestration software.
 
 !!! Danger "Data Loss Warning!!!"
-    If you uninstall the architecture, **you will clear out any managed objects and those configurations**, this procedure should only be followed if a Moot employee tells you to do so.  
+    If you uninstall the architecture, **you will clear out any managed objects and those configurations**, this procedure should only be followed if a SHI employee tells you to do so.
     All data is stored in the architecture itself in the form of Intune Scope Tag, or Entra ID Security Group descriptions.
 
 !!! note
-    The Server software doesn't store any data (stateless) and should be safe to reinstall at the same or a newer version.  
+    The Server software doesn't store any data (stateless) and should be safe to reinstall at the same or a newer version.
     Frequently, all that is needed to be done if troubleshooting an existing fresh installation is to uninstall the architecture and run the infrastructure deployment process again.
 
 ## Process
@@ -21,8 +21,8 @@ It is recommended that the server software be stopped before completing any of t
 
 The core architecture is the set of settings across all of the managed systems (E.G. M365, Entra ID, Intune, etc.)
 
-1. Download the MSM Architecture Uninstall script:  
-[Uninstall-MsmArchitecture.ps1](Assets/Scripts/Uninstall-MsmArchitecture.ps1)
+1. Download the SOP Architecture Uninstall script:
+[Uninstall-SopArchitecture.ps1](Assets/Scripts/Uninstall-SopArchitecture.ps1)
 
 2. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
 
@@ -43,17 +43,17 @@ The core architecture is the set of settings across all of the managed systems (
 
 ### Server
 
-1. Delete the `Moot-Host` resource group in Azure.
+1. Delete the `SHI-Host` resource group in Azure.
 
     !!! note
-        The resource group may have been renamed during deployment, the default name is `Moot-Host`.
+        The resource group may have been renamed during deployment, the default name is `SHI-Host`.
 
-2. Delete the Server's User Login App Registration from Entra ID:  
-`Moot Security Management - User Login`
+2. Delete the Server's User Login App Registration from Entra ID:
+`SHI Security Management - User Login`
 
-3. (Optional) Delete the Server's Orchestration App Registration from Entra ID:  
-`Moot Security Management - Server` or `Moot Security Management - Self Host`
+3. (Optional) Delete the Server's Orchestration App Registration from Entra ID:
+`SHI Security Management - Server` or `SHI Security Management - Self Host`
 
     !!! note
-        The only time step three needs to be done is if you are cleaning up a dev copy or an on-prem hosted version of the app. This doesn't need to be done for an Azure hosted copy since a Managed Identity tied to the App Server is used.  
+        The only time step three needs to be done is if you are cleaning up a dev copy or an on-prem hosted version of the app. This doesn't need to be done for an Azure hosted copy since a Managed Identity tied to the App Server is used.
         The Managed Identity would have been deleted along with the server host and software in step 1.

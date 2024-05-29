@@ -33,7 +33,7 @@ Changes to the security config configuration app.
 
 ## 1.1.2 - Name Update
 
-- Rename app from `Moot AIO config` to `Moot Security Config`
+- Rename app from `SHI AIO config` to `SHI Security Config`
 - Move files around in the project to be easier to understand/better organized (internal change)
 - Update help/docs link
 

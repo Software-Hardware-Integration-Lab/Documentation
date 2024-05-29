@@ -6,15 +6,15 @@ hide:
   - footer
 ---
 
-<h1 align="center">Moot's Product Documentation</h1>
+<h1 align="center">SHI's Product Documentation</h1>
 
-## Security Management
+## SHI Environment Lockdown & Defense
 
 Manages the state of security tenant wide using a multi-tiered architecture.
 
-[:lock: Security Management](Security-Management/index.md){ .md-button }
+[:lock: SHIELD](Security-Management/index.md){ .md-button }
 
-## License Analytics
+## SHI License Analytics
 
 Retrieves and validates the state of license compliance tenant wide.
 

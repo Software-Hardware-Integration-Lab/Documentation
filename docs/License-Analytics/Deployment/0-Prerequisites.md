@@ -1,6 +1,6 @@
 # Prerequisites
 
-Moot License Analytics is an enterprise product from Moot, Inc. that requires permissions and software to run.
+SHI License Analytics is an enterprise product from SHI, Inc. that requires permissions and software to run.
 
 ## Software/System Configuration
 
@@ -18,7 +18,7 @@ The below Entra ID roles are required to be able to read all of the service conf
 The sub-bullet points are the description of what configurations are read by the permissions.
 
 !!! info "Permissions Usage"
-    Moot License Analytics will never change your service configuration in any way during an audit. All permissions are used only for data retrieval and are the set of least privilege possible for the data that is being gathered.
+    SHI License Analytics will never change your service configuration in any way during an audit. All permissions are used only for data retrieval and are the set of least privilege possible for the data that is being gathered.
 
 - [X] Global Reader
     - [Defender for Endpoint](../Plugins/DefenderEndpoint.md)

@@ -1,9 +1,9 @@
 Conditional Access Policies are critical to how Entra ID secures sign in.
 Below are the list of policies that are automatically deployed and why they are necessary for securing privileged access.
 
-## MSM - Compliance
+## SOP - Compliance
 
-- **Setting Name:** MSM - Compliance
+- **Setting Name:** SOP - Compliance
 - **Type of Policy:** Conditional Access
 - **Description:**
 Requires devices to be marked as compliant and requires MFA sign in
@@ -14,9 +14,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged User group attempts to access any cloud app.
 
-## MSM - User Risk
+## SOP - User Risk
 
-- **Setting Name:** MSM - User Risk
+- **Setting Name:** SOP - User Risk
 - **Description:**
 Prevents signing in if user has a user risk of Low/Medium/High
 - **Why it is needed (what does it secure against):**
@@ -26,9 +26,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged User group attempts to access any cloud app with a user risk of Low/Medium/High, their sign in will be blocked.
 
-## MSM - Sign-in Risk
+## SOP - Sign-in Risk
 
-- **Setting Name:** MSM - Sign-in Risk
+- **Setting Name:** SOP - Sign-in Risk
 - **Description:**
 Prevents signing in if user has a sign-in risk of Low/Medium/High
 - **Why it is needed (what does it secure against):**
@@ -38,9 +38,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged User group attempts to access any cloud app with a sign-in risk of Low/Medium/High, their sign in will be blocked.
 
-## MSM - OS Enforcement
+## SOP - OS Enforcement
 
-- **Setting Name:** MSM - OS Enforcement
+- **Setting Name:** SOP - OS Enforcement
 - **Description:**
 Prevents signing in if user is NOT using Windows OS
 - **Why it is needed (what does it secure against):**
@@ -50,9 +50,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the in Privileged device Devices or Privileged Users attempts to sign into any cloud app from a NON Windows OS, their sign in will be blocked.
 
-## MSM - Location
+## SOP - Location
 
-- **Setting Name:** MSM - Location
+- **Setting Name:** SOP - Location
 - **Description:**
 Prevents signing in if user is in a known risky location
 - **Why it is needed (what does it secure against):**
@@ -62,9 +62,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged Users attempts to sign into any cloud app from outside the United States, their sign in will be blocked.
 
-## MSM - Legacy Auth
+## SOP - Legacy Auth
 
-- **Setting Name:** MSM - Legacy Auth
+- **Setting Name:** SOP - Legacy Auth
 - **Description:**
 Prevents signing in if user is utilizing legacy authentication such as Exchange ActiveSync, POP, IMAP, SMTP.
 - **Why it is needed (what does it secure against):**
@@ -74,9 +74,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged Users attempts to sign into any cloud app utilizing legacy authentication, their sign in will be blocked.
 
-## MSM - Hardware Enforcement
+## SOP - Hardware Enforcement
 
-- **Setting Name:** MSM - Hardware Enforcement
+- **Setting Name:** SOP - Hardware Enforcement
 - **Description:**
 Prevents signing in if user is not signing in from a Privileged device configured device. Devices must meet the naming convention set through Intune Autopilot and a custom extension attribute to be allowed sign in from this policy.
 - **Why it is needed (what does it secure against):**
@@ -86,9 +86,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a principal in the Privileged device Devices or Privileged Users attempts to sign into any cloud app utilizing a device not meeting the custom extension attribute and not falling under the autopilot naming convention, their sign in will be blocked.
 
-## MSM - MCAS
+## SOP - MCAS
 
-- **Setting Name:** MSM - MCAS
+- **Setting Name:** SOP - MCAS
 - **Description:**
 Sends all cloud sessions over to Microsoft Cloud App Security
 - **Why it is needed (what does it secure against):**
@@ -98,9 +98,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When any principal from Privileged device Devices or Privileged Users accesses any cloud app.
 
-## MSM - MFA
+## SOP - MFA
 
-- **Setting Name:** MSM - MFA
+- **Setting Name:** SOP - MFA
 - **Description:**
 Requires a multi-factor credential when signing in.
 - **Why it is needed (what does it secure against):**
@@ -110,9 +110,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 All sign-ins by principals in the Privileged device Devices and Privileged Users will require a MFA token
 
-## MSM - Session Duration
+## SOP - Session Duration
 
-- **Setting Name:** MSM - Session Duration
+- **Setting Name:** SOP - Session Duration
 - **Description:**
 Forces principals to re-authenticate utilizing their Entra ID credentials after their session has been established for 9 hours
 - **Why it is needed (what does it secure against):**
@@ -122,9 +122,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 After a session has existed for 9 hours, principals will be required to re-authenticate
 
-## MSM - Session Persistence
+## SOP - Session Persistence
 
-- **Setting Name:** MSM - Session Persistence
+- **Setting Name:** SOP - Session Persistence
 - **Description:**
 When a browser session is closed, it will require principals to re-authenticate into all cloud apps utilizing their Entra ID credentials.
 - **Why it is needed (what does it secure against):**
@@ -134,9 +134,9 @@ Entra ID Groups: Privileged device Devices & Privileged Users
 - **When the policy triggers:**
 When a browser session is closed and relaunched, a re-authentication will occur.
 
-## MSM - Disable CA Resilience Downgrade
+## SOP - Disable CA Resilience Downgrade
 
-- **Setting Name:** MSM - Disable CA Resilience Downgrade
+- **Setting Name:** SOP - Disable CA Resilience Downgrade
 - **Description:**
 If their is an outage in Entra ID and Conditional Access policies cannot be evaluated, it will block principals from authenticating.
 - **Why it is needed (what does it secure against):**

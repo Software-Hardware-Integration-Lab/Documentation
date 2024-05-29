@@ -28,6 +28,6 @@ Lifecycle management is where you will spend most of your time. Performing actio
 
 ## See Also
 
-- [SPA - Moot Architecture Overview](../../Reference/Architecture/Securing-Privileged-Access.md)
+- [SPA - SHI Architecture Overview](../../Reference/Architecture/Securing-Privileged-Access.md)
 - [SPA - MSFT Docs](https://aka.ms/spa){:target="_blank"}
 - [Security Classes - MSFT Docs](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-security-levels){:target="_blank"}

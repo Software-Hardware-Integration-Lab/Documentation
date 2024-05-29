@@ -1,6 +1,6 @@
 # Infrastructure Diagram
 
-The below is the logical infrastructure interaction of the core MLA engine.
+The below is the logical infrastructure interaction of the core SLA engine.
 Each plugin interacts with the specific service configuration that is being interpreted.
 
 ## Threat Model
@@ -17,7 +17,7 @@ flowchart
     subgraph "Client Environment"
     Client["PowerShell Client"]
     end
-    
+
     subgraph "Microsoft Trust Boundary (Cloud Boundary)"
     EntraId[/"Entra ID"\]
     SqlDb[("Azure SQL Database")]

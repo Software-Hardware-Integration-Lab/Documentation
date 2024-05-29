@@ -6,13 +6,13 @@
     In Entra ID, an app registration is created to facilitate user login.
     Configures all the required permissions for operation.
 .PARAMETER SubscriptionId
-    The ID of the subscription to create an Az Web App for MSM to be hosted in.
+    The ID of the subscription to create an Az Web App for SOP to be hosted in.
 .PARAMETER ResourceSubscriptionId
-    Optionally, the ID of the subscription to host resources that MSM creates/manages.
-    This is different from the 'SubscriptionId' parameter as the other parameter is where to host the MSM web app.
+    Optionally, the ID of the subscription to host resources that SOP creates/manages.
+    This is different from the 'SubscriptionId' parameter as the other parameter is where to host the SOP web app.
     The web app is not hosted in the resource subscription ID.
 .PARAMETER ResourceGroupName
-    Name of the resource group to create for the MSM app.
+    Name of the resource group to create for the SOP app.
 .PARAMETER Location
     Azure Region to create all of the resources in.
 .PARAMETER AppRegistrationName
@@ -25,7 +25,7 @@
     Text to append on the end of the web app that will be deployed.
 .PARAMETER ClusterName
     Name of the Azure App Service Plan to create.
-    This app service plan will host the web app that hosts the MSM app.
+    This app service plan will host the web app that hosts the SOP app.
 .PARAMETER AppServiceSku
     SKU of the web server cluster.
     The SKU can be changed after deployment if necessary.
@@ -77,7 +77,7 @@ param(
     [ValidateScript({ $_ -match '^[a-zA-Z]+[a-zA-Z-]*$' })]
     [System.String]$CompanyName,
     [ValidateScript({ $_ -match '^[a-zA-Z-]*[a-zA-Z]+$' })]
-    [System.String]$WebAppNameSuffix = '-MSM',
+    [System.String]$WebAppNameSuffix = '-SOP',
     [ValidateScript({ $_ -match '^[a-zA-Z-]+$' })]
     [System.String]$ClusterName = 'SHI-Host',
     [ValidateSet('PremiumV3', 'Free', 'Basic')]
@@ -138,7 +138,7 @@ begin {
 # Create an instance of the SHI Server Host setup
 process {
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Creating User Login Entra ID App Registration' -PercentComplete 0
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Creating User Login Entra ID App Registration' -PercentComplete 0
 
     # Check if an app registration exists already
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphApplication]$UserAuthApp = Get-MgBetaApplication -Filter "displayName eq '$AppRegistrationName - User Login'"
@@ -158,24 +158,24 @@ process {
     }
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Generating App Secret' -PercentComplete 10
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Generating App Secret' -PercentComplete 10
 
     # Add a secret to the user authentication app registration with an expiration of 2 years
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphPasswordCredential]$UserAuthSecret = Add-MgBetaApplicationPassword -ApplicationId $UserAuthApp.Id -BodyParameter $AppRegSecretRequestBody
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Creating App Service Resource Group' -PercentComplete 20
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Creating App Service Resource Group' -PercentComplete 20
 
     # Create a resource group for the server and other cloud resources to be hosted in
     [Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResourceGroup]$TargetRg = New-AzResourceGroup -Name $ClusterName -Location $Location
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Creating App Service Plan' -PercentComplete 30
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Creating App Service Plan' -PercentComplete 30
 
     # Create a new Azure App Service Plan (server cluster) to host the Web App
     [Microsoft.Azure.Commands.WebApps.Models.WebApp.PSAppServicePlan]$WebHostCluster = New-AzAppServicePlan -Name $ClusterName -Linux -Tier $AppServiceSku -ResourceGroupName $TargetRg.ResourceGroupName -Location $TargetRg.Location
 
-    # Define a hash table that configures the app settings for the MSM client auth
+    # Define a hash table that configures the app settings for the SOP client auth
     [System.Collections.Hashtable]$AppSettings = @{
         'SOP_ClientAuth_TenantId'     = $AccessToken.TenantId
         'SOP_ClientAuth_ClientId'     = $UserAuthApp.AppId
@@ -183,13 +183,13 @@ process {
     }
 
     # Inject debug mode if requested
-    if ($DebugMode) { $AppSettings['MSM_Debug'] = 'true' }
+    if ($DebugMode) { $AppSettings['SOP_Debug'] = 'true' }
 
     # Configure resource subscription if requested
-    if ($ResourceSubscriptionId) { $AppSettings['MSM_Subscription_ID'] = "$ResourceSubscriptionId" }
+    if ($ResourceSubscriptionId) { $AppSettings['SOP_Subscription_ID'] = "$ResourceSubscriptionId" }
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Creating Web App' -PercentComplete 40
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Creating Web App' -PercentComplete 40
 
     # Create the web app on the app service
     [Microsoft.Azure.Commands.WebApps.Models.PSSite]$WebApp = New-AzWebApp -Name "$CompanyName$WebAppNameSuffix" -IgnoreSourceControl -AppSettingsOverrides $AppSettings -AppServicePlan $WebHostCluster.Name -ResourceGroupName $TargetRg.ResourceGroupName -Location $TargetRg.Location
@@ -204,19 +204,19 @@ process {
     }
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Configuring Web App, part 1/2' -PercentComplete 50
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Configuring Web App, part 1/2' -PercentComplete 50
 
     # Configure the Web App settings that are not natively available via cmdlet
     Set-AzResource -Id $WebApp.Id -Properties $WebAppConfig -Force | Out-Null
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Configuring Web App, part 2/2' -PercentComplete 60
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Configuring Web App, part 2/2' -PercentComplete 60
 
     # Set Web App settings for maximum performance and security and update the current Web App instance with the new data
     [Microsoft.Azure.Commands.WebApps.Models.PSSite]$WebApp = Set-AzWebApp -ResourceGroupName $TargetRg.ResourceGroupName -Name $WebApp.Name -AssignIdentity $true -HttpsOnly $true -AppSettings $AppSettings -AlwaysOn $true -FtpsState 'Disabled'
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Waiting for Managed Identity Replication' -PercentComplete 65
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Waiting for Managed Identity Replication' -PercentComplete 65
 
     # Set the presence detection to false
     [System.Boolean]$ManagedIdentityNotFound = $true
@@ -250,7 +250,7 @@ process {
     }
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Granting Web App MI Graph API Permissions' -PercentComplete 70
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Granting Web App MI Graph API Permissions' -PercentComplete 70
 
     # List of permissions to grant to the managed identity
     [System.String[]]$PermissionList = @(
@@ -275,7 +275,7 @@ process {
     Grant-MIGraphPermission.ps1 -CLIMode -AccessToken (ConvertTo-SecureString -AsPlainText -String $AccessToken.Token) -ObjectID $WebApp.Identity.PrincipalId -PermissionName $PermissionList | Out-Null
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Granting Web App Azure RBAC self configuring permissions' -PercentComplete 80
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Granting Web App Azure RBAC self configuring permissions' -PercentComplete 80
 
     # Permission assignment on another subscription if another is requested
     if ($ResourceSubscriptionId -ne $null) {
@@ -285,19 +285,19 @@ process {
         # Grant the ability to the web app to manage itself, useful for key management and the update engine.
         New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope $WebApp.id -RoleDefinitionName 'Website Contributor' | Out-Null
     } else {
-        # Grant the managed identity the ability to self manage the MSM subscription.
+        # Grant the managed identity the ability to self manage the SOP subscription.
         # This is useful for config drift identification and auto secret update for user auth and is also used for intermediaries.
         New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope "/Subscriptions/$SubscriptionId" -RoleDefinitionName 'Owner' | Out-Null
     }
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Uploading MSM Zip file' -PercentComplete 90
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Uploading SOP Zip file' -PercentComplete 90
 
-    # Deploy the MSM binaries
+    # Deploy the SOP binaries
     Publish-AzWebApp -WebApp $WebApp -ArchivePath $Path -Clean -Restart -Force | Out-Null
 
     # Display progress bar
-    Write-Progress -Activity 'Deploying MSM to Az Web App' -Status 'Completed Deployment' -PercentComplete 100
+    Write-Progress -Activity 'Deploying SOP to Az Web App' -Status 'Completed Deployment' -PercentComplete 100
 }
 
 end {
