@@ -1,6 +1,6 @@
 # Prerequisites
 
-SHI License Analytics is an enterprise product from SHI, Inc. that requires permissions and software to run.
+SHI License Analytics is an enterprise product from SHI International Corp. that requires permissions and software to run.
 
 ## Software/System Configuration
 

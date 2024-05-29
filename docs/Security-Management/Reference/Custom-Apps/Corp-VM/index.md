@@ -25,7 +25,7 @@ This can be increased later if necessary by editing the Disk from in Hyper-V and
 
 The host operating system is protected by a hypervisor boundary and hypervisors are traditionally very difficult to break out of due to their relative simplicity.
 
-Because of this SHI, Inc. considers this to be an acceptable risk architecture to host a guest VM of a lower security class and active encourages the usage of them to improve user reception of the PAW devices.
+Because of this SHI International Corp. considers this to be an acceptable risk architecture to host a guest VM of a lower security class and active encourages the usage of them to improve user reception of the PAW devices.
 
 Organizations are free to remove the CorpVM functionality if they wish, as it is not a dependency of any other part of the SOP manged architecture.
 

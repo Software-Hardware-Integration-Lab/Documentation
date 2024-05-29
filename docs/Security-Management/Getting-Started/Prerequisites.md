@@ -1,6 +1,6 @@
 # Prerequisites
 
-SHI Security Management is an enterprise product from SHI, Inc. that requires specific licenses and configurations to deploy and use.
+SHIELD is an enterprise product that requires specific licenses and configurations to deploy and use.
 
 To simplify the documentation, we use the `M` prefix to refer to the different license types of Microsoft 365 licensing, such as `M1`, `M3`, `M5`, etc. This prefix can replace the other prefixes that indicate the type of organization, such as `E` for Enterprise, `A` for Education, `G` for Government, `F` for Frontline, and so on.
 
