@@ -23,6 +23,7 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 | `Policy.Read.All` and `Policy.ReadWrite.ConditionalAccess` | Used to manage the conditional access policies for individual users during the lifecycle management and for when the initial deployment occurs to implement health checks, and identity partitioning. |
 | `RoleManagement.ReadWrite.Directory` | Used to manage role assigned security groups (SGs that can have Entra ID Roles assigned to them). |
 | `User.ReadWrite.All` | Used to create, list, manage, and remove privileged users and retrieve a list of all non-users (and their properties) so that they can be added to security groups and device configurations. |
+| `AppRoleAssignment.ReadWrite.All` | Used by the update/health engine to update the permissions of the Azure App Service's Managed Identity to support new functionality in future updates. All permissions assigned will align with this page. If they do not, stop the app and contact us. |
 
 !!! note
     `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess` is all that will be necessary.  
