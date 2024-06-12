@@ -36,7 +36,8 @@
 		"powershell.codeFormatting.trimWhitespaceAroundPipe": true,
 		"powershell.codeFormatting.useConstantStrings": true,
 		"powershell.codeFormatting.useCorrectCasing": true,
-		"powershell.codeFormatting.whitespaceBetweenParameters": true
+		"powershell.codeFormatting.whitespaceBetweenParameters": true,
+		"editor.formatOnSave": true
 	},
 	"extensions": {
 		"recommendations": [
