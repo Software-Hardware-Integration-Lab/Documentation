@@ -1,6 +1,6 @@
 # Uninstall Procedure
 
-Removing SOP from an Azure tenant is a two step process:
+Removing SHIELD from an Azure tenant is a two step process:
 Removing the hosting environment and removing the configurations put in place by the orchestration software.
 
 !!! Danger "Data Loss Warning!!!"
@@ -21,8 +21,8 @@ It is recommended that the server software be stopped before completing any of t
 
 The core architecture is the set of settings across all of the managed systems (E.G. M365, Entra ID, Intune, etc.)
 
-1. Download the SOP Architecture Uninstall script:
-[Uninstall-SopArchitecture.ps1](Assets/Scripts/Uninstall-SopArchitecture.ps1)
+1. Download the SHIELD Architecture Uninstall script:
+[Uninstall-ShieldArchitecture.ps1](Assets/Scripts/Uninstall-ShieldArchitecture.ps1)
 
 2. Make sure to have no other `Microsoft.Graph` PowerShell Modules installed:
 

@@ -1,6 +1,6 @@
 # Hardware Selection
 
-To ensure optimal performance and security, the SOP application has specific hardware recommendations based on the different security classes and modes of operation. While consistency in hardware selection is recommended, the choice of OEM is flexible and can vary based on customer preference.
+To ensure optimal performance and security, the SHIELD application has specific hardware recommendations based on the different security classes and modes of operation. While consistency in hardware selection is recommended, the choice of OEM is flexible and can vary based on customer preference.
 
 ## ESM and SSM Modes
 
@@ -10,7 +10,7 @@ For ESM (Enterprise Security Class) and SSM (Specialized Security Class) modes, 
 - **RAM**: Recommended minimum of 16GB (for a better user experience and future proofing)
 - **Graphics**: NVIDIA graphics card (optional, for GPU-intensive workloads)
 
-We recommend using Microsoft Surface for Business devices or Lenovo devices for ESM and SSM modes. These devices offer reliable performance and align with the security principles of SOP. It is important to note that AMD graphics cards are not recommended due to poor driver quality. Ultimately the choice of OEM is flexible based on customer preference.
+We recommend using Microsoft Surface for Business devices or Lenovo devices for ESM and SSM modes. These devices offer reliable performance and align with the security principles of SHIELD. It is important to note that AMD graphics cards are not recommended due to poor driver quality. Ultimately the choice of OEM is flexible based on customer preference.
 
 !!! info "Device Security Considerations"
     In ESM (Enterprise Security Class) and SSM (Specialized Security Class) modes, the risk posed by potential hardware backdoors, as mentioned in the PSM section's warning note, is relatively lower compared to PSM mode. This is because devices in these modes typically do not hold high-value data, and the user accounts associated with them do not have elevated privileges within the organization.
@@ -46,7 +46,7 @@ For a list of secure core certified devices from Microsoft or Lenovo, you can re
 
 ## Conclusion
 
-Selecting the right hardware for SOP deployment is crucial to ensure optimal performance and security. Depending on the security class and mode of operation, the hardware requirements may vary. We recommend using Microsoft Surface or Lenovo devices for ESM and SSM modes. Microsoft Secure Core certified Windows 11 devices are required for PSM mode.
+Selecting the right hardware for SHIELD deployment is crucial to ensure optimal performance and security. Depending on the security class and mode of operation, the hardware requirements may vary. We recommend using Microsoft Surface or Lenovo devices for ESM and SSM modes. Microsoft Secure Core certified Windows 11 devices are required for PSM mode.
 
 Choosing performant hardware is important for security because happy users means less shadow IT. Dissatisfaction leads to end users bringing in their own systems to solve their issues rather than using corporate systems.
 
@@ -54,6 +54,6 @@ For further guidance on hardware selection or compatibility, please refer to the
 
 ## See Also
 
-- [Lifecycle Management Overview](../../Getting-Started/Usage-Guide/Lifecycle-Management/index.md): Learn more about the lifecycle management features of SOP and how it simplifies the management of user and device objects.
-- [Commissioning a New Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/0-Commission.md): Step-by-step guide on commissioning (adopting) a new device using SOP.
-- [Decommission a Managed Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/1-Decommission.md): Step-by-step guide on decommissioning (removing) a device that is currently being managed by SOP.
+- [Lifecycle Management Overview](../../Getting-Started/Usage-Guide/Lifecycle-Management/index.md): Learn more about the lifecycle management features of SHIELD and how it simplifies the management of user and device objects.
+- [Commissioning a New Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/0-Commission.md): Step-by-step guide on commissioning (adopting) a new device using SHIELD.
+- [Decommission a Managed Device](../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/1-Decommission.md): Step-by-step guide on decommissioning (removing) a device that is currently being managed by SHIELD.

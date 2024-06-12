@@ -5,8 +5,8 @@
     Uses name based searches to find the configurations placed by the SHI Security Management system and them removes them.
     This operates by default on ESM, SSM and PSM but can be configured to work with only specific security classes or custom ones.
 .EXAMPLE
-    PS> Uninstall-SopArchitecture.ps1
-    Uninstalls the deployed SOP architecture with the default settings for the parameters (no name customization).
+    PS> Uninstall-ShieldArchitecture.ps1
+    Uninstalls the deployed SHIELD architecture with the default settings for the parameters (no name customization).
 .INPUTS
     System.String
     System.string[]
@@ -21,7 +21,7 @@
 .LINK
     https://docs.shilab.com
 .NOTES
-    This script requires the same set of permissions as required by the Install-SOP.ps1 script used to deploy the Azure Web App.
+    This script requires the same set of permissions as required by the Install-Shield.ps1 script used to deploy the Azure Web App.
     This script has only been tested with PowerShell 7.
     While theoretically compatible with PS 5, usage with PowerShell 5 has not been tested.
 
@@ -61,7 +61,7 @@ begin {
     # [System.String]$AutopilotCompatibleSuffix = $Suffix -replace "[%!#)(^*+=';<>/-]", '_'
 
     # Render Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 1/3 - M365 Login' -PercentComplete 0
+    Write-Progress -Id 0 -Activity "Uninstalling SHIELD's Architecture" -Status 'Step 1/3 - M365 Login' -PercentComplete 0
 
     # List of permissions to log in with
     [System.String[]]$DelegatedPermissionList = @(
@@ -88,7 +88,7 @@ begin {
 
 process {
     # Update Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 2/3 - Data Retrieval' -PercentComplete 30
+    Write-Progress -Id 0 -Activity "Uninstalling SHIELD's Architecture" -Status 'Step 2/3 - Data Retrieval' -PercentComplete 30
 
     # List of Entra ID CA Policies
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy[]]$CaPolicyList = @()
@@ -307,12 +307,12 @@ process {
     Write-Progress -Id 1 -Activity 'Done Retrieving Objects' -Completed
 
     # Update Main Progress Bar
-    Write-Progress -Id 0 -Activity "Uninstalling SOP's Architecture" -Status 'Step 3/3 - Configuration Removal' -PercentComplete 60
+    Write-Progress -Id 0 -Activity "Uninstalling SHIELD's Architecture" -Status 'Step 3/3 - Configuration Removal' -PercentComplete 60
 
     # Enable and Render Secondary Progress Bar for removal
     Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Conditional Access Policies' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
-    # Remove SOP configurations where the lists are iterated over each on their own loop.
+    # Remove SHIELD configurations where the lists are iterated over each on their own loop.
     if ($PSCmdlet.ShouldProcess('Conditional Access Policy List', 'Remove')) {
         $CaPolicyList | ForEach-Object -Process { Remove-MgBetaIdentityConditionalAccessPolicy -ConditionalAccessPolicyId $_.Id }
     }
@@ -448,5 +448,5 @@ end {
     Clear-Host
 
     # Notify the end user that the process has completed.
-    Write-Host -Object 'Successfully uninstalled SOP architecture!'
+    Write-Host -Object 'Successfully uninstalled SHIELD architecture!'
 }

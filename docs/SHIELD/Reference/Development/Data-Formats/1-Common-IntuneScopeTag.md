@@ -5,7 +5,7 @@ Because of this, do not change the scope tag that was configured by the applicat
 Order of the description's items does not matter, the below config is displayed in a logical order, but the actual values may be in any order depending on the initialization of features and which order they were turned on.
 The maximum size of the description field is `1024` characters (including whitespace and newlines).
 
-The title of the (Role) Scope Tag in Intune may differ depending on the settings being used on the SOP server [(see the env vars docs for details)](../../Settings/Environmental-Variables-Reference.md#sop_scope_tag). The default value is `SHI-Security-Management`. For these docs, that is what the tag title is.
+The title of the (Role) Scope Tag in Intune may differ depending on the settings being used on the SHIELD server [(see the env vars docs for details)](../../Settings/Environmental-Variables-Reference.md#sop_scope_tag). The default value is `SHI-Security-Management`. For these docs, that is what the tag title is.
 
 ## Example Configurations
 

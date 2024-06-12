@@ -48,7 +48,7 @@ Start -->| User ID, Type | InputValidation
 InputValidation -.->| Invalid | failValidation
 InputValidation -.->| Valid | checkIfManaged
 checkIfManaged -.-> | User Is Not Managed | failNotManaged
-checkIfManaged -.-> | User Is Managed by SOP | deleteUniqueGroup
+checkIfManaged -.-> | User Is Managed by SHIELD | deleteUniqueGroup
 deleteUniqueGroup --> checkSecurityType
 checkSecurityType -.-> | Privileged | deleteUser
 checkSecurityType -.-> | Specialized or Enterprise | removeAdminUnitMember

@@ -1,6 +1,6 @@
 # ESM - Intune Scope Tag
 
-The [prefix](../../Settings/Environmental-Variables-Reference.md#sop_name_prefix) and [suffix](../../Settings/Environmental-Variables-Reference.md#sop_name_suffix) can be changed in the SOP server settings. The default settings are being used for the tag name below.
+The [prefix](../../Settings/Environmental-Variables-Reference.md#sop_name_prefix) and [suffix](../../Settings/Environmental-Variables-Reference.md#sop_name_suffix) can be changed in the SHIELD server settings. The default settings are being used for the tag name below.
 
 ## Example Configurations
 
@@ -45,7 +45,7 @@ The Object ID (GUID) of the Administrative Unit that contains all of the enterpr
 
 **Description:**
 This is a normal Entra ID Admin Unit that contains a list of enterprise security groups, devices, apps and users.
-The membership of this AU is automatically maintained by SOP.
+The membership of this AU is automatically maintained by SHIELD.
 
 **Example:**
 `AU=5b7c868e-98bf-437e-acf6-32c433328198`
@@ -116,7 +116,7 @@ This SG contains only enterprise intermediaries.
 The Object ID (GUID) of the Security Group that contains all of the enterprise configurations.
 
 **Description:**
-This security group is used for non-user/device configuration management, mostly for the marketplace and various intermediaries. This could also be used for by the end user to add config support to their custom stuff outside of SOP's lifecycle management and marketplace engines. This Security Group will be scanned for transitive membership count during license usage evaluation.
+This security group is used for non-user/device configuration management, mostly for the marketplace and various intermediaries. This could also be used for by the end user to add config support to their custom stuff outside of SHIELD's lifecycle management and marketplace engines. This Security Group will be scanned for transitive membership count during license usage evaluation.
 
 **Example:**
 `Config=02d4399a-5c6a-447f-9d0f-38bbdf2b24b9`
