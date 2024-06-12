@@ -12,6 +12,6 @@ The server is deployed first then the server deploys the core infrastructure.
 
     [:octicons-rocket-24: Deploy Core Infrastructure](Usage-Guide/Deploy-Core-Infrastructure/index.md){ .md-button }
 
-3. Manage your infrastructure using the SOP app's Lifecycle management engine:<br>
+3. Manage your infrastructure using the SHIELD app's Lifecycle management engine:<br>
 
     [:fontawesome-solid-rotate: Manage Lifecycle](Usage-Guide/Lifecycle-Management/index.md){ .md-button }
