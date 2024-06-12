@@ -6,7 +6,7 @@ Deploy the SOP app into an Azure App service by using a local deployment script 
     This is currently a manual process and can only be performed if you have the zip file. Because of this, it can only be performed by SHI employees or partners.
 
 1. Download the PowerShell based installer script:
-[Install-SOP.ps1](Scripts/Install-SOP.ps1)
+[Install-SOP.ps1](Scripts/Install-Sop.ps1)
 
 2. Make a note of the `Azure Subscription ID` you want to deploy SOP to.
 
@@ -24,7 +24,7 @@ Deploy the SOP app into an Azure App service by using a local deployment script 
     !!! question "Script Help"
         Please replace the content in the curly brackets and the brackets themselves with the value you expect.
         If you would like more help on how to run the script, including examples and additional settings, please run the following command:
-        `#!PowerShell Get-Help .\Install-SOP.ps1 -Full`
+        `#!PowerShell Get-Help .\Install-Sop.ps1 -Full`
 
 5. After the SOP has been deployed, please clean up all of the files used to deploy the app service. They are no longer needed.
 
