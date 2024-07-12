@@ -15,11 +15,12 @@ Example configurations of the root Intune Scope Tag.
 
 ### Default Name
 
-``` INI title="SHI-Security-Management"
+``` INI title="SHI-Orchestration-Platform"
 PsmId=21
 SsmId=20
 EsmId=19
 BrkGls=f73537be-1ab3-4023-a8b5-f360c38795ef
+uiAuthId=77da3923-3595-49e9-ae98-7a90454f3466
 V=1
 ```
 
@@ -30,6 +31,7 @@ PsmId=5
 SsmId=4
 EsmId=3
 BrkGls=c11055f2-0bae-4051-a94c-a03463786616
+uiAuthId=0f700243-4f48-4611-8dba-e67d1ace0987
 V=3
 ```
 
@@ -104,3 +106,18 @@ The whole number is incremented by 1 every time there is a change in the archite
 
 **Example:**
 `V=123`
+
+---
+
+### uiAuthId
+
+**Expected Data:**
+The Object ID (GUID/UUIDv4) of a service principal.
+
+**Description:**
+This is the Object ID of the service principal in the same tenant that principals authenticate from to the orchestration platform's APIs and UI.
+
+During authentication, the audience claim will have to match the value present here. This value is also supplied to callers of the `/auth/id` route, which can be used to auto configure client/automation software to authenticate properly.
+
+**Example:**
+`uiAuthId=420adde7-0f26-4dde-b171-1d2cb9652b1d`
