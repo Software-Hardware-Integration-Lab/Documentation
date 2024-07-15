@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    Uninstalls the SHI Security Management Architecture.
+    Uninstalls the SHI Orchestration Platform Architecture.
 .DESCRIPTION
-    Uses name based searches to find the configurations placed by the SHI Security Management system and them removes them.
+    Uses name based searches to find the configurations placed by the SHI Orchestration Platform system and them removes them.
     This operates by default on ESM, SSM and PSM but can be configured to work with only specific security classes or custom ones.
 .EXAMPLE
     PS> Uninstall-ShieldArchitecture.ps1
@@ -43,7 +43,7 @@ param(
     [System.String]$Prefix = 'SOP - ',
     [System.String]$Suffix = '',
     [System.String[]]$SecurityClassList = @('PSM', 'SSM', 'ESM'),
-    [System.String]$RootScopeTagName = 'SHI-Security-Management'
+    [System.String]$RootScopeTagName = 'SHI-Orchestration-Platform'
 )
 
 begin {

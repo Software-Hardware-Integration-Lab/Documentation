@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Deploys the SHI Security Management web app to an Azure App Service.
+    Deploys the SHI Orchestration Platform web app to an Azure App Service.
 .DESCRIPTION
     Creates a resource group in the specified subscription and deploys a web app to it.
     In Entra ID, an app registration is created to facilitate user login.
@@ -72,7 +72,7 @@ param(
     [ValidateScript({ $_ -match '^[-\w\._\(\)]+$' })]
     [System.String]$ResourceGroupName = 'SHI-Inc-Security',
     [System.String]$Location = 'East US 2',
-    [System.String]$AppRegistrationName = 'SHI Security Management',
+    [System.String]$AppRegistrationName = 'SHI Orchestration Platform',
     [Parameter(Mandatory)]
     [ValidateScript({ $_ -match '^[a-zA-Z]+[a-zA-Z-]*$' })]
     [System.String]$CompanyName,

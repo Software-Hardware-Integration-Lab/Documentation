@@ -17,7 +17,7 @@ After deployment, the only parts of the core infrastructure that can't be touche
 After the pre-requisites are met, you can deploy the core infrastructure.
 Deploying the core-infrastructure is pretty easy:
 
-1. Open the SHI Security Management app to the URL that you deployed to. It will open itself to the `Infrastructure Deployment` page.
+1. Open the SHI Orchestration Platform app to the URL that you deployed to. It will open itself to the `Infrastructure Deployment` page.
 
     !!! note "Portal Location"
         By default, this is a subdomain at `{your-company}.azurewebsites.net`

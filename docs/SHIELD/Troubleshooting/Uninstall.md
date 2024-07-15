@@ -49,10 +49,10 @@ The core architecture is the set of settings across all of the managed systems (
         The resource group may have been renamed during deployment, the default name is `SHI-Host`.
 
 2. Delete the Server's User Login App Registration from Entra ID:
-`SHI Security Management - User Login`
+`SHI Orchestration Platform - User Login`
 
 3. (Optional) Delete the Server's Orchestration App Registration from Entra ID:
-`SHI Security Management - Server` or `SHI Security Management - Self Host`
+`SHI Orchestration Platform - Server` or `SHI Orchestration Platform - Self Host`
 
     !!! note
         The only time step three needs to be done is if you are cleaning up a dev copy or an on-prem hosted version of the app. This doesn't need to be done for an Azure hosted copy since a Managed Identity tied to the App Server is used.
