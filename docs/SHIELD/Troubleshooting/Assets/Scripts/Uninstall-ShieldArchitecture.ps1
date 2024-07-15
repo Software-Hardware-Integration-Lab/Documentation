@@ -36,6 +36,7 @@
 #Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.DeviceManagement"; RequiredVersion="2.20.0" }
 #Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.DeviceManagement.Administration"; RequiredVersion="2.20.0" }
 #Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.DeviceManagement.Enrollment"; RequiredVersion="2.20.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.Devices.CorporateManagement"; RequiredVersion="2.20.0" }
 
 [CmdletBinding(SupportsShouldProcess)]
 
@@ -51,8 +52,8 @@ begin {
     [System.String]$AutopilotCompatiblePrefix = $Prefix -replace "[%!#)(^*+=';<>/-]", '_'
 
     # Number of steps for the progress bars to render
-    [System.Int64]$GetStepCount = 48
-    [System.Int64]$RemoveStepCount = 14
+    [System.Int64]$GetStepCount = 49
+    [System.Int64]$RemoveStepCount = 15
 
     # Current place in the child progress bar
     [System.Int64]$CurrentStep = 0
@@ -137,6 +138,9 @@ process {
 
     # List of Intune Assignment Filters
     [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphDeviceAndAppManagementAssignmentFilter[]]$IntuneAssignmentFilterList = @()
+
+    # List of Intune Apps
+    [Microsoft.Graph.Beta.PowerShell.Models.MicrosoftGraphMobileApp[]]$MobileAppList = @()
 
     # Increment the current step to make the child progress bar move up
     $CurrentStep++
@@ -298,6 +302,15 @@ process {
 
         # Get a list of security groups for the current security class
         $GroupList += Get-MgBetaGroup -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
+
+        # Increment the current step to make the child progress bar move up
+        $CurrentStep++
+
+        # Render Secondary Progress Bar
+        Write-Progress -Id 1 -ParentId 0 -Activity "$($SecurityClass): Getting List of Deployed Apps" -Status "Step $CurrentStep/$GetStepCount" -PercentComplete ($CurrentStep / $GetStepCount * 100)
+        
+        # Get a list of apps that Intune deploys for the current security class
+        $MobileAppList += Get-MgBetaDeviceAppManagementMobileApp -Filter "startsWith(displayName, '$Prefix$SecurityClass')" -All
     }
 
     # Reset the current step of the child progress bar
@@ -434,6 +447,14 @@ process {
     Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Remaining Security Groups' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)
 
     $GroupList | ForEach-Object -Process { Remove-MgBetaGroup -GroupId $_.Id }
+
+    # Increment the current step to make the child progress bar move up
+    $CurrentStep++
+
+    # Render Secondary Progress Bar
+    Write-Progress -Id 2 -ParentId 0 -Activity 'Removing Deployed Apps' -Status "Step $CurrentStep/$RemoveStepCount" -PercentComplete ($CurrentStep / $RemoveStepCount * 100)    
+
+    $MobileAppList | ForEach-Object -Process { Remove-MgBetaDeviceAppManagementMobileApp -MobileAppId $_.Id }
 
     # Disable progress bars
     Write-Progress -Id 2 -Activity 'Done' -Completed
