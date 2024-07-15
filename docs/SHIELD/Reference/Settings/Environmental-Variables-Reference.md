@@ -10,6 +10,9 @@ Below is a list of all environmental variable configurations that the server can
 
 The title of the section is the name of the environmental variable.
 
+For authentication configuration, please see here for more environmental variables that are supported by the SOP via the Microsoft Authentication Library for Node.JS (@azure/identity):
+<https://www.npmjs.com/package/@azure/identity#environment-variables>
+
 ---
 
 ## `SOP_AuthorityHost`
@@ -30,65 +33,6 @@ See this page for more details on what each option means: [https://docs.microsof
 
 ---
 
-## `SOP_ClientAuth_ClientId`
-
-- Mandatory: `true`
-- Expected string format: `String`
-- Description:
-The Client ID variable is the identifier that was generated in the Client Authentication application registration.
-This specific client ID value is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
-- Example:
-`cad571f8-b24b-4184-8197-a28e2d48e966`
-
----
-
-## `SOP_ClientAuth_ClientSecret`
-
-- Mandatory: `true`
-- Expected string format: `String`
-- Description:
-The Client Secret variable is the password that was generated in the Client Authentication application registration.
-This specific client secret value is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
-- Example:
-`Lz5T42u0.PMMAZg2wn-yy.6I.5EV4n6KYc`
-
----
-
-## `SOP_ClientAuth_TenantId`
-
-- Mandatory: `true`
-- Expected string format: `String`
-- Description:
-The Client Authentication Tenant Id is the ID used of the tenant that will be gate keeping the users to be allowed to log into the app.
-This specific configuring is not for authenticating the server, but for authenticating the end user. This value is used by the server for user account validation in MSAL.
-- Example:
-`a3f7304d-5cba-42cf-a3d9-e852e45c7e6a`
-
----
-
-## `SOP_Client_GUID`
-
-- Mandatory: `true`, unless using a `Managed Identity`
-- Expected string format: `GUID`, no braces
-- Description:
-The Client GUID is the Application (client) ID of the application registration in Entra ID.
-- Example:
-`123e4567-e89b-12d3-a456-426614174000`
-
----
-
-## `SOP_Client_Secret`
-
-- Mandatory: `true`, unless specifying the `SOP_KeyVault_Name` and `SOP_KeyVault_Secret` values or using a `Managed Identity`
-- Expected string format: `String`
-- Description:
-The Client Secret variable is the password that was generated in the application registration.
-This value is not required when using the Key Vault name and Key Vault Secret configurations as the application will automatically pull the secret from key vault and use it.
-- Example:
-`Lz5T42u0.PMMAZg2wn-yy.6I.5EV4n6KYc`
-
----
-
 ## `SOP_Debug`
 
 - Mandatory: `false`
@@ -98,6 +42,12 @@ Enables debugging features such as additional http routes.
 See [Debug Mode](./Debug-Mode.md) for more information on what is enabled when this is toggled to true.
 - Example:
 `true`
+
+!!! danger "SECURITY RISK!!!"
+    This setting (if enabled) will shut off most self defense of the application and leave it vulnerable. Please be careful with using this option to prevent breach.
+    It is advised that this setting should only be enabled if a SHI employee or authorized partner asks you to.
+
+    Usage of this setting should be avoided at all costs.
 
 ---
 
@@ -112,45 +62,6 @@ Technically, this setting toggles the server to host up the static UI folder or 
 It is more secure to run without a UI as it reduces surface area for attack, but this will dramatically reduce the user experience and this project's mission is to improve user experience.
 - Example:
 `true`
-
----
-
-## `SOP_KeyVault_Name`
-
-- Mandatory: `false`
-
-- Expected string format: `String`
-- Description:
-The unique name of the Azure Key Vault that contains the app registration secret that you want the app to authenticate with. If you configure the `SOP_Client_Secret` and the `SOP_KeyVault_Name` at the same time, the application will throw an error as this it is a security risk to have a plain text secret stored in the app configs when a perfectly good Azure Key Vault is available. Environmental variables are not meant for storing secret materials, Key Vaults are meant for storing secret materials.
-This configuration is not necessary if using Managed Identity to authenticate. Managed Identity is the best way to authenticate as there is no secret material for a malicious entity to steal.
-- Example:
-`org-key-vault-hsm`
-
----
-
-## `SOP_KeyVault_Secret`
-
-- Mandatory: `false`
-
-- Expected string format: `String`
-- Description:
-The name of the secret in the Azure Key Vault that you specified in the `SOP_KeyVault_Name` option. This option is only evaluated if the `SOP_KeyVault_Name` is configured.
-- Example:
-`app-reg-secret`
-
----
-
-## `SOP_Managed_ID_GUID`
-
-- Mandatory: `false`
-- Expected string format: `GUID`, no braces
-- Description:
-This is the Client ID, not the Object ID.
-This variable is only necessary if you would like to use a user assigned managed identity. This variable is not necessary for system assigned managed identities.
-If it is not specified, the application will attempt to retrieve a system managed identity authentication token.
-If this variable is specified, the system will attempt to retrieve a access token using a user assigned managed identity.
-- Example:
-`123e4567-e89b-12d3-a456-426614174000`
 
 ---
 
@@ -220,17 +131,6 @@ If the scope tag does not exist, it will be created automatically.
 - Description:
 This value needs to be provided if SHIELD is not hosted on an Azure Web App (App Service). This value is used to tell the Core Infrastructure, Lifecycle Management, and Marketplace engines where to operate from.
 This is the base subscription of the SHIELD orchestration platform and will be used to deploy and manage solutions like Sentinel and Marketplace offerings that are hosted in azure such as Azure Virtual Desktop.
-
----
-
-## `SOP_Tenant_ID`
-
-- Mandatory: `true`, unless using a `Managed Identity`
-- Expected string format: `GUID`, no braces
-- Description:
-This is the ID of the tenant that the application registration is registered in.
-- Example:
-`123e4567-e89b-12d3-a456-426614174000`
 
 ---
 
