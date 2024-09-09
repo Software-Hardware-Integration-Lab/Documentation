@@ -25,8 +25,8 @@ Because Entra ID is so expansive, a list of features are also provided in additi
 
 ## Licenses Checked
 
-- Entra ID P1
-- Entra ID P2
+- Entra ID P1 - `41781fb2-bc02-4b7c-bd55-b576c07bb09d`
+- Entra ID P2 - `eec0eb4f-6444-4f95-aba0-50c24d67f998`
 - ~~Entra ID Governance~~ (Coming Soon)
 - ~~Entra ID Workload Identity~~ (Coming Soon)
 
@@ -41,6 +41,7 @@ Because Entra ID is so expansive, a list of features are also provided in additi
 
 [^1]:
     This plugin only checks the P1 access review features. It does not check the advanced features of the Entra ID Governance license.
-[^2]: Global Secure Access is currently in a mixture of public and private preview. Because of this, license detection reliability is limited.
+[^2]:
+    Global Secure Access is currently in a mixture of public and private preview. Because of this, license detection reliability is limited.
 [^3]:
     Cloud only users are excluded as they get SSPR at no additional charge.
