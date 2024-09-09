@@ -23,7 +23,7 @@ To create any type of Managed Identity, follow this guide:
 <https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity>
 
 If you decide to use a `User Assigned Managed Identity`, you will need to tell the app that you are using one as the Azure fabric exposes it differently to the resource compared to a `System Assigned Managed Identity`.
-Configure the [Environmental Variable: Managed Identity GUID](Environmental-Variables-Reference.md#sop_managed_id_guid) on the App Service so that the web app can use the `User Assigned Managed Identity`.
+Configure the [Environmental Variable: Managed Identity GUID](https://www.npmjs.com/package/@azure/identity#environment-variables) on the App Service so that the web app can use the `User Assigned Managed Identity`.
 
 ## Assign Permissions to the Managed Identity
 
