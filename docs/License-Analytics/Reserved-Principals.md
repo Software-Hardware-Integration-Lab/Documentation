@@ -24,3 +24,7 @@ In addition to the principal IDs using the below, the available licenses uses th
 ## Defender for Identity
 
 - `00000000-0000-0000-0000-000000000300` - Number of principals detected
+
+## Entra ID
+
+- `00000000-0000-0000-0000-000000000401` - Connect Health
