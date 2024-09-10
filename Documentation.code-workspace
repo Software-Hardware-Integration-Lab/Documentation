@@ -42,7 +42,6 @@
 	"extensions": {
 		"recommendations": [
 			"streetsidesoftware.code-spell-checker",
-			"eamodio.gitlens",
 			"DavidAnson.vscode-markdownlint"
 		]
 	}
