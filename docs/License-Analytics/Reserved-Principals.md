@@ -1,7 +1,9 @@
 # Reserved Principal IDs
 
-Some services can't correlate their principals and will report a number of consumed licenses. The below IDs are reserved for those incompatible apps.
-The IDs are not a principal. They represent the type of license being reported about. These IDs are not to be correlated outside of the License Analytics system as they are not guaranteed to be globally unique across all products from all vendors.
+Some services can't correlate their principals and a number of consumed licenses will still be calculated. The below IDs are reserved for those incompatible apps.
+The IDs are not a principal. They represent the type of license being reported about.
+
+These IDs are not to be correlated outside of the License Analytics system as they are not guaranteed to be globally unique across all products from all vendors. They are unique to License Analytics.
 
 ## Defender for Endpoint
 
@@ -10,7 +12,7 @@ The IDs are not a principal. They represent the type of license being reported a
 - `00000000-0000-0000-0000-000000000103` - Defender for Endpoint Plan 2 - Users
 - `00000000-0000-0000-0000-000000000104` - Defender for Endpoint Plan 2 - Devices (multiply the available licenses by 5 to get the total available count)
 - `00000000-0000-0000-0000-000000000105` - Defender for Business - Users
-- `00000000-0000-0000-0000-000000000106` - Defender for Business - Devices
+- `00000000-0000-0000-0000-000000000106` - Defender for Business - Devices (multiply the available licenses by 5 to get the total available count)
 
 ## Defender Vulnerability Management
 
