@@ -5,25 +5,37 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 !!! note
     To grant these permissions, you will need to have [Global Administrator](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#groups-administrator) rights in Entra ID.  
 
-## Permission List
+## Graph API Permission List
 
 | Permission Name | What it is used for |
 |-----------------|---------------------|
 | `AdministrativeUnit.ReadWrite.All` | Used to manage the privileged restricted administrative unit automatically. |
+| `AppRoleAssignment.ReadWrite.All` | Used by the update/health engine to update the permissions of the Azure App Service's Managed Identity to support new functionality in future updates. All permissions assigned will align with this page. If they do not and you are on the latest version, stop the app and contact us. |
 | `Application.ReadWrite.All` | Used to create and maintain the app registration used to authenticate users to the API. |
-| `DeviceManagementManagedDevices.ReadWrite.All` | Used to list all Entra ID devices so that end users can select from a list instead of having to manually put in a GUID. Also used in Intermediary management to remove old session hosts for AVD. |
-| `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in Intune. |
-| `DeviceManagementServiceConfig.ReadWrite.All` | Used to manage Autopilot Profiles and read Autopilot device data |
-| `DeviceManagementApps.ReadWrite.All` | Used to set Intune as a Managed Installer for WDAC for all devices managed by Intune. |
-| `DeviceManagementManagedDevices.PrivilegedOperations.All` | Used to issue Wipe commands to devices |
-| `DeviceManagementRBAC.ReadWrite.All` | Used to manage the scope tag that the app uses as well as store the app's config in the specified scope tag to eliminate the need for a DB. |
 | `Device.ReadWrite.All` | Used to list all Entra ID devices so that end users can select from a list instead of having to manually put in a GUID. Also used for tagging the extension attribute of the privileged device so that CA can pick it up properly on the hardware enforcement side of things.|
-| `Directory.Write.Restricted` | Used to manage the membership and configuration of restricted Admin Units |
+| `DeviceManagementApps.ReadWrite.All` | Used to set Intune as a Managed Installer for WDAC for all devices managed by Intune. |
+| `DeviceManagementConfiguration.ReadWrite.All` | Used to manage configuration profiles and their assignments in Intune. |
+| `DeviceManagementManagedDevices.PrivilegedOperations.All` | Used to issue Wipe commands to devices |
+| `DeviceManagementManagedDevices.ReadWrite.All` | Used to list all Entra ID devices so that end users can select from a list instead of having to manually put in a GUID. Also used in Intermediary management to remove old session hosts for AVD. |
+| `DeviceManagementRBAC.ReadWrite.All` | Used to manage the scope tag that the app uses as well as store the app's config in the specified scope tag to eliminate the need for a DB. |
+| `DeviceManagementServiceConfig.ReadWrite.All` | Used to manage Autopilot Profiles and read Autopilot device data |
 | `Group.ReadWrite.All` | Used to Manage security group existence and their membership in Entra ID. |
 | `Policy.Read.All` and `Policy.ReadWrite.ConditionalAccess` | Used to manage the conditional access policies for individual users during the lifecycle management and for when the initial deployment occurs to implement health checks, and identity partitioning. |
 | `RoleManagement.ReadWrite.Directory` | Used to manage role assigned security groups (SGs that can have Entra ID Roles assigned to them). |
 | `User.ReadWrite.All` | Used to create, list, manage, and remove privileged users and retrieve a list of all non-users (and their properties) so that they can be added to security groups and device configurations. |
-| `AppRoleAssignment.ReadWrite.All` | Used by the update/health engine to update the permissions of the Azure App Service's Managed Identity to support new functionality in future updates. All permissions assigned will align with this page. If they do not, stop the app and contact us. |
+
+## SHI Data Gateway Permissions List
+
+| Permission Name | What it is used for |
+|-----------------|---------------------|
+| `LicenseReport.ReadWrite` | Used to store the license report after a run of License Analytics has completed. |
+| `Telemetry.Sop.ReadWrite` | Used by SOP to store its monthly telemetry report and keep it isolated from other tenants. |
+
+## SHI Orchestration Platform - Authenticator Permissions List
+
+| Permission Name | What it is used for |
+|-----------------|---------------------|
+| `Authenticator.Attest` | Used to prove that the SOP is not a threat actor and to home to the correct tenant when requesting SCC auth credentials. |
 
 !!! note
     `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess` is all that will be necessary.  
