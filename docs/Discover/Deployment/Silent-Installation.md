@@ -5,7 +5,7 @@
 The installer is an MSI file, and the standard `/qn` switch for quiet no GUI installation works as expected.
 In addition to the `/qn`, the SQL Server host name needs to be specified as a property at install time.
 
-This additional property is mandatory as the default operation of SLA doesn't prompt for this value.
+This additional property is mandatory as the default operation of Discover doesn't prompt for this value.
 
 ## Configuration Reference
 

@@ -1,6 +1,6 @@
 *[SHI]: Software Hardware Integration International Corp.
 *[SOP]: SHI Orchestration Platform
-*[SLA]: SHI License Analytics
+*[Discover]: SHI Discover
 *[SPA]: Securing Privileged Access
 *[SHIELD]: SHI Environment Lockdown & Defense
 *[PAW]: Privileged Access Workstation
