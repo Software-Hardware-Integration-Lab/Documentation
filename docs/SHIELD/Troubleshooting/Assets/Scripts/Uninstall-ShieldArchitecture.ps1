@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    Uninstalls the SHI Orchestration Platform Architecture.
+    Uninstalls the SHIELD Architecture.
 .DESCRIPTION
-    Uses name based searches to find the configurations placed by the SHI Orchestration Platform system and them removes them.
+    Uses name based searches to find the configurations placed by the SHIELD system and them removes them.
     This operates by default on ESM, SSM and PSM but can be configured to work with only specific security classes or custom ones.
 .EXAMPLE
     PS> Uninstall-ShieldArchitecture.ps1

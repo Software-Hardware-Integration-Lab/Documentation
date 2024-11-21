@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Deploys the SHI Orchestration Platform web app to an Azure App Service.
+    Deploys the SHIELD Platform web app to an Azure App Service.
 .DESCRIPTION
     Creates a resource group in the specified subscription and deploys a web app to it.
     In Entra ID, an app registration is created to facilitate user login.
@@ -72,7 +72,7 @@ param(
     [ValidateScript({ $_ -match '^[-\w\._\(\)]+$' })]
     [System.String]$ResourceGroupName = 'SHI-Inc-Security',
     [System.String]$Location = 'East US 2',
-    [System.String]$AppRegistrationName = 'SHI Orchestration Platform',
+    [System.String]$AppRegistrationName = 'SHIELD',
     [Parameter(Mandatory)]
     [ValidateScript({ $_ -match '^[a-zA-Z]+[a-zA-Z-]*$' })]
     [System.String]$CompanyName,
@@ -231,7 +231,8 @@ process {
 
             # Indicate MI is found
             $ManagedIdentityNotFound = $false
-        } catch {
+        }
+        catch {
             # Wait for 5 seconds and then check again
             Start-Sleep -Seconds 5
 
@@ -284,7 +285,8 @@ process {
 
         # Grant the ability to the web app to manage itself, useful for key management and the update engine.
         New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope $WebApp.id -RoleDefinitionName 'Website Contributor' | Out-Null
-    } else {
+    }
+    else {
         # Grant the managed identity the ability to self manage the SOP subscription.
         # This is useful for config drift identification and auto secret update for user auth and is also used for intermediaries.
         New-AzRoleAssignment -ObjectId $WebApp.Identity.PrincipalId -Scope "/Subscriptions/$SubscriptionId" -RoleDefinitionName 'Owner' | Out-Null
