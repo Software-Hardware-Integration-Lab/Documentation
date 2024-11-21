@@ -5,7 +5,7 @@ in this repository under the [Creative Commons Attribution 4.0 International Pub
 see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
 [LICENSE-CODE](LICENSE-CODE) file.
 
-SHI, SHI Orchestration Platform, SHI Environment Lockdown & Defense, SHI Data Gateway and/or other SHI products and services referenced in the documentation
+SHI, SHIELD, SHI Environment Lockdown & Defense, SHI Data Gateway and/or other SHI products and services referenced in the documentation
 may be either trademarks or registered trademarks of SHI in the United States and/or other countries.
 The licenses for this project do not grant you rights to use any SHI names, logos, or trademarks.
 SHI's general trademark guidelines can be found at <https://shilab.com/brand-guidelines/>.

@@ -12,7 +12,7 @@ hide:
 
 Manages the state of security tenant wide using a multi-tiered architecture.
 
-[:lock: SHIELD](SHIELD/index.md){ .md-button }
+[:lock: Defend](Defend/index.md){ .md-button }
 
 ## SHI License Analytics
 
