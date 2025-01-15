@@ -2,12 +2,12 @@
 
 The schema of the database is broken up into two parts, the `Correlation` table and the `License Data` table.
 
-These tables can be named anything as SLA can be configured to use different names, which can be configured during deployment.
+These tables can be named anything as Discover can be configured to use different names, which can be configured during deployment.
 
 The Correlation table stores records of the runs the tool has completed.
 One of these records will be generated per run and contains the login information, timestamp, correlation ID, and tenant metadata.
 
-The License Data table stores the specific metadata for a single license. This includes data such as the count of used and available licenses as well as display names for the license and a correlation ID to link it to a run of the SLA tool.
+The License Data table stores the specific metadata for a single license. This includes data such as the count of used and available licenses as well as display names for the license and a correlation ID to link it to a run of the Discover tool.
 
 All values will not be `null` in the DB. If a value can't be retrieved it will be set as 0 or false or the equivalent `null` state for the type of the column, not the `null` value. Please see the documentation for each [plugin](Plugins/Overview.md) to see what values are expected.
 
@@ -43,7 +43,6 @@ erDiagram
 | :---------: | :--: | :---------: |
 | `AuditTenantAccount` | `nvarchar(MAX)` | The user principal name used to authenticate into the tenant being audited. |
 | `ReportTenantAccount` | `nvarchar(MAX)` | The user principal name used to authenticate with to store the records in the Azure SQL Database. |
-| `CorrelationId` | `uniqueidentifier` | Unique Identifier that represents a single run of the SLA tool. This Record is used to identify which license data records should be grouped together. |
 | `TenantId` | `uniqueidentifier` | Tenant that the tool was run against. |
 | `TenantName` | `nvarchar(MAX)` | Human friendly name of the tenant that the tool was run against. |
 | `TimeStamp` | `datetime2` | Time at which the tool started executing, not when the tool finished. This is UTC time. |
@@ -67,7 +66,7 @@ These records are generally created by the plugin responsible for the specific l
 
 ## Relationships
 
-Relationships are not coded into the table's schema. They are implemented in the SLA app's code, which means the SQL DB won't check the data provided exists when writing to the DB. This is because the schema is auto generated at runtime and the way it is generated is per table, with no visibility to other tables.
+Relationships are not coded into the table's schema. They are implemented in the Discover app's code, which means the SQL DB won't check the data provided exists when writing to the DB. This is because the schema is auto generated at runtime and the way it is generated is per table, with no visibility to other tables.
 
 The code will enforce the relationships, the SQL server won't know they exist.
 

@@ -1,6 +1,6 @@
 # Infrastructure Diagram
 
-The below is the logical infrastructure interaction of the core SLA engine.
+The below is the logical infrastructure interaction of the core Discover engine.
 Each plugin interacts with the specific service configuration that is being interpreted.
 
 ## Threat Model

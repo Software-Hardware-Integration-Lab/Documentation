@@ -1,6 +1,6 @@
 # Supported Licenses
 
-SHI License Management (SLA) has its license support implemented via plugins.
+SHI Discover has its license support implemented via plugins.
 Below are a list of individual licenses that are supported via the various plugins.
 
 For more details on how the plugins are structured, please see the plugin section.
