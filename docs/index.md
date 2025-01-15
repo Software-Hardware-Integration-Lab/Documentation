@@ -18,4 +18,4 @@ Manages the state of security tenant wide using a multi-tiered architecture.
 
 Retrieves and validates the state of license compliance tenant wide.
 
-[:mag: Discover](License-Analytics/index.md){ .md-button }
+[:mag: Discover](Discover/index.md){ .md-button }
