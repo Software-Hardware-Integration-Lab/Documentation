@@ -9,7 +9,7 @@ To simplify the documentation, we use the `M` prefix to refer to the different l
 ## Base Requirements
 
 - [X] Deploying User has `Global Admin Rights` (for [manual deployment](Deployment/Manual-Deployment.md) only)
-- [X] Defender for Endpoint has had its [workspace created](Usage-Guide/Deploy-Core-Infrastructure/MDE-Enable.md)
+- [X] Defender for Endpoint has had its [workspace created](Usage-Guide/MDE-Enable.md)
 - [X] Security Defaults [are shut off](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) in Entra ID
 - [X] Certificate Authentication is [disabled in the Entra ID authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) methods for SHIELD's ESM, SSM and PSM root security groups
 
@@ -32,5 +32,5 @@ To simplify the documentation, we use the `M` prefix to refer to the different l
 ## PSM
 
 - [X] `M5` [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant
-- [X] Secure Core Certified hardware. Please see the [hardware selection](../Reference/Architecture/Hardware-Selection.md) documentation for details
+- [X] Secure Core Certified hardware. Please see the [hardware selection](../Defend/Reference/Architecture/Hardware-Selection.md) documentation for details
 - [X] Devices need to be registered in Autopilot to be allowed to be commissioned into a PAW

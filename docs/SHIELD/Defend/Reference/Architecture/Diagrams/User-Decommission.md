@@ -4,7 +4,7 @@ hide:
 ---
 # User - Decommission
 
-The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a user is [decommissioned](../../../Getting-Started/Usage-Guide/Lifecycle-Management/User/Decommission.md).
+The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a user is [decommissioned](../../../Usage-Guide/User/Decommission.md).
 
 ---
 

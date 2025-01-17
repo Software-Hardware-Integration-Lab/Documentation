@@ -3,7 +3,7 @@
 Some services can't correlate their principals and a number of consumed licenses will still be calculated. The below IDs are reserved for those incompatible apps.
 The IDs are not a principal. They represent the type of license being reported about.
 
-These IDs are not to be correlated outside of the License Analytics system as they are not guaranteed to be globally unique across all products from all vendors. They are unique to License Analytics.
+These IDs are not to be correlated outside of the Discover system as they are not guaranteed to be globally unique across all products from all vendors. They are unique to Discover.
 
 ## Defender for Endpoint
 

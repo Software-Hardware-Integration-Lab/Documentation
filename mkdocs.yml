@@ -138,3 +138,102 @@ extra:
       name: SHI's home on Instagram
 watch:
   - includes
+
+nav:
+  - Home: index.md
+
+  - SHIELD:
+      - Overview: SHIELD/index.md
+      - Getting Started:
+          - index: SHIELD/Getting-Started/index.md
+          - "Usage Guide": SHIELD/Getting-Started/Usage-Guide/index.md
+
+      - Defend:
+          - Usage Guide:
+              - index: SHIELD/Defend/Usage-Guide/index.md
+              - Device:
+                  - "Commission": SHIELD/Defend/Usage-Guide/Device/0-Commission.md
+                  - "Decommission": SHIELD/Defend/Usage-Guide/Device/1-Decommission.md
+                  - "Assign": SHIELD/Defend/Usage-Guide/Device/2-Assign.md
+                  - "Unassign": SHIELD/Defend/Usage-Guide/Device/3-Unassign.md
+              - User:
+                  - "Commission": SHIELD/Defend/Usage-Guide/User/Commission.md
+                  - "Decommission": SHIELD/Defend/Usage-Guide/User/Decommission.md
+
+          - Reference:
+              - Architecture:
+                  - "Hardware Selection": SHIELD/Defend/Reference/Architecture/Hardware-Selection.md
+                  - Diagrams:
+                      - "Device Assign": SHIELD/Defend/Reference/Architecture/Diagrams/Device-Assign.md
+                      - "Device Commission": SHIELD/Defend/Reference/Architecture/Diagrams/Device-Commission.md
+                      - "Device Decommission": SHIELD/Defend/Reference/Architecture/Diagrams/Device-Decommission.md
+                      - "Device Unassign": SHIELD/Defend/Reference/Architecture/Diagrams/Device-Unassign.md
+                      - "User Commission": SHIELD/Defend/Reference/Architecture/Diagrams/User-Commission.md
+                      - "User Decommission": SHIELD/Defend/Reference/Architecture/Diagrams/User-Decommission.md
+                  - Lifecycle:
+                      - "Privileged Device Workflows": "SHIELD/Defend/Reference/Architecture/Lifecycle/Privileged Device Workflows.md"
+                  - "Custom Apps":
+                      - "Corp VM":
+                          - index: SHIELD/Defend/Reference/Custom-Apps/Corp-VM/index.md
+                          - Changelog: SHIELD/Defend/Reference/Custom-Apps/Corp-VM/Changelog.md
+                      - "ManagedInstaller-Config":
+                          - index: SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/index.md
+                          - Changelog: SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/Changelog.md
+                      - "Security-Config":
+                          - index: SHIELD/Defend/Reference/Custom-Apps/Security-Config/index.md
+                          - Changelog: SHIELD/Defend/Reference/Custom-Apps/Security-Config/Changelog.md
+                          - "File Changes": SHIELD/Defend/Reference/Custom-Apps/Security-Config/File-Changes.md
+                          - "Registry Changes": SHIELD/Defend/Reference/Custom-Apps/Security-Config/Registry-Changes.md
+
+      - Deploy:
+          - Prerequisites: SHIELD/Deploy/Prerequisites.md
+          - "Core Infrastructure (Usage Guide)": SHIELD/Deploy/Usage-Guide/index.md
+          - "Securing Privileged Access": SHIELD/Deploy/Securing-Privileged-Access.md
+          - Architecture:
+              - Infrastructure:
+                  - "Identity Protection Policy": SHIELD/Deploy/Architecture/Infrastructure/Identity-Protection-Policy.md
+          - Deployment:
+              - "Azure Marketplace": SHIELD/Deploy/Deployment/Azure-Marketplace.md
+              - "Manual Deployment": SHIELD/Deploy/Deployment/Manual-Deployment.md
+              - "Required Graph API Permissions": SHIELD/Deploy/Deployment/Required-Graph-API-Permissions.md
+          - Troubleshooting:
+              - Uninstall Procedure: SHIELD/Deploy/Troubleshooting/Uninstall.md
+          - "MDE Enable": SHIELD/Deploy/Usage-Guide/MDE-Enable.md
+
+      - Discover:
+          - index: SHIELD/Discover/index.md
+          - "Database Schema": SHIELD/Discover/Database-Schema.md
+          - "Getting Started": SHIELD/Discover/Getting-Started.md
+          - "Reserved Principals": SHIELD/Discover/Reserved-Principals.md
+          - "Supported Licenses": SHIELD/Discover/Supported-Licenses.md
+          - Architecture:
+              - "Infrastructure": SHIELD/Discover/Architecture/Infrastructure.md
+              - "Process Flow": SHIELD/Discover/Architecture/Process-Flow.md
+          - Deployment:
+              - "0-Prerequisites": SHIELD/Discover/Deployment/0-Prerequisites.md
+              - "Azure SQL Database": SHIELD/Discover/Deployment/Azure-SQL-Database.md
+              - "Silent Installation": SHIELD/Discover/Deployment/Silent-Installation.md
+              - "Standard Install": SHIELD/Discover/Deployment/Standard-Install.md
+          - Plugins:
+              - "Defender Endpoint": SHIELD/Discover/Plugins/DefenderEndpoint.md
+              - "Defender Identity": SHIELD/Discover/Plugins/DefenderIdentity.md
+              - "EntraID": SHIELD/Discover/Plugins/EntraID.md
+              - "Overview": SHIELD/Discover/Plugins/Overview.md
+
+      - Reference:
+          - Architecture:
+              - index: SHIELD/Reference/Architecture/index.md
+              - "Review Template": SHIELD/Reference/Architecture/Review-Template.md
+              - Threat-Models:
+                  - "ISV to Customer": SHIELD/Reference/Architecture/Threat-Models/ISV-To-Customer.md
+          - Development:
+              - "OpenAPI": SHIELD/Reference/Development/OpenAPI.md
+              - Data-Formats:
+                  - "Intune Scope Tag": "SHIELD/Reference/Development/Data-Formats/Intune Scope Tag.md"
+          - Settings:
+              - "Configure Managed Identity": SHIELD/Reference/Settings/Configure-Managed-Identity.md
+              - "Debug Mode": SHIELD/Reference/Settings/Debug-Mode.md
+              - "Environmental Variables": SHIELD/Reference/Settings/Environmental-Variables-Reference.md
+
+  - "Data Gateway": Data-Gateway/index.md
+  - Matrix: Matrix/index.md

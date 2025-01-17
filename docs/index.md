@@ -16,11 +16,11 @@ Manages the state of security tenant wide using a multi-tiered architecture.
 
 ### Deploy
 
-Lorem Ipsum
+[:mag: Deploy](SHIELD/Deploy/Prerequisites.md){ .md-button }
 
 ### Defend
 
-Lorem Ipsum
+[:mag: Defend](SHIELD/Defend/Usage-Guide/index.md){ .md-button }
 
 ### Discover
 

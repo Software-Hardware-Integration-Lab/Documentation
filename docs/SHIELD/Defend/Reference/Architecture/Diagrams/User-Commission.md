@@ -4,7 +4,7 @@ hide:
 ---
 # User - Commission
 
-The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a user is [commissioned](../../../Getting-Started/Usage-Guide/Lifecycle-Management/User/Commission.md).
+The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a user is [commissioned](../../../Usage-Guide/User/Commission.md).
 
 ---
 

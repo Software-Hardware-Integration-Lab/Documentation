@@ -27,4 +27,4 @@ This guide will walk the security admin through the process of commissioning new
 
 ## See Also
 
-- [Device Offboarding Workflow Reference](../../../../Reference/Architecture/Diagrams/Device-Decommission.md)
+- [Device Offboarding Workflow Reference](../../Reference/Architecture/Diagrams/Device-Decommission.md)

@@ -4,7 +4,7 @@ hide:
 ---
 # Device - Commission
 
-The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [commissioned](../../../Getting-Started/Usage-Guide/Lifecycle-Management/Device/0-Commission.md).
+The lifecycle management engine is responsible for a variety of tasks. Below is the flowchart of the logical process that is completed when a device is [commissioned](../../../Usage-Guide/Device/0-Commission.md).
 
 ---
 

@@ -34,7 +34,7 @@ The below Microsoft Graph API permissions are necessary for the operation of thi
 
 | Permission Name | Self Auto Granted | What it is used for |
 |-----------------|-------------------|---------------------|
-| `LicenseReport.ReadWrite` | ✅ | Used to store the license report after a run of License Analytics has completed. |
+| `LicenseReport.ReadWrite` | ✅ | Used to store the license report after a run of Discover has completed. |
 | `Telemetry.Sop.ReadWrite` | ✅ | Used by SOP to store its monthly telemetry report and keep it isolated from other tenants. |
 
 ## SHI Orchestration Platform - Authenticator Permissions List

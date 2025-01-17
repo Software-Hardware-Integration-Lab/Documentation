@@ -8,7 +8,7 @@ After deployment, the only parts of the core infrastructure that can't be touche
 
 !!! note "Prerequisites Check"
     Don't forget to make sure you meet the prerequisites as listed here:
-    [Getting Started - Prerequisites](../../Prerequisites.md)
+    [Getting Started - Prerequisites](../Prerequisites.md)
 
 ---
 

@@ -10,7 +10,7 @@ Default mode runs Discover authentication in a InPrivate/Incognito window.
 It also uses all of the configured database settings and can't be overridden.
 The majority of the time, this is what should be run. Please reach out to SHI or your security department if other options are required.
 
-1. Double click the desktop icon titled `Run License Analytics`
+1. Double click the desktop icon titled `Run Discover`
 
 2. Log into the Az SQL Database (Only first log in screen)
 

@@ -31,4 +31,4 @@ The user un-assignment process also removes the requested user(s) from the Hyper
 
 ## See Also
 
-- [Device Unassign Workflow Reference](../../../../Reference/Architecture/Diagrams/Device-Unassign.md)
+- [Device Unassign Workflow Reference](../../Reference/Architecture/Diagrams/Device-Unassign.md)
