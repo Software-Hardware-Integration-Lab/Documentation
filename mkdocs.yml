@@ -40,7 +40,6 @@ theme:
     - navigation.top
     - navigation.sections
     - navigation.indexes
-    - navigation.expand
     - navigation.footer
     - content.tabs.link
     - content.tooltips
@@ -147,6 +146,7 @@ nav:
       - Getting Started:
           - index: SHIELD/Getting-Started/index.md
           - "Usage Guide": SHIELD/Getting-Started/Usage-Guide/index.md
+          - Prerequisites: SHIELD/Prerequisites.md
 
       - Defend:
           - Usage Guide:
@@ -186,7 +186,6 @@ nav:
                           - "Registry Changes": SHIELD/Defend/Reference/Custom-Apps/Security-Config/Registry-Changes.md
 
       - Deploy:
-          - Prerequisites: SHIELD/Deploy/Prerequisites.md
           - "Core Infrastructure (Usage Guide)": SHIELD/Deploy/Usage-Guide/index.md
           - "Securing Privileged Access": SHIELD/Deploy/Securing-Privileged-Access.md
           - Architecture:

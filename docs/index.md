@@ -16,7 +16,7 @@ Manages the state of security tenant wide using a multi-tiered architecture.
 
 ### Deploy
 
-[:mag: Deploy](SHIELD/Deploy/Prerequisites.md){ .md-button }
+[:mag: Deploy](SHIELD/Prerequisites.md){ .md-button }
 
 ### Defend
 
