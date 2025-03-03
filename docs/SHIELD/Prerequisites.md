@@ -8,7 +8,7 @@ To simplify the documentation, we use the `M` prefix to refer to the different l
 
 ## Base Requirements
 
-- [X] Deploying User has `Global Admin Rights` (for [manual deployment](Deploy/Deployment/Manual-Deployment.md) only)
+- [X] Deploying User has `Global Admin Rights` (for [manual deployment](0-Getting-Started\Deployment\Manual-Deployment.md) only)
 - [X] Defender for Endpoint has had its [workspace created](Deploy/Usage-Guide/MDE-Enable.md)
 - [X] Security Defaults [are shut off](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) in Entra ID
 - [X] Certificate Authentication is [disabled in the Entra ID authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) methods for SHIELD's ESM, SSM and PSM root security groups
