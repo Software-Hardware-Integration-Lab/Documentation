@@ -4,7 +4,7 @@ site_description: Documentation for the SHI orchestration platform
 repo_url: https://github.com/Software-Hardware-Integration-Lab/Documentation
 repo_name: Software-Hardware-Integration-Lab/Documentation
 # edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2024 <a href="https://shi.com">SHI International Corp.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
+copyright: Copyright &copy; 2025 <a href="https://shi.com">SHI International Corp.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
 theme:
   name: material
   custom_dir: overrides
