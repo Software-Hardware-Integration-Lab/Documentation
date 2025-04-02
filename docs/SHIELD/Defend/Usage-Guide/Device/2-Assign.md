@@ -33,4 +33,4 @@ The user assignment process also adds the requested user(s) to the Hyper-V admin
 
 ## See Also
 
-- [Device Assignment Workflow Reference](../../Reference/Architecture/Diagrams/Device-Assign.md)
+- [Device Assignment Workflow Reference](../../Reference/Diagrams/Device-Assign.md)

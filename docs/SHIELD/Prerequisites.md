@@ -32,5 +32,5 @@ To simplify the documentation, we use the `M` prefix to refer to the different l
 ## PSM
 
 - [X] `M5` [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant
-- [X] Secure Core Certified hardware. Please see the [hardware selection](Defend/Reference/Architecture/Hardware-Selection.md) documentation for details
+- [X] Secure Core Certified hardware. Please see the [hardware selection](Defend/Reference/Hardware-Selection.md) documentation for details
 - [X] Devices need to be registered in Autopilot to be allowed to be commissioned into a PAW
