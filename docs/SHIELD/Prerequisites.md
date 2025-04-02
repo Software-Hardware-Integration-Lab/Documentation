@@ -1,36 +1,136 @@
 # Prerequisites
 
-SHIELD is an enterprise product that requires specific licenses and configurations to deploy and use.
+Before deploying SHIELD or using Discover, ensure your environment meets all license, configuration, permission, and software requirements.
 
-To simplify the documentation, we use the `M` prefix to refer to the different license types of Microsoft 365 licensing, such as `M1`, `M3`, `M5`, etc. This prefix can replace the other prefixes that indicate the type of organization, such as `E` for Enterprise, `A` for Education, `G` for Government, `F` for Frontline, and so on.
+This page is divided into two parts:
 
----
 
-## Base Requirements
-
-- [X] Deploying User has `Global Admin Rights` (for [manual deployment](0-Getting-Started\Deployment\Manual-Deployment.md) only)
-- [X] Defender for Endpoint has had its [workspace created](Deploy/Usage-Guide/MDE-Enable.md)
-- [X] Security Defaults [are shut off](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) in Entra ID
-- [X] Certificate Authentication is [disabled in the Entra ID authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) methods for SHIELD's ESM, SSM and PSM root security groups
+1. [SHIELD Core Platform Requirements](#shield-core-platform-requirements)  
+2. [Discover System Requirements](#discover-system-requirements)
 
 ---
 
-## ESM
+## SHIELD Core Platform Requirements
 
-- [X] `M3` [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant
-- [X] Devices to be managed through SHIELD need to be either Hybrid or Cloud only joined
+SHIELD automates secure deployment and lifecycle management using Microsoft 365 and Azure. It requires specific license levels, identity configurations, and Microsoft Defender components.
+
+### Environment Requirements
+
+- ✅ Deploying user must have **Global Admin Rights**  
+- ✅ [Defender for Endpoint](Deployment.md#defender-for-endpoint-workspace-creation) must be provisioned  
+- ✅ [Security Defaults](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) must be disabled in Entra ID  
+- ✅ [Certificate Authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) must be disabled for SHIELD’s security groups
 
 ---
 
-## SSM
+### Licensing Requirements by Mode
 
-- [X] `M5` [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant
-- [X] Devices to be managed through SHIELD need to be either Hybrid or Cloud only joined
+SHIELD uses `M3` and `M5` to refer to Microsoft 365 license families, abstracting E3/E5 and similar plans.
+
+| Mode | License | Additional Requirements |
+|------|---------|--------------------------|
+| **ESM** (Enterprise Security Mode) | M3 or equivalent | Devices must be Hybrid or Cloud Joined |
+| **SSM** (Specialized Security Mode) | M5 or equivalent | Devices must be Hybrid or Cloud Joined |
+| **PSM** (Privileged Security Mode) | M5 or equivalent | Devices must be Autopilot-registered and [Secure Core Certified](Defend/Reference/Hardware-Selection.md) |
 
 ---
 
-## PSM
+## Discover System Requirements
 
-- [X] `M5` [or equivalent](https://go.microsoft.com/fwlink/?linkid=2139145){:target="_blank"} licenses are purchased and enabled in the target tenant
-- [X] Secure Core Certified hardware. Please see the [hardware selection](Defend/Reference/Hardware-Selection.md) documentation for details
-- [X] Devices need to be registered in Autopilot to be allowed to be commissioned into a PAW
+Discover is a component of SHIELD that audits licensing configuration, queries Microsoft APIs, and stores analysis in an Azure SQL Database. The following setup is required.
+
+---
+
+### System & Runtime Configuration
+
+- ✅ Latest version of **PowerShell (64-bit)** (e.g. 7.4.0 or later)  
+- ✅ Internet access with no SSL/TLS inspection for Microsoft-owned domains  
+- ✅ At least **2GB of available RAM**  
+- ✅ Azure SQL Database is configured and reachable (see setup below)
+
+!!! info "Assumptions"
+    These recommendations assume ~10,000 users running Discover twice a month. For larger organizations or more frequent use, increase memory and SQL capacity.
+
+---
+
+### Entra ID Role Permissions
+
+Discover uses read-only Entra ID roles for configuration queries. These permissions are scoped with the principle of least privilege.
+
+| Role | Required For |
+|------|---------------|
+| **Global Reader** | Basic environment access (Defender, Entra ID) |
+| **Security Administrator** | Access to Defender for Endpoint & Identity APIs |
+| **User Administrator** | Access to user directory properties |
+
+**Related plugin guides:**
+
+- 📄 [Defender for Endpoint](Discover/Plugins/DefenderEndpoint.md)  
+- 📄 [Defender for Identity](Discover/Plugins/DefenderIdentity.md)  
+- 📄 [Entra ID](Discover/Plugins/EntraID.md)
+
+!!! info "Permissions Note"
+    Discover will never modify your configuration. All operations are read-only and scoped to data retrieval.
+
+---
+
+### Azure SQL Setup
+
+An Azure SQL Database is required to store audit results. You can use an existing DB or provision a new one.
+
+📖 [Deployment → Azure SQL Database Setup](Deployment.md#azure-sql-database-setup)
+
+**Required:**
+
+- Entra ID Authentication is enabled  
+- Client running Discover must have network access (e.g., VPN or VNet)
+
+**Storage Notes:**
+
+- Each Discover run generates ~1,676 bytes  
+- Typical org = ~40KB/year  
+- 2GB base DB size is sufficient in most cases
+
+---
+
+### Recommended SQL Configuration
+
+These settings are optional but highly recommended for security, auditability, and reliability:
+
+- [Use Entra ID Authentication Only](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-only-authentication-tutorial)  
+- [Limit IP ranges](https://learn.microsoft.com/en-us/azure/azure-sql/database/firewall-configure)  
+- [Enable database backups](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview)  
+- [Enable Defender for SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/azure-defender-for-sql)  
+- [Audit support operations](https://learn.microsoft.com/en-us/azure/azure-sql/database/auditing-overview)  
+- [Send logs to SIEM](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings)  
+- [Alert on low resources](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-alerts)  
+- Avoid BYOK/HYOK/CMK unless legally required
+
+---
+
+### Auto Permissions Assignment Tool
+
+Discover includes a PowerShell tool to auto-configure SQL permissions via Entra security groups.
+
+```powershell
+Add-AzLicenseDb -SubscriptionId '<your-sub-id>' -ReadGroupId '<read-group-id>' -WriteGroupId '<write-group-id>'
+```
+
+To view tool options:
+
+```powershell
+Get-Help -Name 'Add-AzLicenseDb' -Full
+```
+
+!!! info
+    Replace values above with your actual subscription and Entra group IDs.
+
+---
+
+## Related Pages
+
+- 📄 [Hardware Requirements](Defend/Reference/Hardware-Selection.md)  
+- 📄 [Deployment Guide](Deployment.md)  
+- 📄 [Azure SQL Setup](Deployment.md#azure-sql-database-setup)  
+- 📄 [Silent Installation Instructions](Deployment.md#silent-installation-script-based)  
+- 📄 [Standard Installation Instructions](Deployment.md#standard-installation-gui-based)

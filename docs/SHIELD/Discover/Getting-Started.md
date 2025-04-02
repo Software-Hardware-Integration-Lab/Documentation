@@ -1,6 +1,6 @@
 # Getting Started
 
-Please read through the [prerequisites](Deployment/0-Prerequisites.md) to make sure you have all you need before you begin.
+Please read through the [prerequisites](../Prerequisites.md) to make sure you have all you need before you begin.
 
 If you have not already installed the Discover app, please follow the [installation guide](Deployment/Standard-Install.md).
 

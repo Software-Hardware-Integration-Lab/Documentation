@@ -1,6 +1,8 @@
-# Azure Marketplace
+---
+hide:
+  - navigation
+  - toc
+---
+# Deprecated
 
-Deploy from the Azure marketplace.
-
-!!! note
-    Coming soon!
+This section is now managed from the unified [SHIELD Deployment](../../Deployment.md) page.
