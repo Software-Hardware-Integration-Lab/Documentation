@@ -1,4 +1,4 @@
-# Deployment
+# Getting Started
 
 This page outlines how to deploy SHIELD and Discover, including manual installation, silent installs, SQL configuration, and the upcoming Azure Marketplace integration.
 

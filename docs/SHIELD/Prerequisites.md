@@ -78,7 +78,7 @@ docs\SHIELD\Reference\Plugins\DefenderEndpoint.md
 
 An Azure SQL Database is required to store audit results. You can use an existing DB or provision a new one.
 
-📖 [Deployment → Azure SQL Database Setup](Deployment.md#azure-sql-database-setup)
+📖 [Deployment → Azure SQL Database Setup](Getting-Started.md#azure-sql-database-setup)
 
 **Required:**
 
@@ -130,7 +130,7 @@ Get-Help -Name 'Add-AzLicenseDb' -Full
 ## Related Pages
 
 - 📄 [Hardware Requirements](Defend/Reference/Hardware-Selection.md)  
-- 📄 [Deployment Guide](Deployment.md)  
-- 📄 [Azure SQL Setup](Deployment.md#azure-sql-database-setup)  
-- 📄 [Silent Installation Instructions](Deployment.md#silent-installation-script-based)  
-- 📄 [Standard Installation Instructions](Deployment.md#standard-installation-gui-based)
+- 📄 [Deployment Guide](Getting-Started.md)  
+- 📄 [Azure SQL Setup](Getting-Started.md#azure-sql-database-setup)  
+- 📄 [Silent Installation Instructions](Getting-Started.md#silent-installation-script-based)  
+- 📄 [Standard Installation Instructions](Getting-Started.md#standard-installation-gui-based)

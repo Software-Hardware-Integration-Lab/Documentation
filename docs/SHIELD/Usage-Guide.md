@@ -19,7 +19,7 @@ These are deployed via the SHIELD UI at `{your-subdomain}.azurewebsites.net` usi
 !!! note "Immutable Components"
     Security groups, scope tags, and admin units cannot be changed after deployment. All other settings can be modified afterward.
 
-📖 For step-by-step deployment instructions, see the [Deployment Guide](./Deployment.md)
+📖 For step-by-step deployment instructions, see the [Deployment Guide](./Getting-Started.md)
 
 ---
 

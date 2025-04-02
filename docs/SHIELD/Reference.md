@@ -112,7 +112,7 @@ These diagrams match the logic used in the SHIELD backend and provide a visual r
 
 ## Related Pages
 
-- [Deployment Guide](Deployment.md)
+- [Deployment Guide](Getting-Started.md)
 - [Usage Guide](Usage-Guide.md)
 - [Prerequisites](Prerequisites.md)
 
