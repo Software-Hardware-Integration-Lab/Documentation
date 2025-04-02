@@ -25,18 +25,18 @@ Use the GUI-based MSI for interactive setup. This is recommended for most enviro
 
 #### Main Installer Screen
 
-![Installer - Light](assets/images/screenshots/Installer-Light.png#only-light){ loading=lazy }
-![Installer - Dark](assets/images/screenshots/Installer-Dark.png#only-dark){ loading=lazy }
+![Installer - Light](../assets/images/screenshots/Installer-Light.png#only-light){ loading=lazy }
+![Installer - Dark](../assets/images/screenshots/Installer-Dark.png#only-dark){ loading=lazy }
 
 #### Dropdown Menu
 
-![Dropdown - Light](assets/images/screenshots/Dropdown-Light.png#only-light){ loading=lazy }
-![Dropdown - Dark](assets/images/screenshots/Dropdown-Dark.png#only-dark){ loading=lazy }
+![Dropdown - Light](../assets/images/screenshots/Dropdown-Light.png#only-light){ loading=lazy }
+![Dropdown - Dark](../assets/images/screenshots/Dropdown-Dark.png#only-dark){ loading=lazy }
 
 #### Advanced Configuration
 
-![Advanced Config - Light](assets/images/screenshots/AdvancedConfig-Light.png#only-light){ loading=lazy }
-![Advanced Config - Dark](assets/images/screenshots/AdvancedConfig-Dark.png#only-dark){ loading=lazy }
+![Advanced Config - Light](../assets/images/screenshots/AdvancedConfig-Light.png#only-light){ loading=lazy }
+![Advanced Config - Dark](../assets/images/screenshots/AdvancedConfig-Dark.png#only-dark){ loading=lazy }
 
 !!! note "Shortcut Behavior"
     Machine-wide installs of PowerShell require launching Discover via CLI. Desktop shortcuts are only supported for user-scoped installs.
@@ -85,15 +85,15 @@ Before installation, ensure your Azure SQL database is provisioned:
 
 - Entra ID authentication is enabled
 - Your user has permission to create and write to the DB
-- [Auto-permissions tool](Reference.md#azure-sql-configuration) is available for bulk role assignment
+- [Auto-permissions tool](../Reference/index.md#azure-sql-configuration) is available for bulk role assignment
 
-📖 See full details in the [Reference Guide](Reference.md#azure-sql-configuration)
+📖 See full details in the [Reference Guide](../Reference/index.md#azure-sql-configuration)
 
 ---
 
 ## Related Pages
 
 - [Discover Overview](index.md)
-- [Discover Usage Guide](Usage-Guide.md)
-- [Reference](Reference.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Discover Usage Guide](../Usage-Guide.md)
+- [Reference](../Reference/index.md)
+- [Troubleshooting](../Troubleshooting.md)

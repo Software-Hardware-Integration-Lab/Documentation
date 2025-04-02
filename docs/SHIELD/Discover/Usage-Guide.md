@@ -32,7 +32,7 @@ When Discover runs, it processes all installed plugins in order:
 
 Each plugin runs independently and its results are normalized before database submission.
 
-📖 Plugin behavior is described in [Reference → Plugin Overview](Reference.md#plugin-overview)
+📖 Plugin behavior is described in [Reference → Plugin Overview](Reference/index.md#plugin-overview)
 
 ---
 
@@ -42,7 +42,7 @@ Each plugin runs independently and its results are normalized before database su
 - Each run generates a correlation record with timestamp and run metadata
 - You can query this database directly using SQL tools or BI platforms (like Power BI)
 
-The schema is documented in the [Reference Guide](Reference.md#database-schema)
+The schema is documented in the [Reference Guide](Reference/index.md#database-schema)
 
 ---
 
@@ -61,7 +61,7 @@ Simply connect to your Azure SQL DB using Power BI Desktop and load the relevant
 ## Related Pages
 
 - [Discover Overview](index.md)
-- [Discover Deployment](Deployment.md)
-- [Reference](Reference.md)
+- [Discover Deployment](Deployment/index.md)
+- [Reference](Reference/index.md)
 - [Troubleshooting](Troubleshooting.md)
 

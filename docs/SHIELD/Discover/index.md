@@ -31,7 +31,7 @@ Discover’s core engine is extensible through plugins. Each plugin is responsib
 
 Plugins are executed sequentially, and their results are normalized before being uploaded to the Azure SQL Database.
 
-📖 See full list in [Reference → Plugins](Reference.md#plugin-overview)
+📖 See full list in [Reference → Plugin Overview](Reference/index.md#plugin-overview)
 
 ---
 
@@ -116,9 +116,9 @@ LogOut --> SuccessEnd
 
 ## Related Pages
 
-- [Discover Deployment](Deployment.md)
+- [Discover Deployment](Deployment/index.md)
 - [Discover Usage Guide](Usage-Guide.md)
-- [Discover Reference](Reference.md)
+- [Discover Reference](Reference/index.md)
 - [Troubleshooting Discover](Troubleshooting.md)
 
 # Overview
@@ -154,7 +154,7 @@ Discover’s core engine is extensible through plugins. Each plugin is responsib
 
 Plugins are executed sequentially, and their results are normalized before being uploaded to the Azure SQL Database.
 
-📖 See full list in [Reference → Plugins](Reference.md#plugin-overview)
+📖 See full list in [Reference → Plugin Overview](Reference/index.md#plugin-overview)
 
 ---
 
@@ -239,8 +239,8 @@ LogOut --> SuccessEnd
 
 ## Related Pages
 
-- [Discover Deployment](Deployment.md)
+- [Discover Deployment](Deployment/index.md)
 - [Discover Usage Guide](Usage-Guide.md)
-- [Discover Reference](Reference.md)
+- [Discover Reference](Reference/index.md)
 - [Troubleshooting Discover](Troubleshooting.md)
 

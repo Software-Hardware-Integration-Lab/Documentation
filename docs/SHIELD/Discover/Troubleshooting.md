@@ -82,7 +82,7 @@ Yes. You may add new plugin files to the plugin directory and rerun the audit.
 ## Related Pages
 
 - [Discover Overview](index.md)
-- [Deployment](Deployment.md)
+- [Deployment](Deployment/index.md)
 - [Usage Guide](Usage-Guide.md)
-- [Reference](Reference.md)
+- [Reference](Reference/index.md)
 

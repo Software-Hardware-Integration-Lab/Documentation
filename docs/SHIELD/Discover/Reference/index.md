@@ -16,7 +16,7 @@ Discover uses a plugin architecture to retrieve data from Microsoft 365 services
 | **Defender for Endpoint** | Collects device configurations and security compliance mappings |
 | **Defender for Identity** | Evaluates privileged identity policies, alerts, and audit logic |
 
-📖 Plugin logic is described in the [Execution Flow Diagram](index.md#execution-process)
+📖 Plugin logic is described in the [Execution Flow Diagram](../index.md#execution-process)
 
 ---
 
@@ -57,7 +57,7 @@ Some Entra ID accounts are marked as reserved and should not be altered by autom
 
 ## Azure SQL Configuration
 
-Discover requires an Azure SQL Database for storing its results. Refer to [Deployment → Azure SQL Setup](Deployment.md#azure-sql-configuration) for setup steps.
+Discover requires an Azure SQL Database for storing its results. Refer to [Deployment → Azure SQL Setup](../Deployment/index.md#azure-sql-configuration) for setup steps.
 
 To automatically configure permissions via PowerShell:
 
@@ -75,14 +75,14 @@ Get-Help -Name 'Add-AzLicenseDb' -Full
 
 ### Infrastructure Diagram
 
-📖 See [Infrastructure Diagram](index.md#infrastructure-architecture)
+📖 See [Infrastructure Diagram](../index.md#infrastructure-architecture)
 
 - Shows PowerShell client to Entra ID + SQL interaction
-- Includes threat model reference: [infrastructure.tm7](assets/threat-models/infrastructure.tm7)
+- Includes threat model reference: [infrastructure.tm7](../assets/threat-models/infrastructure.tm7)
 
 ### Execution Flow
 
-📖 See [Execution Flow](index.md#execution-process)
+📖 See [Execution Flow](../index.md#execution-process)
 
 - Describes correlation record creation, plugin execution loop, and upload pattern
 
@@ -91,6 +91,6 @@ Get-Help -Name 'Add-AzLicenseDb' -Full
 ## Related Pages
 
 - [Discover Overview](index.md)
-- [Deployment](Deployment.md)
-- [Usage Guide](Usage-Guide.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Deployment](../Deployment/index.md)
+- [Usage Guide](../Usage-Guide.md)
+- [Troubleshooting](../Troubleshooting.md)

@@ -7,7 +7,7 @@ Each plugin interacts with the specific service configuration that is being inte
 
 For an annotated threat model of the application's infrastructure architecture, please see the attached Microsoft [Threat Model Tool](https://aka.ms/tmt) representation of the infrastructure architecture.
 
-[Annotated Infrastructure Threat Model](../assets/threat-models/infrastructure.tm7)
+[Annotated Infrastructure Threat Model](../../assets/threat-models/infrastructure.tm7)
 
 ## Diagram
 
