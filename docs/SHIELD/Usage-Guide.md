@@ -50,8 +50,8 @@ Device operations are performed through the Lifecycle interface. The following g
 - Adds devices to SHIELD management
 - Privileged devices are wiped/reset before being configured
 
-📖 [Commission a Device](Defend/Usage-Guide/Device/0-Commission.md)  
-📊 [Commission Workflow Diagram](Defend/Reference/Diagrams/Device-Commission.md)
+📖 [Commission a Device](3-Defend/Usage-Guide/Device/0-Commission.md)  
+📊 [Commission Workflow Diagram](3-Defend/Reference/Diagrams/Device-Commission.md)
 
 ---
 
@@ -60,8 +60,8 @@ Device operations are performed through the Lifecycle interface. The following g
 - Removes the device from SHIELD
 - Privileged devices are reset and removed from their assigned groups
 
-📖 [Decommission a Device](Defend/Usage-Guide/Device/1-Decommission.md)  
-📊 [Decommission Workflow Diagram](Defend/Reference/Diagrams/Device-Decommission.md)
+📖 [Decommission a Device](3-Defend/Usage-Guide/Device/1-Decommission.md)  
+📊 [Decommission Workflow Diagram](3-Defend/Reference/Diagrams/Device-Decommission.md)
 
 ---
 
@@ -70,8 +70,8 @@ Device operations are performed through the Lifecycle interface. The following g
 - Assigns allowed users to a privileged device
 - All other users are blocked from login
 
-📖 [Assign User](Defend/Usage-Guide/Device/2-Assign.md)  
-📊 [Assignment Workflow](Defend/Reference/Diagrams/Device-Assign.md)
+📖 [Assign User](3-Defend/Usage-Guide/Device/2-Assign.md)  
+📊 [Assignment Workflow](3-Defend/Reference/Diagrams/Device-Assign.md)
 
 ---
 
@@ -80,8 +80,8 @@ Device operations are performed through the Lifecycle interface. The following g
 - Removes users from a PAW
 - If no users remain, a wipe command is triggered
 
-📖 [Unassign User](Defend/Usage-Guide/Device/3-Unassign.md)  
-📊 [Unassign Workflow](Defend/Reference/Diagrams/Device-Unassign.md)
+📖 [Unassign User](3-Defend/Usage-Guide/Device/3-Unassign.md)  
+📊 [Unassign Workflow](3-Defend/Reference/Diagrams/Device-Unassign.md)
 
 ---
 
@@ -94,8 +94,8 @@ SHIELD manages three user types — Privileged, Specialized, and Enterprise — 
 - Adds an existing Entra ID user or creates a new cloud-only privileged account
 - Temporary credentials are shown upon creation
 
-📖 [Commission a User](Defend/Usage-Guide/User/Commission.md)  
-📊 [Commission Workflow](Defend/Reference/Diagrams/User-Commission.md)
+📖 [Commission a User](3-Defend/Usage-Guide/User/Commission.md)  
+📊 [Commission Workflow](3-Defend/Reference/Diagrams/User-Commission.md)
 
 ---
 
@@ -104,8 +104,8 @@ SHIELD manages three user types — Privileged, Specialized, and Enterprise — 
 - Removes the user from SHIELD
 - Privileged accounts are deleted; others are de-tagged
 
-📖 [Decommission a User](Defend/Usage-Guide/User/Decommission.md)  
-📊 [Decommission Workflow](Defend/Reference/Diagrams/User-Decommission.md)
+📖 [Decommission a User](3-Defend/Usage-Guide/User/Decommission.md)  
+📊 [Decommission Workflow](3-Defend/Reference/Diagrams/User-Decommission.md)
 
 ---
 

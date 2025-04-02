@@ -10,8 +10,8 @@ The server is deployed first then the server deploys the core infrastructure.
 
 2. Deploy the core infrastructure using the Web UI:<br>
 
-    [:octicons-rocket-24: Deploy Core Infrastructure](../Deploy/Usage-Guide.md){ .md-button }
+    [:octicons-rocket-24: Deploy Core Infrastructure](../2-Deploy/Usage-Guide.md){ .md-button }
 
 3. Manage your infrastructure using the SHIELD app's Lifecycle management engine:<br>
 
-    [:fontawesome-solid-rotate: Manage Lifecycle](../Defend/Usage-Guide/index.md){ .md-button }
+    [:fontawesome-solid-rotate: Manage Lifecycle](../3-Defend/Usage-Guide/index.md){ .md-button }

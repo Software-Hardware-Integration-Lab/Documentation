@@ -80,18 +80,18 @@ Use the MSI installer for a guided, visual installation of Discover.
 
 #### Main Installer Screen
 
-![Installer - Light](Discover/assets/images/screenshots/Installer-Light.png#only-light){ loading=lazy }
-![Installer - Dark](Discover/assets/images/screenshots/Installer-Dark.png#only-dark){ loading=lazy }
+![Installer - Light](4-Discover/assets/images/screenshots/Installer-Light.png#only-light){ loading=lazy }
+![Installer - Dark](4-Discover/assets/images/screenshots/Installer-Dark.png#only-dark){ loading=lazy }
 
 #### Configuration Dropdown
 
-![Dropdown - Light](Discover/assets/images/screenshots/Dropdown-Light.png#only-light){ loading=lazy }
-![Dropdown - Dark](Discover/assets/images/screenshots/Dropdown-Dark.png#only-dark){ loading=lazy }
+![Dropdown - Light](4-Discover/assets/images/screenshots/Dropdown-Light.png#only-light){ loading=lazy }
+![Dropdown - Dark](4-Discover/assets/images/screenshots/Dropdown-Dark.png#only-dark){ loading=lazy }
 
 #### Advanced Configuration
 
-![Advanced Config - Light](Discover/assets/images/screenshots/AdvancedConfig-Light.png#only-light){ loading=lazy }
-![Advanced Config - Dark](Discover/assets/images/screenshots/AdvancedConfig-Dark.png#only-dark){ loading=lazy }
+![Advanced Config - Light](4-Discover/assets/images/screenshots/AdvancedConfig-Light.png#only-light){ loading=lazy }
+![Advanced Config - Dark](4-Discover/assets/images/screenshots/AdvancedConfig-Dark.png#only-dark){ loading=lazy }
 
 !!! note "Shortcut Behavior"
     Desktop shortcuts are only created for user-scoped installs. Machine-wide installs must be launched via CLI.

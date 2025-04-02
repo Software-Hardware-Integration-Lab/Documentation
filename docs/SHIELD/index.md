@@ -40,9 +40,9 @@ In the rest of the documentation, we will provide detailed instructions on how t
 
 ## See Also
 
-- [Usage Guides](Defend/Usage-Guide/index.md)
+- [Usage Guides](Usage-Guide.md)
 - Change Log - Coming Soon!
 - [SHIELD Architecture](Reference/Architecture/index.md)
 - [API Documentation](Reference/Development/OpenAPI.md)
-- [Troubleshooting](Deploy/Troubleshooting.md)
+- [Troubleshooting](2-Deploy/Troubleshooting.md)
 - [Contact Us](https://shilab.com/contact)

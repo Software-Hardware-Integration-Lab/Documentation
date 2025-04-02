@@ -96,15 +96,15 @@ The following flowcharts describe what happens behind the scenes during key life
 
 ### Device Workflows
 
-- 📊 [Device Commissioning](Defend/Reference/Diagrams/Device-Commission.md)
-- 📊 [Device Decommissioning](Defend/Reference/Diagrams/Device-Decommission.md)
-- 📊 [Device Assignment](Defend/Reference/Diagrams/Device-Assign.md)
-- 📊 [Device Unassignment](Defend/Reference/Diagrams/Device-Unassign.md)
+- 📊 [Device Commissioning](3-Defend/Reference/Diagrams/Device-Commission.md)
+- 📊 [Device Decommissioning](3-Defend/Reference/Diagrams/Device-Decommission.md)
+- 📊 [Device Assignment](3-Defend/Reference/Diagrams/Device-Assign.md)
+- 📊 [Device Unassignment](3-Defend/Reference/Diagrams/Device-Unassign.md)
 
 ### User Workflows
 
-- 📊 [User Commissioning](Defend/Reference/Diagrams/User-Commission.md)
-- 📊 [User Decommissioning](Defend/Reference/Diagrams/User-Decommission.md)
+- 📊 [User Commissioning](3-Defend/Reference/Diagrams/User-Commission.md)
+- 📊 [User Decommissioning](3-Defend/Reference/Diagrams/User-Decommission.md)
 
 These diagrams match the logic used in the SHIELD backend and provide a visual reference for each action.
 
