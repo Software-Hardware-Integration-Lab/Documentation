@@ -17,7 +17,7 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 ### Environment Requirements
 
 - ✅ Deploying user must have **Global Admin Rights**  
-- ✅ [Defender for Endpoint](Deployment.md#defender-for-endpoint-workspace-creation) must be provisioned  
+- ✅ Microsoft Defender for Endpoint must be provisioned. See [Defend Usage Guide](Defend/Usage-Guide.md), under **Defender for Endpoint Workspace Creation**
 - ✅ [Security Defaults](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) must be disabled in Entra ID  
 - ✅ [Certificate Authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) must be disabled for SHIELD’s security groups
 

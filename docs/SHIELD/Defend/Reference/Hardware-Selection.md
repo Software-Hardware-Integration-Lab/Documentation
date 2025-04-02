@@ -54,6 +54,6 @@ For further guidance on hardware selection or compatibility, please refer to the
 
 ## See Also
 
-- [Lifecycle Management Overview](../Usage-Guide/index.md): Learn more about the lifecycle management features of SHIELD and how it simplifies the management of user and device objects.
+- [Lifecycle Management Overview](../Usage-Guide.md): Learn more about the lifecycle management features of SHIELD and how it simplifies the management of user and device objects.
 - [Commissioning a New Device](../Usage-Guide/Device/0-Commission.md): Step-by-step guide on commissioning (adopting) a new device using SHIELD.
 - [Decommission a Managed Device](../Usage-Guide/Device/1-Decommission.md): Step-by-step guide on decommissioning (removing) a device that is currently being managed by SHIELD.

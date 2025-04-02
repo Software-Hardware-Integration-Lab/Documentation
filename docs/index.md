@@ -20,7 +20,7 @@ Manages the state of security tenant wide using a multi-tiered architecture.
 
 ### Defend
 
-[:mag: Defend](SHIELD/Defend/Usage-Guide/index.md){ .md-button }
+[:mag: Defend](SHIELD/Defend/Usage-Guide.md){ .md-button }
 
 ### Discover
 
