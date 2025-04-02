@@ -49,7 +49,7 @@ Technical details on the properties/values that can be set on the root/common sc
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates privileged configurations from other [security classes](../../../2-Deploy/index.md#what-is-spa).
+This is the ID of the Intune Role Scope Tag that separates privileged configurations from other [security classes](../../../Deploy/index.md#what-is-spa).
 
 **Example:**
 `PsmId=21`
@@ -62,7 +62,7 @@ This is the ID of the Intune Role Scope Tag that separates privileged configurat
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates specialized configurations from other [security classes](../../../2-Deploy/index.md#what-is-spa).
+This is the ID of the Intune Role Scope Tag that separates specialized configurations from other [security classes](../../../Deploy/index.md#what-is-spa).
 
 **Example:**
 `SsmId=21`
@@ -75,7 +75,7 @@ This is the ID of the Intune Role Scope Tag that separates specialized configura
 This is a whole number that is the unique ID of the scope tag.
 
 **Description:**
-This is the ID of the Intune Role Scope Tag that separates enterprise configurations from other [security classes](../../../2-Deploy/index.md#what-is-spa).
+This is the ID of the Intune Role Scope Tag that separates enterprise configurations from other [security classes](../../../Deploy/index.md#what-is-spa).
 
 **Example:**
 `EsmId=21`

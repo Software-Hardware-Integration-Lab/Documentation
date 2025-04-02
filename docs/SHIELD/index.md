@@ -44,5 +44,5 @@ In the rest of the documentation, we will provide detailed instructions on how t
 - Change Log - Coming Soon!
 - [SHIELD Architecture](Reference/Architecture/index.md)
 - [API Documentation](Reference/Development/OpenAPI.md)
-- [Troubleshooting](2-Deploy/Troubleshooting.md)
+- [Troubleshooting](Deploy/Troubleshooting.md)
 - [Contact Us](https://shilab.com/contact)

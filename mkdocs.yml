@@ -81,6 +81,7 @@ plugins:
   - glightbox
   - privacy
   - search
+  - awesome-pages
 extra:
   homepage: https://shilab.com
   consent:

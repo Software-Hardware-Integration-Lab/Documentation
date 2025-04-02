@@ -70,8 +70,8 @@ Yes. SHIELD can be redeployed using the same app interface or script, as long as
 
 ## Related Pages
 
-- [Deploy Overview](../2-Deploy/index.md)
-- [Deploy Usage Guide](../2-Deploy/Usage-Guide.md)
-- [Deployment](../2-Deploy/Deployment/index.md)
-- [Deploy Reference](../2-Deploy/Reference/index.md)
+- [Deploy Overview](../Deploy/index.md)
+- [Deploy Usage Guide](../Deploy/Usage-Guide.md)
+- [Deployment](../Deploy/Deployment/index.md)
+- [Deploy Reference](../Deploy/Reference/index.md)
 
