@@ -14,4 +14,4 @@ The server is deployed first then the server deploys the core infrastructure.
 
 3. Manage your infrastructure using the SHIELD app's Lifecycle management engine:<br>
 
-    [:fontawesome-solid-rotate: Manage Lifecycle](../Defend/Usage-Guide.md){ .md-button }
+    [:fontawesome-solid-rotate: Manage Lifecycle](../Defend/Usage-Guide/index.md){ .md-button }

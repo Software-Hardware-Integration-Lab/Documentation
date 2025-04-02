@@ -7,7 +7,7 @@ This reference page for the Defend module provides a comprehensive view of all s
 - Notes on privileged workflows
 - Relevant configuration examples
 
-All information here is specific to the Defend module and complements the main [Usage Guide](Usage-Guide.md).
+All information here is specific to the Defend module and complements the main [Usage Guide](../Usage-Guide/index.md).
 
 ---
 
@@ -49,26 +49,26 @@ Each SHIELD lifecycle action is mapped to a standardized backend workflow. The f
 ### Device Workflow Diagrams
 
 #### Commission Device
-📊 [Device - Commission](Reference/Diagrams/Device-Commission.md)
+📊 [Device - Commission](./Diagrams/Device-Commission.md)
 
 #### Decommission Device
-📊 [Device - Decommission](Reference/Diagrams/Device-Decommission.md)
+📊 [Device - Decommission](./Diagrams/Device-Decommission.md)
 
 #### Assign User to Device
-📊 [Device - Assign](Reference/Diagrams/Device-Assign.md)
+📊 [Device - Assign](./Diagrams/Device-Assign.md)
 
 #### Unassign User from Device
-📊 [Device - Unassign](Reference/Diagrams/Device-Unassign.md)
+📊 [Device - Unassign](./Diagrams/Device-Unassign.md)
 
 ---
 
 ### User Workflow Diagrams
 
 #### Commission User
-📊 [User - Commission](Reference/Diagrams/User-Commission.md)
+📊 [User - Commission](./Diagrams/User-Commission.md)
 
 #### Decommission User
-📊 [User - Decommission](Reference/Diagrams/User-Decommission.md)
+📊 [User - Decommission](./Diagrams/User-Decommission.md)
 
 ---
 
@@ -76,13 +76,13 @@ Each SHIELD lifecycle action is mapped to a standardized backend workflow. The f
 
 A dedicated section for advanced Privileged workflows, including intermediary logic and RBAC extensions, will be added in a future release.
 
-📄 Placeholder: [Privileged Device Workflows](Reference/Lifecycle/Privileged Device Workflows.md)
+📄 Placeholder: [Privileged Device Workflows](./Lifecycle/Privileged Device Workflows.md)
 
 ---
 
 ## Related Pages
 
-- [Defend Usage Guide](Usage-Guide.md)
-- [Device Lifecycle](Usage-Guide/Device/0-Commission.md)
-- [User Lifecycle](Usage-Guide/User/Commission.md)
+- [Defend Usage Guide](../Usage-Guide/index.md)
+- [Device Lifecycle](../Usage-Guide/Device/0-Commission.md)
+- [User Lifecycle](../Usage-Guide/User/Commission.md)
 

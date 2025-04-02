@@ -53,7 +53,7 @@ To use Defend, the following must already be deployed:
 ## Related Pages
 
 - [Defend Overview](index.md)
-- [Defend Usage Guide](Usage-Guide.md)
-- [Defend Reference](Reference.md)
+- [Defend Usage Guide](Usage-Guide/index.md)
+- [Defend Reference](Reference/index.md)
 - [Troubleshooting](Troubleshooting.md)
 - [SHIELD Platform Deployment](../Deployment.md)

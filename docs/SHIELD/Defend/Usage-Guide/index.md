@@ -25,13 +25,13 @@ Device lifecycle flows differ by class. Devices marked as Privileged undergo mor
 
 Commissioning a device registers it with SHIELD and assigns lifecycle metadata. Privileged devices will be wiped if they are Intune-managed to ensure a clean baseline.
 
-📖 [Commission a Device](Usage-Guide/Device/0-Commission.md)  
-📊 [Workflow Diagram](Reference/Diagrams/Device-Commission.md)
+📖 [Commission a Device](./Device/0-Commission.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Commission.md)
 
 #### UI Example
-
-![Select Device - Light](../../assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
-![Select Device - Dark](../../assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
+.
+![Select Device - Light](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
+![Select Device - Dark](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
 
 !!! warning "Privileged Commissioning"
     Wipe commands are issued to Intune-managed devices during commissioning to protect against residual compromise.
@@ -42,8 +42,8 @@ Commissioning a device registers it with SHIELD and assigns lifecycle metadata. 
 
 Removes a device from SHIELD’s lifecycle system.
 
-📖 [Decommission a Device](Usage-Guide/Device/1-Decommission.md)  
-📊 [Workflow Diagram](Reference/Diagrams/Device-Decommission.md)
+📖 [Decommission a Device](./Device/1-Decommission.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Decommission.md)
 
 ---
 
@@ -51,8 +51,8 @@ Removes a device from SHIELD’s lifecycle system.
 
 Assigns one or more users to a privileged device (PAW). All others will be denied access.
 
-📖 [Assign User](Usage-Guide/Device/2-Assign.md)  
-📊 [Workflow Diagram](Reference/Diagrams/Device-Assign.md)
+📖 [Assign User](./Device/2-Assign.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Assign.md)
 
 ---
 
@@ -60,8 +60,8 @@ Assigns one or more users to a privileged device (PAW). All others will be denie
 
 Removes a user’s access from a PAW. If no users remain, a wipe is issued.
 
-📖 [Unassign User](Usage-Guide/Device/3-Unassign.md)  
-📊 [Workflow Diagram](Reference/Diagrams/Device-Unassign.md)
+📖 [Unassign User](./Device/3-Unassign.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Unassign.md)
 
 ---
 
@@ -73,18 +73,18 @@ SHIELD supports onboarding and offboarding for both privileged and non-privilege
 
 Privileged users are created as new cloud-only accounts. Others are brought into management using existing identities. Temporary credentials are generated at creation.
 
-📖 [Commission a User](Usage-Guide/User/Commission.md)  
-📊 [Workflow Diagram](Reference/Diagrams/User-Commission.md)
+📖 [Commission a User](./User/Commission.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/User-Commission.md)
 
 #### UI Example
 
-![Select User - Light](../../assets/Images/Screenshots/Select-Unmanaged-User-Light.png#only-light){ loading=lazy width="300" }
-![Select User - Dark](../../assets/Images/Screenshots/Select-Unmanaged-User-Dark.png#only-dark){ loading=lazy width="300" }
+![Select User - Light](../../../assets/Images/Screenshots/Select-Unmanaged-User-Light.png#only-light){ loading=lazy width="300" }
+![Select User - Dark](../../../assets/Images/Screenshots/Select-Unmanaged-User-Dark.png#only-dark){ loading=lazy width="300" }
 
 #### Temporary Credential Dialog
 
-![Temp Credentials - Light](../../assets/Images/Screenshots/Temporary-Credential-Dialog-Light.png#only-light){ loading=lazy }
-![Temp Credentials - Dark](../../assets/Images/Screenshots/Temporary-Credential-Dialog-Dark.png#only-dark){ loading=lazy }
+![Temp Credentials - Light](../../../assets/Images/Screenshots/Temporary-Credential-Dialog-Light.png#only-light){ loading=lazy }
+![Temp Credentials - Dark](../../../assets/Images/Screenshots/Temporary-Credential-Dialog-Dark.png#only-dark){ loading=lazy }
 
 ---
 
@@ -92,8 +92,8 @@ Privileged users are created as new cloud-only accounts. Others are brought into
 
 Privileged users are deleted from Entra ID. Non-privileged users are simply removed from SHIELD management.
 
-📖 [Decommission a User](Usage-Guide/User/Decommission.md)  
-📊 [Workflow Diagram](Reference/Diagrams/User-Decommission.md)
+📖 [Decommission a User](./User/Decommission.md)  
+📊 [Workflow Diagram](../Reference/Diagrams/User-Decommission.md)
 
 ---
 
@@ -115,7 +115,7 @@ Class is selected at the top of the UI before performing lifecycle actions.
 ## Related Pages
 
 - [Defend Overview](index.md)
-- [Device Commissioning](Usage-Guide/Device/0-Commission.md)
-- [User Commissioning](Usage-Guide/User/Commission.md)
-- [Reference Diagrams](Reference.md)
-- [Hardware Requirements](Reference/Hardware-Selection.md)
+- [Device Commissioning](./Device/0-Commission.md)
+- [User Commissioning](./User/Commission.md)
+- [Reference Diagrams](../Reference/index.md)
+- [Hardware Requirements](../Reference/Hardware-Selection.md)

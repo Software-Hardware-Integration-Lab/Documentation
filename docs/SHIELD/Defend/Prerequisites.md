@@ -53,14 +53,14 @@ To verify:
 3. If a table of devices appears, your workspace is ready
 4. If prompted to initialize setup, follow instructions and wait until the UI is fully active
 
-📖 For more detail, see the [Defend Usage Guide](Usage-Guide.md), under **Defender for Endpoint Workspace Creation**
+📖 For more detail, see the [Defend Usage Guide](Usage-Guide/index.md), under **Defender for Endpoint Workspace Creation**
 
 ---
 
 ## Related Pages
 
 - [Defend Deployment](Deployment.md)
-- [Defend Usage Guide](Usage-Guide.md)
-- [Hardware Requirements](Reference.md)
+- [Defend Usage Guide](Usage-Guide/index.md)
+- [Hardware Requirements](Reference/index.md)
 - [SHIELD Prerequisites](../Prerequisites.md)
 
