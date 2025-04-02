@@ -78,6 +78,6 @@ By centralizing and automating the deployment of SPA, the Deploy module:
 
 - [Deployment Guide](../Deployment.md)
 - [Deploy Usage Guide](Usage-Guide.md)
-- [Deploy Reference](Reference.md)
+- [Deploy Reference](Reference/index.md)
 - [Troubleshooting Deploy Module](Troubleshooting.md)
 

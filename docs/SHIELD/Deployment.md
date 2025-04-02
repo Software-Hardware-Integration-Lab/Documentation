@@ -14,7 +14,7 @@ You can deploy the SHIELD orchestration server manually using a local PowerShell
 ### Steps
 
 1. **Download** the PowerShell installer:  
-   👉 [Install-SOP.ps1](0-Getting-Started/Deployment/Scripts/Install-Sop.ps1)
+   👉 [Install-SOP.ps1](Scripts/Install-Sop.ps1)
 
 2. **Prepare your environment**:
    - Note your Azure Subscription ID

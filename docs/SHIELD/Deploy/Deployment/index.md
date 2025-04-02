@@ -46,7 +46,7 @@ You’ll then see:
 - Automatic status updates
 - A redirect to the home screen when finished
 
-📖 See full UI walkthrough and screenshots in the [Usage Guide](Usage-Guide.md#deploy-core-infrastructure-ui-flow)
+📖 See full UI walkthrough and screenshots in the [Usage Guide](../Usage-Guide.md#deploy-core-infrastructure-ui-flow)
 
 ---
 
@@ -71,8 +71,8 @@ These cannot be renamed or deleted through the SHIELD UI.
 ## Related Pages
 
 - [Deploy Overview](index.md)
-- [Deploy Usage Guide](Usage-Guide.md)
-- [Reference Docs](Reference.md)
-- [Troubleshooting](Troubleshooting.md)
-- [Full SHIELD Deployment](../Deployment.md)
+- [Deploy Usage Guide](../Usage-Guide.md)
+- [Reference Docs](../Reference/index.md)
+- [Troubleshooting](../Troubleshooting.md)
+- [Full SHIELD Deployment](../../Deployment.md)
 

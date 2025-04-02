@@ -37,7 +37,7 @@ This aligns with Microsoft’s Zero Trust security model and helps enforce separ
 
 ## Related Reference Docs
 
-Additional SPA-related configuration details are available in the global [Reference Guide](../Reference.md), including:
+Additional SPA-related configuration details are available in the global [Reference Guide](../../Reference.md), including:
 
 - Full lifecycle flow diagrams
 - Microsoft Graph permissions required by SHIELD
@@ -48,7 +48,7 @@ Additional SPA-related configuration details are available in the global [Refere
 ## Related Pages
 
 - [Deploy Overview](index.md)
-- [Deployment](Deployment.md)
-- [Deploy Usage Guide](Usage-Guide.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Deployment](../Deployment/index.md)
+- [Deploy Usage Guide](../Usage-Guide.md)
+- [Troubleshooting](../Troubleshooting.md)
 

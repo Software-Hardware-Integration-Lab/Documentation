@@ -78,5 +78,5 @@ Once core deployment is complete, your SHIELD UI will provide management cards f
 
 - [Deploy Overview](index.md)
 - [Deployment Guide](../Deployment.md)
-- [Reference Docs](Reference.md)
+- [Reference Docs](Reference/index.md)
 - [Troubleshooting](Troubleshooting.md)
