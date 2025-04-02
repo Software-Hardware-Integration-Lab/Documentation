@@ -23,7 +23,7 @@ SHIELD is an orchestration tool in the larger security landscape. It does not br
 
 ## Prerequisites
 
-Check out this page for more details: [Getting Started - Prerequisites](Prerequisites.md)
+Check out this page for more details: [Getting Started - Prerequisites](Prerequisites/index.md)
 
 ## Recommended Environment
 

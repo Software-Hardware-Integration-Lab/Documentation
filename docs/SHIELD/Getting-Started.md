@@ -191,5 +191,5 @@ Get-Help -Name 'Add-AzLicenseDb' -Full
 
 - [Standard Installation](#standard-installation-gui-based)
 - [Silent Installation](#silent-installation-script-based)
-- [Azure SQL Setup (from Prerequisites)](Prerequisites.md#azure-sql-setup)
+- [Azure SQL Setup (from Prerequisites)](Prerequisites/index.md#azure-sql-setup)
 

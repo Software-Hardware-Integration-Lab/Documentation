@@ -114,5 +114,5 @@ These diagrams match the logic used in the SHIELD backend and provide a visual r
 
 - [Deployment Guide](Getting-Started.md)
 - [Usage Guide](Usage-Guide.md)
-- [Prerequisites](Prerequisites.md)
+- [Prerequisites](Prerequisites/index.md)
 

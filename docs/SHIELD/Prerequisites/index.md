@@ -17,7 +17,7 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 ### Environment Requirements
 
 - ✅ Deploying user must have **Global Admin Rights**  
-- ✅ Microsoft Defender for Endpoint must be provisioned. See [Defend Usage Guide](Defend/Usage-Guide/index.md), under **Defender for Endpoint Workspace Creation**
+- ✅ Microsoft Defender for Endpoint must be provisioned. See [Defend Usage Guide](../Defend/Usage-Guide/index.md), under **Defender for Endpoint Workspace Creation**
 - ✅ [Security Defaults](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#disabling-security-defaults) must be disabled in Entra ID  
 - ✅ [Certificate Authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-certificate-based-authentication#step-2-enable-cba-on-the-tenant) must be disabled for SHIELD’s security groups
 
@@ -31,7 +31,7 @@ SHIELD uses `M3` and `M5` to refer to Microsoft 365 license families, abstractin
 |------|---------|--------------------------|
 | **ESM** (Enterprise Security Mode) | M3 or equivalent | Devices must be Hybrid or Cloud Joined |
 | **SSM** (Specialized Security Mode) | M5 or equivalent | Devices must be Hybrid or Cloud Joined |
-| **PSM** (Privileged Security Mode) | M5 or equivalent | Devices must be Autopilot-registered and [Secure Core Certified](Defend/Reference/Hardware-Selection.md) |
+| **PSM** (Privileged Security Mode) | M5 or equivalent | Devices must be Autopilot-registered and [Secure Core Certified](../Defend/Reference/Hardware-Selection.md) |
 
 ---
 
@@ -65,9 +65,9 @@ Discover uses read-only Entra ID roles for configuration queries. These permissi
 
 **Related plugin guides:**
 docs\SHIELD\Reference\Plugins\DefenderEndpoint.md
-- 📄 [Defender for Endpoint](Discover/Reference/Plugins/DefenderEndpoint.md)  
-- 📄 [Defender for Identity](Discover/Reference/Plugins/DefenderIdentity.md)  
-- 📄 [Entra ID](Discover/Reference/Plugins/EntraID.md)
+- 📄 [Defender for Endpoint](../Discover/Reference/Plugins/DefenderEndpoint.md)  
+- 📄 [Defender for Identity](../Discover/Reference/Plugins/DefenderIdentity.md)  
+- 📄 [Entra ID](../Discover/Reference/Plugins/EntraID.md)
 
 !!! info "Permissions Note"
     Discover will never modify your configuration. All operations are read-only and scoped to data retrieval.
@@ -78,7 +78,7 @@ docs\SHIELD\Reference\Plugins\DefenderEndpoint.md
 
 An Azure SQL Database is required to store audit results. You can use an existing DB or provision a new one.
 
-📖 [Deployment → Azure SQL Database Setup](Getting-Started.md#azure-sql-database-setup)
+📖 [Deployment → Azure SQL Database Setup](../Getting-Started.md#azure-sql-database-setup)
 
 **Required:**
 
@@ -129,8 +129,8 @@ Get-Help -Name 'Add-AzLicenseDb' -Full
 
 ## Related Pages
 
-- 📄 [Hardware Requirements](Defend/Reference/Hardware-Selection.md)  
-- 📄 [Deployment Guide](Getting-Started.md)  
-- 📄 [Azure SQL Setup](Getting-Started.md#azure-sql-database-setup)  
-- 📄 [Silent Installation Instructions](Getting-Started.md#silent-installation-script-based)  
-- 📄 [Standard Installation Instructions](Getting-Started.md#standard-installation-gui-based)
+- 📄 [Hardware Requirements](../Defend/Reference/Hardware-Selection.md)  
+- 📄 [Deployment Guide](../Getting-Started.md)  
+- 📄 [Azure SQL Setup](../Getting-Started.md#azure-sql-database-setup)  
+- 📄 [Silent Installation Instructions](../Getting-Started.md#silent-installation-script-based)  
+- 📄 [Standard Installation Instructions](../Getting-Started.md#standard-installation-gui-based)

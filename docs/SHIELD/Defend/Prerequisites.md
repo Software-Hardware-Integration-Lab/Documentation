@@ -15,7 +15,7 @@ The Defend module relies on infrastructure that must be deployed via the Deploy 
 - Entra ID Administrative Units and security groups are provisioned
 - Intune is configured with scope tags
 
-📖 See [SHIELD Platform Prerequisites](../Prerequisites.md)
+📖 See [SHIELD Platform Prerequisites](../Prerequisites/index.md)
 
 ---
 
@@ -62,5 +62,5 @@ To verify:
 - [Defend Deployment](Deployment.md)
 - [Defend Usage Guide](Usage-Guide/index.md)
 - [Hardware Requirements](Reference/index.md)
-- [SHIELD Prerequisites](../Prerequisites.md)
+- [SHIELD Prerequisites](../Prerequisites/index.md)
 

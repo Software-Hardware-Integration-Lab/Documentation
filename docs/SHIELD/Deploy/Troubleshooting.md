@@ -9,6 +9,6 @@ We are actively gathering feedback to build out comprehensive troubleshooting fl
 If you encounter any issues in the meantime:
 
 - Refer to the [Uninstall Guide](../Reference/Uninstall.md) for resetting the environment
-- Review your deployment [prerequisites](../Prerequisites.md)
+- Review your deployment [prerequisites](../Prerequisites/index.md)
 - Contact SHI Support for critical blocking errors
 
