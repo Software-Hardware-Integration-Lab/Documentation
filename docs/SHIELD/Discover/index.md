@@ -1,43 +1,246 @@
-# Discover
+# Overview
 
-## Overview
+The Discover module enables advanced licensing intelligence and compliance reporting for Microsoft 365 services. It retrieves configuration data from multiple service APIs, analyzes it, and stores compliance results in an Azure SQL database for visualization in tools like Power BI.
 
-Discover is a system that retrieves the Microsoft Service configurations and performs analysis against the data to evaluate the count of license records that are required to satisfy the service configuration.
-Discover also retrieves a count of purchased licenses so that it can make the determination if a license violation is in progress so that easy review of the overall compliance state of an organization can be saved into an Azure SQL Database of choice.
-
-Once the data is in the Azure SQL Database, it is easy to integrate it into Business Intelligence software such as PowerBI to create reports.
-
-Because the service configuration of each license is expressed differently, plugins are used to interface the core engine into the various configurations for the license in question.
+Discover is plugin-driven, lightweight, and runs entirely from the client environment via PowerShell.
 
 ---
 
-## Technical Breakdown
+## What Discover Does
 
-Discover is broken into three distinct parts:
+- Retrieves Microsoft service configuration data using Graph API and Defender APIs
+- Evaluates license assignments against usage and configuration
+- Stores structured results in an Azure SQL database
+- Visualizes data using third-party tools such as Power BI
 
-- Core Engine
-- Database Boilerplate
-- Plugins
+Discover allows organizations to:
 
-## Core Engine
-
-The core engine is responsible for authenticating to the various APIs, such as the M365 substrate, Graph API and Azure Rest API.
-
-The core engine is also responsible for making sure the DB Tables are present and have the correct Schema.
-
-The core engine's final responsibility is to enumerate, validate and execute the plugins.
-
-## Database Boilerplate
-
-The DB boilerplate system is responsible for ensuring data is in the correct format and running the SQL statements against the DB.
-
-## Plugins
-
-Plugins are responsible for retrieving and standardizing the service configuration data.
+- Ensure license assignments match technical requirements
+- Detect gaps in purchased vs. configured capabilities
+- Automate configuration audits across tenants
 
 ---
 
-## See Also
+## Plugin Architecture
 
-- [Supported Licenses](Supported-Licenses.md)
-- [Plugins](Plugins/Overview.md)
+Discover’s core engine is extensible through plugins. Each plugin is responsible for extracting and evaluating configuration from a specific service:
+
+- 🔌 **Entra ID Plugin** – Retrieves directory and user-level settings
+- 🔌 **Defender for Endpoint Plugin** – Retrieves configuration and licensing status
+- 🔌 **Defender for Identity Plugin** – Extracts rules and signals used in audit logic
+
+Plugins are executed sequentially, and their results are normalized before being uploaded to the Azure SQL Database.
+
+📖 See full list in [Reference → Plugins](Reference.md#plugin-overview)
+
+---
+
+## Infrastructure Architecture
+
+The infrastructure diagram below shows how the Discover engine interacts with Microsoft services and securely stores results in Azure SQL:
+
+### Infrastructure Flow
+
+```mermaid
+flowchart
+    subgraph "Client Environment"
+    Client["PowerShell Client"]
+    end
+
+    subgraph "Microsoft Trust Boundary (Cloud Boundary)"
+    EntraId["Entra ID"]
+    SqlDb[("Azure SQL Database")]
+    end
+
+    Client --> | Step 1 - Request Auth Code | EntraId
+    EntraId --> | Step 2 - Receive Auth Code | Client
+    Client --> | Step 3 - Data + Auth Token | SqlDb
+    SqlDb --> | Step 4 - Validate Auth Token | EntraId
+    EntraId --> | Step 5 - Auth Token Confirmation | SqlDb
+    SqlDb --> | Step 6 - Confirm DB Operation | Client
+```
+
+📄 Download annotated threat model: [Infrastructure Threat Model (.tm7)](assets/threat-models/infrastructure.tm7)
+
+---
+
+## Execution Process
+
+The following diagram shows the plugin execution flow from engine startup through plugin enumeration, execution, and data upload.
+
+### Execution Flowchart
+
+```mermaid
+flowchart TD
+
+AzSqlDb[("Report Storage")]
+
+Start["Start"]
+Initialization["Configure Core Engine"]
+LoginHost["Log into Az SQL Server's tenant"]
+LoginCustomer["Log into tenant that\ndata is to be retrieved from"]
+ReportCorelationRecord["Create a record to\ncorrelate all counts for a run"]
+LoadPlugins["Enumerate/Validate and Run Plugins"]
+
+subgraph plugin
+StartPlugin["Start execution\non specified plugin"]
+GetData["Query APIs to get configuration data"]
+ProcessData["Organize and Deduplicate Data"]
+ReportProcessedData["Upload Processed Data to Az SQL DB"]
+EndPlugin["End execution\nof current plugin"]
+end
+
+LoopPlugin["Check if another\nplugin is present"]
+LogOut["Log out of all sessions"]
+SuccessEnd["Finish Reporting\nSuccessfully"]
+
+Start --> Initialization
+Initialization --> LoginHost
+LoginHost --> LoginCustomer
+LoginCustomer --> ReportCorelationRecord
+ReportCorelationRecord -.-> AzSqlDb
+ReportCorelationRecord --> LoadPlugins
+LoadPlugins --> StartPlugin
+StartPlugin --> GetData
+GetData --> ProcessData
+ProcessData --> ReportProcessedData
+ReportProcessedData -.-> AzSqlDb
+ReportProcessedData --> EndPlugin
+EndPlugin --> LoopPlugin
+LoopPlugin -->|If Yes| StartPlugin
+LoopPlugin -->|If No| LogOut
+LogOut --> SuccessEnd
+```
+
+---
+
+## Related Pages
+
+- [Discover Deployment](Deployment.md)
+- [Discover Usage Guide](Usage-Guide.md)
+- [Discover Reference](Reference.md)
+- [Troubleshooting Discover](Troubleshooting.md)
+
+# Overview
+
+The Discover module enables advanced licensing intelligence and compliance reporting for Microsoft 365 services. It retrieves configuration data from multiple service APIs, analyzes it, and stores compliance results in an Azure SQL database for visualization in tools like Power BI.
+
+Discover is plugin-driven, lightweight, and runs entirely from the client environment via PowerShell.
+
+---
+
+## What Discover Does
+
+- Retrieves Microsoft service configuration data using Graph API and Defender APIs
+- Evaluates license assignments against usage and configuration
+- Stores structured results in an Azure SQL database
+- Visualizes data using third-party tools such as Power BI
+
+Discover allows organizations to:
+
+- Ensure license assignments match technical requirements
+- Detect gaps in purchased vs. configured capabilities
+- Automate configuration audits across tenants
+
+---
+
+## Plugin Architecture
+
+Discover’s core engine is extensible through plugins. Each plugin is responsible for extracting and evaluating configuration from a specific service:
+
+- 🔌 **Entra ID Plugin** – Retrieves directory and user-level settings
+- 🔌 **Defender for Endpoint Plugin** – Retrieves configuration and licensing status
+- 🔌 **Defender for Identity Plugin** – Extracts rules and signals used in audit logic
+
+Plugins are executed sequentially, and their results are normalized before being uploaded to the Azure SQL Database.
+
+📖 See full list in [Reference → Plugins](Reference.md#plugin-overview)
+
+---
+
+## Infrastructure Architecture
+
+The infrastructure diagram below shows how the Discover engine interacts with Microsoft services and securely stores results in Azure SQL:
+
+### Infrastructure Flow
+
+```mermaid
+flowchart
+    subgraph "Client Environment"
+    Client["PowerShell Client"]
+    end
+
+    subgraph "Microsoft Trust Boundary (Cloud Boundary)"
+    EntraId["Entra ID"]
+    SqlDb[("Azure SQL Database")]
+    end
+
+    Client --> | Step 1 - Request Auth Code | EntraId
+    EntraId --> | Step 2 - Receive Auth Code | Client
+    Client --> | Step 3 - Data + Auth Token | SqlDb
+    SqlDb --> | Step 4 - Validate Auth Token | EntraId
+    EntraId --> | Step 5 - Auth Token Confirmation | SqlDb
+    SqlDb --> | Step 6 - Confirm DB Operation | Client
+```
+
+📄 Download annotated threat model: [Infrastructure Threat Model (.tm7)](assets/threat-models/infrastructure.tm7)
+
+---
+
+## Execution Process
+
+The following diagram shows the plugin execution flow from engine startup through plugin enumeration, execution, and data upload.
+
+### Execution Flowchart
+
+```mermaid
+flowchart TD
+
+AzSqlDb[("Report Storage")]
+
+Start["Start"]
+Initialization["Configure Core Engine"]
+LoginHost["Log into Az SQL Server's tenant"]
+LoginCustomer["Log into tenant that\ndata is to be retrieved from"]
+ReportCorelationRecord["Create a record to\ncorrelate all counts for a run"]
+LoadPlugins["Enumerate/Validate and Run Plugins"]
+
+subgraph plugin
+StartPlugin["Start execution\non specified plugin"]
+GetData["Query APIs to get configuration data"]
+ProcessData["Organize and Deduplicate Data"]
+ReportProcessedData["Upload Processed Data to Az SQL DB"]
+EndPlugin["End execution\nof current plugin"]
+end
+
+LoopPlugin["Check if another\nplugin is present"]
+LogOut["Log out of all sessions"]
+SuccessEnd["Finish Reporting\nSuccessfully"]
+
+Start --> Initialization
+Initialization --> LoginHost
+LoginHost --> LoginCustomer
+LoginCustomer --> ReportCorelationRecord
+ReportCorelationRecord -.-> AzSqlDb
+ReportCorelationRecord --> LoadPlugins
+LoadPlugins --> StartPlugin
+StartPlugin --> GetData
+GetData --> ProcessData
+ProcessData --> ReportProcessedData
+ReportProcessedData -.-> AzSqlDb
+ReportProcessedData --> EndPlugin
+EndPlugin --> LoopPlugin
+LoopPlugin -->|If Yes| StartPlugin
+LoopPlugin -->|If No| LogOut
+LogOut --> SuccessEnd
+```
+
+---
+
+## Related Pages
+
+- [Discover Deployment](Deployment.md)
+- [Discover Usage Guide](Usage-Guide.md)
+- [Discover Reference](Reference.md)
+- [Troubleshooting Discover](Troubleshooting.md)
+
