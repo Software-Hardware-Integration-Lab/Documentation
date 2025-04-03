@@ -14,8 +14,16 @@ Manages the state of security tenant wide using a multi-tiered architecture.
 
 [:lock: SHIELD](SHIELD/index.md){ .md-button }
 
-## SHI Discover
+### Deploy
+
+[:mag: Deploy](SHIELD/Prerequisites/index.md){ .md-button }
+
+### Defend
+
+[:mag: Defend](SHIELD/Defend/Usage-Guide/index.md){ .md-button }
+
+### Discover
 
 Retrieves and validates the state of license compliance tenant wide.
 
-[:mag: Discover](Discover/index.md){ .md-button }
+[:mag: Discover](SHIELD/Discover/index.md){ .md-button }
