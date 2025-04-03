@@ -65,9 +65,9 @@ Discover uses read-only Entra ID roles for configuration queries. These permissi
 
 **Related plugin guides:**
 docs\SHIELD\Reference\Plugins\DefenderEndpoint.md
-- 📄 [Defender for Endpoint](../Discover/Reference/Plugins/DefenderEndpoint.md)  
-- 📄 [Defender for Identity](../Discover/Reference/Plugins/DefenderIdentity.md)  
-- 📄 [Entra ID](../Discover/Reference/Plugins/EntraID.md)
+- 📄 [Defender for Endpoint](../Discover/Plugins/DefenderEndpoint.md)  
+- 📄 [Defender for Identity](../Discover/Plugins/DefenderIdentity.md)  
+- 📄 [Entra ID](../Discover/Plugins/EntraID.md)
 
 !!! info "Permissions Note"
     Discover will never modify your configuration. All operations are read-only and scoped to data retrieval.

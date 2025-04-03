@@ -14,7 +14,7 @@ Other types of principals such as devices and groups are ignored.
 
 ## Licenses Checked
 
-Please note that due to the way Microsoft makes this data available, the license report format uses the mappings found in the [Reserved Principals](../Reserved-Principals.md) page.
+Please note that due to the way Microsoft makes this data available, the license report format uses the mappings found in the [Reserved Principals](../Reference/Reserved-Principals.md) page.
 
 - Defender for Identity - `14ab5db5-e6c4-4b20-b4bc-13e36fd2227f`
 

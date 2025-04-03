@@ -43,7 +43,7 @@ Discover analyzes how Microsoft 365 licenses are configured and applied. This in
 - Government (G1, G3, G5)
 - Frontline (F1, F3)
 
-📖 License breakdown and mappings: [Supported Licenses](Supported-Licenses.md)
+📖 License breakdown and mappings: [Supported Licenses](../Supported-Licenses.md)
 
 ---
 

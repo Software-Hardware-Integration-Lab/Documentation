@@ -3,5 +3,7 @@ nav:
   - index.md
   - Deployment
   - Usage-Guide.md
+  - Plugins
+  - Supported-Licenses.md
   - Reference
   - Troubleshooting.md

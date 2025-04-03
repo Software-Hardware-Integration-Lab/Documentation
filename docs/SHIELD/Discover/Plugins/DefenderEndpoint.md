@@ -5,7 +5,7 @@ This is because the license data is coming from MDE and not the licensing system
 
 ## Licenses Checked
 
-Please note that due to the way Microsoft makes this data available, the license report format uses the mappings found in the [Reserved Principals](../Reserved-Principals.md) page.
+Please note that due to the way Microsoft makes this data available, the license report format uses the mappings found in the [Reserved Principals](../Reference/Reserved-Principals.md) page.
 
 - Defender for Business (SMB) - `bfc1bbd9-981b-4f71-9b82-17c35fd0e2a4`
 - Defender for Endpoint P1 - `292cc034-7b7c-4950-aaf5-943befd3f1d4`
