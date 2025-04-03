@@ -81,7 +81,6 @@ plugins:
   - glightbox
   - privacy
   - search
-  - awesome-pages
 extra:
   homepage: https://shilab.com
   consent:
@@ -135,3 +134,96 @@ extra:
       name: SHI's home on Instagram
 watch:
   - includes
+nav:
+  - Home: index.md
+
+  - SHIELD:
+      - Overview: SHIELD/index.md
+      - Prerequisites:
+          - Overview: SHIELD/Prerequisites/index.md
+          - Graph API Permissions: SHIELD/Prerequisites/Required-Graph-API-Permissions.md
+      - Getting Started: SHIELD/Getting-Started.md
+      - Usage Guide: SHIELD/Usage-Guide.md
+
+      - Deploy:
+          - Overview: SHIELD/Deploy/index.md
+          - Deployment: SHIELD/Deploy/Deployment/index.md
+          - Usage Guide: SHIELD/Deploy/Usage-Guide.md
+          - Reference: SHIELD/Deploy/Reference/index.md
+          - Troubleshooting: SHIELD/Deploy/Troubleshooting.md
+
+      - Defend:
+          - Overview: SHIELD/Defend/index.md
+          - Prerequisites: SHIELD/Defend/Prerequisites.md
+          - Deployment: SHIELD/Defend/Deployment.md
+          - Usage Guide:
+              - Overview: SHIELD/Defend/Usage-Guide/index.md
+              - Devices:
+                  - Commission Device: SHIELD/Defend/Usage-Guide/Device/0-Commission.md
+                  - Decommission Device: SHIELD/Defend/Usage-Guide/Device/1-Decommission.md
+                  - Assign Device: SHIELD/Defend/Usage-Guide/Device/2-Assign.md
+                  - Unassign Device: SHIELD/Defend/Usage-Guide/Device/3-Unassign.md
+              - Users:
+                  - Commission User: SHIELD/Defend/Usage-Guide/User/Commission.md
+                  - Decommission User: SHIELD/Defend/Usage-Guide/User/Decommission.md
+          - Reference:
+              - Overview: SHIELD/Defend/Reference/index.md
+              - Hardware Selection: SHIELD/Defend/Reference/Hardware-Selection.md
+              - Custom Apps:
+                  - Corp VM:
+                      - Index: SHIELD/Defend/Reference/Custom-Apps/Corp-VM/index.md
+                      - Changelog: SHIELD/Defend/Reference/Custom-Apps/Corp-VM/Changelog.md
+                  - Managed Installer Config:
+                      - Index: SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/index.md
+                      - Changelog: SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/Changelog.md
+                  - Security Config:
+                      - Index: SHIELD/Defend/Reference/Custom-Apps/Security-Config/index.md
+                      - Changelog: SHIELD/Defend/Reference/Custom-Apps/Security-Config/Changelog.md
+                      - File Changes: SHIELD/Defend/Reference/Custom-Apps/Security-Config/File-Changes.md
+                      - Registry Changes: SHIELD/Defend/Reference/Custom-Apps/Security-Config/Registry-Changes.md
+              - Diagrams:
+                  - Device Commission: SHIELD/Defend/Reference/Diagrams/Device-Commission.md
+                  - Device Decommission: SHIELD/Defend/Reference/Diagrams/Device-Decommission.md
+                  - Device Assign: SHIELD/Defend/Reference/Diagrams/Device-Assign.md
+                  - Device Unassign: SHIELD/Defend/Reference/Diagrams/Device-Unassign.md
+                  - User Commission: SHIELD/Defend/Reference/Diagrams/User-Commission.md
+                  - User Decommission: SHIELD/Defend/Reference/Diagrams/User-Decommission.md
+              - Lifecycle:
+                  - Privileged Device Workflows: SHIELD/Defend/Reference/Lifecycle/Privileged Device Workflows.md
+          - Troubleshooting: SHIELD/Defend/Troubleshooting.md
+
+      - Discover:
+          - Overview: SHIELD/Discover/index.md
+          - Deployment: SHIELD/Discover/Deployment/index.md
+          - Usage Guide: SHIELD/Discover/Usage-Guide.md
+          - Plugins:
+              - Entra ID: SHIELD/Discover/Plugins/EntraID.md
+              - Defender for Endpoint: SHIELD/Discover/Plugins/DefenderEndpoint.md
+              - Defender for Identity: SHIELD/Discover/Plugins/DefenderIdentity.md
+          - Supported Licenses: SHIELD/Discover/Supported-Licenses.md
+          - Reference:
+              - Overview: SHIELD/Discover/Reference/index.md
+              - Database Schema: SHIELD/Discover/Reference/Database-Schema.md
+              - Azure SQL Database: SHIELD/Discover/Reference/Azure-SQL-Database.md
+              - Reserved Principals: SHIELD/Discover/Reference/Reserved-Principals.md
+              - Architecture:
+                  - Infrastructure: SHIELD/Discover/Reference/Architecture/Infrastructure.md
+                  - Process Flow: SHIELD/Discover/Reference/Architecture/Process-Flow.md
+          - Troubleshooting: SHIELD/Discover/Troubleshooting.md
+
+      - Reference:
+          - Architecture:
+              - Overview: SHIELD/Reference/Architecture/index.md
+              - Threat Model: SHIELD/Reference/Architecture/Threat-Models/ISV-To-Customer.md
+              - Review Template: SHIELD/Reference/Architecture/Review-Template.md
+          - Development:
+              - OpenAPI Spec: SHIELD/Reference/Development/OpenAPI.md
+              - Intune Scope Tag Format: SHIELD/Reference/Development/Data-Formats/Intune Scope Tag.md
+          - Settings:
+              - Configure Managed Identity: SHIELD/Reference/Settings/Configure-Managed-Identity.md
+              - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md
+              - Environment Variables: SHIELD/Reference/Settings/Environmental-Variables-Reference.md
+          - Uninstall: SHIELD/Reference/Uninstall.md
+
+  - Data Gateway:
+      - Overview: Data-Gateway/index.md
