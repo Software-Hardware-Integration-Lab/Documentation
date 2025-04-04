@@ -1,4 +1,4 @@
-site_name: SHI Orchestration Platform - Documentation
+site_name: SHI Lab - Product Documentation
 site_url: https://docs.shilab.com/
 site_description: Documentation for the SHI orchestration platform
 copyright: Copyright &copy; 2025 <a href="https://shi.com">SHI International Corp.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>
@@ -51,6 +51,7 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
+  - md_in_html
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.emoji:

@@ -8,22 +8,49 @@ hide:
 
 <h1 align="center">SHI's Product Documentation</h1>
 
-## SHI Environment Lockdown & Defense
+<div class="grid cards" align="center" markdown>
+- :lock:{ .lg .middle } __SHI Environment Lockdown & Defense__
 
-Manages the state of security tenant wide using a multi-tiered architecture.
+    ---
 
-[:lock: SHIELD](SHIELD/index.md){ .md-button }
+    Manages the state of security tenant wide using a multi-tiered architecture.
 
-### Deploy
+    [:octicons-arrow-right-24: Overview](SHIELD/index.md)
+</div>
 
-[:mag: Deploy](SHIELD/Prerequisites/index.md){ .md-button }
+<div class="grid cards" align="center" markdown>
+- :classical_building:{ .lg .middle } __Deploy__
 
-### Defend
+    ---
 
-[:mag: Defend](SHIELD/Defend/Usage-Guide/index.md){ .md-button }
+    Deploy and maintain global baselines.
 
-### Discover
+    [:octicons-arrow-right-24: Overview](SHIELD/Deploy/index.md)
 
-Retrieves and validates the state of license compliance tenant wide.
+- :shield:{ .lg .middle } __Defend__
 
-[:mag: Discover](SHIELD/Discover/index.md){ .md-button }
+    ---
+
+    Manage the membership of baselines and the configuration for privileged systems.
+
+    [:octicons-arrow-right-24: Overview](SHIELD/Defend/index.md)
+
+- :bar_chart:{ .lg .middle } __Discover__
+
+    ---
+
+    Retrieves and validates the state of license compliance tenant wide.
+
+    [:octicons-arrow-right-24: Overview](SHIELD/Discover/index.md)
+
+</div>
+
+<div class="grid cards" align="center" markdown>
+- :globe_with_meridians:{ .lg .middle } __SHI - Data Gateway__
+
+    ---
+
+    Store and retrieve data for the various SHI Lab products.
+
+    [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
+</div>
