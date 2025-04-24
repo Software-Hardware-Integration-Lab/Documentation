@@ -1,4 +1,4 @@
-*[SHI]: Software Hardware Integration International Corp.
+*[SHI]: Software House International
 *[SOP]: SHI Orchestration Platform
 *[SPA]: Securing Privileged Access
 *[SHIELD]: SHI Environment Lockdown & Defense
