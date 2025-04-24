@@ -12,6 +12,10 @@ For more details on how the plugins are structured, please see the plugin sectio
 - Entra ID P1
 - Entra ID P2
 
+## In Progress
+
+- Insider Risk Management
+
 ## Coming Soon
 
 - Azure Cost Calculation
@@ -21,7 +25,6 @@ For more details on how the plugins are structured, please see the plugin sectio
 - Entra ID External Identity - Guests (B2B)
 - Entra ID External Identity - Consumers (B2C)
 - Exchange Online
-- Insider Risk Management
 - SharePoint/OneDrive
 - Teams
 - Viva

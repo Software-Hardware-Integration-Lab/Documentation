@@ -46,7 +46,7 @@ Plugins are executed sequentially, and their results are normalized before being
 
 ### Infrastructure
 
-Please see [Data Gateway Infrastructure](/docs/Data-Gateway/Architecture/Infrastructure.md) docs for more details.
+Please see [Data Gateway Infrastructure](../../Data-Gateway/Architecture/Infrastructure.md) docs for more details.
 
 ---
 

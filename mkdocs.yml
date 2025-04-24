@@ -204,8 +204,6 @@ nav:
           - Supported Licenses: SHIELD/Discover/Supported-Licenses.md
           - Reference:
               - Overview: SHIELD/Discover/Reference/index.md
-              - Database Schema: SHIELD/Discover/Reference/Database-Schema.md
-              - Azure SQL Database: SHIELD/Discover/Reference/Azure-SQL-Database.md
               - Reserved Principals: SHIELD/Discover/Reference/Reserved-Principals.md
               - Architecture:
                   - Process Flow: SHIELD/Discover/Reference/Architecture/Process-Flow.md

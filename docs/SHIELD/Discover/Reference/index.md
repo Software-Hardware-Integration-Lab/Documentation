@@ -12,25 +12,11 @@ Discover uses a plugin architecture to retrieve data from Microsoft 365 services
 
 | Plugin | Description |
 |--------|-------------|
-| **EntraID** | Retrieves directory settings, user roles, and licensing scope |
-| **Defender for Endpoint** | Collects device configurations and security compliance mappings |
-| **Defender for Identity** | Evaluates privileged identity policies, alerts, and audit logic |
+| **EntraID** | Retrieves directory and user-level settings |
+| **Defender for Endpoint** | Retrieves licensing status |
+| **Defender for Identity** | Retrieves licensing status |
 
-📖 Plugin logic is described in the [Execution Flow Diagram](../index.md#execution-process)
-
----
-
-## Database Schema
-
-All data collected by Discover is stored in an Azure SQL Database. The core tables include:
-
-| Table | Description |
-|-------|-------------|
-| `Correlation` | Top-level run metadata and timestamp linkage |
-| `LicenseData` | All license configuration results |
-| `Results` | Engine output for each plugin and validation step |
-
-For full structure and table relationships, see the [Schema Documentation](Database-Schema.md)
+📖 Plugin logic is described in the [Execution Flow Diagram](./Architecture/Process-Flow.md)
 
 ---
 
@@ -55,34 +41,18 @@ Some Entra ID accounts are marked as reserved and should not be altered by autom
 
 ---
 
-## Azure SQL Configuration
-
-Discover requires an Azure SQL Database for storing its results. Refer to [Deployment → Azure SQL Setup](../Deployment/index.md#azure-sql-configuration) for setup steps.
-
-To automatically configure permissions via PowerShell:
-
-```powershell
-Add-AzLicenseDb -SubscriptionId '<sub-id>' -ReadGroupId '<read-group-id>' -WriteGroupId '<write-group-id>'
-```
-
-```powershell
-Get-Help -Name 'Add-AzLicenseDb' -Full
-```
-
----
-
 ## Architecture and Flow Diagrams
 
 ### Infrastructure Diagram
 
-📖 See [Infrastructure Diagram](../index.md#infrastructure-architecture)
+📖 See [Infrastructure Diagram](../../../Data-Gateway/Architecture/Infrastructure.md)
 
 - Shows PowerShell client to Entra ID + SQL interaction
-- Includes threat model reference: [infrastructure.tm7](../assets/threat-models/infrastructure.tm7)
+- Includes threat model reference: [infrastructure.tm7](../../../Data-Gateway/assets/threat-models/Data-Gateway.tm7)
 
 ### Execution Flow
 
-📖 See [Execution Flow](../index.md#execution-process)
+📖 See [Execution Flow](./Architecture/Process-Flow.md)
 
 - Describes correlation record creation, plugin execution loop, and upload pattern
 
