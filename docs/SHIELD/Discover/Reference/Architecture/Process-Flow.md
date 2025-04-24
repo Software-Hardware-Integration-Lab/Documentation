@@ -1,48 +1,37 @@
 # Execution Flowchart
 
-The below execution flowchart describes how the overall process is logically laid out.
-It describes how the application starts, processes plugins and stores data.
+The following diagram shows the plugin execution flow from engine startup through plugin enumeration, execution, and data upload.
 
 ## Diagram
 
 ```mermaid
 flowchart TD
+start["Start"]
+createBlankReport["Create blank in-memory report"]
+reportMemoryReference(["In memory-report"])
+runPlugins["Run All Plugins"]
 
-AzSqlDb[("Report Storage")]
-
-Start[/"Start"\]
-Initialization["Configure Core Engine"]
-LoginHost["Log into Az SQL Server's tenant"]
-LoginCustomer["Log into tenant that\ndata is to be retrieved from"]
-ReportCorelationRecord["Create a record to\ncorrelate all counts for a run"]
-LoadPlugins["Enumerate/Validate and Run Plugins"]
-
-subgraph plugin
-StartPlugin[/"Start execution\non specified plugin"\]
-GetData["Query APIs to get configuration data"]
-ProcessData["Organize and Deduplicate Data"]
-ReportProcessedData["Upload Processed Data to Az SQL DB"]
-EndPlugin{{"End execution\nof current plugin"}}
+subgraph pluginContext["Per-Plugin Context"]
+    pluginStart["Start Specific Plugin"]
+    queryData["Query APIs to get configuration data"]
+    annonDedupe["Deduplicate and Anonymize Data"]
+    addData["Add Data to in-memory report"]
+    stopPlugin["Current plugin end of execution"]
 end
 
-LoopPlugin(["Check if another\nplugin is present"])
-LogOut["Log out of all sessions"]
-SuccessEnd{{"Finish Reporting\nSuccessfully"}}
+uploadData["Send Data to SHI - Data Gateway"]
+stopExection["Stop Discover Execution"]
 
-Start -->| Registry Configuration Values | Initialization
-Initialization --> | Credentials that are\npermissioned for the Az SQL DB| LoginHost
-LoginHost --> | Access Token - Az SQL DB | LoginCustomer
-LoginCustomer --> | Authentication Session - Data | ReportCorelationRecord
-ReportCorelationRecord -.-o | Correlation Record | AzSqlDb
-ReportCorelationRecord --> LoadPlugins
-LoadPlugins --> | Previously Gathered Auth Sessions | StartPlugin
-StartPlugin --> GetData
-GetData --> | Configuration Assignments | ProcessData
-ProcessData --> | Configured Licenses | ReportProcessedData
-ReportProcessedData -.-o | Count of Configured Licenses | AzSqlDb
-ReportProcessedData --> EndPlugin
-EndPlugin --> LoopPlugin
-LoopPlugin --> | If Yes | StartPlugin
-LoopPlugin --> | If No | LogOut
-LogOut --> SuccessEnd
+start --> createBlankReport
+createBlankReport -. Initial blank report .-> reportMemoryReference
+pluginStart --> queryData
+queryData --> annonDedupe
+annonDedupe --> addData
+addData -. Processed & Anonymized Data .-> reportMemoryReference
+createBlankReport --> runPlugins
+runPlugins --> pluginStart
+addData --> stopPlugin
+stopPlugin --> uploadData
+reportMemoryReference -. Complete Report .-> uploadData
+uploadData --> stopExection
 ```

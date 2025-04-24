@@ -208,7 +208,6 @@ nav:
               - Azure SQL Database: SHIELD/Discover/Reference/Azure-SQL-Database.md
               - Reserved Principals: SHIELD/Discover/Reference/Reserved-Principals.md
               - Architecture:
-                  - Infrastructure: SHIELD/Discover/Reference/Architecture/Infrastructure.md
                   - Process Flow: SHIELD/Discover/Reference/Architecture/Process-Flow.md
           - Troubleshooting: SHIELD/Discover/Troubleshooting.md
 
@@ -228,3 +227,5 @@ nav:
 
   - Data Gateway:
       - Overview: Data-Gateway/index.md
+      - Architecture:
+          - Infrastructure: Data-Gateway/Architecture/Infrastructure.md
