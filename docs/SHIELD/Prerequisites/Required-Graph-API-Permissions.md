@@ -89,3 +89,9 @@ For more information about script usage, please run:
 ``` PowerShell title="PowerShell"
 Get-Help .\Grant-MIGraphPermission.ps1
 ```
+
+---
+
+## See Also
+
+- [Discover Only mode](../Reference/Settings/Environmental-Variables-Reference.md#shield_operationmode)
