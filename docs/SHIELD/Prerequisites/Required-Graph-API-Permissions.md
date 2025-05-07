@@ -7,9 +7,13 @@ The below permissions are necessary for the operation of this web app.
 
 ## Entra ID Role Assignments
 
-| Permission Name | Self Auto Granted | What it is used for |
-|-----------------|-------------------|---------------------|
-| [`Privileged Authentication Administrator`](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator){:target="_blank"} | ✅ | Used to delete privileged users as they have a privileged role lockout. The Graph API requires a [sensitive permission](https://learn.microsoft.com/en-us/graph/api/resources/users?view=graph-rest-beta#who-can-perform-sensitive-actions) assigned to the principal [doing the API call](https://learn.microsoft.com/en-us/graph/api/user-delete?view=graph-rest-1.0&tabs=http#permissions). |
+=== "Normal Mode"
+    | Permission Name | Self Auto Granted | What it is used for |
+    |-----------------|-------------------|---------------------|
+    | [`Privileged Authentication Administrator`](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator){:target="_blank"} | ✅ | Used to delete privileged users as they have a privileged role lockout. The Graph API requires a [sensitive permission](https://learn.microsoft.com/en-us/graph/api/resources/users?view=graph-rest-beta#who-can-perform-sensitive-actions) assigned to the principal [doing the API call](https://learn.microsoft.com/en-us/graph/api/user-delete?view=graph-rest-1.0&tabs=http#permissions). |
+
+=== "Discover Only Mode"
+    None required
 
 ## Microsoft Graph API
 
@@ -58,7 +62,7 @@ The below permissions are necessary for the operation of this web app.
 | `Authenticator.Attest` | ✅ | Used to prove that the SHIELD is not a threat actor and to home to the correct tenant when requesting SCC auth credentials. |
 
 !!! note
-    `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess` will be all that is necessary.
+    `Policy.Read.All` is necessary due to a known issue with the current Graph API, in the future `Policy.ReadWrite.ConditionalAccess`/`Policy.Read.ConditionalAccess` will be all that is necessary.
     See this link for Microsoft's official statement: [Graph API Known Issues Portal](https://developer.microsoft.com/en-us/graph/known-issues/?search=13671)
 
 ## `Grant-MIGraphPermission` Usage
