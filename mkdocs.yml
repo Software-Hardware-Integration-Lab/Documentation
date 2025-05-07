@@ -219,7 +219,6 @@ nav:
               - Review Template: SHIELD/Reference/Architecture/Review-Template.md
           - Development:
               - OpenAPI Spec: SHIELD/Reference/Development/OpenAPI.md
-              - Intune Scope Tag Format: SHIELD/Reference/Development/Data-Formats/Intune Scope Tag.md
           - Settings:
               - Configure Managed Identity: SHIELD/Reference/Settings/Configure-Managed-Identity.md
               - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md

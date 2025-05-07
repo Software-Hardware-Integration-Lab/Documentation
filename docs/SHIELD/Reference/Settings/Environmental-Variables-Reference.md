@@ -10,12 +10,12 @@ Below is a list of all environmental variable configurations that the server can
 
 The title of the section is the name of the environmental variable.
 
-For authentication configuration, please see here for more environmental variables that are supported by the SOP via the Microsoft Authentication Library for Node.JS (@azure/identity):
+For authentication configuration, please see here for more environmental variables that are supported by SHIELD via the Microsoft Authentication Library for Node.JS (@azure/identity):
 <https://www.npmjs.com/package/@azure/identity#environment-variables>
 
 ---
 
-## `SOP_AuthorityHost`
+## `SHIELD_AuthorityHost`
 
 **Coming soon!**
 
@@ -33,7 +33,7 @@ See this page for more details on what each option means: [https://docs.microsof
 
 ---
 
-## `SOP_Debug`
+## `SHIELD_Debug`
 
 - Mandatory: `false`
 - Expected string format: Boolean
@@ -51,7 +51,7 @@ See [Debug Mode](./Debug-Mode.md) for more information on what is enabled when t
 
 ---
 
-## `SOP_Headless`
+## `SHIELD_Headless`
 
 - Mandatory: `false`
 
@@ -65,7 +65,7 @@ It is more secure to run without a UI as it reduces surface area for attack, but
 
 ---
 
-## `SOP_MS_Cloud_Type`
+## `SHIELD_MS_Cloud_Type`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -80,11 +80,11 @@ Allowed values are: `Public`, `GCC`, `GCCH`, and `China`
 
 ---
 
-## `SOP_Name_Prefix`
+## `SHIELD_Name_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
-- Default: `SOP -`
+- Default: `SHIELD -`
 - Description:
 This will set a prefix to appear before all the names of objects created.
 - Example: <code>eLabs - </code>, results in an example conditional access policy name of `eLabs - PSM - Authentication Methods`.
@@ -94,7 +94,7 @@ This will set a prefix to appear before all the names of objects created.
 
 ---
 
-## `SOP_Name_Suffix`
+## `SHIELD_Name_Suffix`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -107,24 +107,17 @@ This will set a suffix to appear after all the names of objects created.
 
 ---
 
-## `SOP_Scope_Tag`
+## `SHIELD_OperationMode`
 
 - Mandatory: `false`
-- Expected string format: `String`
-- Default: `SHI-Security-Management`
+- Allowed values: `discoverOnly`
 - Description:
-This is the Intune Scope tag that the app will be used to store the app's configurations (in the description) and to isolate its configurations from other scopes to enforce least privilege.
-If the scope tag does not exist, it will be created automatically.
-- Example:
-`SOP-App`
-
-!!! note "Prefix and Suffix"
-    The core scope tag will ignore the name prefix and suffix configuration. If you want a suffix or prefix for the core scope tag, please put them in here manually.
-    Other scope tags will respect the prefix and suffix config.
+Configures the set of features that are available to the SHIELD instance. If this configuration is omitted, operation mode is `normal`.
+- Example: `discoverOnly`, results in blocking all components except for discover from running. Also reduces permission requirements to just discover's set of permissions.
 
 ---
 
-## `SOP_Subscription_ID`
+## `SHIELD_Subscription_ID`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -134,7 +127,7 @@ This is the base subscription of the SHIELD orchestration platform and will be u
 
 ---
 
-## `SOP_User_Domain`
+## `SHIELD_User_Domain`
 
 - Mandatory: `false`
 - Expected string format: `String`
@@ -145,14 +138,14 @@ This setting configures the domain name used for newly created users. If not spe
 
 ---
 
-## `SOP_Username_Prefix`
+## `SHIELD_Username_Prefix`
 
 - Mandatory: `false`
 - Expected string format: `String`
 - Description:
 This setting puts a set of text before the username of a newly created user. The default setting is `priv-` but this can be set to anything allowed by [Entra ID's user principal name property](<https://learn.microsoft.com/en-us/microsoft-365/enterprise/prepare-for-directory-synchronization?view=o365-worldwide#2-directory-object-and-attribute-preparation>).
 - Example: `red-`
-- Example: `sop_`
+- Example: `SHIELD_`
 
 !!! note
     If you would like no prefix, set the environmental variable but leave its value empty.

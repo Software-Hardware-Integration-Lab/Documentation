@@ -22,13 +22,13 @@ This aligns with Microsoft’s Zero Trust security model and helps enforce separ
 
 - **Policy Scope**: Only applies to privileged role-holding users (PAWs)
 - **Conditions Evaluated**:
-  - Sign-in risk level
-  - Device compliance state
-  - Location and interface origin
+    - Sign-in risk level
+    - Device compliance state
+    - Location and interface origin
 - **Actions Taken**:
-  - Block sign-in
-  - Require MFA or compliant device
-  - Redirect to monitored jump station if policy fails
+    - Block sign-in
+    - Require MFA or compliant device
+    - Redirect to monitored jump station if policy fails
 
 !!! note "SHIELD Default Behavior"
     These identity protection policies are deployed automatically when Core Infrastructure is deployed via the SHIELD UI.
@@ -37,7 +37,7 @@ This aligns with Microsoft’s Zero Trust security model and helps enforce separ
 
 ## Related Reference Docs
 
-Additional SPA-related configuration details are available in the global [Reference Guide](../../Reference.md), including:
+Additional SPA-related configuration details are available, including:
 
 - Full lifecycle flow diagrams
 - Microsoft Graph permissions required by SHIELD
@@ -51,4 +51,3 @@ Additional SPA-related configuration details are available in the global [Refere
 - [Deployment](../Deployment/index.md)
 - [Deploy Usage Guide](../Usage-Guide.md)
 - [Troubleshooting](../Troubleshooting.md)
-
