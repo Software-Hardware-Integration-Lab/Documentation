@@ -19,3 +19,63 @@ Please note that due to the way Microsoft makes this data available, the license
     - Count of active users and devices
 - [X] Security Administrator
     - Count of available licenses
+
+## Execution Sequence
+
+The following diagram shows the plugin execution Sequence.
+
+## Diagram
+
+```mermaid
+sequenceDiagram
+    activate DiscoverEngine
+    DiscoverEngine->>DiscoverEngine: Import DefenderForEndpoint
+    DiscoverEngine->>DefenderForEndpoint: getAssignmentData(ref: LicenseReport)
+    activate DefenderForEndpoint
+    DefenderForEndpoint->>DefenderForEndpoint: Import RestEngine, ProgressBar, SettingsEngine
+    DefenderForEndpoint->>DefenderForEndpoint: init Progress Bar
+    DefenderForEndpoint->>DefenderForEndpoint: init Available License URI
+    DefenderForEndpoint->>DefenderForEndpoint: init Consumed License URI
+    activate SettingsEngine
+    DefenderForEndpoint->>SettingsEngine: Show Progress Bar
+    activate RestEngine
+    DefenderForEndpoint->>RestEngine: Call async sccQuery(available license Uri)
+    DefenderForEndpoint->>SettingsEngine: Update Progress Bar
+    break if the available license sccQuery fails
+        DefenderForEndpoint->>SettingsEngine: Remove Progress Bar
+        DefenderForEndpoint-->>DiscoverEngine: Return      
+    end
+
+    DefenderForEndpoint->>RestEngine: Call async sccQuery(Consumed License Uri)
+    DefenderForEndpoint->>SettingsEngine: Update Progress Bar
+    break if the consumed license sccQuery fails
+        DefenderForEndpoint->>SettingsEngine: Remove Progress Bar
+        DefenderForEndpoint-->>DiscoverEngine: Return      
+    end
+    RestEngine-->>DefenderForEndpoint: available License query results
+    RestEngine-->>DefenderForEndpoint: consumed license query results
+    deactivate RestEngine
+
+    DefenderForEndpoint->>DefenderForEndpoint: init data structure for consumed licenses
+    loop foreach consumed license
+        DefenderForEndpoint->>DefenderForEndpoint: Detect the current SKU and add its values to the data structure
+    end
+
+    alt if Vulnerability Management licenses have been purchased
+        DefenderForEndpoint->>DefenderForEndpoint: Increment stand-alone licenses by P1 Users count
+        DefenderForEndpoint->>DefenderForEndpoint: Increment stand-alone licenses by Smb Users count
+        DefenderForEndpoint->>DefenderForEndpoint: Increment add-on licenses by P2 Users count
+    end
+
+    DefenderForEndpoint->>DefenderForEndpoint: LicenseReport: Set MDE P1 User service assignment count
+    DefenderForEndpoint->>DefenderForEndpoint: LicenseReport: Set MDE P2 User service assignment count
+    DefenderForEndpoint->>DefenderForEndpoint: LicenseReport: Set MDfB User service assignment count
+    DefenderForEndpoint->>DefenderForEndpoint: LicenseReport: Set MDE P1 User service assignment count
+
+    DefenderForEndpoint->>SettingsEngine: Remove Progress Bar
+    deactivate SettingsEngine
+    DefenderForEndpoint-->>DiscoverEngine: Return
+    deactivate DefenderForEndpoint
+    DiscoverEngine->>DiscoverEngine:Save LicenseReport
+    deactivate DiscoverEngine
+```

@@ -24,3 +24,38 @@ Please note that due to the way Microsoft makes this data available, the license
     - Count of available licenses
 - [X] Security Administrator
     - Count of users being protected
+
+## Execution Sequence
+
+The following diagram shows the plugin execution Sequence.
+
+## Diagram
+
+```mermaid
+sequenceDiagram
+    activate DiscoverEngine
+    DiscoverEngine->>DiscoverEngine: Import DefenderForIdentity
+    DiscoverEngine->>DefenderForIdentity: getAssignmentData(ref: LicenseReport)
+    activate DefenderForIdentity
+    DefenderForIdentity->>DefenderForIdentity: Import RestEngine, ProgressBar, SettingsEngine
+    DefenderForIdentity->>DefenderForIdentity: init Progress Bar
+    DefenderForIdentity->>DefenderForIdentity: init OData Search Security URL
+    activate SettingsEngine
+    DefenderForIdentity->>SettingsEngine: Show Progress Bar
+    activate RestEngine
+    DefenderForIdentity->>RestEngine: Call sccQuery(url)
+    break if the sccQuery fails
+        DefenderForIdentity->>SettingsEngine: Remove Progress Bar
+        DefenderForIdentity-->>DiscoverEngine: Return      
+    end
+    RestEngine-->>DefenderForIdentity: query results
+    deactivate RestEngine
+    DefenderForIdentity->>DefenderForIdentity: Set LicenseReport Assignment Count
+    DefenderForIdentity->>SettingsEngine: Remove Progress Bar
+    deactivate SettingsEngine
+    DefenderForIdentity-->>DiscoverEngine: Return
+    deactivate DefenderForIdentity
+    DiscoverEngine->>DiscoverEngine:Save LicenseReport
+    deactivate DiscoverEngine
+    
+```
