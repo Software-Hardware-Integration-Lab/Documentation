@@ -1,6 +1,6 @@
 # Deployment
 
-The Defend module is deployed automatically as part of the SHIELD platform’s **Core Infrastructure deployment** process. It does not require any separate deployment scripts or packages.
+The Defend module is deployed automatically as part of the SHIELD platform's **Core Infrastructure deployment** process. It does not require any separate deployment scripts or packages.
 
 This page clarifies when and how Defend becomes active, and what its dependencies are.
 

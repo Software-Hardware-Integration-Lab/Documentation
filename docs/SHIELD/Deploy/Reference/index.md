@@ -1,6 +1,6 @@
 # Reference
 
-This reference section provides technical specifications and supporting details for SHIELD’s Deploy module, including identity protection policies and configuration recommendations that align with the SPA architecture.
+This reference section provides technical specifications and supporting details for SHIELD's Deploy module, including identity protection policies and configuration recommendations that align with the SPA architecture.
 
 ---
 
@@ -14,7 +14,7 @@ These policies are designed to:
 - Block access to privileged resources if risk conditions are met
 - Route access through compliant devices and monitored interfaces
 
-This aligns with Microsoft’s Zero Trust security model and helps enforce separation between administrative and user environments.
+This aligns with Microsoft's Zero Trust security model and helps enforce separation between administrative and user environments.
 
 ---
 

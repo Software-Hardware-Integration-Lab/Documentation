@@ -1,6 +1,6 @@
 # Deployment
 
-The Deploy module is provisioned automatically as part of the SHIELD platform’s Core Infrastructure deployment. This page provides clarity on how the Deploy module fits into the broader deployment flow and what is delivered specifically by this module.
+The Deploy module is provisioned automatically as part of the SHIELD platform's Core Infrastructure deployment. This page provides clarity on how the Deploy module fits into the broader deployment flow and what is delivered specifically by this module.
 
 ---
 
@@ -14,7 +14,7 @@ There is no separate installation or deployment process specific to the Deploy m
 
 ## What Is Deployed?
 
-The Deploy module provisions all foundational objects required for SHIELD’s lifecycle and security logic:
+The Deploy module provisions all foundational objects required for SHIELD's lifecycle and security logic:
 
 - Security groups for each SPA tier (Enterprise, Specialized, Privileged)
 - Intune Scope Tags for device policy enforcement
@@ -40,7 +40,7 @@ From the home screen:
 3. Check the agreement box
 4. Click **Deploy Infrastructure**
 
-You’ll then see:
+You'll then see:
 
 - A progress spinner
 - Automatic status updates
@@ -75,4 +75,3 @@ These cannot be renamed or deleted through the SHIELD UI.
 - [Reference Docs](../Reference/index.md)
 - [Troubleshooting](../Troubleshooting.md)
 - [Full SHIELD Deployment](../../Getting-Started.md)
-

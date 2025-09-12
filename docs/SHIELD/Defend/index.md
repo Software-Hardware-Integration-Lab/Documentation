@@ -13,19 +13,19 @@ Whereas the Deploy module provisions the infrastructure, **Defend is responsible
 - Automatic Intune and Entra ID tagging
 - Lifecycle management rules based on selected security class
 
-All these actions are exposed via the SHIELD Lifecycle UI and the platform’s API endpoints.
+All these actions are exposed via the SHIELD Lifecycle UI and the platform's API endpoints.
 
 ---
 
 ## Security Class Enforcement
 
-Defend strictly applies the lifecycle rules associated with each of SHIELD’s supported security classes:
+Defend strictly applies the lifecycle rules associated with each of SHIELD's supported security classes:
 
 - **Enterprise (ESM)** – standard business users and workstations
 - **Specialized (SSM)** – elevated or regulated roles and systems
 - **Privileged (PSM)** – most secure tier, requires clean hardware, wipes on commission/unassign, and restricted access boundaries
 
-The class is selected in the UI prior to performing any lifecycle action. 
+The class is selected in the UI prior to performing any lifecycle action.
 
 ---
 
@@ -47,4 +47,3 @@ The lifecycle engine handles all object mapping, Intune tagging, group membershi
 - [Usage Guide](Usage-Guide/index.md)
 - [Reference](Reference/index.md)
 - [Troubleshooting](Troubleshooting.md)
-

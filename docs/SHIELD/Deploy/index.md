@@ -1,16 +1,16 @@
 # Overview
 
-SHIELD’s Deploy module provides the foundation for a secure environment using Microsoft’s **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more.
+SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more.
 
-The Deploy module ensures your environment is segmented appropriately and aligns with Microsoft’s Zero Trust principles by separating enterprise and privileged systems.
+The Deploy module ensures your environment is segmented appropriately and aligns with Microsoft's Zero Trust principles by separating enterprise and privileged systems.
 
 ---
 
 ## What Is SPA?
 
-Microsoft’s **Securing Privileged Access (SPA)** model is a layered defense framework designed to protect your most critical systems from identity compromise. SPA separates access tiers between everyday business operations and sensitive administrative functions.
+Microsoft's **Securing Privileged Access (SPA)** model is a layered defense framework designed to protect your most critical systems from identity compromise. SPA separates access tiers between everyday business operations and sensitive administrative functions.
 
-The diagram below illustrates SPA’s architecture and how privileged vs enterprise identity flows interact with the environment.
+The diagram below illustrates SPA's architecture and how privileged vs enterprise identity flows interact with the environment.
 
 ```mermaid
 flowchart LR
@@ -80,4 +80,3 @@ By centralizing and automating the deployment of SPA, the Deploy module:
 - [Deploy Usage Guide](Usage-Guide.md)
 - [Deploy Reference](Reference/index.md)
 - [Troubleshooting Deploy Module](Troubleshooting.md)
-

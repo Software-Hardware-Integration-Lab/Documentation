@@ -21,7 +21,7 @@ The Defend module relies on infrastructure that must be deployed via the Deploy 
 
 ## Role-Based Permissions
 
-To use Defend’s lifecycle functionality, the signed-in admin must have the following roles in Entra ID:
+To use Defend's lifecycle functionality, the signed-in admin must have the following roles in Entra ID:
 
 | Role | Reason |
 |------|--------|
@@ -63,4 +63,3 @@ To verify:
 - [Defend Usage Guide](Usage-Guide/index.md)
 - [Hardware Requirements](Reference/index.md)
 - [SHIELD Prerequisites](../Prerequisites/index.md)
-

@@ -27,7 +27,7 @@ All requests must include a valid **OAuth 2.0 access token** in the `Authorizati
 
 ### Steps
 
-1. Sign in with your organization’s Entra ID account to obtain an access token for the Data Gateway application.  
+1. Sign in with your organization's Entra ID account to obtain an access token for the Data Gateway application.  
 2. Include the token in each API request:
 
 ```bash

@@ -12,7 +12,7 @@ The SHIELD platform uses multiple Microsoft 365 services to create configuration
     If you uninstall the architecture, **you will clear out any managed objects and configurations** deployed by the Deploy module. This procedure should only be followed if SHI explicitly instructs you to do so.
 
 !!! note "Stateless Server Reminder"
-    SHIELD’s application server is stateless. You can safely redeploy the app after cleanup without losing data stored in the Microsoft cloud (e.g., Intune tags, Entra groups).
+    SHIELD's application server is stateless. You can safely redeploy the app after cleanup without losing data stored in the Microsoft cloud (e.g., Intune tags, Entra groups).
 
 ---
 
@@ -74,4 +74,3 @@ Yes. SHIELD can be redeployed using the same app interface or script, as long as
 - [Deploy Usage Guide](../Deploy/Usage-Guide.md)
 - [Deployment](../Deploy/Deployment/index.md)
 - [Deploy Reference](../Deploy/Reference/index.md)
-

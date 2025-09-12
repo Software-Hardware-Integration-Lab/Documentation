@@ -25,7 +25,7 @@ SHIELD enforces hardware baselines per security class, especially for **Privileg
 | Graphics Support  | NVIDIA recommended (avoid AMD graphics)     |
 
 !!! info "Device Security Considerations"
-    In ESM/SSM, hardware risks are lower, but it’s still important to avoid unsupported OEMs and poor firmware hygiene. These devices typically handle non-elevated tasks.
+    In ESM/SSM, hardware risks are lower, but it's still important to avoid unsupported OEMs and poor firmware hygiene. These devices typically handle non-elevated tasks.
 
 ### Privileged Mode (PSM)
 
@@ -49,15 +49,19 @@ Each SHIELD lifecycle action is mapped to a standardized backend workflow. The f
 ### Device Workflow Diagrams
 
 #### Commission Device
+
 📊 [Device - Commission](./Diagrams/Device-Commission.md)
 
 #### Decommission Device
+
 📊 [Device - Decommission](./Diagrams/Device-Decommission.md)
 
 #### Assign User to Device
+
 📊 [Device - Assign](./Diagrams/Device-Assign.md)
 
 #### Unassign User from Device
+
 📊 [Device - Unassign](./Diagrams/Device-Unassign.md)
 
 ---
@@ -65,9 +69,11 @@ Each SHIELD lifecycle action is mapped to a standardized backend workflow. The f
 ### User Workflow Diagrams
 
 #### Commission User
+
 📊 [User - Commission](./Diagrams/User-Commission.md)
 
 #### Decommission User
+
 📊 [User - Decommission](./Diagrams/User-Decommission.md)
 
 ---
@@ -85,4 +91,3 @@ A dedicated section for advanced Privileged workflows, including intermediary lo
 - [Defend Usage Guide](../Usage-Guide/index.md)
 - [Device Lifecycle](../Usage-Guide/Device/0-Commission.md)
 - [User Lifecycle](../Usage-Guide/User/Commission.md)
-

@@ -13,7 +13,7 @@ Lifecycle Management is triggered from within the SHIELD web interface and allow
 - Enforce metadata tagging and Intune integration
 - Apply group policies and conditional access boundaries
 
-All actions are class-aware and scoped by SHIELD’s infrastructure.
+All actions are class-aware and scoped by SHIELD's infrastructure.
 
 ---
 
@@ -29,6 +29,7 @@ Commissioning a device registers it with SHIELD and assigns lifecycle metadata. 
 📊 [Workflow Diagram](../Reference/Diagrams/Device-Commission.md)
 
 #### UI Example
+
 .
 ![Select Device - Light](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Light.png#only-light){ loading=lazy width="300" }
 ![Select Device - Dark](../../../assets/Images/Screenshots/Select-Unmanaged-Device-Dark.png#only-dark){ loading=lazy width="300" }
@@ -40,7 +41,7 @@ Commissioning a device registers it with SHIELD and assigns lifecycle metadata. 
 
 ### Decommission a Device
 
-Removes a device from SHIELD’s lifecycle system.
+Removes a device from SHIELD's lifecycle system.
 
 📖 [Decommission a Device](./Device/1-Decommission.md)  
 📊 [Workflow Diagram](../Reference/Diagrams/Device-Decommission.md)
@@ -58,7 +59,7 @@ Assigns one or more users to a privileged device (PAW). All others will be denie
 
 ### Unassign a User from a PAW
 
-Removes a user’s access from a PAW. If no users remain, a wipe is issued.
+Removes a user's access from a PAW. If no users remain, a wipe is issued.
 
 📖 [Unassign User](./Device/3-Unassign.md)  
 📊 [Workflow Diagram](../Reference/Diagrams/Device-Unassign.md)
@@ -99,7 +100,7 @@ Privileged users are deleted from Entra ID. Non-privileged users are simply remo
 
 ## Security Classes
 
-All operations respect SHIELD’s class-based enforcement:
+All operations respect SHIELD's class-based enforcement:
 
 - **Enterprise**: standard users/devices with baseline protections
 - **Specialized**: enhanced controls and policy targeting
