@@ -25,7 +25,7 @@ This page is a hub for the **Data Gateway** reference material: how to authentic
 Data Gateway uses **Entra ID** (Microsoft identity platform) for authentication.  
 All requests must include a valid **OAuth 2.0 access token** in the `Authorization` header.
 
-**Steps**
+### Steps
 
 1. Sign in with your organization’s Entra ID account to obtain an access token for the Data Gateway application.  
 2. Include the token in each API request:
@@ -36,11 +36,11 @@ curl -sS https://api.shilab.com/datagateway/status \
   -H "Accept: application/json"
 ```
 
-**Notes**
+### Notes
+
 - Tokens are validated by the API; users do **not** access SQL or Storage directly.
 - Tokens expire; refresh them using your chosen OAuth flow (authorization code, client credentials, etc.).  
 - LicenseGPT prompts and responses are **not persisted** - the API returns results to the UI for the current session.
-
 
 ## Endpoint families (overview)
 

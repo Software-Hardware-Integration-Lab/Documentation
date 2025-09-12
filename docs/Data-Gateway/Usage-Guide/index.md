@@ -16,9 +16,11 @@ With Data Gateway you can:
 - Automate these operations through the **public API**
 
 ---
+
 ## Features
 
 ### LicenseGPT
+
 - Conversational interface for licensing and compliance analysis
 - Uses the API endpoint `POST /chat/licenseGpt`
 - Combines data from **Azure SQL Database** (processed relational data) and **Azure Blob Storage** (bulk + update packages)
@@ -26,7 +28,6 @@ With Data Gateway you can:
         - Retrieve License Report  
         - Get Correlation IDs
 - Designed for compliance validation and license usage insights without writing queries
-
 
 ```mermaid
 flowchart TB
@@ -48,6 +49,7 @@ flowchart TB
   ChatEP --> Blob
   ChatEP -->|Response JSON| UI
 ```
+
 !!! info "Use case"
     LicenseGPT allows teams to validate license compliance without writing queries or exporting raw data.  
     It reduces manual effort by providing natural-language answers and direct report retrieval, ensuring faster insights for audits and optimization.
@@ -55,11 +57,12 @@ flowchart TB
 ---
 
 ### Tenant Manager
+
 - Displays tenant metadata: **Tenant ID**, **Display Name**, **Parent association**
 - Supports three operations:
-  - **Rename** → PATCH `/tenant/{id}` to update the display name
-  - **Associate** → PATCH `/tenant/{id}` to set a parent tenant ID
-  - **Disassociate** → PATCH `/tenant/{id}` to clear the parent reference
+    - **Rename** → PATCH `/tenant/{id}` to update the display name
+    - **Associate** → PATCH `/tenant/{id}` to set a parent tenant ID
+    - **Disassociate** → PATCH `/tenant/{id}` to clear the parent reference
 - All operations persist to the backend database and are reflected in downstream reporting
 
 ```mermaid
@@ -67,10 +70,10 @@ flowchart LR
   UI["Tenant Manager (UI)"] --> API["Data Gateway API (/tenant)"]
   API --> SQL[["Azure SQL Database - Tenant Records"]]
 ```
+
 !!! info "Use case"
     Tenant Manager ensures tenant data remains consistent and structured across SHI Cloud.  
     By maintaining correct naming and parent relationships, organizations avoid reporting errors and ensure accurate compliance analysis.
-
 
 ---
 
@@ -81,6 +84,7 @@ For automation and integration, use the **public OpenAPI specification**:
 - **API Reference:** <https://specs.shilab.com>
 
 Key endpoints:
+
 - `POST /chat/licenseGpt` - AI-assisted licensing queries
 - `GET /tenant` - retrieve tenant metadata
 - `PATCH /tenant/{tenantId}` - rename, associate, or disassociate tenants

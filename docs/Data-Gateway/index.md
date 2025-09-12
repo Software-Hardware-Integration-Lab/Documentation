@@ -35,6 +35,7 @@ Data Gateway helps you:
 - 🌐 **API Reference**  
   Browse the live API reference and try requests in your browser.  
   [:octicons-link-24: specs.shilab.com](https://specs.shilab.com)
+
 </div>
 
 ---
@@ -95,4 +96,3 @@ flowchart LR
   linkStyle 1 stroke-dasharray:6 4,stroke:#5B6472,stroke-width:1.25px
   linkStyle 2 stroke-dasharray:6 4,stroke:#5B6472,stroke-width:1.25px
 ```
-

@@ -62,7 +62,6 @@ flowchart LR
         - **Azure Table Storage** for update service configuration  
     - **LicenseGPT** - Chat interactions are transient. Prompts are sent to the API and responses are returned in-session, never stored.
 
-
 ## Update service (channels & rings)
 
 Data Gateway controls update delivery using **channels** (e.g., stable, beta, alpha) and **rings** (e.g., ring 0, ring 1). Configuration is stored in **Azure Table Storage**; package files are stored in **Azure Blob Storage**.
@@ -109,6 +108,7 @@ flowchart LR
 ```
 
 **Update selection process**  
+
 1. Tenant defaults define which channel and ring are used, and whether alpha builds are allowed.  
 2. If you explicitly request a channel and it’s permitted, the API applies it; otherwise the tenant default applies.  
 3. The ring setting (latest or previous) determines the version within that channel.  
