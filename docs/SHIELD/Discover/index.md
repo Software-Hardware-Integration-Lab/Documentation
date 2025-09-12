@@ -32,7 +32,7 @@ The Discover module is built on a modular architecture that emphasizes extensibi
 
 ### Plugin
 
-Discover’s core engine is extensible through plugins. Each plugin is responsible for extracting and evaluating configuration from a specific service, for example:
+Discover's core engine is extensible through plugins. Each plugin is responsible for extracting and evaluating configuration from a specific service, for example:
 
 - 🔌 **Entra ID Plugin** – Retrieves directory and user-level settings
 - 🔌 **Defender for Endpoint Plugin** – Retrieves licensing status

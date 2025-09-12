@@ -37,7 +37,7 @@ Lifecycle actions include:
 - Assigning users to PAWs (Privileged Access Workstations)
 - Creating and removing privileged users
 
-These operations are triggered directly from the SHIELD app’s **Lifecycle Management** section.
+These operations are triggered directly from the SHIELD app's **Lifecycle Management** section.
 
 ---
 
@@ -126,4 +126,3 @@ SHIELD will soon support additional lifecycle workflows:
 - Use Lifecycle Management to adopt and manage devices/users
 - Task-level actions (commission, assign, etc.) are performed via the SHIELD UI
 - Each action links to a detailed guide and diagram for deeper understanding
-

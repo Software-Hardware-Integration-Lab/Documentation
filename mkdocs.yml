@@ -227,5 +227,12 @@ nav:
 
   - Data Gateway:
       - Overview: Data-Gateway/index.md
+      - Deployment:
+          - Overview: Data-Gateway/Deployment/index.md
+      - Usage Guide: Data-Gateway/Usage-Guide/index.md
       - Architecture:
+          - Overview: Data-Gateway/Architecture/index.md
           - Infrastructure: Data-Gateway/Architecture/Infrastructure.md
+      - Reference:
+          - Overview: Data-Gateway/Reference/index.md
+      - Troubleshooting: Data-Gateway/Troubleshooting.md
