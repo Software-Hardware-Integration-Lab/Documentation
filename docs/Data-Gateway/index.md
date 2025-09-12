@@ -44,7 +44,6 @@ Data Gateway helps you:
 
 ```mermaid
 flowchart LR
-
   %% ==========================================================
   %% Data Gateway - High-level Architecture (Accessible + Modern)
   %% Shapes communicate category:
@@ -52,47 +51,35 @@ flowchart LR
   %%   Data store: [[ ... ]]       AI assistant: (( ... ))
   %% ==========================================================
 
-  %% ---- Accessible, high-contrast style classes ----
-  classDef boundary fill:#F9FAFB,stroke:#5B6472,stroke-width:1.25px,rx:10,ry:10,color:#1F2937;
-  classDef external fill:#FFF4E6,stroke:#B45309,stroke-width:1.25px,rx:12,ry:12,color:#1F2937;
-  classDef component fill:#E8F1FF,stroke:#1D4ED8,stroke-width:1.25px,rx:8,ry:8,color:#0B1736;
-  classDef datastore fill:#ECFDF5,stroke:#047857,stroke-width:1.25px,rx:8,ry:8,color:#0B1736;
-  classDef ai fill:#F5F3FF,stroke:#6D28D9,stroke-width:1.25px,rx:8,ry:8,color:#0B1736;
-
   %% ---- External actors ----
-  U([Users]):::external
-  IDP([Entra ID Sign in and Tokens]):::external
+  U([Users])
+  IDP{"Entra ID (IDP)"}
 
   %% ---- SHI Cloud trust boundary ----
   subgraph CLOUD [SHI Cloud]
     direction LR
 
     %% Core app components (rectangles)
-    UI[Data Gateway UI]:::component
-    API[Data Gateway API]:::component
+    UI[Data Gateway UI]
+    API{{Data Gateway API}}
 
     %% Data layer (double borders)
-    BLK[[Azure Blob Storage Bulk Data]]:::datastore
-    UPD[[Azure Blob Storage Update Packages]]:::datastore
-    SQL[[Azure SQL Database Processed Data]]:::datastore
+    BLK[/Azure Blob Storage Bulk Data\]
+    UPD[/Azure Blob Storage Update Packages\]
+    SQL[(Azure SQL Database Processed Data)]
 
     %% AI assistant (circle)
-    LLM((LicenseGPT Azure OpenAI)):::ai
+    LLM([LicenseGPT Azure OpenAI])
   end
 
-  class CLOUD boundary
-
   %% ---- Flows  ----
-  U -->|HTTPS| UI
-  UI -->|OAuth2 Sign in| IDP
-  IDP -->|Tokens| UI
-  UI -->|HTTPS JWT| API
+  U -->| HTTPS | UI
+  UI -->| Public/Secret Client Auth Flow | IDP
+  IDP -->| Auth Code/Tokens | UI
+  UI -->| HTTPS + JWT | API
 
-  API -->|Read Write| BLK
-  API -->|Read Write| UPD
-  API -->|ORM| SQL
-  API -->|LLM Calls| LLM
-  
-  linkStyle 1 stroke-dasharray:6 4,stroke:#5B6472,stroke-width:1.25px
-  linkStyle 2 stroke-dasharray:6 4,stroke:#5B6472,stroke-width:1.25px
+  API -->| Read Write | BLK
+  API -->| Read Write | UPD
+  API -->| ORM | SQL
+  API -->| LLM Calls | LLM
 ```

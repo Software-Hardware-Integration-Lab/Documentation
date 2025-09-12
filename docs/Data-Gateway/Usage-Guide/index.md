@@ -22,7 +22,7 @@ With Data Gateway you can:
 ### LicenseGPT
 
 - Conversational interface for licensing and compliance analysis
-- Uses the API endpoint `POST /chat/licenseGpt`
+- Uses the API endpoint `POST /Api/Chat/LicenseGpt`
 - Combines data from **Azure SQL Database** (processed relational data) and **Azure Blob Storage** (bulk + update packages)
 - Can surface **agentic actions**, such as:  
         - Retrieve License Report  
@@ -35,12 +35,12 @@ flowchart TB
   UI["LicenseGPT (UI)"]
 
   subgraph DG["Data Gateway API"]
-    ChatEP["/chat/licenseGpt"]
+    ChatEP{{"/Api/Chat/LicenseGpt"}}
   end
 
   subgraph Data["Data Sources"]
-    SQL[["Azure SQL Database - Processed Data"]]
-    Blob[["Azure Blob Storage - Bulk & Updates"]]
+    SQL[("Azure SQL Database - Processed Data")]
+    Blob[/"Azure Blob Storage - Bulk & Updates"\]
   end
 
   User --> UI
@@ -60,15 +60,15 @@ flowchart TB
 
 - Displays tenant metadata: **Tenant ID**, **Display Name**, **Parent association**
 - Supports three operations:
-    - **Rename** → PATCH `/tenant/{id}` to update the display name
-    - **Associate** → PATCH `/tenant/{id}` to set a parent tenant ID
-    - **Disassociate** → PATCH `/tenant/{id}` to clear the parent reference
+    - **Rename** → PATCH `/Api/Tenant/{id}` to update the display name
+    - **Associate** → PATCH `/Api/Tenant/{id}` to set a parent tenant ID
+    - **Disassociate** → PATCH `/Api/Tenant/{id}` to clear the parent reference
 - All operations persist to the backend database and are reflected in downstream reporting
 
 ```mermaid
 flowchart LR
-  UI["Tenant Manager (UI)"] --> API["Data Gateway API (/tenant)"]
-  API --> SQL[["Azure SQL Database - Tenant Records"]]
+  UI["Tenant Manager (UI)"] --> API{{"Data Gateway API (/Api/Tenant)"}}
+  API --> SQL[("Azure SQL Database - Tenant Records")]
 ```
 
 !!! info "Use case"
@@ -85,13 +85,13 @@ For automation and integration, use the **public OpenAPI specification**:
 
 Key endpoints:
 
-- `POST /chat/licenseGpt` - AI-assisted licensing queries
-- `GET /tenant` - retrieve tenant metadata
-- `PATCH /tenant/{tenantId}` - rename, associate, or disassociate tenants
+- `POST /Api/Chat/LicenseGpt` - AI-assisted licensing queries
+- `GET /Api/Tenant` - retrieve tenant metadata
+- `PATCH /Api/Tenant/{tenantId}` - rename, associate, or disassociate tenants
 - Endpoints for bulk report retrieval and update package resolution (see Swagger)
-- `GET /status` - health check
+- `GET /Api/Core/Health` - health check
 
-All requests require authentication with **Entra ID tokens** passed as HTTPS bearer tokens.
+All requests require authentication with **Entra ID tokens** passed as HTTPS bearer tokens, except for the health check.
 
 ---
 

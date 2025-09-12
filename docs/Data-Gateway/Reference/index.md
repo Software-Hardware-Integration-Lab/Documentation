@@ -23,11 +23,11 @@ This page is a hub for the **Data Gateway** reference material: how to authentic
 ## Authentication
 
 Data Gateway uses **Entra ID** (Microsoft identity platform) for authentication.  
-All requests must include a valid **OAuth 2.0 access token** in the `Authorization` header.
+All requests must include a valid **JSON Web Token (Bearer/Access Token)** in the `Authorization` header.
 
 ### Steps
 
-1. Sign in with your organization's Entra ID account to obtain an access token for the Data Gateway application.  
+1. Sign in with your organization's Entra ID principal to obtain an access token for the Data Gateway application.  
 2. Include the token in each API request:
 
 ```bash
@@ -39,21 +39,21 @@ curl -sS https://api.shilab.com/datagateway/status \
 ### Notes
 
 - Tokens are validated by the API; users do **not** access SQL or Storage directly.
-- Tokens expire; refresh them using your chosen OAuth flow (authorization code, client credentials, etc.).  
+- Tokens expire; refresh them using your chosen auth flow (authorization code, client credentials, etc.).  
 - LicenseGPT prompts and responses are **not persisted** - the API returns results to the UI for the current session.
 
-## Endpoint families (overview)
+## Endpoint Families
 
 | Family | Purpose | Typical methods | Common paths* |
 |---|---|---|---|
-| **Health & metadata** | Service liveness and basic info | `GET` | `/status` |
-| **Tenants** | Read and maintain tenant metadata (display name, parent association) | `GET`, `PATCH` | `/tenant`, `/tenant/{tenantId}` |
-| **LicenseGPT** | AI-assisted licensing & compliance analysis | `POST` | `/chat/licenseGpt` |
+| **Health & metadata** | Service liveness and basic info | `GET` | `/Api/Core/Health` |
+| **Tenants** | Read and maintain tenant metadata (display name, parent association) | `GET`, `PATCH` | `/Api/Tenant`, `/Api/Tenant/{tenantId}` |
+| **LicenseGPT** | AI-assisted licensing & compliance analysis | `POST` | `/Api/Chat/LicenseGpt` |
 | **Updates (channels & rings)** | Resolve version and retrieve update package | `GET` (and streaming) | See Swagger (“Updates”) |
 
 \* For the complete, authoritative list (parameters, schemas, and responses), use the live reference at **[specs.shilab.com](https://specs.shilab.com)**.
 
-## Request & response basics
+## Request & Response Basics
 
 - **Protocol:** HTTPS only  
 - **Content type:** `application/json; charset=utf-8` (unless explicitly streaming binaries)  
@@ -62,37 +62,10 @@ curl -sS https://api.shilab.com/datagateway/status \
 
 ## Error handling
 
-The API uses standard HTTP status codes with JSON error payloads.
+The API uses standard HTTP status codes with JSON error payloads. Please see [MDN - Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) for more details on specific codes and how they should be interpreted.
 
-| Code | Meaning |
-|---|---|
-| `200–299` | Success |
-| `400` | Validation or malformed request |
-| `401` | Missing/invalid token |
-| `403` | Authenticated but not authorized |
-| `404` | Resource not found |
-| `409` | Conflict (e.g., invalid state for requested change) |
-| `5xx` | Service error |
-
-> The response body typically includes an explanatory message; consult Swagger for exact schemas.
-
-## Visual map
-
-```mermaid
-flowchart LR
-  C[Client app or script] --> API[Data Gateway API]
-
-  API --> H[Health]
-  API --> T[Tenants]
-  API --> G[LicenseGPT]
-  API --> U[Updates]
-
-  API -. data access via API only .- DS[Data stores]
-
-  DS --> SQL[Azure SQL Database]
-  DS --> BLOB[Azure Blob Storage]
-  DS --> ATAB[Azure Table Storage]
-```
+!!! note
+    The response body typically includes an explanatory message; consult Swagger for exact schemas.
 
 ---
 
