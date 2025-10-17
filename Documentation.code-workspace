@@ -6,6 +6,7 @@
 		}
 	],
 	"settings": {
+		"window.border": "blue",
 		"cSpell.words": [
 			"Backdoors",
 			"Entra",
