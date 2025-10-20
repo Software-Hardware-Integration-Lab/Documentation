@@ -53,7 +53,6 @@ hide:
     Store and retrieve data for the various SHI Lab products.
 
     [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
-</div>
 
 <div class="grid cards" align="center" markdown>
 - ඞ __SHI - URL Shortener__
