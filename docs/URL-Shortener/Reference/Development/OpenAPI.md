@@ -7,5 +7,3 @@ All concrete route definitions, schemas, and status codes are maintained in the 
 Spec Location:
 <https://specs.shilab.com/>
 Please reach out to the SHI Lab team for guidance on best practices, integration support, and usage recommendations.
-
-Please reach out to the SHI Lab team for guidance on best practices, integration support, and usage recommendations.
