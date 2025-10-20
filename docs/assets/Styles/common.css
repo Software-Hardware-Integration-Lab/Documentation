@@ -1,3 +1,16 @@
+.susIcon {
+    /* Detaches the icon from being dependant on other HTML elements for its render. */
+    display: inline-block;
+    /* Size of the icon to be rendered. */
+    font-size: 1.5em;
+    /* Prevent the line from getting larger as the icon does. */
+    line-height: 1;
+    /* Prevent the line from getting larger as the icon does. */
+    height: 1em;
+    /* Ensure that the icon renders in the center of the line, equal with the following text. */
+    vertical-align: middle;
+}
+
 /* Light mode */
 [data-md-color-scheme="default"] {
     --md-default-bg-color: white;

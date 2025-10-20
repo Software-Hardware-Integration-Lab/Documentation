@@ -55,7 +55,7 @@ hide:
     [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
 
 <div class="grid cards" align="center" markdown>
-- <span style="font-size: 2em;">ඞ</span> __SHI - URL Shortener__
+- <span class="susIcon">ඞ</span> __SHI - URL Shortener__
 
     ---
 
