@@ -20,42 +20,42 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `true`
 - Expected string format: GUID
 - Allowed values: GUID
-- Description: Flag that indicates if the application should have special behavior based on if the system is running through automated QA
+- Description: Tenant ID of the tenant that the app considers home/authenticates to. Defaults to NULL if not defined and should be overridden during authentication engine start.
 
 ## `SUS_DB_Host`
 
 - Mandatory: `false`
 - Expected string format: string
 - Allowed values: string
-- Description: Name of the DB to access and use for relational data storage. This is necessary for Azure SQL DBs as the DB has to be created ahead of time and shouldn't be created inline as a best practice.
+- Description: Host name of the Azure SQL DB that should be used for storing simple data.
 
 ## `SUS_DB_Name`
 
 - Mandatory: `false`
 - Expected string format: string
 - Allowed values: string
-- Description: Flag that indicates if the API service should be in debug mode.
+- Description: Name of the DB to access and use for relational data storage. This is necessary for Azure SQL DBs as the DB has to be created ahead of time and shouldn't be created inline as a best practice.
 
 ## `SUS_Debug`
 
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
-- Description: Flag that indicates the system should run with no user interface render.
+- Description: Flag that indicates if the API service should be in debug mode.
 
 ## `SUS_Headless`
 
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
-- Description: Flag that indicates the SQLite should be used for the ORM. All other functions are untouched.
+- Description: Flag that indicates the system should run with no user interface render.
 
 ## `SUS_LocalDb`
 
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
-- Description: Flag that controls if the server should run with local resources only.
+- Description: Flag that indicates the SQLite should be used for the ORM. All other functions are untouched.
 
 ## `SUS_Local`
 
@@ -76,18 +76,11 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: GUID
 - Allowed values: GUID
-- Description: Application ID of the app registration to use as the audience value in the access token validation. Defaults to the NULL with expectation of override.
-
-## `SUS_DefaultTarget`
-
-- Mandatory: `false`
-- Expected string format: GUID
-- Allowed values: GUID
-- Description: Initial state of the redirect service data.
+- Description: Ensure that a client ID is provided if not in debug mode for authentication
 
 ## `SUS_Test`
 
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
-- Description: Flag that indicates if special test logic should be used
+- Description: Flag that indicates if the application should have special behavior based on if the system is running through automated QA.
