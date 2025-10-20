@@ -46,11 +46,20 @@ hide:
 </div>
 
 <div class="grid cards" align="center" markdown>
-- :globe_with_meridians:{ .lg .middle } __SHI - Data Gateway__
+- :material-database-outline:{ .lg .middle } __SHI - Data Gateway__
 
     ---
 
-    Store and retrieve data for the various SHI Lab products.
+    Stores and retrieves the data for various SHI Lab products.
 
     [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
+
+<div class="grid cards" align="center" markdown>
+- <span class="susIcon">ඞ</span> __SHI - URL Shortener__
+
+    ---
+
+    Issue short, compliant, governed redirect links that map friendly paths to destination URLs.
+
+    [:octicons-arrow-right-24: Overview](URL-Shortener/index.md)
 </div>
