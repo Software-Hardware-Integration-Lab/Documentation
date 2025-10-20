@@ -61,5 +61,5 @@ hide:
 
     Issue short, compliant, governed redirect links that map friendly paths to destination URLs.
 
-    [:octicons-arrow-right-24: Overview](URL-Shortener/index)
+    [:octicons-arrow-right-24: Overview](URL-Shortener/index.md)
 </div>
