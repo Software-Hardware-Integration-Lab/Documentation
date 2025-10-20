@@ -20,6 +20,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `true`
 - Expected string format: GUID
 - Allowed values: GUID
+- Default Value: `00000000-0000-0000-0000-000000000000`
 - Description: Tenant ID of the tenant that the app considers home/authenticates to. Defaults to NULL if not defined and should be overridden during authentication engine start.
 
 ## `SUS_DB_Host`
@@ -27,6 +28,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: string
 - Allowed values: string
+- Default Value: `localhost`
 - Description: Host name of the Azure SQL DB that should be used for storing simple data.
 
 ## `SUS_DB_Name`
@@ -34,6 +36,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: string
 - Allowed values: string
+- Default Value: `UrlShortener`
 - Description: Name of the DB to access and use for relational data storage. This is necessary for Azure SQL DBs as the DB has to be created ahead of time and shouldn't be created inline as a best practice.
 
 ## `SUS_Debug`
@@ -41,6 +44,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
+- Default Value: `false`
 - Description: Flag that indicates if the API service should be in debug mode.
 
 ## `SUS_Headless`
@@ -48,6 +52,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
+- Default Value: `false`
 - Description: Flag that indicates the system should run with no user interface render.
 
 ## `SUS_LocalDb`
@@ -55,6 +60,7 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
+- Default Value: `false`
 - Description: Flag that indicates the SQLite should be used for the ORM. All other functions are untouched.
 
 ## `SUS_Local`
@@ -62,25 +68,29 @@ For authentication configuration, please see here for more environmental variabl
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
-- Description: Flag that controls if the server should run with local resources only. This uses SQLite and Azurite as the storage engines and endpoints.
+- Default Value: `false`
+- Description: Flag that controls if the server should run with local resources only. This uses SQLite and prevents external resource calls allowing for a true local only execution experience.
 
 ## `SUS_DefaultTarget`
 
 - Mandatory: `false`
 - Expected string format: URL
 - Allowed values: URL
+- Default Value: `https://shi.com`
 - Description: Location that the service will redirect to if a match is not found.
 
 ## `SUS_AuthAudience`
 
-- Mandatory: `false`
+- Mandatory: `true`
 - Expected string format: GUID
 - Allowed values: GUID
-- Description: Ensure that a client ID is provided if not in debug mode for authentication
+- Default Value: `00000000-0000-0000-0000-000000000000`
+- Description: Application ID of the app registration to use as the audience value in the access token validation. Not mandatory if in debug mode as auth is not enforced in debug mode.
 
 ## `SUS_Test`
 
 - Mandatory: `false`
 - Expected string format: boolean
 - Allowed values: true
+- Default Value: `false`
 - Description: Flag that indicates if the application should have special behavior based on if the system is running through automated QA.
