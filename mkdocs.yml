@@ -250,5 +250,4 @@ nav:
               - Environment Variables: URL-Shortener/Reference/Settings/Environment-Variables-Reference.md
           - Development:
               - OpenAPI Spec: URL-Shortener/Reference/Development/OpenAPI.md
-              - Workflow: URL-Shortener/Reference/Development/Workflow.md
               - Server Setup: URL-Shortener/Reference/Development/Server-Setup.md
