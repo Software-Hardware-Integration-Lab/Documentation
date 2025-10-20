@@ -237,19 +237,18 @@ nav:
           - Overview: Data-Gateway/Reference/index.md
       - Troubleshooting: Data-Gateway/Troubleshooting.md
 
-
   - URL Shortener:
-        - Overview: URL-Shortener/index.md
-        - Prerequisites:
-            - Overview: URL-Shortener/Prerequisites/index.md
-            - Authorization & RBAC: URL-Shortener/Prerequisites/Authorization-&-RBAC.md
-            - Graph API Permissions: URL-Shortener/Prerequisites/Graph-API-Permissions.md
-            - Getting Started: URL-Shortener/Getting-Started.md
-        - Usage Guide: URL-Shortener/Usage-Guide.md
-        - Reference:
-            - Settings:
-                - Environment Variables: URL-Shortener/Reference/Settings/Environment-Variables-Reference.md
-            - Development:
-                - OpenAPI Spec: URL-Shortener/Reference/Development/OpenAPI.md
-                - Workflow: URL-Shortener/Reference/Development/Workflow.md
-                - Server Setup: URL-Shortener/Reference/Development/Server-Setup.md
+      - Overview: URL-Shortener/index.md
+      - Prerequisites:
+          - Overview: URL-Shortener/Prerequisites/index.md
+          - Authorization & RBAC: URL-Shortener/Prerequisites/Authorization-&-RBAC.md
+          - Graph API Permissions: URL-Shortener/Prerequisites/Graph-API-Permissions.md
+          - Getting Started: URL-Shortener/Getting-Started.md
+      - Usage Guide: URL-Shortener/Usage-Guide.md
+      - Reference:
+          - Settings:
+              - Environment Variables: URL-Shortener/Reference/Settings/Environment-Variables-Reference.md
+          - Development:
+              - OpenAPI Spec: URL-Shortener/Reference/Development/OpenAPI.md
+              - Workflow: URL-Shortener/Reference/Development/Workflow.md
+              - Server Setup: URL-Shortener/Reference/Development/Server-Setup.md

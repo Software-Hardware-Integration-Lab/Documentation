@@ -2,6 +2,6 @@
 
 This page outlines how to deploy SUS.
 
-### Steps
+## Steps
 
 Coming soon!
