@@ -46,7 +46,7 @@ hide:
 </div>
 
 <div class="grid cards" align="center" markdown>
-- :globe_with_meridians:{ .lg .middle } __SHI - Data Gateway__
+- :material-database-outline:{ .lg .middle } __SHI - Data Gateway__
 
     ---
 
