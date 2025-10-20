@@ -55,11 +55,11 @@ hide:
     [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
 
 <div class="grid cards" align="center" markdown>
-- ඞ __SHI - URL Shortener__
+- <span style="font-size: 2em;">ඞ</span> __SHI - URL Shortener__
 
     ---
 
     Issue short, governed redirect links that map friendly paths (sources) to vetted destination URLs.
 
-    [:octicons-arrow-right-24: Overview](URL-Shortener/index.md)
+    [:octicons-arrow-right-24: Overview](URL-Shortener/index)
 </div>
