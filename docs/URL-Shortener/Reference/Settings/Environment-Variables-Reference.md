@@ -10,8 +10,7 @@ Below is a list of all environmental variable configurations that the server can
 
 The title of the section is the name of the environmental variable.
 
-For authentication configuration, please see here for more environmental variables that are supported by SHI URL Shortener via the Microsoft Authentication Library for Node.JS (@azure/identity):
-<https://www.npmjs.com/package/@azure/identity#environment-variables>
+For authentication configuration, please see here for more environmental variables that are supported by SUS via the Microsoft Authentication Library for Node.JS [@azure/identity](https://www.npmjs.com/package/@azure/identity#environment-variables){:target="_blank"}.
 
 ---
 
