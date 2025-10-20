@@ -50,7 +50,7 @@ hide:
 
     ---
 
-    Store and retrieve data for the various SHI Lab products.
+    Stores and retrieves the data for various SHI Lab products.
 
     [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
 
@@ -59,7 +59,7 @@ hide:
 
     ---
 
-    Issue short, governed redirect links that map friendly paths (sources) to vetted destination URLs.
+    Issue short, compliant, governed redirect links that map friendly paths to destination URLs.
 
     [:octicons-arrow-right-24: Overview](URL-Shortener/index)
 </div>
