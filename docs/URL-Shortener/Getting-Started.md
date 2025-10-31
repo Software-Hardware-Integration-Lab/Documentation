@@ -1,6 +1,6 @@
 # Getting Started
 
-Bicep is a domain-specific language that uses declarative syntax to deploy Azure resources.The bicep template (urlShortener.bicep) is found in the `./infrastructureTemplates` folder. To deploy the template, you will need the Entra ID Cloud Application Administrator role or higher.
+Bicep is a domain-specific language that uses declarative syntax to deploy Azure resources. The bicep template (urlShortener.bicep) is found in the `./infrastructureTemplates` folder. To deploy the template, you will need the Entra ID Cloud Application Administrator role or higher.
 
 ## Steps
 
@@ -32,7 +32,7 @@ If you want to set this up on-prem or in a different environment, please refer t
 
     It is pointed to the resource group name that was just created as well as the ARM resource that was just created. This will begin the deployment process.
 
-6. Head over to your as portal at `https://portal.azure.com` and browse to Resource Group > Deployments. This will replicate your Deployment
+6. Head over to your Azure portal at `https://portal.azure.com` and browse to Resource Group > Deployments. This will replicate your Deployment
 
 7. The bicep template also creates an End User Login for the application. This is located at `https://entra.microsoft.com`. This will be under Entra ID > App Registrations on the left hand column.
 
@@ -72,7 +72,7 @@ If you want to set this up on-prem or in a different environment, please refer t
 
     in your terminal and navigate to the `bin` folder and delete the `test` folder.
 
-13. Using a file archiver of your choice, such as 7zip, select `bin` folder, `node_modules` folder, and the `package.json` folder, and drag it into your file archiver to create a .zip package that is Azure compatible.
+13. Using a file archiver of your choice, such as 7zip, select `bin` folder, `node_modules` folder, and the `package.json` file, and drag it into your file archiver to create a .zip package that is Azure compatible.
     The bin folder contains all of the URL shortener command and control logic.
     The node modules contains all of the dependencies.
     The package.json contains the package manifest, which is used to launch the application.
@@ -87,7 +87,7 @@ If you want to set this up on-prem or in a different environment, please refer t
 
     Click `Y` to Confirm
 
-15. Type `Microsoft.Sql/servers/azureADO` should now be created which means that the app is now single sign on admin of the system.
+15. The resource of type `Microsoft.Sql/servers/azureADO` should now be created which means that the app is now single sign on admin of the system.
 
 16. The azure app service should have the binaries able to run the application, which can be confirmed by going to the web app > going to Deployment Center > Logs > status should be Succeeded (Active)
 
@@ -101,7 +101,7 @@ If you want to set this up on-prem or in a different environment, please refer t
     disconnect-AzAccount
     ```
 
-    to log out of Azure. Run `npm install` to get all your dependencies back since the migration script is technically a developer dependency. Next set an environment variable. This was done by left clicking on Powertoys and selecting Environment Variables, Underneath Default varaibles > User click on `Add variable`.
+    to log out of Azure. Run `npm install` to get all your dependencies back since the migration script is technically a developer dependency. Next set an environment variable. This was done by left clicking on Powertoys and selecting Environment Variables, Underneath Default variables > User click on `Add variable`.
 
     **Variable:**
 
