@@ -13,10 +13,14 @@ If you want to set this up on-prem or in a different environment, please refer t
 1. Navigate to `./infrastructureTemplates` folder in the terminal.
 2. Issue the bicep template build command: `bicep build .\urlShortener.bicep`
 
-    Note: Whenever you issue the bicep build command against the bicep template it will compile it into an ARM template which is the language that Azure speaks. Azure does not support bicep natively
+    Note: Whenever you issue the bicep build command against the bicep template it will compile it into an ARM template which is the language that Azure speaks. Azure does not support bicep natively.
 
 3. Ensure that you are logged into your Azure tenant and select your subscription.
-4. Make a new Azure resource group with the naming and location convention through the CLI: `New-AzResourceGroup -Name Host -Location EastUs2`
+4. Make a new Azure resource group with the naming and location convention through the CLI:
+
+    ```powershell
+    New-AzResourceGroup -Name Host -Location EastUs2
+    ```
 
     Note: Resource group has to be created before deployment.
 
