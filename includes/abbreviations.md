@@ -9,3 +9,4 @@
 *[HYOK]: Hold Your Own Key
 *[CMK]: Customer-Managed Key
 *[SUS]: SHI - URL Shortener
+*[IaC]: Infrastructure as Code
