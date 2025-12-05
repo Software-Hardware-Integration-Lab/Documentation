@@ -223,6 +223,7 @@ nav:
               - Configure Managed Identity: SHIELD/Reference/Settings/Configure-Managed-Identity.md
               - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md
               - Environment Variables: SHIELD/Reference/Settings/Environmental-Variables-Reference.md
+          - Break Glass Overview: SHIELD/Reference/Break-Glass-Overview.md
           - Uninstall: SHIELD/Reference/Uninstall.md
 
   - Data Gateway:
