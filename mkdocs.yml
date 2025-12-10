@@ -153,7 +153,30 @@ nav:
           - Overview: SHIELD/Deploy/index.md
           - Deployment: SHIELD/Deploy/Deployment/index.md
           - Usage Guide: SHIELD/Deploy/Usage-Guide.md
-          - Reference: SHIELD/Deploy/Reference/index.md
+          - Reference:
+            - Reference: SHIELD/Deploy/Reference/index.md
+            - Architecture:
+              - Conditional Access:
+                - Enterprise:
+                  - Compliance: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Enterprise/Compliance.md
+                  - Location: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Enterprise/Location.md
+                  - Microsoft Defender for Cloud Applications (MDCA): SHIELD/Deploy/Reference/Architecture/Conditional-Access/Enterprise/MDCA.md
+                  - Multi-Factor Authentication (MFA): SHIELD/Deploy/Reference/Architecture/Conditional-Access/Enterprise/MFA.md
+                - Privileged:
+                  - Authentication Methods: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Authentication-Methods.md
+                  - Block Non-Privileged: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Block-Non-Priv.md
+                  - Compliance: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Compliance.md
+                  - Disable Conditional Access Resilience Downgrade: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Disable-CA-Resilience-Downgrade.md
+                  - Hardware Enforcement: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Hardware-Enforcement.md
+                  - Join Type: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Join-Type.md
+                  - Legacy Authentication: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Legacy-Auth.md
+                  - Location: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Location.md
+                  - Multi-Factor Authentication (MFA): SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/MFA.md
+                  - Operating System Enforcement: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/OS-Enforcement.md
+                  - Session Persistence: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Session-Persistence.md
+                  - Sign-in Risk: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Sign-In-Risk.md
+                  - Token Binding: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/Token-Binding.md
+                  - User Risk: SHIELD/Deploy/Reference/Architecture/Conditional-Access/Privileged/User-Risk.md
           - Troubleshooting: SHIELD/Deploy/Troubleshooting.md
 
       - Defend:
@@ -223,7 +246,7 @@ nav:
               - Configure Managed Identity: SHIELD/Reference/Settings/Configure-Managed-Identity.md
               - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md
               - Environment Variables: SHIELD/Reference/Settings/Environmental-Variables-Reference.md
-          - Break Glass Overview: SHIELD/Reference/Break-Glass-Overview.md
+          - Break Glass: SHIELD/Reference/Break-Glass-Overview.md
           - Uninstall: SHIELD/Reference/Uninstall.md
 
   - Data Gateway:
