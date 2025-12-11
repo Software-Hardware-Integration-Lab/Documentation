@@ -12,7 +12,7 @@ Requiring compliant devices ensures that only endpoints with approved configurat
 
 - **Communicate** the requirement for compliant devices and provide remediation guidance. 
 - **Stage** the rollout with a pilot group and exclude critical accounts. 
-- **Test device** compliance enforcement and validate Intune reporting. 
+- **Test** device compliance enforcement and validate Intune reporting. 
 - **Maintain** a rollback plan for operational resilience. 
 - **Enforce** the policy broadly after successful validation.
 
