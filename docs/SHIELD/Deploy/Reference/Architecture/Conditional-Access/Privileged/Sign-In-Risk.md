@@ -18,8 +18,7 @@ This policy blocks risky sign-ins for privileged users, allowing SHIELD to preve
 
 ## License Requirements
 
-- Microsoft Entra ID P2
-- Microsoft Defender for Cloud Apps
+- Microsoft Entra ID P2 and a standalone license for Microsoft Defender for Cloud Apps
 
 ## Learn More
 
