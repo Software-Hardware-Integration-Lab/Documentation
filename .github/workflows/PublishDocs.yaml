@@ -39,7 +39,7 @@ jobs:
     steps:
       # Download the source code
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Configure the GH pages environment
       - name: Setup Pages
