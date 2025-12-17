@@ -108,4 +108,4 @@ jobs:
         shell: pwsh
         run: |
           # Issue the RAG update command to Data Gateway
-          Invoke-RestMethod -Method 'Post' -Uri 'https://api.shilab.com/Api/Chat/UpdateDocs' -Headers '@{Authorization = "Bearer ${{ steps.sdgAccessToken.outputs.sdgAccessToken}}"}'
+          Invoke-RestMethod -Method 'Post' -Uri 'https://api.shilab.com/Api/Chat/UpdateDocs' -Headers @{Authorization = "Bearer ${{ steps.sdgAccessToken.outputs.sdgAccessToken}}"}
