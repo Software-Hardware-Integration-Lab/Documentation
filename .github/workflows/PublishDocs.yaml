@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Human friendly name for the workflow
+name: Deploy - Latest Changes
 
 on:
   # Runs on pushes targeting the default branch
@@ -9,24 +9,33 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
+# Set of execution sessions that are part of this workflow
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    # Human friendly display name for the job
+    name: Deploy to GitHub Pages
+
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Configuration used to be able to publish to GitHub pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
+    # Define the OS that should be used during workflow execution
     runs-on: ubuntu-latest
+
+    # Set of commands to run as part of the execution process
     steps:
       # Download the source code
       - name: Checkout
@@ -61,3 +70,42 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  updateDataGatewayRagDb:
+    # Human friendly display name for the job
+    name: Update Data Gateway RAG DB
+
+    # Define the OS that should be used during workflow execution
+    runs-on: ubuntu-latest
+
+    # Least permissions required to issue the update command to Data Gateway
+    permissions:
+      id-token: write
+
+    # Ensure that the execution context is set to be able to auth to Entra
+    environment: Data-Gateway-Cache
+
+    # Set of commands to run as part of the execution process
+    steps:
+      # Log into the Entra ID with the GitHub federated identity credential (using the OIDC token)
+      - name: Login to Entra ID
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          allow-no-subscriptions: true
+
+      # Get the access token for the update command for Data Gateway
+      - name: Get Access Token - SHI - Data Gateway
+        id: sdgAccessToken
+        run: |
+          sdgAccessToken=$(az account get-access-token --resource=4c40281b-a305-4aaf-90a4-d5bbee6eb8ed --query accessToken -o tsv)
+          echo "::add-mask::$sdgAccessToken"
+          echo "sdgAccessToken=$sdgAccessToken" >> "$GITHUB_OUTPUT"
+
+      # Open a port and assign admin to the Azure SQL DB Service to allow the migration scripts to run
+      - name: Issue RAG DB Regeneration Command
+        shell: pwsh
+        run: |
+          # Issue the RAG update command to Data Gateway
+          Invoke-RestMethod -Method 'Post' -Uri 'https://api.shilab.com/Api/Chat/UpdateDocs' -Headers @{Authorization = "Bearer ${{ steps.sdgAccessToken.outputs.sdgAccessToken}}"}
