@@ -80,5 +80,3 @@ Notifications must be set up inside of the security information and event manage
 - Any password reset or modification
 
 **Note**: Notifications may take up to 5 minutes after authentication, due to a limitation in log analytics if using Microsoft Sentinel.
-
----
