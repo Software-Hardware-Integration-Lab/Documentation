@@ -8,7 +8,6 @@ A break glass account, or [emergency access account](https://learn.microsoft.com
 
 ## Getting Started
 
-
 It is strongly recommended to maintain two break glass accounts. One account is designated as the primary and the other as a backup. This provides a fail-safe mechanism should the primary account be inaccessible for any reason.
 
 - Break glass accounts need to be excluded from all security controls. 
@@ -70,7 +69,6 @@ Each break glass packet should include two of the following printed out:
 Break glass accounts should be monitored and audited as much as possible. It is essential to track all activities associated with these accounts, as they operate without restrictions.
 
 - Break glass accounts should not be excluded from auditing controls.
-
 
 ### Notifications
 
