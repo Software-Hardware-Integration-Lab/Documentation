@@ -22,9 +22,9 @@ This application is a self-hosted application that exists in the customer tenant
         - Minimum SKU: P0v4
         - Runtime Stack: Node 24 LTS
     - Resource Group Name: SHIELD
-    - Azure Cost Estimate associated:
+    - Azure Cost Estimate associated (as of 1/8/2025):
 
-![Azure Cost Estimation Table](/SHIELD/Discover/assets/images/screenshots/azure_cost_estimation_table.jpg)
+![Azure Cost Estimation Table](assets/images/screenshots/Pricing_Table.png)
 
 - Permissions
     - The User logging in to SHIELD: Discover requires either Global Admin or the following:
