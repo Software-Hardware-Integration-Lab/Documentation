@@ -164,7 +164,7 @@ nav:
                     - Microsoft Defender for Cloud Applications (MDCA): SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MDCA.md
                     - Multi-Factor Authentication (MFA): SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MFA.md
                 - Privileged:
-                  - Conditional Access: 
+                  - Conditional Access:
                     - Authentication Methods: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Authentication-Methods.md
                     - Block Non-Privileged: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Block-Non-Priv.md
                     - Compliance: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Compliance.md
@@ -223,6 +223,7 @@ nav:
 
       - Discover:
           - Overview: SHIELD/Discover/index.md
+          - Installation: SHIELD/Discover/Installation.md
           - Deployment: SHIELD/Discover/Deployment/index.md
           - Usage Guide: SHIELD/Discover/Usage-Guide.md
           - Plugins:

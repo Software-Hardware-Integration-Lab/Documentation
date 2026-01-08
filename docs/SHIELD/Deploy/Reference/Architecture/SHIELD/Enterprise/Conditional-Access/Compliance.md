@@ -8,7 +8,7 @@ This policy enforces that enterprise-class users must authenticate using a devic
 
 Requiring compliant devices ensures that only endpoints with approved configurations, security controls, and health status can access corporate resources. This policy helps prevent access from unmanaged or misconfigured devices, reducing the risk of data leakage, malware propagation, and unauthorized access. It supports a zero-trust model by validating device posture before granting access.
 
-## Recommendations:
+## Recommendations
 
 - **Communicate** the requirement for compliant devices and provide remediation guidance. 
 - **Stage** the rollout with a pilot group and exclude critical accounts. 

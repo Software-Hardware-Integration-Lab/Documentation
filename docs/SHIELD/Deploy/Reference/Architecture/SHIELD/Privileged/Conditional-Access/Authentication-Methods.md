@@ -2,7 +2,7 @@
 
 ## Description
 
-This policy enforces a specific set of acceptable authentication methods Entra ID sign-in, based on authentication strength. Only users in the included groups can authenticate, and only if they use approved authentication methods.
+This policy enforces a specific set of acceptable authentication methods for Entra ID sign-in, based on authentication strength. Only users in the included groups can authenticate, and only if they use approved authentication methods.
 
 ## Why It's Important
 

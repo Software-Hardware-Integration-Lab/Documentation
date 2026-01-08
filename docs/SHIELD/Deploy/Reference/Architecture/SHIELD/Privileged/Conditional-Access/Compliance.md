@@ -2,7 +2,7 @@
 
 ## Description
 
-This policy enforces that privileged devices must be compliant with their Intune compliance policies before they can access any cloud applications
+This policy enforces that privileged devices must be compliant with their Intune compliance policies before they can access any cloud applications.
 
 ## Why It's Important
 
