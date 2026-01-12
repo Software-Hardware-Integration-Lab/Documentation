@@ -5,41 +5,57 @@
 
 ## Overview
 
-This application is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted & fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. 
+This application is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted & fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement.
 
 ---
 
-## Requirements
+## Setup Steps/Requirements
 
-- New Azure Subscription
-(SHIELD Installer will handle below, not required by customer if using Installer)
-- Powershell:
-    - Latest [v7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell){:target="_blank"} installed (ideally from the [Microsoft Store](https://www.microsoft.com/store/productId/9MZ1SNWT0N5D?ocid=pdpshare){:target="_blank"})
+### Using SHIELD - Desktop's Installer module
+
+1. Create new Dedicated Azure Subscription.
+2. Run the installer to set up SHIELD automatically.
+
+---
+
+### Deploying by hand
+
+1. Create new Dedicated Azure Subscription.
+2. Install PowerShell Dependencies
+    - Latest [v7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell){:target="_blank"} release installed (ideally from the [Microsoft Store](https://www.microsoft.com/store/productId/9MZ1SNWT0N5D){:target="_blank"})
     - Modules: [Az](https://www.powershellgallery.com/packages/Az){:target="_blank"}, [Microsoft.Graph.Beta](https://www.powershellgallery.com/packages/Microsoft.Graph.Beta){:target="_blank"}
     - Scripts: [Grant-MIGraphPermission](https://www.powershellgallery.com/packages/Grant-MIGraphPermission){:target="_blank"}
-- Blank Azure App Service (Web App)
+3. Create a new resource group named: `SHIELD`
+4. Create a new Azure App Service (Web App)
     - OS: Linux
-        - Minimum SKU: P0v4
-        - Runtime Stack: Node 24 LTS
-    - Resource Group Name: SHIELD
+    - Minimum SKU: P0v4
+    - Runtime Stack: Node 24 LTS
     - Azure Cost Estimate associated (as of 1/8/2025):
 
 ![Azure Cost Estimation Table](assets/images/screenshots/Pricing_Table.png)
 
-- Permissions
-    - The User logging in to SHIELD: Discover requires either Global Admin or the following:
-        - Global Reader
-        - Security Administrator
-        - User Administrator
-    - **The service principal (System Assigned Managed identity is recommended) must be granted**:
-        - `Owner` for the Azure Subscription assigned to app
-        - `AppRoleAssignment.ReadWrite.All`
-        - `Application.ReadWrite.All`
-        - Additional permissions will be self-assigned by the app to save time and begin data collection, the extent of which can be found [here](https://docs.shilab.com/SHIELD/Prerequisites/Required-Graph-API-Permissions/){:target="_blank"}.
-- **Network Inspection excluded for Microsoft Traffic**
-    - According to [Microsoft Documentation](http://aka.ms/pnc){:target="_blank"}, Traffic Inspection of any kind via a tool like Palo, Zscaler, or nginx (caching) violates Microsoft’s Terms & Conditions (as well as each major cloud provider) as traffic that was decrypted and is heading to Microsoft is indistinguishable from man in the middle attacks.
+## Permissions
+
+- The User logging in to SHIELD: Discover requires either Global Admin or the following:
+    - Global Reader
+    - Security Administrator
+    - User Administrator
+- **The service principal (System Assigned Managed identity is recommended) must be granted**:
+    - `Owner` for the Azure Subscription assigned to app
+    - `AppRoleAssignment.ReadWrite.All`
+    - `Application.ReadWrite.All`
+    - [Additional permissions](../Prerequisites/Required-Graph-API-Permissions.md) will be self-assigned by the app to save time and begin data collection.
+
+### Networking
+
+- Network Endpoints:
+    - <https://api.shilab.com>
+    - <https://url.shilab.com>
+    - https://*.azurewebsites.net
+- Disable network traffic inspection/unwrapping/decryption
+    - According to [Microsoft Documentation](http://aka.ms/pnc){:target="_blank"}, Traffic Inspection of any kind via a tool like Palo, Zscaler, or nginx (caching) violates Microsoft's Terms & Conditions (as well as each major cloud provider) as traffic that was decrypted and is heading to Microsoft is indistinguishable from man in the middle attacks.
     - As a result, all traffic inspected is promptly dropped by Microsoft. As we rely on Azure Networking for SHIELD to run, this prevents SHIELD from functioning.
-    - Please validate that **ALL** Microsoft traffic is excluded from any form of Network Inspection: this is a requirement for SHIELD to function, as it is against Microsoft’s terms and conditions.
+    - Please validate that **ALL** Microsoft traffic is excluded from any form of Network Inspection: this is a requirement for SHIELD to function, as it is against Microsoft's terms and conditions.
 
 ---
 
@@ -68,7 +84,7 @@ This application is a self-hosted application that exists in the customer tenant
     - No custom execution except for designed workload (no viruses possible)
     - No update downtime
     - Vulnerability patching done before public announcement of vulnerability
-    - Self-healing 
+    - Self-healing
 
 ### Miscellaneous Considerations
 
@@ -90,9 +106,9 @@ This application is a self-hosted application that exists in the customer tenant
 ### High-level Data Flow Diagram
 
 SHIELD: Discover does not collect PII or similar data – it is only focused on the scope of configurations within the Microsoft security stack, and not on any private employee or customer data. Specifics on what data collected is listed in the next section.
-As a self-hosted application, data collected lives in the customer environment until it is anonymized and sent to SHIELD’s database via the Data Gateway. The Data Gateway structure is available to review upon request.
+As a self-hosted application, data collected lives in the customer environment until it is anonymized and sent to SHIELD's database via the Data Gateway. The Data Gateway structure is available to review upon request.
 
-![SHIELD Discover Module Data Flow](/SHIELD/Discover/assets/images/screenshots/shield_discover_module_data_flow.jpg)
+![SHIELD Discover Module Data Flow](assets/images/screenshots/shield_discover_module_data_flow.jpg)
 
 ### Example Data Structure & Output
 
@@ -103,8 +119,7 @@ SHIELD Discover collects the following data:
 - Principal ID that ran the report
 - Principle Object ID
     - Assigned License – The Service Plan IDs of the license(s) that are assigned (direct or indirect) to the specific principal
-    - Assigned Services – The service configuration assignment determining ‘benefitting’ from a service. This includes the service configuration type if possible (feature, such as ‘Conditional Access,’ a service within the Entra ID license)
+    - Assigned Services – The service configuration assignment determining 'benefitting' from a service. This includes the service configuration type if possible (feature, such as 'Conditional Access,' a service within the Entra ID license)
     - Consumed Services – Usage telemetry retrieved to indicate if the specific principal is consuming/using the service, regardless of license status
 
-
-For a complete look at the Data Structure, please refer to the below block or utilize [SwaggerEditor](https://editor-next.swagger.io/){:target="_blank"} for rendering.
+For a complete look at the Data Structure, please refer to the [Data Gateway API Spec](https://specs.shilab.com/){:target="_blank"}.
