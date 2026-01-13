@@ -145,6 +145,7 @@ nav:
       - Overview: SHIELD/index.md
       - Prerequisites:
           - Overview: SHIELD/Prerequisites/index.md
+          - Installation: SHIELD/Prerequisites/Installation.md
           - Graph API Permissions: SHIELD/Prerequisites/Required-Graph-API-Permissions.md
       - Getting Started: SHIELD/Getting-Started.md
       - Usage Guide: SHIELD/Usage-Guide.md
@@ -223,7 +224,6 @@ nav:
 
       - Discover:
           - Overview: SHIELD/Discover/index.md
-          - Installation: SHIELD/Discover/Installation.md
           - Deployment: SHIELD/Discover/Deployment/index.md
           - Usage Guide: SHIELD/Discover/Usage-Guide.md
           - Plugins:
