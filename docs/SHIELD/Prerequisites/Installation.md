@@ -111,6 +111,24 @@ This application is a self-hosted application that exists in the customer tenant
 SHIELD: Discover does not collect PII or similar data – it is only focused on the scope of configurations within the Microsoft security stack, and not on any private employee or customer data. Specifics on what data collected is listed in the next section.
 As a self-hosted application, data collected lives in the customer environment until it is anonymized and sent to SHIELD's database via the Data Gateway. The Data Gateway structure is available to review upon request.
 
+```mermaid
+flowchart LR
+SHI[SHI]
+
+subgraph tenant["Customer Tenant"]
+    serviceConfiguration[Service Configuration Scope Noted to Object ID. Configuration **not** recorded]
+    tenantConfiguration[Tenant Configuration Observed, such as a Conditional Access policy]
+    objectIDs[Object IDs in Scope Determined]
+end
+
+serviceConfiguration --> tenantConfiguration
+tenantConfiguration --> objectIDs
+objectIDs --> serviceConfiguration
+
+SHI -.Initial Installation.-> tenant
+serviceConfiguration-->|Object IDs with associated Scopes reported to Data Gatway, no PII Associated| SHI
+```
+
 ### Example Data Structure & Output
 
 SHIELD Discover collects the following data:

@@ -16,6 +16,9 @@ After core deployment is complete, the Deploy module allows you to:
 
 These actions are performed through the **Lifecycle Infrastructure** interface on the SHIELD home screen.
 
+!!! info "Additional Information"
+    For more information on how SHIELD evaluates tenant configuration against baselines and produces the architectural report, see [Architectural Analysis Overview](../../SHIELD/Reference/Architecture/Architectural-Analysis-Overview.md).
+
 ---
 
 ## Defender for Endpoint Workspace Creation
@@ -76,6 +79,7 @@ Once core deployment is complete, your SHIELD UI will provide management cards f
 
 ## Related Pages
 
+- [Architectural Analysis Overview](../../SHIELD/Reference/Architecture/Architectural-Analysis-Overview.md)
 - [Deploy Overview](index.md)
 - [Deployment Guide](../Getting-Started.md)
 - [Reference Docs](Reference/index.md)

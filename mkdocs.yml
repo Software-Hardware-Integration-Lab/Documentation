@@ -241,6 +241,7 @@ nav:
       - Reference:
           - Architecture:
               - Overview: SHIELD/Reference/Architecture/index.md
+              - Architectural Analysis Overview: SHIELD/Reference/Architecture/Architectural-Analysis-Overview.md
               - Threat Model: SHIELD/Reference/Architecture/Threat-Models/ISV-To-Customer.md
               - Review Template: SHIELD/Reference/Architecture/Review-Template.md
           - Development:
