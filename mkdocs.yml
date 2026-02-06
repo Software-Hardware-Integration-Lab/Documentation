@@ -145,6 +145,7 @@ nav:
       - Overview: SHIELD/index.md
       - Prerequisites:
           - Overview: SHIELD/Prerequisites/index.md
+          - Installation: SHIELD/Prerequisites/Installation.md
           - Graph API Permissions: SHIELD/Prerequisites/Required-Graph-API-Permissions.md
       - Getting Started: SHIELD/Getting-Started.md
       - Usage Guide: SHIELD/Usage-Guide.md
@@ -153,7 +154,32 @@ nav:
           - Overview: SHIELD/Deploy/index.md
           - Deployment: SHIELD/Deploy/Deployment/index.md
           - Usage Guide: SHIELD/Deploy/Usage-Guide.md
-          - Reference: SHIELD/Deploy/Reference/index.md
+          - Reference:
+            - Reference: SHIELD/Deploy/Reference/index.md
+            - Architecture:
+              - SHIELD:
+                - Enterprise:
+                  - Conditional Access:
+                    - Compliance: SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Compliance.md
+                    - Location: SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Location.md
+                    - Microsoft Defender for Cloud Applications (MDCA): SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MDCA.md
+                    - Multi-Factor Authentication (MFA): SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MFA.md
+                - Privileged:
+                  - Conditional Access:
+                    - Authentication Methods: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Authentication-Methods.md
+                    - Block Non-Privileged: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Block-Non-Priv.md
+                    - Compliance: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Compliance.md
+                    - Disable Conditional Access Resilience Downgrade: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Disable-CA-Resilience-Downgrade.md
+                    - Hardware Enforcement: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Hardware-Enforcement.md
+                    - Join Type: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Join-Type.md
+                    - Legacy Authentication: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Legacy-Auth.md
+                    - Location: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Location.md
+                    - Multi-Factor Authentication (MFA): SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/MFA.md
+                    - Operating System Enforcement: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/OS-Enforcement.md
+                    - Session Persistence: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Session-Persistence.md
+                    - Sign-in Risk: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Sign-In-Risk.md
+                    - Token Binding: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Token-Binding.md
+                    - User Risk: SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/User-Risk.md
           - Troubleshooting: SHIELD/Deploy/Troubleshooting.md
 
       - Defend:
@@ -215,6 +241,7 @@ nav:
       - Reference:
           - Architecture:
               - Overview: SHIELD/Reference/Architecture/index.md
+              - Architectural Analysis Overview: SHIELD/Reference/Architecture/Architectural-Analysis-Overview.md
               - Threat Model: SHIELD/Reference/Architecture/Threat-Models/ISV-To-Customer.md
               - Review Template: SHIELD/Reference/Architecture/Review-Template.md
           - Development:
@@ -223,6 +250,7 @@ nav:
               - Configure Managed Identity: SHIELD/Reference/Settings/Configure-Managed-Identity.md
               - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md
               - Environment Variables: SHIELD/Reference/Settings/Environmental-Variables-Reference.md
+          - Break Glass: SHIELD/Reference/Break-Glass-Overview.md
           - Uninstall: SHIELD/Reference/Uninstall.md
 
   - Data Gateway:
