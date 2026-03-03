@@ -251,6 +251,7 @@ nav:
               - Debug Mode: SHIELD/Reference/Settings/Debug-Mode.md
               - Environment Variables: SHIELD/Reference/Settings/Environmental-Variables-Reference.md
           - Break Glass: SHIELD/Reference/Break-Glass-Overview.md
+          - Break Glass Group: SHIELD/Reference/Break-Glass-Group.md
           - Uninstall: SHIELD/Reference/Uninstall.md
 
   - Data Gateway:

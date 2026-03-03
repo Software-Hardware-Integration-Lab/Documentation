@@ -1,24 +1,36 @@
 # Overview and Installation Requirements
 
-!!! info "Security Considerations"
-    While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code & security reviews prior to engagement upon request. Permissions exist for both the user initiating the report & the application itself. Code review is available upon request.
-
 ## Overview
 
 This application is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted & fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement.
+
+!!! info "Security Considerations"
+    While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code & security reviews prior to engagement upon request. Permissions exist for both the user initiating the report & the application itself. Code review is available upon request.
 
 ---
 
 ## Setup Steps/Requirements
 
-### Using SHIELD - Desktop's Installer module
+### Option A - Using SHIELD - Desktop's Installer module (recommended)
 
-1. Create new Dedicated Azure Subscription.
-2. Run the installer to set up SHIELD automatically.
+1. Create new Dedicated Azure Subscription (recommended for isolation).
+2. The installer must have:
+    - `Owner` on the Azure subscription (to deploy resources)
+    - Global Administrator or Privileged Role Administrator (to grant Microsoft Graph application permissions via admin consent)
+3. Run the installer to set up SHIELD automatically using the following link: [https://url.shilab.com/shield-install](https://url.shilab.com/shield-install)
 
 ---
 
-### Deploying by hand
+### Option B - Deploying by hand
+
+#### Prerequisites
+
+- **PowerShell**: Latest v7 release
+- **Modules**: `Az`, `Microsoft.Graph.Beta`
+- **Script**: `Grant-MIGraphPermission`
+
+
+#### Azure resources
 
 1. Create new Dedicated Azure Subscription.
 2. Install PowerShell Dependencies
@@ -108,7 +120,7 @@ This application is a self-hosted application that exists in the customer tenant
 
 ### High-level Data Flow Diagram
 
-SHIELD: Discover does not collect PII or similar data – it is only focused on the scope of configurations within the Microsoft security stack, and not on any private employee or customer data. Specifics on what data collected is listed in the next section.
+SHIELD: Discover does not collect Personally Identifiable Information (PII) or similar data – it is only focused on the scope of configurations within the Microsoft security stack, and not on any private employee or customer data. Specifics on what data collected is listed in the next section.
 As a self-hosted application, data collected lives in the customer environment until it is anonymized and sent to SHIELD's database via the Data Gateway. The Data Gateway structure is available to review upon request.
 
 ```mermaid

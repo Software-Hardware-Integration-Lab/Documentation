@@ -5,6 +5,22 @@ The below permissions are necessary for the operation of this web app.
 !!! note
     The permission marked with '✅' are assigned by SHIELD to itself. Permissions marked as '❌' have to be assigned by an admin ahead of time.
 
+## User Permissions
+
+### Install SHIELD
+
+| Permission Name | What it is used for  |
+|-----------------|---------------------|
+| `Global Administrator` | To use the SHIELD installer link and install SHIELD into the Azure tenant. For more information, see [Setup Steps/Requirements](/SHIELD/Prerequisites/Installation/#setup-stepsrequirements). |
+
+### Run SHIELD Discover Scans
+
+| Permission Name | What it is used for  |
+|-----------------|---------------------|
+| `Global Administrator` | To run the SHIELD Discover Report. |
+| `Global Reader`, `Security Administrator`, & `User Administrator` | To run the SHIELD Discover Report with least permissions. <br><br> **Note**: All three permissions are required.|
+
+
 ## Entra ID Role Assignments
 
 === "Normal Mode"
