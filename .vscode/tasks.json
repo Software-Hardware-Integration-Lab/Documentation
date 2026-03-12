@@ -9,7 +9,7 @@
             "type": "process",
             "args": [
                 "-m",
-                "mkdocs",
+                "zensical",
                 "build"
             ],
             "presentation": {
@@ -23,7 +23,7 @@
             "type": "process",
             "args": [
                 "-m",
-                "mkdocs",
+                "zensical",
                 "serve"
             ],
             "presentation": {

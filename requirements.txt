@@ -1,4 +1,1 @@
-mkdocs == 1.6.1
-mkdocs-material == 9.7.0
-mkdocs-glightbox == 0.5.2
-
+zensical == 0.0.26
