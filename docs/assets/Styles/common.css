@@ -10,32 +10,3 @@
     /* Ensure that the icon renders in the center of the line, equal with the following text. */
     vertical-align: middle;
 }
-
-/* Light mode */
-[data-md-color-scheme="default"] {
-    --md-default-bg-color: white;
-
-}
-
-/* Dark mode  */
-[data-md-color-scheme="slate"] {
-    --md-default-bg-color: black;
-}
-
-/* Making the navigation titles bold  */
-.md-tabs__link {
-    font-weight: bold;
-}
-
-/* Style the tooltips so that they have sufficient contrast. */
-/* Light theme */
-[data-md-color-scheme="default"] .md-tooltip--active {
-    color: white;
-    background-color: black;
-}
-
-/* Dark theme */
-[data-md-color-scheme="slate"] .md-tooltip--active {
-    color: black;
-    background-color: white;
-}

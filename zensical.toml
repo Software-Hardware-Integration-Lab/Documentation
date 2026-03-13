@@ -1,0 +1,342 @@
+[project]
+site_name = "SHI Lab - Product Documentation"
+site_url = "https://docs.shilab.com/"
+site_description = "SHI Lab - Product Documentation"
+copyright = 'Copyright &copy; 2026 <a href="https://shi.com">SHI International Corp.</a> &nbsp;|&nbsp; <a href="#__consent">Change cookie settings</a>'
+extra_css = ["assets/Styles/common.css"]
+nav = [
+  {"Home" = "index.md"},
+  {"SHIELD" = [
+    {"Overview" = "SHIELD/index.md"},
+    {"Prerequisites" = [
+        {"Overview" = "SHIELD/Prerequisites/index.md"},
+        {"Installation" = "SHIELD/Prerequisites/Installation.md"},
+        {"Graph API Permissions" = "SHIELD/Prerequisites/Required-Graph-API-Permissions.md"}
+    ]},
+    {"Getting Started" = "SHIELD/Getting-Started.md"},
+    {"Usage Guide" = "SHIELD/Usage-Guide.md"},
+    {"Deploy" = [
+        {"Overview" = "SHIELD/Deploy/index.md"},
+        {"Deployment" = "SHIELD/Deploy/Deployment/index.md"},
+        {"Usage Guide" = "SHIELD/Deploy/Usage-Guide.md"},
+        {"Reference" = [
+            {"Overview" = "SHIELD/Deploy/Reference/index.md"},
+            {"Architecture" = [
+                {"SHIELD" = [
+                    {"Enterprise" = [
+                        {"Conditional Access" = [
+                            {"Compliance" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Compliance.md"},
+                            {"Location" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Location.md"},
+                            {"Microsoft Defender for Cloud Applications (MDCA)" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MDCA.md"},
+                            {"Multi-Factor Authentication (MFA)" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MFA.md"},
+                            {"Operating System Enforcement" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/OS-Enforcement.md"},
+                            {"Session Persistence" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Session-Persistence.md"},
+                            {"Sign-in Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Sign-In-Risk.md"},
+                            {"Token Binding" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Token-Binding.md"},
+                            {"User Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/User-Risk.md"}
+                        ]},
+                    ]},
+                    {"Privileged" = [
+                        {"Conditional Access" = [
+                            {"Authentication Methods" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Authentication-Methods.md"},
+                            {"Block Non-Privileged" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Block-Non-Priv.md"},
+                            {"Compliance" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Compliance.md"},
+                            {"Disable Conditional Access Resilience Downgrade" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Disable-CA-Resilience-Downgrade.md"},
+                            {"Hardware Enforcement" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Hardware-Enforcement.md"},
+                            {"Join Type" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Join-Type.md"},
+                            {"Legacy Authentication" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Legacy-Auth.md"},
+                            {"Location" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Location.md"},
+                            {"Multi-Factor Authentication (MFA)" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/MFA.md"},
+                            {"Operating System Enforcement" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/OS-Enforcement.md"},
+                            {"Session Persistence" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Session-Persistence.md"},
+                            {"Sign-in Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Sign-In-Risk.md"},
+                            {"Token Binding" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/Token-Binding.md"},
+                            {"User Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Privileged/Conditional-Access/User-Risk.md"}
+                        ]}
+                    ]}
+                ]}
+            ]},
+            {"Troubleshooting" = "SHIELD/Deploy/Troubleshooting.md"}
+        ]}
+    ]},
+    {"Defend" = [
+        { "Overview" = "SHIELD/Defend/index.md" },
+        { "Prerequisites" = "SHIELD/Defend/Prerequisites.md" },
+        { "Deployment" = "SHIELD/Defend/Deployment.md" },
+        { "Usage Guide" = [
+            { "Overview" = "SHIELD/Defend/Usage-Guide/index.md" },
+            { "Devices" = [
+                { "Commission Device" = "SHIELD/Defend/Usage-Guide/Device/0-Commission.md" },
+                { "Decommission Device" = "SHIELD/Defend/Usage-Guide/Device/1-Decommission.md" },
+                { "Assign Device" = "SHIELD/Defend/Usage-Guide/Device/2-Assign.md" },
+                { "Unassign Device" = "SHIELD/Defend/Usage-Guide/Device/3-Unassign.md" }
+            ]},
+            { "Users" = [
+                { "Commission User" = "SHIELD/Defend/Usage-Guide/User/Commission.md" },
+                { "Decommission User" = "SHIELD/Defend/Usage-Guide/User/Decommission.md" }
+            ]}
+        ]},
+        { "Reference" = [
+            { "Overview" = "SHIELD/Defend/Reference/index.md" },
+            { "Hardware Selection" = "SHIELD/Defend/Reference/Hardware-Selection.md" },
+            { "Custom Apps" = [
+                { "Corp VM" = [
+                    { "Index" = "SHIELD/Defend/Reference/Custom-Apps/Corp-VM/index.md" },
+                    { "Changelog" = "SHIELD/Defend/Reference/Custom-Apps/Corp-VM/Changelog.md" }
+                ]},
+                { "Managed Installer Config" = [
+                    { "Index" = "SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/index.md" },
+                    { "Changelog" = "SHIELD/Defend/Reference/Custom-Apps/ManagedInstaller-Config/Changelog.md" }
+                ]},
+                { "Security Config" = [
+                    { "Index" = "SHIELD/Defend/Reference/Custom-Apps/Security-Config/index.md" },
+                    { "Changelog" = "SHIELD/Defend/Reference/Custom-Apps/Security-Config/Changelog.md" },
+                    { "File Changes" = "SHIELD/Defend/Reference/Custom-Apps/Security-Config/File-Changes.md" },
+                    { "Registry Changes" = "SHIELD/Defend/Reference/Custom-Apps/Security-Config/Registry-Changes.md" }
+                ]}
+            ]},
+            { "Diagrams" = [
+                { "Device Commission" = "SHIELD/Defend/Reference/Diagrams/Device-Commission.md" },
+                { "Device Decommission" = "SHIELD/Defend/Reference/Diagrams/Device-Decommission.md" },
+                { "Device Assign" = "SHIELD/Defend/Reference/Diagrams/Device-Assign.md" },
+                { "Device Unassign" = "SHIELD/Defend/Reference/Diagrams/Device-Unassign.md" },
+                { "User Commission" = "SHIELD/Defend/Reference/Diagrams/User-Commission.md" },
+                { "User Decommission" = "SHIELD/Defend/Reference/Diagrams/User-Decommission.md" }
+            ]},
+            { "Lifecycle" = [
+                { "Privileged Device Workflows" = "SHIELD/Defend/Reference/Lifecycle/Privileged Device Workflows.md" }
+            ]},
+            { "Troubleshooting" = "SHIELD/Defend/Troubleshooting.md" }
+        ]}
+    ]},
+    { "Discover" = [
+        { "Overview" = "SHIELD/Discover/index.md" },
+        { "Deployment" = "SHIELD/Discover/Deployment/index.md" },
+        { "Usage Guide" = "SHIELD/Discover/Usage-Guide.md" },
+        { "Plugins" = [
+            { "Entra ID" = "SHIELD/Discover/Plugins/EntraID.md" },
+            { "Defender for Endpoint" = "SHIELD/Discover/Plugins/DefenderEndpoint.md" },
+            { "Defender for Identity" = "SHIELD/Discover/Plugins/DefenderIdentity.md" }
+        ]},
+        { "Supported Licenses" = "SHIELD/Discover/Supported-Licenses.md" },
+        { "Reference" = [
+            { "Entra ID" = "SHIELD/Discover/Plugins/EntraID.md" },
+            { "Defender for Endpoint" = "SHIELD/Discover/Plugins/DefenderEndpoint.md" },
+            { "Defender for Identity" = "SHIELD/Discover/Plugins/DefenderIdentity.md" }
+        ]},
+        { "Supported Licenses" = "SHIELD/Discover/Supported-Licenses.md" },
+        { "Reference" = [
+            { "Overview" = "SHIELD/Discover/Reference/index.md" },
+            { "Reserved Principals" = "SHIELD/Discover/Reference/Reserved-Principals.md" },
+            { "Architecture" = [
+                { "Process Flow" = "SHIELD/Discover/Reference/Architecture/Process-Flow.md" }
+            ]}
+        ]},
+        { "Troubleshooting" = "SHIELD/Discover/Troubleshooting.md" }
+    ]},
+    { "Reference" = [
+    { "Architecture" = [
+        { "Overview" = "SHIELD/Reference/Architecture/index.md" },
+        { "Architectural Analysis Overview" = "SHIELD/Reference/Architecture/Architectural-Analysis-Overview.md" },
+        { "Threat Model" = "SHIELD/Reference/Architecture/Threat-Models/ISV-To-Customer.md" },
+        { "Review Template" = "SHIELD/Reference/Architecture/Review-Template.md" },
+    ]},
+    { "Development" = [
+        { "OpenAPI Spec" = "SHIELD/Reference/Development/OpenAPI.md" }
+    ]},
+    { "Settings" = [
+        { "Configure Managed Identity" = "SHIELD/Reference/Settings/Configure-Managed-Identity.md" },
+        { "Debug Mode" = "SHIELD/Reference/Settings/Debug-Mode.md" },
+        { "Environment Variables" = "SHIELD/Reference/Settings/Environmental-Variables-Reference.md" }
+    ]},
+    { "Break Glass" = "SHIELD/Reference/Break-Glass-Overview.md" },
+    { "Uninstall" = "SHIELD/Reference/Uninstall.md" }
+    ]}
+  ]},
+  { "Data Gateway" = [
+    { "Overview" = "Data-Gateway/index.md" },
+    { "Deployment" = [
+        { "Overview" = "Data-Gateway/Deployment/index.md" }
+    ]},
+    { "Usage Guide" = "Data-Gateway/Usage-Guide/index.md" },
+    { "Architecture" = [
+        { "Overview" = "Data-Gateway/Architecture/index.md" },
+        { "Infrastructure" = "Data-Gateway/Architecture/Infrastructure.md" }
+    ]},
+    { "Reference" = [
+        { "Overview" = "Data-Gateway/Reference/index.md" }
+    ]},
+    { "Troubleshooting" = "Data-Gateway/Troubleshooting.md" }
+  ]},
+  { "URL Shortener" = [
+    { "Overview" = "URL-Shortener/index.md" },
+    { "Prerequisites" = [
+        { "Overview" = "URL-Shortener/Prerequisites/index.md" },
+        { "Authorization & RBAC" = "URL-Shortener/Prerequisites/Authorization-&-RBAC.md" },
+        { "Graph API Permissions" = "URL-Shortener/Prerequisites/Graph-API-Permissions.md" }
+    ]},
+    { "Getting Started" = "URL-Shortener/Getting-Started.md" },
+    { "Usage Guide" = "URL-Shortener/Usage-Guide.md" },
+    { "Reference" = [
+        { "Settings" = [
+            { "Environment Variables" = "URL-Shortener/Reference/Settings/Environment-Variables-Reference.md" }
+        ]},
+        { "Development" = [
+            { "OpenAPI Spec" = "URL-Shortener/Reference/Development/OpenAPI.md" },
+            { "Server Setup" = "URL-Shortener/Reference/Development/Server-Setup.md" }
+        ]}
+    ]}
+  ]}
+]
+
+[project.theme]
+logo = "/assets/Images/SHI Logo - Color.svg"
+favicon = "/assets/Images/Favicon.png"
+font = false
+features = [
+    "navigation.tabs",
+    "navigation.top",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.instant.progress",
+    "navigation.tracking",
+    "navigation.sections",
+    "navigation.path",
+    "content.tabs.link",
+    "content.tooltips",
+    "content.code.annotate",
+    "content.code.copy",
+    "search.highlight"
+]
+custom_dir = "overrides"
+
+# Enable table of contents generation
+[project.markdown_extensions.toc]
+permalink = true
+
+# Enable emoji support
+[project.markdown_extensions.pymdownx.emoji]
+emoji_index = "zensical.extensions.emoji.twemoji" 
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+# Pretty tooltips and abbreviations
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.pymdownx.snippets]
+auto_append = ["includes/abbreviations.md"]
+
+# Render todo lists with Zensical checkboxes
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+
+# Add support for definitions
+[project.markdown_extensions.def_list]
+
+# Support in-page foot notes
+[project.markdown_extensions.footnotes]
+
+# Add support for custom content highlighting
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.tilde]
+
+# Enable admonition support
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.pymdownx.details]
+
+# Add support for mermaid.js diagrams
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+
+# Add syntax highlighting to code blocks with line numbers enabled
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+
+# Enable syntax highlighting to inline code blocks
+[project.markdown_extensions.pymdownx.inlinehilite]
+
+# Adds support for content tabs, e.g. permission modes in SHIELD
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+
+# Allow HTML in markdown for custom content support
+[project.markdown_extensions.md_in_html]
+
+# Add URL anchoring support to the in-page tabs
+[project.markdown_extensions.pymdownx.tabbed.slugify]
+object = "pymdownx.slugs.slugify"
+kwds = { case = "lower" }
+
+# Palette toggle for automatic mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+# Palette toggle for light mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+# Palette toggle for dark mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/facebook"
+link = "https://www.facebook.com/pages/SHI-International-Corp/164409770296612"
+name = "SHI's home on FaceBook"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/x-twitter"
+link = "https://twitter.com/SHI_Intl"
+name = "SHI's home on X (Twitter)"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/linkedin"
+link = "https://www.linkedin.com/company/shi-international-corp-"
+name = "SHI's home on LinkedIn"
+
+[[project.extra.social]]
+icon = "fontawesome/solid/blog"
+link = "https://blog.shi.com/"
+name = "SHI's blog"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/youtube"
+link = "https://www.youtube.com/user/shicorporation"
+name = "SHI's home on YouTube"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/instagram"
+link = "https://www.instagram.com/shi_intl/"
+name = "SHI's home on Instagram"
+
+[project.extra]
+generator = false
+
+# Enable cookie consent to be GDPR compliant
+[project.extra.consent]
+title = "Cookie consent"
+description = """
+    We use cookies to recognize your repeated visits and preferences, as well
+    as to measure the effectiveness of our documentation and whether users
+    find what they're searching for. With your consent, you're helping us to
+    make our documentation better.
+"""
+
+# Configure the services to be managed by the consent system
+[project.extra.consent.cookies]
+clarity.name = "Microsoft Clarity"
+clarity.checked = true
+github.name = "GitHub"
+github.checked = true

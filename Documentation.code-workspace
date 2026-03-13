@@ -23,7 +23,8 @@
 			"Strikethrough",
 			"superfences",
 			"unattend",
-			"unmanaged"
+			"unmanaged",
+			"Zensical"
 		],
 		"files.exclude": {
 			"site": true,
