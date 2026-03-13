@@ -13,7 +13,6 @@ nav = [
         {"Installation" = "SHIELD/Prerequisites/Installation.md"},
         {"Graph API Permissions" = "SHIELD/Prerequisites/Required-Graph-API-Permissions.md"}
     ]},
-    {"Getting Started" = "SHIELD/Getting-Started.md"},
     {"Usage Guide" = "SHIELD/Usage-Guide.md"},
     {"Deploy" = [
         {"Overview" = "SHIELD/Deploy/index.md"},
