@@ -44,7 +44,7 @@ If necessary, repeat the steps below until you have two break glass accounts in 
 
 ## Add break glass accounts to security group
 
-Complete the below for each Break Glass account your org has.
+Complete the below for each Break Glass account your tenant has.
 
 1. Sign in to Microsoft Entra: [https://entra.microsoft.com/](https://entra.microsoft.com/){:target="_blank"}
 2. In the left navigation bar, click **Users** (typically under **Entra ID**).
