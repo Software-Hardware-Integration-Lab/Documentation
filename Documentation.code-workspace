@@ -39,7 +39,8 @@
 		"powershell.codeFormatting.useConstantStrings": true,
 		"powershell.codeFormatting.useCorrectCasing": true,
 		"powershell.codeFormatting.whitespaceBetweenParameters": true,
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"editor.wordWrap": "off"
 	},
 	"extensions": {
 		"recommendations": [
