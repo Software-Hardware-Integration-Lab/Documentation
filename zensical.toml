@@ -148,7 +148,8 @@ nav = [
         { "Debug Mode" = "SHIELD/Reference/Settings/Debug-Mode.md" },
         { "Environment Variables" = "SHIELD/Reference/Settings/Environmental-Variables-Reference.md" }
     ]},
-    { "Break Glass" = "SHIELD/Reference/Break-Glass-Overview.md" },
+    { "Break Glass - Overview" = "SHIELD/Reference/Break-Glass-Overview.md" },
+    { "Break Glass - Registration" = "SHIELD/Reference/Register-Break-Glass.md" },
     { "Uninstall" = "SHIELD/Reference/Uninstall.md" }
     ]}
   ]},
