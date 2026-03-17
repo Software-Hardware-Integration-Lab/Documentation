@@ -42,12 +42,12 @@ This application is a self-hosted application that exists in the customer tenant
     - OS: Linux
     - Minimum SKU: P0v4
     - Runtime Stack: Node 24 LTS
-    - Azure Cost Estimate associated (as of 1/8/2025):
+    - Azure Cost Estimate associated (as of 3/16/2026):
 
 | Premium v4 Service Plan | vCPU(s) | RAM | Storage | Pay as you go | 1 year savings plan | 3 year savings plan | 1 year reserved | 3 year reserved |
 |-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|
-| P0v4 | 1 | 4 GB | 250 GB | **$86.870**/month | **$70.365**/month ~ 19% savings | **$58.203**/month ~ 33% savings | **$65.000**/month ~ 25% savings | **$53.831**/month ~ 38% savings |
-| P1v4 | 2 | 8 GB | 250 GB | **$173.740**/month | **$140.730**/month ~ 19% savings | **$116.406**/month ~ 33% savings | **$130.086**/month ~ 25% savings | **$107.668**/month ~ 38% savings |
+| P0v4 | 1 | 4 GB | 250 GB | **53.29**/month | **$36.771**/month ~ 31% savings | **$24.514**/month ~ 54% savings | **$31.420**/month ~ 41% savings | **$20.251**/month ~ 62% savings |
+| P1v4 | 2 | 8 GB | 250 GB | **$106.58**/month | **$73.541**/month ~ 31% savings | **$49.027**/month ~ 54% savings | **$62.919**/month ~ 41% savings | **$40.501**/month ~ 62% savings |
 
 ## Permissions
 
