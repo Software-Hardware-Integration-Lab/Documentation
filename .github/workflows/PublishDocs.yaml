@@ -43,7 +43,7 @@ jobs:
 
       # Configure the GH pages environment
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Upload a copy of the static pages
       - name: Setup Python
