@@ -28,11 +28,6 @@ nav = [
                             {"Location" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Location.md"},
                             {"Microsoft Defender for Cloud Applications (MDCA)" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MDCA.md"},
                             {"Multi-Factor Authentication (MFA)" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/MFA.md"},
-                            {"Operating System Enforcement" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/OS-Enforcement.md"},
-                            {"Session Persistence" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Session-Persistence.md"},
-                            {"Sign-in Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Sign-In-Risk.md"},
-                            {"Token Binding" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/Token-Binding.md"},
-                            {"User Risk" = "SHIELD/Deploy/Reference/Architecture/SHIELD/Enterprise/Conditional-Access/User-Risk.md"}
                         ]},
                     ]},
                     {"Privileged" = [
@@ -113,12 +108,6 @@ nav = [
         { "Deployment" = "SHIELD/Discover/Deployment/index.md" },
         { "Usage Guide" = "SHIELD/Discover/Usage-Guide.md" },
         { "Plugins" = [
-            { "Entra ID" = "SHIELD/Discover/Plugins/EntraID.md" },
-            { "Defender for Endpoint" = "SHIELD/Discover/Plugins/DefenderEndpoint.md" },
-            { "Defender for Identity" = "SHIELD/Discover/Plugins/DefenderIdentity.md" }
-        ]},
-        { "Supported Licenses" = "SHIELD/Discover/Supported-Licenses.md" },
-        { "Reference" = [
             { "Entra ID" = "SHIELD/Discover/Plugins/EntraID.md" },
             { "Defender for Endpoint" = "SHIELD/Discover/Plugins/DefenderEndpoint.md" },
             { "Defender for Identity" = "SHIELD/Discover/Plugins/DefenderIdentity.md" }
