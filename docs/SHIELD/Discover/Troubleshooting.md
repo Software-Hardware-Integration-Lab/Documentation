@@ -10,7 +10,7 @@ v3 Coming soon!
 
 ## Related Pages
 
-- [Discover Overview](index.md)
-- [Deployment](Deployment/index.md)
-- [Usage Guide](Usage-Guide.md)
-- [Reference](Reference/index.md)
+- [Discover Overview](/SHIELD/Deploy/)
+- [Deployment](Deployment/)
+- [Usage Guide](Usage-Guide)
+- [Reference](Reference/)

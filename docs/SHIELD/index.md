@@ -23,7 +23,7 @@ SHIELD is an orchestration tool in the larger security landscape. It does not br
 
 ## Prerequisites
 
-Check out this page for more details: [Getting Started - Prerequisites](Prerequisites/index.md)
+Check out this page for more details: [Getting Started - Prerequisites](Prerequisites/)
 
 ## Recommended Environment
 
@@ -40,9 +40,9 @@ In the rest of the documentation, we will provide detailed instructions on how t
 
 ## See Also
 
-- [Usage Guides](Usage-Guide.md)
+- [Usage Guides](Usage-Guide)
 - Change Log - Coming Soon!
-- [SHIELD Architecture](Reference/Architecture/index.md)
-- [API Documentation](Reference/Development/OpenAPI.md)
-- [Troubleshooting](Deploy/Troubleshooting.md)
+- [SHIELD Architecture](Reference/Architecture/)
+- [API Documentation](Reference/Development/OpenAPI)
+- [Troubleshooting](Deploy/Troubleshooting)
 - [Contact Us](https://shilab.com/contact)

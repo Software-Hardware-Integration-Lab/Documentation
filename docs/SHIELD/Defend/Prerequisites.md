@@ -15,7 +15,7 @@ The Defend module relies on infrastructure that must be deployed via the Deploy 
 - Entra ID Administrative Units and security groups are provisioned
 - Intune is configured with scope tags
 
-📖 See [SHIELD Platform Prerequisites](../Prerequisites/index.md)
+📖 See [SHIELD Platform Prerequisites](../Prerequisites/)
 
 ---
 
@@ -53,13 +53,13 @@ To verify:
 3. If a table of devices appears, your workspace is ready
 4. If prompted to initialize setup, follow instructions and wait until the UI is fully active
 
-📖 For more detail, see the [Defend Usage Guide](Usage-Guide/index.md), under **Defender for Endpoint Workspace Creation**
+📖 For more detail, see the [Defend Usage Guide](Usage-Guide/), under **Defender for Endpoint Workspace Creation**
 
 ---
 
 ## Related Pages
 
-- [Defend Deployment](Deployment.md)
-- [Defend Usage Guide](Usage-Guide/index.md)
-- [Hardware Requirements](Reference/index.md)
-- [SHIELD Prerequisites](../Prerequisites/index.md)
+- [Defend Deployment](Deployment)
+- [Defend Usage Guide](Usage-Guide/)
+- [Hardware Requirements](Reference/)
+- [SHIELD Prerequisites](../Prerequisites/)

@@ -40,25 +40,25 @@ Discover's core engine is extensible through plugins. Each plugin is responsible
 
 Plugins are executed sequentially, and their results are normalized before being uploaded to the Data Gateway.
 
-📖 See full list in [Reference → Plugin Overview](Reference/index.md#plugin-overview)
+📖 See full list in [Reference → Plugin Overview](Reference/#plugin-overview)
 
 ---
 
 ### Infrastructure
 
-Please see [Data Gateway Infrastructure](../../Data-Gateway/Architecture/Infrastructure.md) docs for more details.
+Please see [Data Gateway Infrastructure](../../Data-Gateway/Architecture/Infrastructure) docs for more details.
 
 ---
 
 ### Execution
 
-Please see the [process flow diagram](./Reference/Architecture/Process-Flow.md) for more details.
+Please see the [process flow diagram](./Reference/Architecture/Process-Flow) for more details.
 
 ---
 
 ## Related Pages
 
-- [Discover Deployment](Deployment/index.md)
-- [Discover Usage Guide](Usage-Guide.md)
-- [Discover Reference](Reference/index.md)
-- [Troubleshooting Discover](Troubleshooting.md)
+- [Discover Deployment](Deployment/)
+- [Discover Usage Guide](Usage-Guide)
+- [Discover Reference](Reference/)
+- [Troubleshooting Discover](Troubleshooting)

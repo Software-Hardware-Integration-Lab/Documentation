@@ -8,11 +8,11 @@ This page is a hub for the **Data Gateway** reference material: how to authentic
 
 - :rocket: **Getting Started**  
   Sign in, navigate the UI, and complete common tasks.  
-  [:octicons-arrow-right-24: Usage Guide](../Usage-Guide/index.md)
+  [:octicons-arrow-right-24: Usage Guide](../Usage-Guide/)
 
 - :triangular_ruler: **Architecture**  
   Trust boundaries, components, and service interactions.  
-  [:octicons-arrow-right-24: Infrastructure](../Architecture/Infrastructure.md)
+  [:octicons-arrow-right-24: Infrastructure](../Architecture/Infrastructure)
 
 - :gear: **API Reference (Swagger)**  
   Browse the live OpenAPI reference and try requests in your browser.  
@@ -71,6 +71,6 @@ The API uses standard HTTP status codes with JSON error payloads. Please see [MD
 
 ## See also
 
-- [Usage Guide](../Usage-Guide/index.md)  
-- [Infrastructure](../Architecture/Infrastructure.md)  
+- [Usage Guide](../Usage-Guide/)  
+- [Infrastructure](../Architecture/Infrastructure)  
 - [API Reference (Swagger)](https://specs.shilab.com)

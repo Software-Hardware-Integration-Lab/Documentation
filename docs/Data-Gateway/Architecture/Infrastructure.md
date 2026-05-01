@@ -178,6 +178,6 @@ flowchart LR
 
 ## See also
 
-- [Usage Guide](../Usage-Guide/index.md)  
+- [Usage Guide](../Usage-Guide/)  
 - [Threat Model](../assets/threat-models/Data-Gateway.tm7)  
 - [API Reference](https://specs.shilab.com)

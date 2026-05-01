@@ -9,12 +9,12 @@ The last section of this guide explains how to add existing break glass accounts
 This section lists the steps to create a single break glass account.
 If you need to create two break glass accounts, you must go through the process below twice.
 Once you have two break glass accounts, you can follow the steps in the [last section](#add-break-glass-accounts-to-security-group) to add the break glass accounts to SHIELD's security group.
-For more information about properly generating, printing, and storing break glass accounts, see the [Break Glass Overview](./Break-Glass-Overview.md) page.
+For more information about properly generating, printing, and storing break glass accounts, see the [Break Glass Overview](./Break-Glass-Overview) page.
 
 If necessary, repeat the steps below until you have two break glass accounts in your tenant.
 
 !!! failure "WARNING, HERE BE DRAGONS!"
-    Please read the [Break Glass Overview](./Break-Glass-Overview.md) page before preceding with the below.
+    Please read the [Break Glass Overview](./Break-Glass-Overview) page before preceding with the below.
     Failure to secure your break glass account will lead to organization wide compromise.
     If you have ANY questions about the process, please reach out to your SHI or SHIELD representative.
 

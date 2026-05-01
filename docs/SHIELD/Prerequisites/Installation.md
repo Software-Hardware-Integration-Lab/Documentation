@@ -30,6 +30,7 @@ This application is a self-hosted application that exists in the customer tenant
 
 
 ---
+
 ### Networking
 
 - Network Endpoints:

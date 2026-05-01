@@ -45,9 +45,9 @@ This section addresses common issues encountered when using the Defend module's 
 
 **Resolution:**
 
-- Follow workspace setup verification steps in the [Usage Guide](Usage-Guide/index.md), under **Defender for Endpoint Workspace Creation**
+- Follow workspace setup verification steps in the [Usage Guide](Usage-Guide/), under **Defender for Endpoint Workspace Creation**
 - Check that SHIELD infrastructure was successfully deployed from the Deploy module
-- Review prerequisites in [Defend Prerequisites](Prerequisites.md)
+- Review prerequisites in [Defend Prerequisites](Prerequisites)
 
 ---
 
@@ -61,7 +61,7 @@ This section addresses common issues encountered when using the Defend module's 
 **Resolution:**
 
 - Always include current assigned users in the assignment flow
-- Ensure wipe behavior for privileged devices is clearly understood (see the [Usage Guide](Usage-Guide/index.md))
+- Ensure wipe behavior for privileged devices is clearly understood (see the [Usage Guide](Usage-Guide/))
 
 ---
 
@@ -97,6 +97,6 @@ Yes — warnings and confirmations are built into the UI. However, wipe actions 
 
 ## Related Pages
 
-- [Defend Usage Guide](Usage-Guide/index.md)
-- [Defend Reference](Reference/index.md)
-- [Defend Prerequisites](Prerequisites.md)
+- [Defend Usage Guide](Usage-Guide/)
+- [Defend Reference](Reference/)
+- [Defend Prerequisites](Prerequisites)

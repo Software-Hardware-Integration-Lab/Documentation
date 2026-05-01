@@ -46,14 +46,14 @@ To use Defend, the following must already be deployed:
 - Devices or users exist in Entra ID and are synced with Intune (where applicable)
 - Defender for Endpoint workspace is initialized (for device enforcement)
 
-📖 [View Full Prerequisites](Prerequisites.md)
+📖 [View Full Prerequisites](Prerequisites)
 
 ---
 
 ## Related Pages
 
-- [Defend Overview](index.md)
-- [Defend Usage Guide](Usage-Guide/index.md)
-- [Defend Reference](Reference/index.md)
-- [Troubleshooting](Troubleshooting.md)
-- [SHIELD Platform Deployment](../Getting-Started.md)
+- [Defend Overview](/SHIELD/Deploy/)
+- [Defend Usage Guide](Usage-Guide/)
+- [Defend Reference](Reference/)
+- [Troubleshooting](Troubleshooting)
+- [SHIELD Platform Deployment](../Getting-Started)

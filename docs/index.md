@@ -15,7 +15,7 @@ hide:
 
     Manages the state of security tenant wide using a multi-tiered architecture.
 
-    [:octicons-arrow-right-24: Overview](SHIELD/index.md)
+    [:octicons-arrow-right-24: Overview](SHIELD/)
 </div>
 
 <div class="grid cards" align="center" markdown>
@@ -25,7 +25,7 @@ hide:
 
     Deploy and maintain global baselines.
 
-    [:octicons-arrow-right-24: Overview](SHIELD/Deploy/index.md)
+    [:octicons-arrow-right-24: Overview](SHIELD/Deploy/)
 
 - :shield:{ .lg .middle } __Defend__
 
@@ -33,7 +33,7 @@ hide:
 
     Manage the membership of baselines and the configuration for privileged systems.
 
-    [:octicons-arrow-right-24: Overview](SHIELD/Defend/index.md)
+    [:octicons-arrow-right-24: Overview](SHIELD/Defend/)
 
 - :bar_chart:{ .lg .middle } __Discover__
 
@@ -41,7 +41,7 @@ hide:
 
     Retrieves and validates the state of license compliance tenant wide.
 
-    [:octicons-arrow-right-24: Overview](SHIELD/Discover/index.md)
+    [:octicons-arrow-right-24: Overview](SHIELD/Discover/)
 
 </div>
 
@@ -52,7 +52,7 @@ hide:
 
     Stores and retrieves the data for various SHI Lab products.
 
-    [:octicons-arrow-right-24: Overview](Data-Gateway/index.md)
+    [:octicons-arrow-right-24: Overview](Data-Gateway/)
 
 <div class="grid cards" align="center" markdown>
 - <span class="susIcon">ඞ</span> __SHI - URL Shortener__
@@ -61,5 +61,5 @@ hide:
 
     Issue short, compliant, governed redirect links that map friendly paths to destination URLs.
 
-    [:octicons-arrow-right-24: Overview](URL-Shortener/index.md)
+    [:octicons-arrow-right-24: Overview](/URL-Shortener/)
 </div>

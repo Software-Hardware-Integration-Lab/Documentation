@@ -42,8 +42,8 @@ The lifecycle engine handles all object mapping, Intune tagging, group membershi
 
 ## Related Pages
 
-- [Deployment](Deployment.md)
-- [Prerequisites](Prerequisites.md)
-- [Usage Guide](Usage-Guide/index.md)
-- [Reference](Reference/index.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Deployment](Deployment)
+- [Prerequisites](Prerequisites)
+- [Usage Guide](Usage-Guide/)
+- [Reference](Reference/)
+- [Troubleshooting](Troubleshooting)
