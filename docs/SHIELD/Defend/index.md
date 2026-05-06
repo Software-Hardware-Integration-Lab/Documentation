@@ -4,6 +4,24 @@ The Defend module is responsible for all lifecycle operations within the SHIELD 
 
 Whereas the Deploy module provisions the infrastructure, **Defend is responsible for using that infrastructure to manage the identities and devices inside it**.
 
+The diagram below shows the functional flow for the Defend module
+
+``` mermaid
+flowchart TD
+    B[SHIELD Defend]
+    B --> C[Security and readiness checks]
+
+    C --> D[Device management]
+    C --> E[User management]
+
+    D --> H[Secure device onboarding and control]
+    E --> I[Managed user lifecycle]
+    
+    D --> K[Microsoft security platforms]
+    E --> K
+   
+```
+
 ---
 
 ## What Defend Manages
