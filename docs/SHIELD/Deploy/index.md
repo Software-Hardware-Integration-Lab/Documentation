@@ -7,13 +7,8 @@ The diagram below shows the Deploy module functional components and their relati
 ``` mermaid
 flowchart TD
     B[Deploy Module]
-    
-    
-    B --> C[Analyze Infrastructure]
-    B --> D[Deploy Architecture]
-    B --> E[Monitor Configuration]
-    
-    D --> Seg["Environment Segmentation<br/>& Separation"]
+   
+    B --> Seg["Environment Segmentation<br/>& Separation"]
     
     Seg --> Priv["Privileged Systems<br/>Restricted Access"]
     Seg --> Ent["Enterprise Systems<br/>Standard Access"]
@@ -28,8 +23,6 @@ flowchart TD
     D2 --> G
     D2 --> H
     D2 --> I
-    
-    E --> E1["Detect and Remediate Configuration Drift"]
    
 ```
 
