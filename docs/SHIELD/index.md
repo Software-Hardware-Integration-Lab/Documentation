@@ -50,10 +50,10 @@ The installer provisions the Shield UI web application and associated components
 
 Depending on licensing, the following components will be available from the UI:
 
-[Shield Discover](https://docs.shilab.com/SHIELD/Discover/) The Discover module enables advanced licensing intelligence and compliance reporting for Microsoft 365 services
+[Shield Discover](https://docs.shilab.com/SHIELD/Discover/) The Discover module enables advanced licensing intelligence and compliance reporting for Microsoft 365 services. It interrogates the Graph API, Defender API and Purview API to extract licensing information for the customer's tenant. It can then generate compliance reports for later analysis.
 
 ```mermaid
-flowchart LR
+flowchart TD
 	subgraph m365["Primary Inputs"]
 		graphApi[Microsoft Graph API]
 		defenderApi[Microsoft Defender API]
@@ -71,17 +71,6 @@ flowchart LR
 		gateway[Data Gateway]
 	end
 
-	style m365 fill:#f3f8ff,stroke:#2f6db3,stroke-width:2px,color:#111827
-	style discover fill:#eefaf0,stroke:#2e8540,stroke-width:2px,color:#111827
-	style outputs fill:#fff7ec,stroke:#b4690e,stroke-width:2px,color:#111827
-
-	classDef source fill:#dbeafe,stroke:#1d4ed8,color:#0b1f44,stroke-width:1.5px
-	classDef process fill:#dcfce7,stroke:#15803d,color:#102a1f,stroke-width:1.5px
-	classDef result fill:#ffedd5,stroke:#c2410c,color:#3a1c06,stroke-width:1.5px
-
-	class graphApi,defenderApi,purviewApi source
-	class collect,normalize,analyze process
-	class licenseReport,gateway result
 
 	graphApi --> collect
 	defenderApi --> collect
@@ -91,6 +80,9 @@ flowchart LR
 	analyze --> licenseReport
 	licenseReport --> gateway
 ```
+
+<br>
+<br>
 
 [Shield Defend](https://docs.shilab.com/SHIELD/Defend/)  The Defend module is responsible for all lifecycle operations within the SHIELD platform. It provides user and device onboarding, offboarding, access enforcement, and enforcement of privileged workflows in alignment with the SPA model deployed by the Deploy module.
 
@@ -103,102 +95,48 @@ Click this link to see more on [Secure Privileged Access](https://learn.microsof
 
 ```mermaid
 flowchart TD
-	subgraph sources["Defend"]
-        
-		entra[Microsoft Entra ID]
-		intune[Microsoft Intune Policies]
+    B[SHIELD Defend]
+    B --> C[Security and readiness checks]
 
-        entra-->userLifecycle
-        entra-->deviceLifecycle
-        intune-->userLifecycle
-        intune-->deviceLifecycle
-	end
+    C --> D[Device management]
+    C --> E[User management]
 
-    subgraph userLifecycle["User Lifecycle Activities"]
-        
-		signInMgmt[Manage Who Can Sign In to Privileged Devices]
-		intuneRewrite[Rewrite Intune Policy Payloads]
-		userSync[Sync SHIELD Settings for User Records]
-	end
-
-	subgraph deviceLifecycle["Device Lifecycle Activities"]
-        
-		commission[Commission Devices into SHIELD]	
-		decommission[Decommission Devices Cleanly]
-		deviceSync[Sync SHIELD Settings for Device Records]
-		privDevices[Privileged Devices]
-        managedDevices[Managed Devices]
-        unmanagedDevices[Unmanaged Devices]
-	end
-
-	
-	style sources fill:#f3f8ff,stroke:#2f6db3,stroke-width:2px,color:#111827
-	style userLifecycle fill:#fff7ec,stroke:#b4690e,stroke-width:2px,color:#111827
-	style deviceLifecycle fill:#eefaf0,stroke:#2e8540,stroke-width:2px,color:#111827
-
-	classDef action fill:#ffedd5,stroke:#c2410c,color:#3a1c06,stroke-width:1.5px
-	classDef process fill:#dcfce7,stroke:#15803d,color:#102a1f,stroke-width:1.5px
-	classDef system fill:#dbeafe,stroke:#1d4ed8,color:#0b1f44,stroke-width:1.5px
-	class commission,decommission,signInMgmt action
-	class graphBatch,intuneRewrite,userSync,deviceSync process
-	class entra,intune,privDevices,managedDevices,unmanagedDevices system
-
+    D --> H[Secure device onboarding and control]
+    E --> I[Managed user lifecycle]
     
-	
+    D --> K[Microsoft security platforms]
+    E --> K
+
 	
 ```
+<br>
+<br>
 
 [Shield Deploy](https://docs.shilab.com/SHIELD/Deploy/)  SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's Securing Privileged Access (SPA) architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more. 
 
 
 ```mermaid
-flowchart LR
-	subgraph policySet["Known Policy Sets"]
-		commonSet[Common Policy Set]
-		enterpriseSet[Enterprise Policy Set]
-		privilegedSet[Privileged Policy Set]
-		specialisedSet[Specialised Policy Set]
-	end
-
-	subgraph deploy["Shield Deploy Module"]
-		orchestrator[Deployment Orchestrator]
-		apply[Policy Deployment Engine]
-	end
-
-	subgraph outcomes["Customer Tenant"]
-		outTieredGroups[Tiered Security Groups]
-		outScopeTags[Intune Scope Tags]
-		outAdminUnits[Entra ID Administrative Units]
-		outDeviceProfiles[Device Onboarding and Configuration Profiles]
-		outCAPolicies[Conditional Access Policies]
-		outRBAC[Role-Based Access Control for Privileged Systems]
-	end
-
-	style policySet fill:#f3f8ff,stroke:#2f6db3,stroke-width:2px,color:#111827
-	style deploy fill:#eefaf0,stroke:#2e8540,stroke-width:2px,color:#111827
-	style outcomes fill:#fff7ec,stroke:#b4690e,stroke-width:2px,color:#111827
-
-	classDef input fill:#dbeafe,stroke:#1d4ed8,color:#0b1f44,stroke-width:1.5px
-	classDef process fill:#dcfce7,stroke:#15803d,color:#102a1f,stroke-width:1.5px
-	classDef output fill:#ffedd5,stroke:#c2410c,color:#3a1c06,stroke-width:1.5px
-
-	class commonSet,enterpriseSet,privilegedSet,specialisedSet input
-	class orchestrator,apply process
-	class outTieredGroups,outScopeTags,outAdminUnits,outDeviceProfiles,outCAPolicies,outRBAC output
-
-	commonSet --> orchestrator
-	enterpriseSet --> orchestrator
-	privilegedSet --> orchestrator
-	specialisedSet --> orchestrator
-	orchestrator --> apply
-	apply --> outTieredGroups
-	apply --> outScopeTags
-	apply --> outAdminUnits
-	apply --> outDeviceProfiles
-	apply --> outCAPolicies
-	apply --> outRBAC
+flowchart TD
+    B[Deploy Module]
+   
+    B --> Seg["Environment Segmentation<br/>& Separation"]
+    
+    Seg --> Priv["Privileged Systems<br/>Restricted Access"]
+    Seg --> Ent["Enterprise Systems<br/>Standard Access"]
+    
+    Priv --> D1["Provision Privileged Layer"]
+    Ent --> D2["Provision Enterprise Layer"]
+    
+    D1 --> G["Entra ID & Roles<br/>Least Privilege"]
+    D1 --> H["Intune Policies<br/>Hardened Controls"]
+    D1 --> I["Azure Resources<br/>Isolated Infrastructure"]
+    
+    D2 --> G
+    D2 --> H
+    D2 --> I
 ```
-
+<br>
+<br>
 
 ## Recommended Environment
 

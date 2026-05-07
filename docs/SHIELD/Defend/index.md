@@ -7,18 +7,24 @@ Whereas the Deploy module provisions the infrastructure, **Defend is responsible
 The diagram below shows the Defend module functional components and their relationships.
 
 ``` mermaid
+
 flowchart TD
-    B[SHIELD Defend]
-    B --> C[Security and readiness checks]
-
-    C --> D[Device management]
-    C --> E[User management]
-
-    D --> H[Secure device onboarding and control]
-    E --> I[Managed user lifecycle]
+    B[Defend]
     
-    D --> K[Microsoft security platforms]
-    E --> K
+    B --> DL["Device Management"]
+    B --> UL["User Management"]
+    B --> MC["Monitor & Maintain Configuration"]
+    
+    DL --> D1["Commissioning"]
+    DL --> D2["Decommissioning"]
+    
+    UL --> U1["Onboard Users"]
+    UL --> U2["Assign to Devices"]
+    UL --> U3["Revoke Access"]
+    
+    
+    MC --> MC1["Detect Configuration Drift"]
+    MC --> MC2["Remediations"]
    
 ```
 
