@@ -1,10 +1,44 @@
 # Overview
 
-SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more.
+The Deploy module ensures your security architecture stays consistent and compliant with Microsoft's Zero Trust principles by separating enterprise and privileged systems. The architecture is maintained over time by managing the full lifecycle of security configuration deployment and maintenance. 
 
-The Deploy module ensures your environment is segmented appropriately and aligns with Microsoft's Zero Trust principles by separating enterprise and privileged systems.
+The diagram below shows the Deploy module functional components and their relationships.
 
----
+``` mermaid
+flowchart TD
+    B[Deploy Module]
+    
+    
+    B --> C[Analyze Infrastructure]
+    B --> D[Deploy Architecture]
+    B --> E[Monitor Configuration]
+    
+    D --> Seg["Environment Segmentation<br/>& Separation"]
+    
+    Seg --> Priv["Privileged Systems<br/>Restricted Access"]
+    Seg --> Ent["Enterprise Systems<br/>Standard Access"]
+    
+    Priv --> D1["Provision Privileged Layer"]
+    Ent --> D2["Provision Enterprise Layer"]
+    
+    D1 --> G["Entra ID & Roles<br/>Least Privilege"]
+    D1 --> H["Intune Policies<br/>Hardened Controls"]
+    D1 --> I["Azure Resources<br/>Isolated Infrastructure"]
+    
+    D2 --> G
+    D2 --> H
+    D2 --> I
+    
+    E --> E1["Detect and Remediate Configuration Drift"]
+   
+```
+
+<br>
+<br>
+
+SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more. 
+
+
 
 ## What Is SPA?
 
