@@ -54,7 +54,7 @@ Please see [Data Gateway Infrastructure](../../Data-Gateway/Architecture/Infrast
 
 This diagram outlines the flow of interactions between the Shield UI, Microsoft Entra (identity provider), Microsoft Graph API  and the Data Gateway.
 
-!!! requests for specific audience tokens are not shown on this diagram
+!!! requests for specific audience tokens are not shown on this diagram.
     In reality, before accessing any Azure services we need to generate a token scoped to a specific audience. This is done by making a request to EntraID and passing our original login token. Entra will then check that the user principle is authorised for access to that particular audience, and if so will generate a scoped token for that access. in the interest of brevity these processes are not shown on this diagram. 
 
 
