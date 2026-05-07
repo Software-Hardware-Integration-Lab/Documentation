@@ -1,6 +1,6 @@
 # Overview
 
-The Deploy module ensures your security architecture stays consistent and compliant with Microsoft's Zero Trust principles by separating enterprise and privileged systems. The architecture is maintained over time by managing the full lifecycle of security configuration deployment and maintenance. 
+The Deploy module ensures your security architecture stays consistent and compliant with Microsoft's Zero Trust principles by separating enterprise and privileged systems.  
 
 The diagram below shows the Deploy module functional components and their relationships.
 
