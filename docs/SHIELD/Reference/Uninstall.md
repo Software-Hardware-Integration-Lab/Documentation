@@ -33,13 +33,13 @@ The SHIELD platform uses multiple Microsoft 365 services to create configuration
 !!! note
         You may have to run the above command twice because the order of operations tries to uninstall a dependency first rather than last. Running it the second time will remove the remaining dependency.
 
-4. **Install the correct version of Microsoft Graph Beta modules**:
+1. **Install the correct version of Microsoft Graph Beta modules**:
 
    ```powershell
    Install-Module -Name 'Microsoft.Graph.Beta' -RequiredVersion '2.1.0' -Scope 'AllUsers'
    ```
 
-5. **Run the uninstall script** to remove SHIELD-deployed infrastructure.
+2. **Run the uninstall script** to remove SHIELD-deployed infrastructure.
 
    The script is designed to remove:
    - Entra ID groups and admin units
@@ -70,7 +70,7 @@ Yes. SHIELD can be redeployed using the same app interface or script, as long as
 
 ## Related Pages
 
-- [Deploy Overview](../Deploy/index.md)
-- [Deploy Usage Guide](../Deploy/Usage-Guide.md)
-- [Deployment](../Deploy/Deployment/index.md)
-- [Deploy Reference](../Deploy/Reference/index.md)
+- [Deploy Overview](../Deploy/)
+- [Deploy Usage Guide](../Deploy/Usage-Guide)
+- [Deployment](../Deploy/Deployment/)
+- [Deploy Reference](../Deploy/Reference/)

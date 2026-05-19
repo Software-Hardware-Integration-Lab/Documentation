@@ -97,6 +97,6 @@ All requests require authentication with **Entra ID tokens** passed as HTTPS bea
 
 ## Related Pages
 
-- [Architecture Overview](../Architecture/index.md)  
-- [Troubleshooting](../Troubleshooting.md)  
+- [Architecture Overview](../Architecture/)  
+- [Troubleshooting](../Troubleshooting)  
 - [API Reference](https://specs.shilab.com)

@@ -26,11 +26,11 @@ Data Gateway helps you:
 <div class="grid cards" markdown>
 - 🧭 **Getting Started**  
   Learn how to sign in, navigate the UI, and complete common tasks.  
-  [:octicons-arrow-right-24: Usage Guide](./Usage-Guide/index.md)
+  [:octicons-arrow-right-24: Usage Guide](./Usage-Guide/)
 
 - 🏗️ **Architecture**  
   Understand the service layout, trust boundaries, and how Data Gateway connects to SHI Cloud.  
-  [:octicons-arrow-right-24: Architecture Overview](./Architecture/index.md)
+  [:octicons-arrow-right-24: Architecture Overview](./Architecture/)
 
 - 🌐 **API Reference**  
   Browse the live API reference and try requests in your browser.  

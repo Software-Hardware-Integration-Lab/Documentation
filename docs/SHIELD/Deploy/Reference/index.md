@@ -47,7 +47,7 @@ Additional SPA-related configuration details are available, including:
 
 ## Related Pages
 
-- [Deploy Overview](index.md)
-- [Deployment](../Deployment/index.md)
-- [Deploy Usage Guide](../Usage-Guide.md)
-- [Troubleshooting](../Troubleshooting.md)
+- [Deploy Overview](/SHIELD/Deploy/)
+- [Deployment](../Deployment/)
+- [Deploy Usage Guide](../Usage-Guide)
+- [Troubleshooting](../Troubleshooting)

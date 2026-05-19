@@ -155,7 +155,7 @@ Identity providers are critical for centralizing and managing user access for en
 - Is the clean source principal followed for administrative tasks ({++Yes++}, {--No--}):
 - Is self service password reset enabled ({++Yes++}, {--No--}):
     - How many factors are required for reset (1, {++2+++}):
-    - What are the reset factors ([Push notification], email, phone call, sms,{--Questions--}):
+    - What are the reset factors (\[Push notification\], email, phone call, sms,{--Questions--}):
 - Is continuous access reviews implemented for people with infra access ({++Yes++}, no):
 
 ---

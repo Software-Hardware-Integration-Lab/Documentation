@@ -20,5 +20,5 @@ This enterprise app does not allow the Data Gateway service to connect into your
 ## Getting Started
 
 - Sign in with your Entra ID account.  
-- Navigate the [Usage Guide](../Usage-Guide/index.md) for common tasks.  
-- See [Reference](../Reference/index.md) for API integration details.
+- Navigate the [Usage Guide](../Usage-Guide/) for common tasks.  
+- See [Reference](../Reference/) for API integration details.

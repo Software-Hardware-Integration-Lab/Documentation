@@ -6,7 +6,7 @@ Coming soon!
 
 ## Related Pages
 
-- [Discover Overview](index.md)
-- [Discover Usage Guide](../Usage-Guide.md)
-- [Reference](../Reference/index.md)
-- [Troubleshooting](../Troubleshooting.md)
+- [Discover Overview](/SHIELD/Deploy/)
+- [Discover Usage Guide](../Usage-Guide)
+- [Reference](../Reference/)
+- [Troubleshooting](../Troubleshooting)

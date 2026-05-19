@@ -20,7 +20,7 @@ This documentation is primarily intended for technical users who are responsible
 
 ## Prerequisites
 
-Check out this page for more details: [Getting Started - Prerequisites](Prerequisites/index.md)
+Check out this page for more details: [Getting Started - Prerequisites](Prerequisites/)
 
 ## Summary
 

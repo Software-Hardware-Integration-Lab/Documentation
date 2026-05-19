@@ -9,7 +9,7 @@ The permission(s) are not assigned to the service principal.
 
 | Permission Name        | What it is used for                                                                                                                                                                           |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Global Administrator` | To use the SHIELD installer link and install SHIELD into the Azure tenant. For more information, see [Setup Steps/Requirements](/SHIELD/Prerequisites/Installation/#setup-stepsrequirements). |
+| `Global Administrator` | To use the SHIELD installer link and install SHIELD into the Azure tenant. For more information, see [Setup Steps/Requirements](Installation/#setup-stepsrequirements). |
 
 ---
 
@@ -135,4 +135,4 @@ Get-Help .\Grant-MIGraphPermission.ps1
 
 ## See Also
 
-- [Discover Only mode](../Reference/Settings/Environmental-Variables-Reference.md#shield_operationmode)
+- [Discover Only mode](../Reference/Settings/Environmental-Variables-Reference#shield_operationmode)

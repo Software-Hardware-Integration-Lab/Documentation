@@ -14,7 +14,7 @@ v3 Coming soon!
 
 ## Related Pages
 
-- [Discover Overview](index.md)
-- [Discover Deployment](Deployment/index.md)
-- [Reference](Reference/index.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Discover Overview](/SHIELD/Deploy/)
+- [Discover Deployment](Deployment/)
+- [Reference](Reference/)
+- [Troubleshooting](Troubleshooting)

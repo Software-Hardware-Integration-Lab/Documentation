@@ -25,8 +25,8 @@ Device lifecycle flows differ by class. Devices marked as Privileged undergo mor
 
 Commissioning a device registers it with SHIELD and assigns lifecycle metadata. Privileged devices will be wiped if they are Intune-managed to ensure a clean baseline.
 
-📖 [Commission a Device](./Device/0-Commission.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/Device-Commission.md)
+📖 [Commission a Device](./Device/0-Commission)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Commission)
 
 #### UI Example
 
@@ -43,8 +43,8 @@ Commissioning a device registers it with SHIELD and assigns lifecycle metadata. 
 
 Removes a device from SHIELD's lifecycle system.
 
-📖 [Decommission a Device](./Device/1-Decommission.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/Device-Decommission.md)
+📖 [Decommission a Device](./Device/1-Decommission)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Decommission)
 
 ---
 
@@ -52,8 +52,8 @@ Removes a device from SHIELD's lifecycle system.
 
 Assigns one or more users to a privileged device (PAW). All others will be denied access.
 
-📖 [Assign User](./Device/2-Assign.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/Device-Assign.md)
+📖 [Assign User](./Device/2-Assign)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Assign)
 
 ---
 
@@ -61,8 +61,8 @@ Assigns one or more users to a privileged device (PAW). All others will be denie
 
 Removes a user's access from a PAW. If no users remain, a wipe is issued.
 
-📖 [Unassign User](./Device/3-Unassign.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/Device-Unassign.md)
+📖 [Unassign User](./Device/3-Unassign)  
+📊 [Workflow Diagram](../Reference/Diagrams/Device-Unassign)
 
 ---
 
@@ -74,8 +74,8 @@ SHIELD supports onboarding and offboarding for both privileged and non-privilege
 
 Privileged users are created as new cloud-only accounts. Others are brought into management using existing identities. Temporary credentials are generated at creation.
 
-📖 [Commission a User](./User/Commission.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/User-Commission.md)
+📖 [Commission a User](./User/Commission)  
+📊 [Workflow Diagram](../Reference/Diagrams/User-Commission)
 
 #### UI Example
 
@@ -93,8 +93,8 @@ Privileged users are created as new cloud-only accounts. Others are brought into
 
 Privileged users are deleted from Entra ID. Non-privileged users are simply removed from SHIELD management.
 
-📖 [Decommission a User](./User/Decommission.md)  
-📊 [Workflow Diagram](../Reference/Diagrams/User-Decommission.md)
+📖 [Decommission a User](./User/Decommission)  
+📊 [Workflow Diagram](../Reference/Diagrams/User-Decommission)
 
 ---
 
@@ -115,8 +115,8 @@ Class is selected at the top of the UI before performing lifecycle actions.
 
 ## Related Pages
 
-- [Defend Overview](index.md)
-- [Device Commissioning](./Device/0-Commission.md)
-- [User Commissioning](./User/Commission.md)
-- [Reference Diagrams](../Reference/index.md)
-- [Hardware Requirements](../Reference/Hardware-Selection.md)
+- [Defend Overview](/SHIELD/Deploy/)
+- [Device Commissioning](./Device/0-Commission)
+- [User Commissioning](./User/Commission)
+- [Reference Diagrams](../Reference/)
+- [Hardware Requirements](../Reference/Hardware-Selection)

@@ -39,7 +39,7 @@ See this page for more details on what each option means: [https://docs.microsof
 - Expected string format: Boolean
 - Description:
 Enables debugging features such as additional http routes.
-See [Debug Mode](./Debug-Mode.md) for more information on what is enabled when this is toggled to true.
+See [Debug Mode](./Debug-Mode) for more information on what is enabled when this is toggled to true.
 - Example:
 `true`
 
