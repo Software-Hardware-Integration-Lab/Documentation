@@ -25,7 +25,7 @@ jobs:
           id-token: write
 
       # Execute the workflow
-      uses: ./.github/workflows/Build.yaml
+      uses: ./.github/workflows/Build.yml
 
   # Calculates the tag and channel metadata based on the event that triggered the workflow, and making that data available to downstream jobs through outputs.
   Deploy-Metadata:
@@ -76,7 +76,7 @@ jobs:
   # Single deploy job since we're just deploying
   Deploy-Static-Web-App:
     # Human friendly display name for the job
-    name: Deploy to GitHub Pages
+    name: Deploy to Azure Static App
 
     # Define the OS that should be used during workflow execution
     runs-on: ubuntu-latest
