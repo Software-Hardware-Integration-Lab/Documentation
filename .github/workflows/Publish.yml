@@ -140,7 +140,7 @@ jobs:
       - name: Retrieve Deploy Token for Azure Static Web App
         id: swaPublishToken
         run: |
-            token=$(az StaticWebApp secrets list --name Documentation-${{ needs.Deploy-Metadata.outputs.channel }} --resource-group Docs --query "properties.apiKey" -o tsv)
+            token=$(az StaticWebApp secrets list --name Docs-${{ needs.Deploy-Metadata.outputs.channel }} --resource-group Docs --query "properties.apiKey" -o tsv)
             echo "::add-mask::$token"
             echo "token=$token" >> "$GITHUB_OUTPUT"
 
@@ -151,11 +151,11 @@ jobs:
 
       # Deploy the compiled HTML to the Azure Static Web App using the deployment token for authentication
       - name: Deploy to Azure Static Web App
-        run: swa deploy ./out/ --app-name Documentation-${{ needs.Deploy-Metadata.outputs.channel }} --env Production --deployment-token ${{ steps.swaPublishToken.outputs.token }}
+        run: swa deploy ./out/ --app-name Docs-${{ needs.Deploy-Metadata.outputs.channel }} --env Production --deployment-token ${{ steps.swaPublishToken.outputs.token }}
 
       # Ensure that the deployment token is kept a secret and not leaked from this job
       - name: Rotate Deploy Token
-        run: az StaticWebApp secrets reset-api-key --name Documentation-${{ needs.Deploy-Metadata.outputs.channel }}
+        run: az StaticWebApp secrets reset-api-key --name Docs-${{ needs.Deploy-Metadata.outputs.channel }}
 
   Update-RAG:
     # Human friendly display name for the job
