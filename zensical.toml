@@ -327,5 +327,3 @@ description = """
 [project.extra.consent.cookies]
 clarity.name = "Microsoft Clarity"
 clarity.checked = true
-github.name = "GitHub"
-github.checked = true
