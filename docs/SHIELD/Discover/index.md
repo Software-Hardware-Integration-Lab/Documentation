@@ -50,9 +50,20 @@ Please see [Data Gateway Infrastructure](../../Data-Gateway/Architecture/Infrast
 
 ---
 
-### Execution
+### Integration and Execution
 
-Please see the [process flow diagram](./Reference/Architecture/Process-Flow) for more details.
+This diagram outlines the flow of interactions between the SHIELD UI, Microsoft Entra (identity provider), Microsoft Graph API  and the Data Gateway.
+
+!!! info "Requests for specific audience tokens are not shown on this diagram"
+    In reality, before accessing any Azure services, a token is generated, scoped to a specific audience. This is done by making a request to Entra ID and passing the original login token. Entra will then check that the user principle is authorized for access to that particular audience, and if so will generate a scoped token for that access. In the interest of brevity these processes are not shown on this diagram. 
+
+
+![This diagram outlines the flow of interactions between the SHIELD UI, Microsoft Entra (identity provider), Microsoft Graph API  and the Data Gateway. It shows how a user action in a local browser initiates authentication and authorization with Microsoft Entra within the customer tenant context, resulting in access tokens which are used to call the Graph API to perform operations. Key components: SHIELD UI (Local Browser), Microsoft Entra (identity provider handling auth flows),  SHIELD App Service (Customer Tenant), and Graph API (Microsoft Global) and the Data Gateway  (SHI tenant). Relationships: browser triggers Discover process. Authentication with Entra; Entra validates within the customer tenant and issues tokens; Backend uses tokens to call Graph API; Graph API returns data;  Data is updated to data Gateway.](./assets/images/DiscoverIntegration-Light.png#only-light){ loading=lazy }
+![This diagram outlines the flow of interactions between the SHIELD UI, Microsoft Entra (identity provider), Microsoft Graph API  and the Data Gateway. It shows how a user action in a local browser initiates authentication and authorization with Microsoft Entra within the customer tenant context, resulting in access tokens which are used to call the Graph API to perform operations. Key components: SHIELD UI (Local Browser), Microsoft Entra (identity provider handling auth flows),  SHIELD App Service (Customer Tenant), and Graph API (Microsoft Global) and the Data Gateway  (SHI tenant). Relationships: browser triggers Discover process. Authentication with Entra; Entra validates within the customer tenant and issues tokens; Backend uses tokens to call Graph API; Graph API returns data;  Data is updated to data Gateway.](./assets/images/DiscoverIntegration-Dark.png#only-dark){ loading=lazy }
+
+
+
+Please see the internal [process flow diagram](./Reference/Architecture/Process-Flow.md) for more details.
 
 ---
 
