@@ -1,26 +1,26 @@
-# Required Permissions
+# Application Permissions
+
+## Required Permissions
 
 The below permissions are necessary for the operation of this web app.
 
-## End User Permissions
+## User Permissions
 
-The below permissions are required to be assigned to the user that is doing the installation of SHIELD itself.
-The permission(s) are not assigned to the service principal.
+### Install SHIELD
 
 | Permission Name        | What it is used for                                                                                                                                                                           |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Global Administrator` | To use the SHIELD installer link and install SHIELD into the Azure tenant. For more information, see [Setup Steps/Requirements](Installation/#setup-stepsrequirements). |
+| `Global Administrator` | To use the SHIELD installer link and install SHIELD into the Azure tenant. For more information, see [Overview and Installation Requirements](./Installation.md). |
+
+### Run SHIELD Discover Scans
+
+| Permission Name        | What it is used for                                                                                                                                                                           |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Global Administrator` | To run the SHIELD Discover report. |
+| `Global Administrator`, `Security Administrator`, & `User Administrator` | To run the SHIELD Discover Report with least permissions <br> **Note**: All three permissions are required.|
+
 
 ---
-
-## SHIELD's Service Principal
-
-Permissions listed below are assigned directly to the service principal that SHIELD uses to orchestrate/audit.
-
-!!! info
-    A service principal is a non-human user, such as managed identity or app registration. It is highly recommended to use a Managed Identity.
-
-Permissions that can't be self auto granted are automatically granted by SHIELD - Desktop's installer module.
 
 !!! note
     The permission marked with '✅' are assigned by SHIELD to itself. Permissions marked as '❌' have to be assigned by an admin ahead of time.
