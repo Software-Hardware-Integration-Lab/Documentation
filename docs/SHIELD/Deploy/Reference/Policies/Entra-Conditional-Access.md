@@ -29,7 +29,7 @@ Requiring compliant devices ensures that only endpoints with approved configurat
 
 ### Learn More
 
-- [Require device compliance with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-device-compliance){target="_blank"}
+- [Require device compliance with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-device-compliance){:target="_blank"}
 
 ---
 
@@ -57,7 +57,7 @@ Certain countries pose elevated cybersecurity threats due to geopolitical instab
 
 ### Learn More
 
-- [Block access by location](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location){target="_blank"}
+- [Block access by location](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location){:target="_blank"}
 
 ---
 
@@ -86,7 +86,7 @@ MDCA provides visibility into user activity and enforces session-level controls 
 
 ### Learn More
 
-- [Conditional Access app control in Microsoft Defender for Cloud Apps](https://learn.microsoft.com/en-us/defender-cloud-apps/proxy-intro-aad){target="_blank"}
+- [Conditional Access app control in Microsoft Defender for Cloud Apps](https://learn.microsoft.com/en-us/defender-cloud-apps/proxy-intro-aad){:target="_blank"}
 
 ---
 
@@ -114,7 +114,7 @@ Passwords alone are insufficient to protect privileged access. This policy ensur
 
 ### Learn More
 
-- [Require multifactor authentication for all users](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength){target="_blank"}
+- [Require multifactor authentication for all users](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength){:target="_blank"}
 
 ---
 
@@ -148,7 +148,7 @@ This policy enforces strong authentication methods for Entra ID sign-ins, ensuri
 
 ### Learn More
 
-- [Conditional Access authentication strengths](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths){target="_blank"}
+- [Conditional Access authentication strengths](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths){:target="_blank"}
 
 ---
 
@@ -176,7 +176,7 @@ This policy restricts privileged devices to privileged identities only, ensuring
 
 ### Learn More
 
-- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){target="_blank"}
+- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){:target="_blank"}
 
 ---
 
@@ -205,7 +205,7 @@ This policy ensures privileged devices meet Intune compliance requirements befor
 
 ### Learn More
 
-- [Require device compliance with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-device-compliance){target="_blank"}
+- [Require device compliance with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-device-compliance){:target="_blank"}
 
 ---
 
@@ -233,7 +233,7 @@ This policy ensures Conditional Access requirements are never weakened during ou
 
 ### Learn More
 
-- [Conditional Access: Resilience defaults](https://learn.microsoft.com/en-us/entra/identity/conditional-access/resilience-defaults){target="_blank"}
+- [Conditional Access: Resilience defaults](https://learn.microsoft.com/en-us/entra/identity/conditional-access/resilience-defaults){:target="_blank"}
 
 ---
 
@@ -261,7 +261,7 @@ This policy enforces that only approved hardware can access privileged accounts,
 
 ### Learn More
 
-- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){target="_blank"}
+- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){:target="_blank"}
 
 ---
 
@@ -289,7 +289,7 @@ This policy restricts privileged access to Entra ID-joined devices only, ensurin
 
 ### Learn More
 
-- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){target="_blank"}
+- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices){:target="_blank"}
 
 ---
 
@@ -317,7 +317,7 @@ This policy blocks legacy authentication for privileged identities, helping SHIE
 
 ### Learn More
 
-- [Block legacy authentication with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-legacy-authentication){target="_blank"}
+- [Block legacy authentication with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-legacy-authentication){:target="_blank"}
 
 ---
 
@@ -345,7 +345,7 @@ This policy blocks privileged access attempts from high-risk or restricted regio
 
 ### Learn More
 
-- [Block access by location](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location){target="_blank"}
+- [Block access by location](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-by-location){:target="_blank"}
 
 ---
 
@@ -373,7 +373,7 @@ This policy enforces MFA for privileged users, helping SHIELD prevent account co
 
 ### Learn More
 
-- [Require multifactor authentication for all users](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength){target="_blank"}
+- [Require multifactor authentication for all users](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength){:target="_blank"}
 
 ---
 
@@ -401,7 +401,7 @@ This policy restricts privileged access to Windows devices only, enabling SHIELD
 
 ### Learn More
 
-- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices#common-scenarios){target="_blank"}
+- [Conditional Access: Filter for devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices#common-scenarios){:target="_blank"}
 
 ---
 
@@ -429,7 +429,7 @@ This policy requires privileged users to reauthenticate frequently, helping SHIE
 
 ### Learn More
 
-- [Configure adaptive session lifetime policies](https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime){target="_blank"}
+- [Configure adaptive session lifetime policies](https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime){:target="_blank"}
 
 ---
 
@@ -457,7 +457,7 @@ This policy blocks risky sign-ins for privileged users, allowing SHIELD to preve
 
 ### Learn More
 
-- [Require multifactor authentication for elevated sign-in risk](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-risk-based-sign-in){target="_blank"}
+- [Require multifactor authentication for elevated sign-in risk](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-risk-based-sign-in){:target="_blank"}
 
 ---
 
@@ -485,7 +485,7 @@ This policy protects against token theft by binding access tokens to secure sess
 
 ### Learn More
 
-- [Token Protection in Microsoft Entra Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection){target="_blank"}
+- [Token Protection in Microsoft Entra Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection){:target="_blank"}
 
 ---
 
@@ -513,4 +513,4 @@ This policy blocks privileged access for accounts flagged with user risk, helpin
 
 ### Learn More
 
-- [User risk detections](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks#user-risk-detections){target="_blank"}
+- [User risk detections](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks#user-risk-detections){:target="_blank"}

@@ -2,10 +2,10 @@
 
 ## Overview
 
-SHIELD is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted & fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](./).
+SHIELD is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted and fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](./).
 
 !!! info "Security Considerations"
-    While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code & security reviews prior to engagement upon request. Permissions exist for both the user initiating the report and the application itself. Code review is available upon request.
+    While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code and security reviews prior to engagement upon request. Permissions exist for both the user initiating the report and the application itself. Code review is available upon request.
 ---
 
 ## Networking Requirements

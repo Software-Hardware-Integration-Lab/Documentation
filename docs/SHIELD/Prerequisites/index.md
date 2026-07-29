@@ -10,7 +10,7 @@ Before deploying SHIELD or using Discover, ensure your environment meets all lic
 
 | Premium v4 Service Plan | vCPU(s) | RAM | Storage | Pay as you go | 1 year savings plan | 3 year savings plan | 1 year reserved | 3 year reserved |
 |-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|
-| P0v4 | 1 | 4 GB | 250 GB | **53.29**/month | **$36.771**/month ~ 31% savings | **$24.514**/month ~ 54% savings | **$31.420**/month ~ 41% savings | **$20.251**/month ~ 62% savings |
+| P0v4 | 1 | 4 GB | 250 GB | **$53.29**/month | **$36.771**/month ~ 31% savings | **$24.514**/month ~ 54% savings | **$31.420**/month ~ 41% savings | **$20.251**/month ~ 62% savings |
 | P1v4 | 2 | 8 GB | 250 GB | **$106.58**/month | **$73.541**/month ~ 31% savings | **$49.027**/month ~ 54% savings | **$62.919**/month ~ 41% savings | **$40.501**/month ~ 62% savings |
 
 
