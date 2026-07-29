@@ -4,9 +4,9 @@ Before deploying SHIELD or using Discover, ensure your environment meets all lic
 
 ---
 
-# Pricing
+## Pricing
 
-## Azure Cost Estimate Associated (as of 7/28/2026):
+### Azure Cost Estimate Associated (as of 7/28/2026):
 
 | Premium v4 Service Plan | vCPU(s) | RAM | Storage | Pay as you go | 1 year savings plan | 3 year savings plan | 1 year reserved | 3 year reserved |
 |-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|-----------------|-------------------|---------------------|
@@ -16,7 +16,7 @@ Before deploying SHIELD or using Discover, ensure your environment meets all lic
 
 ---
 
-# Network Traffic Inspection
+## Network Traffic Inspection
 
 
 Network traffic inspection must be turned off on the device where SHIELD is being installed. This ensures the installation process proceeds without interruption and prevents any disruption to the application’s functionality. To disable network traffic inspection, reach out to your networking team, security team, or the person in charge of information technology at your organization. Each organization manages its own inspection tools and policies, and there is no universal method.
@@ -24,11 +24,11 @@ Network traffic inspection must be turned off on the device where SHIELD is bein
 
 ---
 
-## SHIELD Core Platform Requirements
+### SHIELD Core Platform Requirements
 
 SHIELD automates secure deployment and lifecycle management using Microsoft 365 and Azure. It requires specific license levels, identity configurations, and Microsoft Defender components.
 
-### Environment Requirements
+#### Environment Requirements
 
 - ✅ Deploying user must have **Global Admin Rights**  
 - ✅ Microsoft Defender for Endpoint must be provisioned. See [Defend Usage Guide](../Defend/Usage-Guide/), under **Defender for Endpoint Workspace Creation**
@@ -37,9 +37,9 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 
 ---
 
-## Data Security
+### Data Security
 
-### SHI Lab Azure Architecture
+#### SHI Lab Azure Architecture
 
 - Regulatory compliance standards: [https://servicetrust.microsoft.com/](https://servicetrust.microsoft.com/){:target="_blank"}
 - Encryption at rest (mandatory)
@@ -64,7 +64,7 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
     - Vulnerability patching done before public announcement of vulnerability
     - Self-healing
 
-### Miscellaneous Considerations
+#### Miscellaneous Considerations
 
 - No customer data is used in any environment except for production
 - Environment is only production only, reducing surface area of attack
@@ -79,9 +79,9 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 
 ---
 
-## Data Structure
+### Data Structure
 
-### High-level Data Flow Diagram
+#### High-level Data Flow Diagram
 
 SHIELD: Discover does not collect Personally Identifiable Information (PII) or similar data – it is only focused on the scope of configurations within the Microsoft security stack, and not on any private employee or customer data. Specifics on what data collected is listed in the next section.
 As a self-hosted application, data collected lives in the customer environment until it is anonymized and sent to SHIELD's database via the Data Gateway. The Data Gateway structure is available to review upon request.
@@ -111,7 +111,7 @@ SHIELD Discover collects the following data:
 - Tenant ID
 - Principal ID that saved the report
 - Principal ID that ran the report
-- Principle Object ID
+- Principal Object ID
     - Assigned License – The Service Plan IDs of the license(s) that are assigned (direct or indirect) to the specific principal
     - Assigned Services – The service configuration assignment determining 'benefitting' from a service. This includes the service configuration type if possible (feature, such as 'Conditional Access,' a service within the Entra ID license)
     - Consumed Services – Usage telemetry retrieved to indicate if the specific principal is consuming/using the service, regardless of license status
@@ -120,7 +120,7 @@ For a complete look at the Data Structure, please refer to the [Data Gateway API
 
 ---
 
-### Licensing Requirements by Mode
+#### Licensing Requirements by Mode
 
 SHIELD uses `M3` and `M5` to refer to Microsoft 365 license families, abstracting E3/E5 and similar plans.
 
@@ -132,7 +132,7 @@ SHIELD uses `M3` and `M5` to refer to Microsoft 365 license families, abstractin
 
 ---
 
-## Discover System Requirements
+### Discover System Requirements
 
 Discover is a component of SHIELD that audits licensing configuration, queries Microsoft APIs, and stores analysis in SHI - Data Gateway. The following setup is required.
 
@@ -141,7 +141,7 @@ Discover is a component of SHIELD that audits licensing configuration, queries M
 
 ---
 
-### Entra ID Role Permissions
+#### Entra ID Role Permissions
 
 Discover uses read-only Entra ID roles for configuration queries. These permissions are scoped with the principle of least privilege.
 

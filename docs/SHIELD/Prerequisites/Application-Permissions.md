@@ -23,7 +23,7 @@ The below permissions are necessary for the operation of this web app.
 ---
 
 !!! note
-    The permission marked with '✅' are assigned by SHIELD to itself. Permissions marked as '❌' have to be assigned by an admin ahead of time.
+    Permissions marked with '✅' are assigned by SHIELD to itself. Permissions marked as '❌' have to be assigned by an admin ahead of time.
 
 ### Entra ID Role Assignments
 

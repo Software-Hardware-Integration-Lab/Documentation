@@ -2,7 +2,7 @@
 
 ## Overview
 
-SHIELD is a self-hosted application that exists in the customer tenant on an Azure App Service, collecting and processing the requisite data only within the customer tenant before provided abstracted and fully anonymized data results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](./).
+SHIELD is a self-hosted application deployed in a customer’s Azure App Service tenant. SHIELD collects and processes all necessary data exclusively within the customer’s environment, then returns only abstracted and fully anonymized results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](/SHIELD/Prerequisites).
 
 !!! info "Security Considerations"
     While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code and security reviews prior to engagement upon request. Permissions exist for both the user initiating the report and the application itself. Code review is available upon request.
@@ -10,9 +10,9 @@ SHIELD is a self-hosted application that exists in the customer tenant on an Azu
 
 ## Networking Requirements
 
-For a smooth installation, network traffic inspection must be disabled on the device installing SHIELD. If inspection is enabled, Microsoft will drop the traffic, and SHIELD will not function properly. This includes tools like tools like Palo, Zscaler, or nginx (caching). Traffic inspection must be excluded from network inspection according to Microsoft's terms and conditions. For more information, see [Microsoft Documentation](http://aka.ms/pnc){:target="_blank"}.
+For a smooth installation, network traffic inspection must be disabled on the device installing SHIELD. If inspection is enabled, Microsoft will drop the traffic, and SHIELD will not function properly. This includes tools like Palo, Zscaler, or nginx (caching). Traffic inspection must be excluded from network inspection according to Microsoft's terms and conditions. For more information, see [Microsoft Documentation](http://aka.ms/pnc){:target="_blank"}.
 
-If you require assistance, please reach out to your networking team, security team, or the person in charge of information technology at your organization. For more information about traffic inspection, see [Network Traffic Inspection](./Network-Traffic-Inspection.md). 
+If you require assistance, please reach out to your networking team, security team, or the person in charge of information technology at your organization. For more information about traffic inspection, see [Network Traffic Inspection](./Network-Traffic-Inspection).
 
 - Add the following network endpoints to the inspection exclusion list:
     - `https://api.shilab.com`
@@ -33,7 +33,7 @@ If you require assistance, please reach out to your networking team, security te
 
 1. Create a new Azure subscription dedicated to SHIELD (recommended for isolation).
 2. You must have:
-    - **Global Administrator** or **Privileged Role Administrator** (to grant Microsoft Graph application permissions via admin consent). For more information about permissions, see [Application Permissions](./Application-Permissions.md).
+    - **Global Administrator** or **Privileged Role Administrator** (to grant Microsoft Graph application permissions via admin consent). For more information about permissions, see [Application Permissions](./Application-Permissions).
     - `Owner` on the Azure subscription (to deploy resources)
 3. If you haven't already done so, turn off network traffic inspection on the device installing SHIELD, so there are no interruptions during installation. If you require assistance with this step, please see [Networking Requirements](#networking-requirements) above.
 4.  Run the installer to set up SHIELD automatically using the following link: [https://url.shilab.com/shield-install](https://url.shilab.com/shield-install)
