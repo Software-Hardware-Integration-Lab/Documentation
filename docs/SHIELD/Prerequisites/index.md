@@ -6,7 +6,7 @@ Before deploying SHIELD or using Discover, ensure your environment meets all lic
 
 ## Pricing
 
-### Azure Cost Estimate Associated (as of 7/28/2026):
+### Azure Cost Estimate Associated (as of 7/28/2026)
 
 | User Count     | Premium v4 Service Plan | vCPU(s) | RAM  | Storage | Pay as you go     | 1 year savings plan             | 3 year savings plan             | 1 year reserved                 | 3 year reserved                 |
 | -------------- | ----------------------- | ------- | ---- | ------- | ----------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
@@ -38,22 +38,22 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 
 #### SHI Lab Azure Architecture
 
--   Regulatory compliance standards: [https://servicetrust.microsoft.com/](https://servicetrust.microsoft.com/){:target="_blank"}
--   Encryption at rest (mandatory)
--   Encryption in transit (mandatory)
+- Regulatory compliance standards: [https://servicetrust.microsoft.com/](https://servicetrust.microsoft.com/){:target="_blank"}
+- Encryption at rest (mandatory)
+- Encryption in transit (mandatory)
     - Quantum resistant algorithms only
     - Latest TLS version for resource only
--   CRUD Audit
+- CRUD Audit
     - SQL Audit is enabled too
--   Access Audit (Mandatory)
--   Full micro-segmentation (address/port enforcement for all resources)
--   Data-store behind API, no internet access
--   SSO Access Only (no cred vaulting workarounds, pure modern SSO, credential-less only)
--   MFA for all authentication is mandatory
--   Human-free production-only design
+- Access Audit (Mandatory)
+- Full micro-segmentation (address/port enforcement for all resources)
+- Data-store behind API, no internet access
+- SSO Access Only (no cred vaulting workarounds, pure modern SSO, credential-less only)
+- MFA for all authentication is mandatory
+- Human-free production-only design
     - Access to the Production environment is limited to only highly critical incidents.
--   Debug access is severely limited
--   No Operating Systems
+- Debug access is severely limited
+- No Operating Systems
     - Pure Serverless
     - Always up to date
     - No custom execution except for designed workload (no viruses possible)
@@ -63,16 +63,16 @@ SHIELD automates secure deployment and lifecycle management using Microsoft 365 
 
 #### Miscellaneous Considerations
 
--   No customer data is used in any environment except for production
--   Environment is only production only, reducing surface area of attack
+- No customer data is used in any environment except for production
+- Environment is only production only, reducing surface area of attack
     - No dev or test environments
     - Prod only via ring deployment and feature flags
--   All tooling can run locally so that no production access is required for testing, development and debugging
--   No on-premise systems, all resources are cloud only including end user compute/systems
--   Hardware supply chain is strictly enforced
--   Surface devices are only allowed at all levels of end user compute
--   Firmware credentials are set to cert auth on all endpoints
--   Device source code available for review: [https://microsoft.github.io/mu/](https://microsoft.github.io/mu/){:target="_blank"}
+- All tooling can run locally so that no production access is required for testing, development and debugging
+- No on-premise systems, all resources are cloud only including end user compute/systems
+- Hardware supply chain is strictly enforced
+- Surface devices are only allowed at all levels of end user compute
+- Firmware credentials are set to cert auth on all endpoints
+- Device source code available for review: [https://microsoft.github.io/mu/](https://microsoft.github.io/mu/){:target="_blank"}
 
 ---
 
@@ -105,10 +105,10 @@ serviceConfiguration-->|Object IDs with associated Scopes reported to Data Gatew
 
 SHIELD Discover collects the following data:
 
--   Tenant ID
--   Principal ID that saved the report
--   Principal ID that ran the report
--   Principal Object ID
+- Tenant ID
+- Principal ID that saved the report
+- Principal ID that ran the report
+- Principal Object ID
     - Assigned License – The Service Plan IDs of the license(s) that are assigned (direct or indirect) to the specific principal
     - Assigned Services – The service configuration assignment determining 'benefitting' from a service. This includes the service configuration type if possible (feature, such as 'Conditional Access,' a service within the Entra ID license)
     - Consumed Services – Usage telemetry retrieved to indicate if the specific principal is consuming/using the service, regardless of license status
@@ -164,4 +164,4 @@ docs\SHIELD\Reference\Plugins\DefenderEndpoint
 ## Related Pages
 
 - 📄 [Hardware Requirements](../Defend/Reference/Hardware-Selection)  
-- 📄 [Deployment Guide](../Getting-Started)  
+- 📄 [Overview and Installation Requirements](/SHIELD/Prerequisites/Installation/)

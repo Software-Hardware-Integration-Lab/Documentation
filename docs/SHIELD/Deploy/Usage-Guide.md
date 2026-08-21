@@ -81,6 +81,6 @@ Once core deployment is complete, your SHIELD UI will provide management cards f
 
 - [Architectural Analysis Overview](../../SHIELD/Reference/Architecture/Architectural-Analysis-Overview)
 - [Deploy Overview](/SHIELD/Deploy/)
-- [Deployment Guide](../Getting-Started)
+- [Overview and Installation Requirements](../Prerequisites/Installation/)
 - [Reference Docs](Reference/)
 - [Troubleshooting](Troubleshooting)

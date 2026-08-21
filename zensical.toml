@@ -131,6 +131,9 @@ nav = [
     ]},
     { "Troubleshooting" = "Data-Gateway/Troubleshooting.md" }
   ]},
+    { "Microsoft Insights" = [
+        { "Usage Guide" = "Microsoft-Insights/Usage-Guide.md" }
+    ]},
   { "URL Shortener" = [
     { "Overview" = "URL-Shortener/index.md" },
     { "Prerequisites" = [
@@ -203,6 +206,7 @@ custom_checkbox = true
 # Add support for custom content highlighting
 [project.markdown_extensions.pymdownx.caret]
 [project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.critic]
 [project.markdown_extensions.pymdownx.tilde]
 
 # Enable admonition support
