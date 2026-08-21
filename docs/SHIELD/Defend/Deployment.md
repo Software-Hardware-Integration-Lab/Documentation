@@ -56,4 +56,4 @@ To use Defend, the following must already be deployed:
 - [Defend Usage Guide](Usage-Guide/)
 - [Defend Reference](Reference/)
 - [Troubleshooting](Troubleshooting)
-- [SHIELD Platform Deployment](../Getting-Started)
+- [Overview and Installation Requirements](../Prerequisites/Installation)
