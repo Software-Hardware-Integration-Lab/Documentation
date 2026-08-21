@@ -29,9 +29,7 @@ flowchart TD
 <br>
 <br>
 
-SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more. 
-
-
+SHIELD's Deploy module provides the foundation for a secure environment using Microsoft's **Securing Privileged Access (SPA)** architecture. This module automates the provisioning of security-critical components such as identity boundaries, privileged access zones, Conditional Access policies, and more.
 
 ## What Is SPA?
 
@@ -103,7 +101,7 @@ By centralizing and automating the deployment of SPA, the Deploy module:
 
 ## Related Pages
 
-- [Deployment Guide](../Getting-Started)
+- [Overview and Installation Requirements](../Prerequisites/Installation)
 - [Deploy Usage Guide](Usage-Guide)
 - [Deploy Reference](Reference/)
 - [Troubleshooting Deploy Module](Troubleshooting)

@@ -74,4 +74,4 @@ These cannot be renamed or deleted through the SHIELD UI.
 - [Deploy Usage Guide](../Usage-Guide)
 - [Reference Docs](../Reference/)
 - [Troubleshooting](../Troubleshooting)
-- [Full SHIELD Deployment](../../Getting-Started)
+- [Overview and Installation Requirements](../../Prerequisites/Installation/)

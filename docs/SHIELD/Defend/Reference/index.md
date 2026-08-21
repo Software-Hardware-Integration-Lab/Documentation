@@ -82,7 +82,7 @@ Each SHIELD lifecycle action is mapped to a standardized backend workflow. The f
 
 A dedicated section for advanced Privileged workflows, including intermediary logic and RBAC extensions, will be added in a future release.
 
-📄 Placeholder: [Privileged Device Workflows](./Lifecycle/Privileged Device Workflows)
+📄 Placeholder: Privileged Device Workflows (coming soon)
 
 ---
 
