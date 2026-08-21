@@ -164,4 +164,4 @@ docs\SHIELD\Reference\Plugins\DefenderEndpoint
 ## Related Pages
 
 - 📄 [Hardware Requirements](../Defend/Reference/Hardware-Selection)  
-- 📄 [Overview and Installation Requirements]v
+- 📄 [Overview and Installation Requirements](/SHIELD/Prerequisites/Installation/)

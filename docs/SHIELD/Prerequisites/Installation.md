@@ -21,7 +21,6 @@ Every organization uses different equipment and processes, so the steps to disab
 
 - If you’re not sure how to disable network traffic inspection, please contact your networking team, security team, or the person in charge of information technology at your organization.
 - You can also share the following network endpoints with your networking team to have the addresses excluded from inspection:
-Add the following network endpoints to the inspection exclusion list
     - `https://api.shilab.com`
     - `https://url.shilab.com`
     - `https://*.azurewebsites.net` - *Your specific deployment URL (generated after deployment)*
@@ -74,7 +73,7 @@ The user installing SHIELD must be a **Global Administrator** in order to grant 
 
 ### Azure Subscription Owner
 
-Make sure the user installing SHIELD is the the **Owner** on the Azure subscription in order to deploy resources.
+Make sure the user installing SHIELD is the **Owner** on the Azure subscription in order to deploy resources.
 
 1. Sign in to your Azure portal.
     - **Enterprise**: [https://portal.azure.com/](https://portal.azure.com/){:target="_blank"}

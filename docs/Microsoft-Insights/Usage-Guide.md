@@ -5,8 +5,8 @@
 
 ## Overview
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-overview-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-overview-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-overview-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-overview-dark.png#only-dark){ loading=lazy }
 
 The integration between SHI One and Microsoft gives you incredible visibility into your tenant. The platform displays numerous metrics and advanced insights, all in one place. The insights tell you what users are actively using, what is being consumed, and what service plans are enabled in your environment. To put it simply, this report is designed to guide you in answering:
 
@@ -22,7 +22,7 @@ The integration between SHI One and Microsoft gives you incredible visibility in
 ## Benefits
 
 - **Complete Visibility and Control** - Gain a comprehensive view of which features are being used by users, administrators and systems. Instantly identify what licenses and capabilities your organization owns and see exactly how they are being consumed.
-- **Proactive Compliance and Risk Management** - Easily sport discrepancies between assigned, consumed, and purchased licenses. Microsoft Insights helps you quickly detect over-consumption, reducing compliance and financial risks by revealing when usage exceeds entitlements.
+- **Proactive Compliance and Risk Management** - Easily spot discrepancies between assigned, consumed, and purchased licenses. Microsoft Insights helps you quickly detect over-consumption, reducing compliance and financial risks by revealing when usage exceeds entitlements.
 - **Actionable Usage Intelligence** - Track user assignments, monitor feature adoption, and unlock detailed consumption patterns. This gives you the ability to optimize license allocation, address gaps, and make informed decisions to maximize your Microsoft investment.
 
 ---
@@ -38,8 +38,8 @@ The integration between SHI One and Microsoft gives you incredible visibility in
 
 ## Top Level Metrics
 
-![Top Level Metrics - Light](../.../../assets/Images/Screenshots/MI-top-level-metrics-light.png#only-light){ loading=lazy }
-![Top Level Metrics - Dark](../.../../assets/Images/Screenshots/MI-top-level-metrics-dark.png#only-dark){ loading=lazy }
+![Top Level Metrics - Light](../assets/Images/Screenshots/MI-top-level-metrics-light.png#only-light){ loading=lazy }
+![Top Level Metrics - Dark](../assets/Images/Screenshots/MI-top-level-metrics-dark.png#only-dark){ loading=lazy }
 
 The featured metrics at the top display common subscriptions along with the monthly active users (MAU), assigned licenses, and purchase licenses. The top-level metrics give you immediate insights into the most common Microsoft service plans. By comparing the number of monthly active users and assigned licenses to the number of purchased licenses, you can easily see if your organization is compliant or not.
 
@@ -58,8 +58,8 @@ In the screenshot above, Microsoft 365 E5 has **341** monthly active users, is a
 
 ### Filters
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-filter-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-filter-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-filter-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-filter-dark.png#only-dark){ loading=lazy }
 
 The filters at the top of the individual reports allow you to filter users by license. By default, the report will be filtered to **All Users**, but you can click on the drop-down menu and select any service plan that appears, even **Unassigned** users.
 Filters can help you quickly answer questions like:
@@ -69,8 +69,8 @@ Filters can help you quickly answer questions like:
 
 ### Columns
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-columns-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-columns-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-columns-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-columns-dark.png#only-dark){ loading=lazy }
 
 The reports section breaks down each capability tier into a single column. Each column has its own set of feature groups, along with the associated features. Some examples include:
 
@@ -119,16 +119,16 @@ In this example, the organization is overconsuming the **Identity Theft Protecti
 
 A warning appears when you have more users using a feature than the number of licenses you have purchased. In these situations, we recommend reaching out to your SHI representative, who will be able to assist you.
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-warning-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-warning-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-warning-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-warning-dark.png#only-dark){ loading=lazy }
 
 !!! info
     Sometimes, you might notice that the number of monthly active users is higher than the number of users "in scope." This is not an error; it's simply a result of how Microsoft calculates and reports these metrics.
 
 ### License Types
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-license-type-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-license-type-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-license-type-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-license-type-dark.png#only-dark){ loading=lazy }
 
 You can drill further into each feature to see the associated license type by clicking on the feature. This section shows you what license type is consuming the feature.
 
@@ -165,8 +165,8 @@ In total, the feature is being used on **1,180** devices, but the organization h
 
 Microsoft Insights considers a feature in use when a qualifying activity is detected within the selected reporting period. Activity is categorized into one of three usage types; **System**, **User**, and **Admin**:
 
-![Microsoft Insights Overview - Light](../.../../assets/Images/Screenshots/MI-system-user-admin-light.png#only-light){ loading=lazy }
-![Microsoft Insights Overview - Dark](../.../../assets/Images/Screenshots/MI-system-user-admin-dark.png#only-dark){ loading=lazy }
+![Microsoft Insights Overview - Light](../assets/Images/Screenshots/MI-system-user-admin-light.png#only-light){ loading=lazy }
+![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-system-user-admin-dark.png#only-dark){ loading=lazy }
 
 1. **System (S)** - Automatically generated by Microsoft.
     - **Examples**: Policy Checks, Compliance, Security Monitoring, etc.
@@ -218,8 +218,7 @@ If data is not available in the platform or certain columns are grayed out, it i
 - **Return on Investment (ROI)** - A performance metric used to evaluate an investment.
 - **In Scope** - Users who have the service plan enabled in their license profile.
 - **Assigned** - The number of licenses that are assigned to an endpoint.
-- **Purchased** - The number of licenses owned.
-- **The number of licenses that have been purchased by your organization.**
+- **Purchased** - The number of licenses owned by your organization.
 - **In Use** - Qualifying activities are detected within the selected reporting period.
 - **System-Driven** - Automatically generated by Microsoft.
 - **User-Driven** - Activity created by users interactive with Microsoft features.
