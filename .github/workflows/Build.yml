@@ -29,7 +29,7 @@ jobs:
         steps:
             # Download the markdown and supporting files
             - name: Checkout Files from Repo
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
 
             # Upload a copy of the static pages
             - name: Setup Python
