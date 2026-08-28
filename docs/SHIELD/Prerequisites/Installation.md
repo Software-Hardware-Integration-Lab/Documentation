@@ -10,39 +10,6 @@ SHIELD is a self-hosted application deployed in a customer’s Azure App Service
 
 ---
 
-## Installation Video
-
-<video id="shield-installation-video" controls width="720" muted playsinline preload="metadata">
-  <source src="../../assets/Videos/shield_installation.mp4" type="video/mp4">
-  <track kind="chapters" src="../../assets/Videos/shield_installation-chapters.vtt" srclang="en" label="Chapters" default>
-  Your browser does not support the video tag.
-</video>
-
-<!-- Chapter list doubles as clickable seek links since chapter UI isn't supported by all browsers -->
-
-<!-- Buttons (not <a> tags) are required so the theme's instant-navigation link handler doesn't intercept the click -->
-
-<ul id="shield-installation-chapters">
-  <li><button type="button" data-time="5" style="background:none;border:none;padding:0;color:var(--md-typeset-a-color,#4051b5);text-decoration:underline;cursor:pointer;font:inherit;">00:05 &ndash; Complete Prerequisites</button></li>
-  <li><button type="button" data-time="78" style="background:none;border:none;padding:0;color:var(--md-typeset-a-color,#4051b5);text-decoration:underline;cursor:pointer;font:inherit;">01:18 &ndash; Install SHIELD Desktop Application</button></li>
-  <li><button type="button" data-time="180" style="background:none;border:none;padding:0;color:var(--md-typeset-a-color,#4051b5);text-decoration:underline;cursor:pointer;font:inherit;">03:00 &ndash; Setup SHIELD</button></li>
-  <li><button type="button" data-time="390" style="background:none;border:none;padding:0;color:var(--md-typeset-a-color,#4051b5);text-decoration:underline;cursor:pointer;font:inherit;">06:30 &ndash; Assign Permissions in Entra</button></li>
-  <li><button type="button" data-time="585" style="background:none;border:none;padding:0;color:var(--md-typeset-a-color,#4051b5);text-decoration:underline;cursor:pointer;font:inherit;">09:45 &ndash; Kick off Data Collection</button></li>
-</ul>
-
-<script>
-  document.querySelectorAll('#shield-installation-chapters button').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-      event.preventDefault();
-      var video = document.getElementById('shield-installation-video');
-      video.currentTime = Number(link.dataset.time);
-      video.play();
-    });
-  });
-</script>
-
----
-
 ## Installation Prerequisites
 
 ### Disable Network Traffic Inspection
