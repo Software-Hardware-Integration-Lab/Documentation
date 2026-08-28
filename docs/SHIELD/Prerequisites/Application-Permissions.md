@@ -109,7 +109,7 @@ Coming Soon!
 
 Coming Soon!
 
-## `Grant-MIGraphPermission` Usage
+## Grant-MIGraphPermission Usage
 
 The Grant MI Graph Permission PowerShell script is an easy way to bulk apply permissions to managed identities using either the command line or a graphical picker.
 You can find the script here at the [PowerShell gallery](https://www.powershellgallery.com/packages/Grant-MIGraphPermission).
