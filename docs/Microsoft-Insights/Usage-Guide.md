@@ -1,6 +1,7 @@
 # Microsoft Insights Usage Guide
 
 !!! note
+
     This article has recently been published and is subject to change.
 
 ## Overview
@@ -15,6 +16,7 @@ The integration between SHI One and Microsoft gives you incredible visibility in
 - **What do I do with this information?**
 
 !!! info
+
     The data found in this report is populated from SHIELD. Data will not be available unless you have deployed SHIELD into your environment. For instructions on how to install SHIELD, see [Overview and Installation Requirements](/SHIELD/Prerequisites/Installation). For more information about SHIELD, see [SHI Environment Lockdown and Defense (SHIELD)](https://www.shi.com/it-lifecycle-services/software-lifecycle-management/shield){:target="_blank"}.
 
 ---
@@ -87,14 +89,13 @@ Next to each feature you will see summary of the feature in your environment. Th
 - **MAU (Monthly Active Users)** - Users who actively use the service within the monthly period.
 - **In Scope** - Users who have the service plan enabled in their license profile.
 - **Purchased** - The number of licenses that have been purchased by your organization.
+
 To understand this information, consider the following two examples:
 
 **Example 1: Endpoint Detection & Response Feature Usage**
 
-- Endpoint Detection & Response
-    - MAU: **134**
-    - IN SCOPE: **152**
-    - PURCHASED: **210**
+![Example 1 - Endpoint detection & response - 134/152/210 - Light](../assets/Images/Screenshots/example-1-endpoint-detection-and-response-light.png#only-light){ loading=lazy }
+![Example 1 - Endpoint detection & response - 134/152/210 - Dark](../assets/Images/Screenshots/example-1-endpoint-detection-and-response-dark.png#only-dark){ loading=lazy }
 
 - **Purchased Licenses**: The organization owns **210** licenses for the **Endpoint Detection & Response** feature.
 - **Endpoints Enabled**: This feature has been enabled on **152** devices or endpoints.
@@ -104,10 +105,8 @@ In this example, the organization is not overconsuming the **Endpoint Detection 
 
 **Example 2: Identity Theft Protection Feature Usage**
 
-- Identity Theft Protection
-    - MAU: **220**
-    - IN SCOPE: **275**
-    - PURCHASED: **210**
+![Example 2 - Identity Theft Protection - 220/275/210 - Light](../assets/Images/Screenshots/example-2-identity-theft-protection-light.png#only-light){ loading=lazy }
+![Example 2 - Identity Theft Protection - 220/275/210 - Dark](../assets/Images/Screenshots/example-2-identity-theft-protection-dark.png#only-dark){ loading=lazy }
 
 - **Purchased Licenses**: The organization owns **210** licenses for the **Identity Theft Protection** feature.
 - **Endpoints Enabled**: The feature has been enabled on **275** devices or endpoints.
@@ -123,6 +122,7 @@ A warning appears when you have more users using a feature than the number of li
 ![Microsoft Insights Overview - Dark](../assets/Images/Screenshots/MI-warning-dark.png#only-dark){ loading=lazy }
 
 !!! info
+
     Sometimes, you might notice that the number of monthly active users is higher than the number of users "in scope." This is not an error; it's simply a result of how Microsoft calculates and reports these metrics.
 
 ### License Types
@@ -159,6 +159,7 @@ In total, the feature is being used on **1,180** devices, but the organization h
 2. **Reduce the number of devices** using the feature to match the number of licenses owned
 
 !!! note
+
     Not every feature displays the associated license type. However, you will still be able to see monthly active users (**MAU**), the number of endpoints with the feature enabled (**In scope**), the number of licenses owned (**Purchased**).
 
 ### Activity
