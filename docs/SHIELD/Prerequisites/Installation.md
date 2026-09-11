@@ -1,12 +1,22 @@
 # Overview and Installation Requirements
 
+!!! note "Microsoft Insights"
+
+    SHIELD is the data collection and processing layer that powers Microsoft Insights. If your organization plans to use Microsoft Insights, SHIELD must be installed and configured in your Azure environment using this installation guide. If you need help at any point, contact your IT or cloud team, or reach out to your SHI representative. For more details, see [Microsoft Insights](../../Microsoft-Insights/Usage-Guide/).
+
 ## Overview
 
-SHIELD is a self-hosted application deployed in a customer’s Azure App Service tenant. SHIELD collects and processes all necessary data exclusively within the customer’s environment, then returns only abstracted and fully anonymized results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](/SHIELD/Prerequisites).
+SHIELD is a self-hosted application deployed in a customer’s Azure App Service tenant. SHIELD collects and processes all necessary data exclusively within the customer’s environment, then returns only abstracted and fully anonymized results back to SHI for reporting. All requirements can be set up by the delivery team or customer prior to engagement. This guide explains how to install the SHIELD - Desktop application and run your first scan. For more information about requirements, pricing, and more, see [Prerequisites](/SHIELD/Prerequisites/).
 
 !!! info "Security Considerations"
 
     While this application requires sensitive permissions to conduct the automated scan, by self-hosting the application, SHI does not represent a supply chain risk or path to compromise a customer environment via the SHIELD platform, as there is no control maintained beyond the initial point of installation. All code being run to conduct the automated discovery is available for code and security reviews prior to engagement upon request. Permissions exist for both the user initiating the report and the application itself. Code review is available upon request.
+
+---
+
+## Installation Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JEQB7EC4RTM?si=lOd7h6WeIrSfhUXx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -153,7 +163,7 @@ Make sure the user installing SHIELD is the **Owner** on the Azure subscription 
 4.  Click **SHIELD**.
 5.  Click on the App Service that starts with "shield-xxxxxxxxx" (the x's are a random set of lower-case letters and numbers).
     -   **Deactivate Health Check (One time only)**
-        1. Click on the link next **Health Check**.
+        1. Click on the link next to **Health Check**.
         2. Uncheck the box next to **Health check** and click **Apply**.
         3. Click **Save**.
 6.  Click **Overview** in the left navigation bar.
@@ -161,7 +171,6 @@ Make sure the user installing SHIELD is the **Owner** on the Azure subscription 
     - **Example**: shield-xxxxxx-xxxxxxxx.eastus-01.azurewebsites.net
 8.  Log in to the SHIELD web instance with the account that has the necessary Azure permissions.
 9.  Click on **Discover Module**.
-10. Click **Start Authentication Sync**. Then click **Start Report Collection** to start scanning the tenant environment.
-11. During the first scan, SHIELD - Desktop will open and request account credentials multiple times. Log in each time as required. You will also need to accept each set of permissions.
-12. Once the scan is complete, reports are available on the SHIELD web instance.
+10. Click **Start Report Collection** to start scanning the tenant environment.
+11. Once the scan is complete, reports are available on the SHIELD web instance.
     1. Click **Discover** in the left navigation pane and click **Overview**.
