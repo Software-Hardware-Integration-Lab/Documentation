@@ -2,6 +2,9 @@
 
 This guide explains how to fully decommission SHIELD to stop accruing the associated costs. The process involves three steps and an optional step to uninstall SHIELD Desktop. Once you're finished, validate that all the applications and groups have been removed.
 
+!!! note
+
+      To remove Entra groups, Intune scope tags, and Conditional Access policies created by SHIELD, see the SHIELD Deploy [Uninstall Procedure](../Deploy/Reference/Uninstall#uninstall-procedure).
 ---
 
 ## Step 1: Delete the Azure Resource Group Used for SHIELD
@@ -45,8 +48,8 @@ After Azure resources are removed, you will need to remove a few identity object
 2. Navigate to **Enterprise apps** in the navigation bar.
 3. Click on the name of the application you wish to delete. You can use the search bar if needed. You will need to delete the following applications:
       - **SHIELD - End User Login**
-      - **SHIELD - Data Gateway**
       - **SHIELD - Desktop**
+      - **SHI - Data Gateway**
 4. Click **Properties** in the left navigation bar.
 5. Click the **Delete** button at the bottom and proceed with the deletion process.
 6. Repeat steps 2-5 until you have deleted all the applications.

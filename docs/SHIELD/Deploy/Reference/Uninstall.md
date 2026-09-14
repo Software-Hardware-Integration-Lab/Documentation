@@ -24,7 +24,7 @@ The SHIELD platform uses multiple Microsoft 365 services to create configuration
 
 2. **Download the uninstall script**:
 
-📥 [Uninstall-ShieldArchitecture.ps1](../Scripts/Uninstall-ShieldArchitecture.ps1)
+📥 [Uninstall-ShieldArchitecture.ps1](../../Scripts/Uninstall-ShieldArchitecture.ps1)
 
 1. **Remove all Microsoft.Graph modules** to prevent version conflicts:
 
@@ -73,7 +73,7 @@ Yes. SHIELD can be redeployed using the same app interface or script, as long as
 
 ## Related Pages
 
-- [Deploy Overview](../Deploy/)
-- [Deploy Usage Guide](../Deploy/Usage-Guide)
-- [Deployment](../Deploy/Deployment/)
-- [Deploy Reference](../Deploy/Reference/)
+- [Deploy Overview](../../Deploy/)
+- [Deploy Usage Guide](../../Deploy/Usage-Guide)
+- [Deployment](../../Deploy/Deployment/)
+- [Deploy Reference](../../Deploy/Reference/)
