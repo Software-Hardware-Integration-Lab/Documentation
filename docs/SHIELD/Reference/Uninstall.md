@@ -1,76 +1,76 @@
-# Uninstall
+# How to Uninstall SHIELD
 
-This section covers how to uninstall or reset SHIELD's Deploy module infrastructure and outlines common considerations for support and recovery scenarios.
-
----
-
-## Uninstalling SHIELD Deploy Infrastructure
-
-The SHIELD platform uses multiple Microsoft 365 services to create configuration components. Removing these components manually is complex and can break your tenant setup. Use the provided uninstall script only if directed by SHI support.
-
-!!! danger "Data Loss Warning"
-    If you uninstall the architecture, **you will clear out any managed objects and configurations** deployed by the Deploy module. This procedure should only be followed if SHI explicitly instructs you to do so.
-
-!!! note "Stateless Server Reminder"
-    SHIELD's application server is stateless. You can safely redeploy the app after cleanup without losing data stored in the Microsoft cloud (e.g., Intune tags, Entra groups).
-
----
-
-## Uninstall Procedure
-
-1. **Stop the SHIELD server** to prevent regeneration of infrastructure during cleanup.
-
-2. **Download the uninstall script**:
-
-   📥 [Uninstall-ShieldArchitecture.ps1](../Scripts/Uninstall-ShieldArchitecture.ps1)
-
-3. **Remove all Microsoft.Graph modules** to prevent version conflicts:
-
-   ```powershell
-   Get-Module -Name '*Microsoft.Graph*' -ListAvailable | Uninstall-Module
-   ```
+This guide explains how to fully decommission SHIELD to stop accruing the associated costs. The process involves three steps and an optional step to uninstall SHIELD Desktop. Once you're finished, validate that all the applications and groups have been removed.
 
 !!! note
-        You may have to run the above command twice because the order of operations tries to uninstall a dependency first rather than last. Running it the second time will remove the remaining dependency.
 
-1. **Install the correct version of Microsoft Graph Beta modules**:
+      To remove Entra groups, Intune scope tags, and Conditional Access policies created by SHIELD, see the SHIELD Deploy [Uninstall Procedure](../Deploy/Reference/Uninstall#uninstall-procedure).
+---
 
-   ```powershell
-   Install-Module -Name 'Microsoft.Graph.Beta' -RequiredVersion '2.1.0' -Scope 'AllUsers'
-   ```
+## Step 1: Delete the Azure Resource Group Used for SHIELD
 
-2. **Run the uninstall script** to remove SHIELD-deployed infrastructure.
+The first decommissioning step is to remove the Azure Resource Group associated with SHIELD.
 
-   The script is designed to remove:
-   - Entra ID groups and admin units
-   - Intune scope tags
-   - Conditional Access policies created by SHIELD
+1. Sign in to your Azure portal.
+      - **Enterprise**: [https://portal.azure.com/](https://portal.azure.com/){:target="_blank"}
+      - **Government**: [https://portal.azure.us/](https://portal.azure.us/){:target="_blank"}
+2. Navigate to Subscriptions and select the subscription dedicated to SHIELD.
+3. Click **Resource groups** in the left navigation bar.
+4. Click on the Azure Resource group created for SHIELD (e.g., **SHIELD**).
+5. Click **Delete resource group** at the top of the table and proceed with the deletion process.
 
-   It does **not** delete data outside the SHIELD-deployed infrastructure.
+**This removes**:
+
+- The **SHIELD Azure App Service** (web app)
+- Associated storage, compute, and networking resources
 
 ---
 
-## FAQs & Recovery Notes
+## Step 2: Cancel the Azure Subscription
 
-### What if the uninstall script fails?
+Once the resource group is removed, the next step is to remove the Azure subscription used for SHIELD. If SHIELD was deployed in its own dedicated Azure subscription, you can go ahead and remove it. If it is running in a shared subscription, this step can be skipped.
 
-Try re-running the script. It is designed to be idempotent and will retry safely. Make sure you have proper permissions and the correct PowerShell modules installed.
-
-### Can I re-deploy SHIELD after uninstalling?
-
-Yes. SHIELD can be redeployed using the same app interface or script, as long as all infrastructure components have been successfully removed.
-
-### What is not removed?
-
-- Audit logs in Entra ID
-- Device enrollment history
-- Local device configurations if not managed via Intune
+1. Sign in to your Azure portal.
+      - **Enterprise**: [https://portal.azure.com/](https://portal.azure.com/){:target="_blank"}
+      - **Government**: [https://portal.azure.us/](https://portal.azure.us/){:target="_blank"}
+2. Navigate to **Subscriptions** and select the subscription dedicated to SHIELD.
+3. Click **Cancel subscription** at the top of the table and proceed with the cancelation process.
 
 ---
 
-## Related Pages
+## Step 3: Delete SHIELD Identity Objects in Entra ID
 
-- [Deploy Overview](../Deploy/)
-- [Deploy Usage Guide](../Deploy/Usage-Guide)
-- [Deployment](../Deploy/Deployment/)
-- [Deploy Reference](../Deploy/Reference/)
+After Azure resources are removed, you will need to remove a few identity objects. These objects are created as part of the SHIELD installation process and should be removed to fully decommission access.
+
+1. Sign in to your Entra ID admin center.
+      - **Enterprise**: [https://entra.microsoft.com/](https://entra.microsoft.com/){:target="_blank"}
+      - **Government**: [https://entra.microsoft.us/](https://entra.microsoft.us/){:target="_blank"}
+2. Navigate to **Enterprise apps** in the navigation bar.
+3. Click on the name of the application you wish to delete. You can use the search bar if needed. You will need to delete the following applications:
+      - **SHIELD - End User Login**
+      - **SHIELD - Desktop**
+      - **SHI - Data Gateway**
+4. Click **Properties** in the left navigation bar.
+5. Click the **Delete** button at the bottom and proceed with the deletion process.
+6. Repeat steps 2-5 until you have deleted all the applications.
+
+---
+
+## Optional: Uninstall the SHIELD Desktop Application (If installed)
+
+If you installed SHIELD using the SHIELD Desktop application, you can uninstall it after SHIELD Discover is complete. SHIELD Desktop is no longer required after reporting is finalized. This applies whether the app was installed on:
+
+- A local machine
+- An Azure VM
+
+---
+
+## Final Step: Validate Cleanup
+
+As a final check, you may want to:
+
+- Confirm the SHIELD resource group is fully removed
+- Confirm the SHIELD web app no longer exists in Azure App Services
+- Confirm the Azure Subscription dedicated for SHIELD has been canceled
+- Confirm there are no SHIELD‑related applications in Entra ID
+- Confirm the SHIELD Desktop application has been uninstalled

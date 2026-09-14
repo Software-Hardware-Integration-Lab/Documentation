@@ -24,7 +24,8 @@ nav = [
             {"Policies" = [
                 {"Entra Conditional Access" = "SHIELD/Deploy/Reference/Policies/Entra-Conditional-Access.md"},
             ]},
-            {"Troubleshooting" = "SHIELD/Deploy/Troubleshooting.md"}
+            {"Troubleshooting" = "SHIELD/Deploy/Troubleshooting.md"},
+            {"Uninstall" = "SHIELD/Deploy/Reference/Uninstall.md"}
         ]}
     ]},
     {"Defend" = [
@@ -111,8 +112,10 @@ nav = [
         { "Debug Mode" = "SHIELD/Reference/Settings/Debug-Mode.md" },
         { "Environment Variables" = "SHIELD/Reference/Settings/Environmental-Variables-Reference.md" }
     ]},
-    { "Break Glass - Overview" = "SHIELD/Reference/Break-Glass-Overview.md" },
-    { "Break Glass - Registration" = "SHIELD/Reference/Register-Break-Glass.md" },
+    { "Break Glass" = [
+        { "Overview" = "SHIELD/Reference/Break-Glass/Break-Glass-Overview.md" },
+        { "Registration" = "SHIELD/Reference/Break-Glass/Register-Break-Glass.md" }
+    ]},
     { "Uninstall" = "SHIELD/Reference/Uninstall.md" }
     ]}
   ]},
@@ -131,9 +134,7 @@ nav = [
     ]},
     { "Troubleshooting" = "Data-Gateway/Troubleshooting.md" }
   ]},
-    { "Microsoft Insights" = [
-        { "Usage Guide" = "Microsoft-Insights/Usage-Guide.md" }
-    ]},
+    { "Microsoft Insights" = "Microsoft-Insights/Usage-Guide.md" },
   { "URL Shortener" = [
     { "Overview" = "URL-Shortener/index.md" },
     { "Prerequisites" = [

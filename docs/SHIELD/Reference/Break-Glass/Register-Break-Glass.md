@@ -9,12 +9,12 @@ The last section of this guide explains how to add existing break glass accounts
 This section lists the steps to create a single break glass account.
 If you need to create two break glass accounts, you must go through the process below twice.
 Once you have two break glass accounts, you can follow the steps in the [last section](#add-break-glass-accounts-to-security-group) to add the break glass accounts to SHIELD's security group.
-For more information about properly generating, printing, and storing break glass accounts, see the [Break Glass Overview](./Break-Glass-Overview) page.
+For more information about properly generating, printing, and storing break glass accounts, see the [Break Glass Overview](Break-Glass-Overview.md) page.
 
 If necessary, repeat the steps below until you have two break glass accounts in your tenant.
 
 !!! failure "WARNING, HERE BE DRAGONS!"
-    Please read the [Break Glass Overview](./Break-Glass-Overview) page before preceding with the below.
+    Please read the [Break Glass Overview](Break-Glass-Overview.md) page before preceding with the below.
     Failure to secure your break glass account will lead to organization wide compromise.
     If you have ANY questions about the process, please reach out to your SHI or SHIELD representative.
 
@@ -39,7 +39,7 @@ If necessary, repeat the steps below until you have two break glass accounts in 
 4. Click **Reset password**. A temporary password is displayed. Click on the copy icon next to the temporary password and paste it somewhere secure.
 5. Open a fresh in-private/incognito tab and navigate to [https://myaccount.microsoft.com](https://myaccount.microsoft.com){:target="_blank"}
 6. Log into your break glass account using the email address and temporary password you copied previously.
-7. You will be prompted to update your password by entering the temporary password and a new password. For more information about generating a password, see [Passwords](./Break-Glass-Overview#passwords).
+7. You will be prompted to update your password by entering the temporary password and a new password. For more information about generating a password, see [Passwords](Break-Glass-Overview.md#passwords).
 8. Store the new password in a safe location.
 
 ## Add break glass accounts to security group
