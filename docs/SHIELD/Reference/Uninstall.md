@@ -34,7 +34,7 @@ Once the resource group is removed, the next step is to remove the Azure subscri
       - **Enterprise**: [https://portal.azure.com/](https://portal.azure.com/){:target="_blank"}
       - **Government**: [https://portal.azure.us/](https://portal.azure.us/){:target="_blank"}
 2. Navigate to **Subscriptions** and select the subscription dedicated to SHIELD.
-3. Click **Cancel subscription** at the top of the table and proceed with the cancelation process.
+3. Click **Cancel subscription** at the top of the table and proceed with the cancellation process.
 
 ---
 

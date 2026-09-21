@@ -116,8 +116,7 @@ Make sure the user installing SHIELD is the **Owner** on the Azure subscription 
 !!! info "SHIELD Installation Has Changed"
 
     The **SHIELD - Desktop** application is now the preferred method, for faster and easier installation.<br><br>
-    **Why?** The desktop application automates most steps, making setup much simpler.<br><br>
-    **Manual Installation**: If you prefer the manual method, please reach out to an SHI employee for guidance and support.
+    **Why?** The desktop application automates most steps, making setup much simpler.
 
 1.  Run the installer to set up SHIELD automatically using the following link: [https://url.shilab.com/shield-install](https://url.shilab.com/shield-install)
     - **Note**: The download will not work if network traffic inspection is enabled, especially in Microsoft/Azure environments.
